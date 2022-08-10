@@ -1,20 +1,19 @@
-import React, { useCallback, useContext, useMemo, useState } from 'react';
+import React, { useCallback, useContext, useMemo, useState } from "react";
 
-import { Header } from './Header';
-import SpeakerDetail from './SpeakerDetail';
-import { ConfigContext } from './App';
-import { GlobalContext } from './GlobalState';
+import { Header } from "./Header";
+import SpeakerDetail from "./SpeakerDetail";
+import { ConfigContext } from "./App";
 import useSpeakersData from "./hooks/useSpeakersData";
 
 const Speakers = ({}) => {
   const [speakingSaturday, setSpeakingSaturday] = useState(true);
   const [speakingSunday, setSpeakingSunday] = useState(true);
-  
-  
-  
+
   const context = useContext(ConfigContext);
-  
-  const { data, loadingStatus } = useSpeakersData("/api/speakers/");
+
+  const { data, updateSpeaker, loadingStatus } = useSpeakersData(
+    "/api/speakers/"
+  );
   const isLoading = loadingStatus === "loading";
   const speakerList = data ?? [];
   const hasErrored = loadingStatus === "errored";
@@ -27,15 +26,15 @@ const Speakers = ({}) => {
   };
   const heartFavoriteHandler = useCallback((e, speakerRec) => {
     e.preventDefault();
-    //toggleSpeakerFavorite(speakerRec);
+    const newSpeakerRec = {...speakerRec, favorite: !speakerRec.favorite};
+    updateSpeaker(newSpeakerRec);
   }, []);
 
   const newSpeakerList = useMemo(
     () =>
       speakerList
         .filter(
-          ({ sat, sun }) =>
-            (speakingSaturday && sat) || (speakingSunday && sun),
+          ({ sat, sun }) => (speakingSaturday && sat) || (speakingSunday && sun)
         )
         .sort(function (a, b) {
           if (a.firstName < b.firstName) {
@@ -46,7 +45,7 @@ const Speakers = ({}) => {
           }
           return 0;
         }),
-    [speakingSaturday, speakingSunday, speakerList], // speakerList needed for heartFavoriteToggle
+    [speakingSaturday, speakingSunday, speakerList] // speakerList needed for heartFavoriteToggle
   );
 
   const speakerListFiltered = isLoading ? [] : newSpeakerList;

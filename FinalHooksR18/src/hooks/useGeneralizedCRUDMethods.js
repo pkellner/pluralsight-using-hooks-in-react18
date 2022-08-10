@@ -1,22 +1,22 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const LOADING_STATES = ["loading","errored","success"];
+const LOADING_STATES = ["loading", "errored", "success"];
 
 function useGeneralizedCrudMethods(url, errorNotificationFn) {
   const [data, setData] = useState();
   const [error, setError] = useState();
   const [loadingStatus, setLoadingStatus] = useState("");
   const [validateDate, setValidateDate] = useState(new Date());
-  
+
   if (!url || url.length === 0) {
     throw "useGeneralizedCrudMethods no url passed in error";
   }
-  
+
   function validate() {
     setValidateDate(new Date());
   }
-  
+
   function formatErrorString(e, url) {
     const errorString =
       e?.response?.status === 404
@@ -25,7 +25,7 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
     console.log(errorString);
     return errorString;
   }
-  
+
   useEffect(() => {
     async function getData() {
       try {
@@ -40,7 +40,7 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
     }
     getData();
   }, [url, validateDate]);
-  
+
   function createRecord(createObject) {
     async function addData() {
       try {
@@ -97,7 +97,7 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
     }
     deleteData();
   }
-  
+
   return {
     data,
     loadingStatus,

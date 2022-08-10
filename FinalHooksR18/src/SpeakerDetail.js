@@ -15,8 +15,6 @@ const SpeakerDetail = ({ speakerRec, onHeartFavoriteHandler, speakingSunday, spe
     twitterHandle,
   } = speakerRec;
 
-  const { incrementFavoriteClickCount } = useContext(FavoriteClickCountContext);
-
   return (
     <div className="card col-4 cardmin">
       <ImageToggleOnScroll
@@ -33,7 +31,6 @@ const SpeakerDetail = ({ speakerRec, onHeartFavoriteHandler, speakingSunday, spe
             className={favorite ? "heartredbutton" : "heartdarkbutton"}
             onClick={(e) => {
               onHeartFavoriteHandler(e, speakerRec);
-              incrementFavoriteClickCount();
             }}
           />
           <span>
