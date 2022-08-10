@@ -1,11 +1,19 @@
-import React, { useContext } from 'react';
-import ImageToggleOnScroll from './ImageToggleOnScroll';
-import useSpeakerDataManager from './useSpeakerDataManager';
-import { FavoriteClickCountContext } from './FavoriteClickCountContext';
+import React, { useContext, useState } from "react";
+import ImageToggleOnScroll from "./ImageToggleOnScroll";
+import { FavoriteClickCountContext } from "./FavoriteClickCountContext";
 
-const SpeakerDetail = React.memo(({ speakerRec, onHeartFavoriteHandler }) => {
-  const { id, firstName, lastName, bio, favorite } = speakerRec;
-  console.log(`SpeakerDetail:${id} ${firstName} ${lastName} ${favorite}`);
+//const SpeakerDetail = React.memo(({ speakerRec, onHeartFavoriteHandler }) => {
+const SpeakerDetail = ({ speakerRec, onHeartFavoriteHandler, speakingSunday, speakingSaturday }) => {
+  const {
+    id,
+    firstName,
+    lastName,
+    bio,
+    favorite,
+    userBioShort,
+    company,
+    twitterHandle,
+  } = speakerRec;
 
   const { incrementFavoriteClickCount } = useContext(FavoriteClickCountContext);
 
@@ -16,11 +24,13 @@ const SpeakerDetail = React.memo(({ speakerRec, onHeartFavoriteHandler }) => {
         primaryImg={`/static/speakers/bw/Speaker-${id}.jpg`}
         secondaryImg={`/static/speakers/Speaker-${id}.jpg`}
         alt="{firstName} {lastName}"
+        speakingSaturday={speakingSaturday}
+        speakingSunday={speakingSunday}
       />
       <div className="card-body">
         <h4 className="card-title">
           <button
-            className={favorite ? 'heartredbutton' : 'heartdarkbutton'}
+            className={favorite ? "heartredbutton" : "heartdarkbutton"}
             onClick={(e) => {
               onHeartFavoriteHandler(e, speakerRec);
               incrementFavoriteClickCount();
@@ -31,10 +41,16 @@ const SpeakerDetail = React.memo(({ speakerRec, onHeartFavoriteHandler }) => {
           </span>
         </h4>
 
-        <span>{bio}</span>
+        <span>{userBioShort}</span>
+        <div>
+          <b>Company:</b> {company}
+        </div>
+        <div>
+          <b>Twitter</b>: {twitterHandle}
+        </div>
       </div>
     </div>
   );
-});
+};
 
 export default SpeakerDetail;

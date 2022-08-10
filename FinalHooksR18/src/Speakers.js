@@ -1,36 +1,33 @@
 import React, { useCallback, useContext, useMemo, useState } from 'react';
 
 import { Header } from './Header';
-import { Menu } from './Menu';
 import SpeakerDetail from './SpeakerDetail';
 import { ConfigContext } from './App';
 import { GlobalContext } from './GlobalState';
+import useSpeakersData from "./hooks/useSpeakersData";
 
 const Speakers = ({}) => {
   const [speakingSaturday, setSpeakingSaturday] = useState(true);
   const [speakingSunday, setSpeakingSunday] = useState(true);
+  
+  
+  
   const context = useContext(ConfigContext);
-
-  const {
-    isLoading,
-    speakerList,
-    toggleSpeakerFavorite,
-    hasErrored,
-    error,
-    forceImageRerender,
-  } = useContext(GlobalContext);
+  
+  const { data, loadingStatus } = useSpeakersData("/api/speakers/");
+  const isLoading = loadingStatus === "loading";
+  const speakerList = data ?? [];
+  const hasErrored = loadingStatus === "errored";
 
   const handleChangeSaturday = () => {
-    forceImageRerender();
     setSpeakingSaturday(!speakingSaturday);
   };
   const handleChangeSunday = () => {
-    forceImageRerender();
     setSpeakingSunday(!speakingSunday);
   };
   const heartFavoriteHandler = useCallback((e, speakerRec) => {
     e.preventDefault();
-    toggleSpeakerFavorite(speakerRec);
+    //toggleSpeakerFavorite(speakerRec);
   }, []);
 
   const newSpeakerList = useMemo(
@@ -49,7 +46,7 @@ const Speakers = ({}) => {
           }
           return 0;
         }),
-    [speakingSaturday, speakingSunday, speakerList],
+    [speakingSaturday, speakingSunday, speakerList], // speakerList needed for heartFavoriteToggle
   );
 
   const speakerListFiltered = isLoading ? [] : newSpeakerList;
@@ -61,7 +58,6 @@ const Speakers = ({}) => {
   return (
     <div>
       <Header />
-      <Menu />
       <div className="container">
         <div className="btn-toolbar  margintopbottom5 checkbox-bigger">
           {context.showSpeakerSpeakingDays === false ? null : (
@@ -99,6 +95,8 @@ const Speakers = ({}) => {
                   key={speakerRec.id}
                   speakerRec={speakerRec}
                   onHeartFavoriteHandler={heartFavoriteHandler}
+                  speakingSaturday={speakingSaturday}
+                  speakingSunday={speakingSunday}
                 />
               );
             })}

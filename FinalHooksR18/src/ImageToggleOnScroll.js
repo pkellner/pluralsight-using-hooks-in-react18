@@ -1,10 +1,13 @@
-import React, { useEffect, useRef, useState, useContext } from 'react';
-import { GlobalContext } from './GlobalState';
+import React, { useEffect, useRef, useState } from "react";
 
-const ImageToggleOnScroll = ({ primaryImg, secondaryImg }) => {
+const ImageToggleOnScroll = ({
+  primaryImg,
+  secondaryImg,
+  alt,
+  speakingSaturday,
+  speakingSunday,
+}) => {
   const imageRef = useRef(null);
-
-  const { imageRerenderIdentifier } = useContext(GlobalContext);
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -18,11 +21,11 @@ const ImageToggleOnScroll = ({ primaryImg, secondaryImg }) => {
   useEffect(() => {
     setIsLoading(false);
     setInView(isInView());
-    window.addEventListener('scroll', scrollHandler);
+    window.addEventListener("scroll", scrollHandler);
     return () => {
-      window.removeEventListener('scroll', scrollHandler);
+      window.removeEventListener("scroll", scrollHandler);
     };
-  }, []);
+  }, [speakingSaturday, speakingSunday]);
 
   const scrollHandler = () => {
     setInView(isInView());
@@ -32,12 +35,12 @@ const ImageToggleOnScroll = ({ primaryImg, secondaryImg }) => {
     <img
       src={
         isLoading
-          ? 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==' // 1x1gif
+          ? "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" // 1x1gif
           : inView
           ? secondaryImg
           : primaryImg
       }
-      alt=""
+      alt={alt}
       ref={imageRef}
       width="200"
       height="200"

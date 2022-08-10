@@ -1,16 +1,9 @@
 import React from 'react';
-import Home from './Home';
 import Speakers from './Speakers';
 import { GlobalProvider } from './GlobalState';
 import { FavoriteClickCountProvider } from './FavoriteClickCountContext';
 
 export const ConfigContext = React.createContext();
-
-const pageToShow = (pageName) => {
-  if (pageName === 'Home') return <Home />;
-  if (pageName === 'Speakers') return <Speakers />;
-  return <div>Not Found</div>;
-};
 
 const configValue = {
   showSignMeUp: true,
@@ -22,7 +15,7 @@ const App = ({ pageName }) => {
     <ConfigContext.Provider value={configValue}>
       <GlobalProvider>
         <FavoriteClickCountProvider>
-          <div>{pageToShow(pageName)}</div>
+          <Speakers />
         </FavoriteClickCountProvider>
       </GlobalProvider>
     </ConfigContext.Provider>
