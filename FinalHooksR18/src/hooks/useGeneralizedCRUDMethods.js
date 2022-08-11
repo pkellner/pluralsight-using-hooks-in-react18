@@ -7,17 +7,11 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
   const [data, setData] = useState();
   const [error, setError] = useState();
   const [loadingStatus, setLoadingStatus] = useState("");
-  const [validateDate, setValidateDate] = useState(new Date());
 
   if (!url || url.length === 0) {
     throw "useGeneralizedCrudMethods no url passed in error";
   }
-
-  function validate() {
-    console.log("useGeneralizedCrudMethods:validate: called");
-    setValidateDate(new Date());
-  }
-
+  
   function formatErrorString(e, url) {
     const errorString =
       e?.response?.status === 404
@@ -40,7 +34,7 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
       }
     }
     getData();
-  }, [url, validateDate]);
+  }, [url]);
 
   function createRecord(createObject) {
     async function addData() {
@@ -52,16 +46,18 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
       } catch (e) {
         const errorString = formatErrorString(e, url);
         errorNotificationFn?.(errorString);
-        validate();
       }
     }
     addData();
   }
   function updateRecord(updateObject) {
     const id = updateObject.id; // + 999; // all speakers must have a column "id"
-
     async function updateData() {
-      const startingData = [...data];
+      
+      //const startingData = [...data]; // FAILS BECAUSE NOT DEEP COPY
+      const startingData = data.map(function(rec) {
+        return {...rec};
+      });
       try {
         setData(function (oriState) {
           const dataRecord = oriState.find((rec) => rec.id === id);
@@ -78,7 +74,6 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
         setData(startingData);
         const errorString = formatErrorString(e, url);
         errorNotificationFn?.(errorString);
-        validate();
       }
     }
 
@@ -99,7 +94,6 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
       } catch (e) {
         const errorString = formatErrorString(e, url);
         errorNotificationFn?.(errorString);
-        validate();
       }
     }
     if (data.find((rec) => rec.id === id)) {

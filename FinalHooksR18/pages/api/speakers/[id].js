@@ -37,6 +37,9 @@ export default async function userHandler(req, res) {
     case 'PUT':
       try {
         await delay(1000);
+        // res.status(404).json(recordFromBody);
+        // return;
+        
         const speakers = await getSpeakersData();
         const newSpeakersArray = speakers.map(function (rec) {
           return rec.id === id ? recordFromBody : rec;
