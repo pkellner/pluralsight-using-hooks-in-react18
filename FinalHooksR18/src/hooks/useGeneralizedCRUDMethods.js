@@ -58,8 +58,8 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
     addData();
   }
   function updateRecord(updateObject) {
-    const id = updateObject.id; // all speakers must have a column "id"
-  
+    const id = updateObject.id; // + 999; // all speakers must have a column "id"
+
     async function updateData() {
       const startingData = [...data];
       try {
@@ -81,7 +81,13 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
         validate();
       }
     }
-    updateData();
+
+    if (data.find((rec) => rec.id === id)) {
+      updateData();
+    } else {
+      const errorString = `No data record found for id ${id}`;
+      errorNotificationFn?.(errorString);
+    }
   }
   function deleteRecord(id) {
     async function deleteData() {
@@ -96,7 +102,12 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
         validate();
       }
     }
-    deleteData();
+    if (data.find((rec) => rec.id === id)) {
+      deleteData();
+    } else {
+      const errorString = `No data record found for id ${id}`;
+      errorNotificationFn?.(errorString);
+    }
   }
 
   return {

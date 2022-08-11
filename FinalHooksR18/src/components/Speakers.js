@@ -12,7 +12,10 @@ const Speakers = ({}) => {
   const context = useContext(ConfigContext);
 
   const { data, updateSpeaker, loadingStatus } = useSpeakersData(
-    "/api/speakers/"
+    "/api/speakers/",
+    (error) => {
+      alert(error);
+    }
   );
   const isLoading = loadingStatus === "loading";
   const speakerList = data ?? [];
@@ -24,7 +27,7 @@ const Speakers = ({}) => {
   const handleChangeSunday = () => {
     setSpeakingSunday(!speakingSunday);
   };
-  
+
   const heartFavoriteHandler = (e, speakerRec) => {
     e.preventDefault();
     const newSpeakerRec = { ...speakerRec, favorite: !speakerRec.favorite };
