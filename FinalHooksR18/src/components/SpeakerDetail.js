@@ -4,6 +4,8 @@ import ImageToggleOnScroll from "./ImageToggleOnScroll";
 const SpeakerDetail = ({
   speakerRec,
   onHeartFavoriteHandler,
+  createSpeaker,
+  deleteSpeaker,
   speakingSunday,
   speakingSaturday,
 }) => {
@@ -35,6 +37,20 @@ const SpeakerDetail = ({
               onHeartFavoriteHandler(e, speakerRec);
             }}
           />
+          <button
+            onClick={(e) => {
+              createSpeaker();
+            }}
+          >Add New Speaker</button>
+  
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              deleteSpeaker(speakerRec.id);
+            }}
+          >Delete Speaker</button><br/>
+          
+          
           <span>
             {firstName} {lastName}
           </span>

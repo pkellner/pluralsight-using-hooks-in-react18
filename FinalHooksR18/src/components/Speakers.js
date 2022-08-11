@@ -11,7 +11,7 @@ const Speakers = ({}) => {
 
   const context = useContext(ConfigContext);
 
-  const { data, updateSpeaker, loadingStatus } = useSpeakersData(
+  const { data, createSpeaker, updateSpeaker, deleteSpeaker, loadingStatus } = useSpeakersData(
     "/api/speakers/",
     (error) => {
       alert(error);
@@ -100,6 +100,8 @@ const Speakers = ({}) => {
                   onHeartFavoriteHandler={heartFavoriteHandler}
                   speakingSaturday={speakingSaturday}
                   speakingSunday={speakingSunday}
+                  createSpeaker={createSpeaker}
+                  deleteSpeaker={deleteSpeaker}
                 />
               );
             })}

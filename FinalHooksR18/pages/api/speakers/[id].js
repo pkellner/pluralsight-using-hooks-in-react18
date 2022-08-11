@@ -60,9 +60,36 @@ export default async function userHandler(req, res) {
         console.log('/api/speakers PUT error:', e);
       }
       break;
+  
+    case 'DELETE':
+      try {
+        await delay(1000);
+        // res.status(404).json(recordFromBody);
+        // return;
+      
+        const speakers = await getSpeakersData();
+        const newSpeakersArray = speakers.filter(function (rec) {
+          return rec.id != id;
+        });
+        writeFile(
+          jsonFile,
+          JSON.stringify(
+            {
+              speakers: newSpeakersArray,
+            },
+            null,
+            2,
+          ),
+        );
+        res.status(200).json(recordFromBody);
+        console.log(`DELETE /api/speakers/${id} status: 200`);
+      } catch (e) {
+        console.log('/api/speakers DELETE error:', e);
+      }
+      break;
 
     default:
-      res.setHeader('Allow', ['GET', 'PUT']);
+      res.setHeader('Allow', ['GET', 'PUT', 'DELETE']);
       res.status(405).end(`Method ${method} Not Allowed`);
   }
 }
