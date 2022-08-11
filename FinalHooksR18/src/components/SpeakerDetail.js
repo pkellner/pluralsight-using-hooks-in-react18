@@ -23,8 +23,7 @@ const SpeakerDetail = ({
     <div className="card col-4 cardmin">
       <ImageToggleOnScroll
         className="card-img-top"
-        primaryImg={`/static/speakers/bw/Speaker-${id}.jpg`}
-        secondaryImg={`/static/speakers/Speaker-${id}.jpg`}
+        imageUrl={`/images/Speaker-${id}.jpg`}
         alt="{firstName} {lastName}"
         speakingSaturday={speakingSaturday}
         speakingSunday={speakingSunday}

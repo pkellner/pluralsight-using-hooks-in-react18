@@ -77,7 +77,7 @@ class bootstrap extends Component {
               <div className="card col-4 cardmin">
                 <img
                   className="card-img-top"
-                  src="/static/speakers/Speaker-8367.jpg"
+                  src="/images/Speaker-8367.jpg"
                 />
                 <div className="card-body">
                   <a
@@ -97,7 +97,7 @@ class bootstrap extends Component {
               <div className="card col-4 cardmin ">
                 <img
                   className="card-img-top"
-                  src="/static/speakers/Speaker-2920.jpg"
+                  src="/images/Speaker-2920.jpg"
                 />
                 <div className="card-body">
                   <a
@@ -117,7 +117,7 @@ class bootstrap extends Component {
               <div className="card col-4 cardmin">
                 <img
                   className="card-img-top"
-                  src="/static/speakers/Speaker-1124.jpg"
+                  src="/images/Speaker-1124.jpg"
                 />
                 <div className="card-body">
                   <a
@@ -139,7 +139,7 @@ class bootstrap extends Component {
               <div className="card col-4 cardmin">
                 <img
                   className="card-img-top"
-                  src="/static/speakers/Speaker-39062.jpg"
+                  src="/images/Speaker-39062.jpg"
                 />
                 <div className="card-body">
                   <a

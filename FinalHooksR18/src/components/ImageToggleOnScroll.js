@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
 const ImageToggleOnScroll = ({
-  primaryImg,
-  secondaryImg,
+  imageUrl,
   alt,
   speakingSaturday,
   speakingSunday,
@@ -30,7 +29,18 @@ const ImageToggleOnScroll = ({
   const scrollHandler = () => {
     setInView(isInView());
   };
+  
 
+  return (
+    <img
+      src={imageUrl}
+      alt={alt}
+      ref={imageRef}
+      width="200"
+      height="200"
+    />
+  );
+  
   return (
     <img
       src={

@@ -70,9 +70,9 @@ export default async function userHandler(req, res) {
         const speakers = await getSpeakersData();
         const newSpeakersArray = [
           recordFromBody,
-          speakers.map(function (rec) {
+          ...speakers.map(function (rec) {
             return rec.id === id ? recordFromBody : rec;
-          }),
+          })
         ];
         writeFile(
           jsonFile,

@@ -11,12 +11,15 @@ const Speakers = ({}) => {
 
   const context = useContext(ConfigContext);
 
-  const { data, createSpeaker, updateSpeaker, deleteSpeaker, loadingStatus } = useSpeakersData(
-    "/api/speakers/",
-    (error) => {
-      alert(error);
-    }
-  );
+  const {
+    data,
+    createSpeaker,
+    updateSpeaker,
+    deleteSpeaker,
+    loadingStatus,
+  } = useSpeakersData("/api/speakers/", (error) => {
+    alert(error);
+  });
   const isLoading = loadingStatus === "loading";
   const speakerList = data ?? [];
   const hasErrored = loadingStatus === "errored";
@@ -34,23 +37,37 @@ const Speakers = ({}) => {
     updateSpeaker(newSpeakerRec);
   };
 
-  const newSpeakerList = useMemo(
-    () =>
-      speakerList
-        .filter(
-          ({ sat, sun }) => (speakingSaturday && sat) || (speakingSunday && sun)
-        )
-        .sort(function (a, b) {
-          if (a.firstName < b.firstName) {
-            return -1;
-          }
-          if (a.firstName > b.firstName) {
-            return 1;
-          }
-          return 0;
-        }),
-    [speakingSaturday, speakingSunday, speakerList] // speakerList needed for heartFavoriteToggle
-  );
+  // const newSpeakerList = useMemo(
+  //   () =>
+  //     speakerList
+  //       .filter(
+  //         ({ sat, sun }) => (speakingSaturday && sat) || (speakingSunday && sun)
+  //       )
+  //       .sort(function (a, b) {
+  //         if (a.firstName < b.firstName) {
+  //           return -1;
+  //         }
+  //         if (a.firstName > b.firstName) {
+  //           return 1;
+  //         }
+  //         return 0;
+  //       }),
+  //   [speakingSaturday, speakingSunday, speakerList] // speakerList needed for heartFavoriteToggle
+  // );
+  
+  const newSpeakerList = speakerList
+    .filter(
+      ({ sat, sun }) => (speakingSaturday && sat) || (speakingSunday && sun)
+    )
+    .sort(function (a, b) {
+      if (a.firstName < b.firstName) {
+        return -1;
+      }
+      if (a.firstName > b.firstName) {
+        return 1;
+      }
+      return 0;
+    });
 
   const speakerListFiltered = isLoading ? [] : newSpeakerList;
 
@@ -93,22 +110,31 @@ const Speakers = ({}) => {
         <div className="row">
           <button
             onClick={(e) => {
-              let firstName = prompt("Please enter first name of speaker", "Harry");
-              
+              let firstName = prompt(
+                "Please enter first name of speaker",
+                "Harry"
+              );
+
+              // NEED TO CHANGE IMAGE URL RENDERING TO RENDERING FROM A STRING URL
+              // AND NOT CONCAT SPEAKER ID. ALSO ADD IMAGE PROCESSING (MAYBE HTML5)
+              // TO MAKE BLACK AND WHITE OR COLOR INSTEAD OF FUNKY TERNARY EXPRESSION
+              // IN IMAGE CONTROL
+
               createSpeaker({
-                "id": "0",
-                "firstName": firstName,
-                "lastName": "SpeakerInserted",
-                "sat": true,
-                "sun": true,
-                "favorite": false,
-                "company": "Code Camp",
-                "twitterHandle": "unknown",
-                "userBioShort": "Dummy Bio"
-        
+                id: "0",
+                firstName: firstName,
+                lastName: "SpeakerInserted",
+                sat: true,
+                sun: true,
+                favorite: false,
+                company: "Code Camp",
+                twitterHandle: "unknown",
+                userBioShort: "Dummy Bio",
               });
             }}
-          >Add New Speaker</button>
+          >
+            Add New Speaker
+          </button>
         </div>
         <div className="row">
           <div className="card-deck">
