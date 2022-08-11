@@ -1,14 +1,16 @@
 import React, { useContext, useState } from "react";
 import ImageToggleOnScroll from "./ImageToggleOnScroll";
-import { FavoriteClickCountContext } from "./FavoriteClickCountContext";
 
-//const SpeakerDetail = React.memo(({ speakerRec, onHeartFavoriteHandler }) => {
-const SpeakerDetail = ({ speakerRec, onHeartFavoriteHandler, speakingSunday, speakingSaturday }) => {
+const SpeakerDetail = ({
+  speakerRec,
+  onHeartFavoriteHandler,
+  speakingSunday,
+  speakingSaturday,
+}) => {
   const {
     id,
     firstName,
     lastName,
-    bio,
     favorite,
     userBioShort,
     company,

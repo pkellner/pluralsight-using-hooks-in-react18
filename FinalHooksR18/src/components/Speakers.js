@@ -1,9 +1,9 @@
-import React, { useCallback, useContext, useMemo, useState } from "react";
+import React, { useContext, useMemo, useState } from "react";
 
 import { Header } from "./Header";
 import SpeakerDetail from "./SpeakerDetail";
-import { ConfigContext } from "./App";
-import useSpeakersData from "./hooks/useSpeakersData";
+import { ConfigContext } from "../App";
+import useSpeakersData from "../hooks/useSpeakersData";
 
 const Speakers = ({}) => {
   const [speakingSaturday, setSpeakingSaturday] = useState(true);

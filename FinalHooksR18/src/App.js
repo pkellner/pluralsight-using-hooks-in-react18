@@ -1,7 +1,5 @@
-import React from 'react';
-import Speakers from './Speakers';
-import { GlobalProvider } from './GlobalState';
-import { FavoriteClickCountProvider } from './FavoriteClickCountContext';
+import React from "react";
+import Speakers from "./components/Speakers";
 
 export const ConfigContext = React.createContext();
 
@@ -13,11 +11,7 @@ const configValue = {
 const App = ({ pageName }) => {
   return (
     <ConfigContext.Provider value={configValue}>
-      <GlobalProvider>
-        <FavoriteClickCountProvider>
-          <Speakers />
-        </FavoriteClickCountProvider>
-      </GlobalProvider>
+      <Speakers />
     </ConfigContext.Provider>
   );
 };
