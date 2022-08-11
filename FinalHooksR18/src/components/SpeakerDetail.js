@@ -37,11 +37,7 @@ const SpeakerDetail = ({
               onHeartFavoriteHandler(e, speakerRec);
             }}
           />
-          <button
-            onClick={(e) => {
-              createSpeaker();
-            }}
-          >Add New Speaker</button>
+          
   
           <button
             onClick={(e) => {

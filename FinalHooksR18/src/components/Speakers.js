@@ -91,6 +91,26 @@ const Speakers = ({}) => {
           )}
         </div>
         <div className="row">
+          <button
+            onClick={(e) => {
+              let firstName = prompt("Please enter first name of speaker", "Harry");
+              
+              createSpeaker({
+                "id": "0",
+                "firstName": firstName,
+                "lastName": "SpeakerInserted",
+                "sat": true,
+                "sun": true,
+                "favorite": false,
+                "company": "Code Camp",
+                "twitterHandle": "unknown",
+                "userBioShort": "Dummy Bio"
+        
+              });
+            }}
+          >Add New Speaker</button>
+        </div>
+        <div className="row">
           <div className="card-deck">
             {speakerListFiltered.map((speakerRec) => {
               return (
@@ -100,7 +120,6 @@ const Speakers = ({}) => {
                   onHeartFavoriteHandler={heartFavoriteHandler}
                   speakingSaturday={speakingSaturday}
                   speakingSunday={speakingSunday}
-                  createSpeaker={createSpeaker}
                   deleteSpeaker={deleteSpeaker}
                 />
               );

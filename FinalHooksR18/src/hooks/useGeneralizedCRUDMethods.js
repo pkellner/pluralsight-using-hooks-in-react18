@@ -37,11 +37,16 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
   }, [url]);
 
   function createRecord(createObject) {
+    
+    // NEED TO HANDLE FAILURE CASE HERE WITH REWIND TO STARTING DATA
+    // AND VERIFY createObject has id
+    
     async function addData() {
       try {
-        await axios.post(url, createObject);
+        createObject.id = Math.max(...data.map(o => o.id), 0) + 1;
+        await axios.post(`${url}/${createObject.id}`, createObject);
         setData(function (oriState) {
-          return [...oriState, createObject];
+          return [createObject,...oriState, ];
         });
       } catch (e) {
         const errorString = formatErrorString(e, url);
