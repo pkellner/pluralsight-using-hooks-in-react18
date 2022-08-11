@@ -24,11 +24,12 @@ const Speakers = ({}) => {
   const handleChangeSunday = () => {
     setSpeakingSunday(!speakingSunday);
   };
-  const heartFavoriteHandler = useCallback((e, speakerRec) => {
+  
+  const heartFavoriteHandler = (e, speakerRec) => {
     e.preventDefault();
-    const newSpeakerRec = {...speakerRec, favorite: !speakerRec.favorite};
+    const newSpeakerRec = { ...speakerRec, favorite: !speakerRec.favorite };
     updateSpeaker(newSpeakerRec);
-  }, []);
+  };
 
   const newSpeakerList = useMemo(
     () =>

@@ -14,6 +14,7 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
   }
 
   function validate() {
+    console.log("useGeneralizedCrudMethods:validate: called");
     setValidateDate(new Date());
   }
 
@@ -58,10 +59,10 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
   }
   function updateRecord(updateObject) {
     const id = updateObject.id; // all speakers must have a column "id"
+  
     async function updateData() {
       const startingData = [...data];
       try {
-        //url += "xxx";
         setData(function (oriState) {
           const dataRecord = oriState.find((rec) => rec.id === id);
           for (const [key, value] of Object.entries(updateObject)) {
