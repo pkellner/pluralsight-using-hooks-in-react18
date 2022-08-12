@@ -4,16 +4,16 @@ function useSpeakersData(url, errorNotificationFn) {
   const { data, error, loadingStatus, createRecord, updateRecord, deleteRecord } =
     useGeneralizedCrudMethods(url, errorNotificationFn);
   
-  function createSpeaker(speakerRec) {
-    createRecord(speakerRec);
+  function createSpeaker(speakerRec,callbackDone) {
+    createRecord(speakerRec,callbackDone);
   }
   
-  function updateSpeaker(speakerRec) {
-    updateRecord(speakerRec);
+  function updateSpeaker(speakerRec,callbackDone) {
+    updateRecord(speakerRec,callbackDone);
   }
   
-  function deleteSpeaker(id) {
-    deleteRecord(id);
+  function deleteSpeaker(id,callbackDone) {
+    deleteRecord(id,callbackDone);
   }
   
   return {

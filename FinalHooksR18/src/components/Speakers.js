@@ -4,10 +4,12 @@ import { Header } from "./Header";
 import SpeakerDetail from "./SpeakerDetail";
 import { ConfigContext } from "../App";
 import useSpeakersData from "../hooks/useSpeakersData";
+import { SpeakerModalProvider } from "../contexts/SpeakerModalContext";
 
 const Speakers = ({}) => {
   const [speakingSaturday, setSpeakingSaturday] = useState(true);
   const [speakingSunday, setSpeakingSunday] = useState(true);
+  const [updating, setUpdating] = useState(false);
 
   const context = useContext(ConfigContext);
 
@@ -34,7 +36,10 @@ const Speakers = ({}) => {
   const heartFavoriteHandler = (e, speakerRec) => {
     e.preventDefault();
     const newSpeakerRec = { ...speakerRec, favorite: !speakerRec.favorite };
-    updateSpeaker(newSpeakerRec);
+    setUpdating(true);
+    updateSpeaker(newSpeakerRec,() => {
+      setUpdating(false);
+    });
   };
 
   const newSpeakerList = speakerList
@@ -57,14 +62,14 @@ const Speakers = ({}) => {
 
   if (isLoading) return <div>Loading...</div>;
 
-  // var x = speakerListFiltered.map(function (rec) {
-  //   return {
-  //     ...rec,
-  //     imageUrl: `/images/Speaker-${rec.id}.jpg`,
-  //     email: rec.firstName + "." + rec.lastName + "@codecamp.net",
-  //   };
-  // });
-  // console.log(x);
+  var x = speakerListFiltered.map(function (rec) {
+    return {
+      ...rec,
+      imageUrl: `/images/Speaker-${rec.id}.jpg`,
+      email: rec.firstName + "." + rec.lastName + "@codecamp.net",
+    };
+  });
+  console.log(x);
 
   return (
     <div>
@@ -110,7 +115,7 @@ const Speakers = ({}) => {
               // AND NOT CONCAT SPEAKER ID. ALSO ADD IMAGE PROCESSING (MAYBE HTML5)
               // TO MAKE BLACK AND WHITE OR COLOR INSTEAD OF FUNKY TERNARY EXPRESSION
               // IN IMAGE CONTROL
-
+              setUpdating(true);
               createSpeaker({
                 id: "0",
                 firstName: firstName,
@@ -121,26 +126,36 @@ const Speakers = ({}) => {
                 company: "Code Camp",
                 twitterHandle: "unknown",
                 userBioShort: "Dummy Bio",
-              });
+              },() => { setUpdating(false)});
             }}
           >
-            Add New Speaker
+            Add New Speaker <i className="fa fa-plus"></i>
           </button>
+          {updating ? (
+            <div>
+              &nbsp;&nbsp;&nbsp;<i className="fas fa-sync fa-spin"></i>
+            </div>
+          ) : (
+            <div>SAME SPACE AS UPDATING ICON</div>
+          )}
         </div>
         <div className="row">
           <div className="card-deck">
-            {speakerListFiltered.map((speakerRec) => {
-              return (
-                <SpeakerDetail
-                  key={speakerRec.id}
-                  speakerRec={speakerRec}
-                  onHeartFavoriteHandler={heartFavoriteHandler}
-                  speakingSaturday={speakingSaturday}
-                  speakingSunday={speakingSunday}
-                  deleteSpeaker={deleteSpeaker}
-                />
-              );
-            })}
+            <SpeakerModalProvider>
+              {speakerListFiltered.map((speakerRec) => {
+                return (
+                  <SpeakerDetail
+                    key={speakerRec.id}
+                    speakerRec={speakerRec}
+                    onHeartFavoriteHandler={heartFavoriteHandler}
+                    speakingSaturday={speakingSaturday}
+                    speakingSunday={speakingSunday}
+                    deleteSpeaker={deleteSpeaker}
+                    setUpdating={setUpdating}
+                  />
+                );
+              })}
+            </SpeakerModalProvider>
           </div>
         </div>
       </div>

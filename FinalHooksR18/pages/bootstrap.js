@@ -12,7 +12,7 @@ class bootstrap extends Component {
             </div>
             <div className="col-12 col-sm-8 text-lg-right">
               <div>
-                <img src="/static/SVCClogo.png" />
+                <img src="/images/SVCClogo.png" />
               </div>
               <h2>Silicon Valley Code Camp 2019</h2>
             </div>

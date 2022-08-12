@@ -36,26 +36,35 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
     getData();
   }, [url]);
 
-  function createRecord(createObject) {
+  function createRecord(createObject,callbackDone) {
     
     // NEED TO HANDLE FAILURE CASE HERE WITH REWIND TO STARTING DATA
     // AND VERIFY createObject has id
     
     async function addData() {
+      const startingData = data.map(function(rec) {
+        return {...rec};
+      });
       try {
+        
+        
         createObject.id = Math.max(...data.map(o => o.id), 0) + 1;
-        await axios.post(`${url}/${createObject.id}`, createObject);
         setData(function (oriState) {
           return [createObject,...oriState, ];
         });
+        await axios.post(`${url}/${createObject.id}`, createObject);
+        
+        if (callbackDone) callbackDone();
       } catch (e) {
+        setData(startingData);
         const errorString = formatErrorString(e, url);
         errorNotificationFn?.(errorString);
+        if (callbackDone) callbackDone();
       }
     }
     addData();
   }
-  function updateRecord(updateObject) {
+  function updateRecord(updateObject,callbackDone) {
     const id = updateObject.id; // + 999; // all speakers must have a column "id"
     async function updateData() {
       
@@ -75,10 +84,12 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
         await axios.put(`${url}/${id}`, {
           ...updateObject,
         });
+        if (callbackDone) callbackDone();
       } catch (e) {
         setData(startingData);
         const errorString = formatErrorString(e, url);
         errorNotificationFn?.(errorString);
+        if (callbackDone) callbackDone();
       }
     }
 
@@ -89,16 +100,22 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
       errorNotificationFn?.(errorString);
     }
   }
-  function deleteRecord(id) {
+  function deleteRecord(id,callbackDone) {
     async function deleteData() {
+      const startingData = data.map(function(rec) {
+        return {...rec};
+      });
       try {
-        await axios.delete(`${url}/${id}`);
         setData(function (oriState) {
           return oriState.filter((rec) => rec.id != id);
         });
+        await axios.delete(`${url}/${id}`);
+        if (callbackDone) callbackDone();
       } catch (e) {
+        setData(startingData);
         const errorString = formatErrorString(e, url);
         errorNotificationFn?.(errorString);
+        if (callbackDone) callbackDone();
       }
     }
     if (data.find((rec) => rec.id === id)) {

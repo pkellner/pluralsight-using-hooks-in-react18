@@ -1,13 +1,13 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import ImageToggleOnScroll from "./ImageToggleOnScroll";
 
 const SpeakerDetail = ({
   speakerRec,
   onHeartFavoriteHandler,
-  createSpeaker,
   deleteSpeaker,
   speakingSunday,
   speakingSaturday,
+  setUpdating,
 }) => {
   const {
     id,
@@ -18,7 +18,7 @@ const SpeakerDetail = ({
     company,
     twitterHandle,
     email,
-    imageUrl
+    imageUrl,
   } = speakerRec;
 
   return (
@@ -38,16 +38,20 @@ const SpeakerDetail = ({
               onHeartFavoriteHandler(e, speakerRec);
             }}
           />
-          
-  
+
           <button
             onClick={(e) => {
               e.preventDefault();
-              deleteSpeaker(speakerRec.id);
+              setUpdating(true);
+              deleteSpeaker(speakerRec.id, () => {
+                setUpdating(false);
+              });
             }}
-          >Delete Speaker</button><br/>
-          
-          
+          >
+            Delete Speaker <i className="fa fa-trash"></i>{" "}
+          </button>
+          <br />
+
           <span>
             {firstName} {lastName}
           </span>
