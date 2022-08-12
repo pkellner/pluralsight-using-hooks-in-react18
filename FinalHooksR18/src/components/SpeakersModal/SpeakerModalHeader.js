@@ -1,12 +1,12 @@
-import { NotesModalContext } from "../App";
 import { useContext } from "react";
+import { SpeakerModalContext } from "../../contexts/SpeakerModalContext";
 
-function NotesModalHeader() {
-  const { setModalShow, modalNoteId } = useContext(NotesModalContext);
+function SpeakersModalHeader() {
+  const { setModalShow, modalSpeakerId } = useContext(SpeakerModalContext);
   return (
     <div className="modal-header bg-info text-white">
       <h5 className="modal-title text-white">
-        {modalNoteId === 0 ? <span>Add Note</span> : <span>Edit Note</span>}
+        {modalSpeakerId === 0 ? <span>Add Speaker</span> : <span>Edit Note</span>}
       </h5>
       <button
         type="button"
@@ -23,4 +23,4 @@ function NotesModalHeader() {
   );
 }
 
-export default NotesModalHeader;
+export default SpeakersModalHeader;

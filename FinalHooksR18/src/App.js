@@ -1,5 +1,6 @@
 import React from "react";
 import Speakers from "./components/Speakers";
+import { SpeakersDataProvider } from "./contexts/SpeakersDataContext";
 
 export const ConfigContext = React.createContext();
 
@@ -11,7 +12,9 @@ const configValue = {
 const App = ({ pageName }) => {
   return (
     <ConfigContext.Provider value={configValue}>
-      <Speakers />
+      <SpeakersDataProvider>
+        <Speakers />
+      </SpeakersDataProvider>
     </ConfigContext.Provider>
   );
 };

@@ -3,8 +3,8 @@ import React, { useContext, useState } from "react";
 import { Header } from "./Header";
 import SpeakerDetail from "./SpeakerDetail";
 import { ConfigContext } from "../App";
-import useSpeakersData from "../hooks/useSpeakersData";
 import { SpeakerModalProvider } from "../contexts/SpeakerModalContext";
+import { SpeakersDataContext } from "../contexts/SpeakersDataContext";
 
 const Speakers = ({}) => {
   const [speakingSaturday, setSpeakingSaturday] = useState(true);
@@ -19,9 +19,7 @@ const Speakers = ({}) => {
     updateSpeaker,
     deleteSpeaker,
     loadingStatus,
-  } = useSpeakersData("/api/speakers/", (error) => {
-    alert(error);
-  });
+  } = useContext(SpeakersDataContext);
   const isLoading = loadingStatus === "loading";
   const speakerList = data ?? [];
   const hasErrored = loadingStatus === "errored";
@@ -146,7 +144,6 @@ const Speakers = ({}) => {
                     onHeartFavoriteHandler={heartFavoriteHandler}
                     speakingSaturday={speakingSaturday}
                     speakingSunday={speakingSunday}
-                    deleteSpeaker={deleteSpeaker}
                     setUpdating={setUpdating}
                   />
                 );

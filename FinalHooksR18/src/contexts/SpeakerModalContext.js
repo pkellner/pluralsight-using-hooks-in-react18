@@ -6,6 +6,10 @@ export const SpeakerModalContext = createContext({
   setModalShow: () => {},
   modalSpeakerId: 0,
   setModalSpeakerId: () => {},
+  modalSpeakerFirstName: "",
+  setModalSpeakerFirstName: () => {},
+  modalSpeakerLastName: "",
+  setModalSpeakerLastName: () => {},
 });
 
 export const SpeakerModalProvider = ({ children }) => {
@@ -20,7 +24,7 @@ export const SpeakerModalProvider = ({ children }) => {
     setModalSpeakerLastName,
   } = useSpeakerModal();
 
-  const provider = {
+  const value = {
     modalShow,
     setModalShow,
     modalSpeakerId,
@@ -32,7 +36,7 @@ export const SpeakerModalProvider = ({ children }) => {
   };
 
   return (
-    <SpeakerModalContext.Provider value={provider}>
+    <SpeakerModalContext.Provider value={value}>
       {children}
     </SpeakerModalContext.Provider>
   );

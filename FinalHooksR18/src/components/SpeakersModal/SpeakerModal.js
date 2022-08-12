@@ -1,14 +1,16 @@
-import SpeakersModalHeader from "./SpeakersModalHeader";
-import SpeakersModalBody from "./SpeakersModalBody";
-import SpeakersModalFooter from "./SpeakersModalFooter";
-import { SpeakersModalContext } from "../App";
+import SpeakersModalHeader from "./SpeakerModalHeader";
+import SpeakersModalBody from "./SpeakerModalBody";
+import SpeakersModalFooter from "./SpeakerModalFooter";
 import { useContext } from "react";
+import { SpeakerModalContext } from "../../contexts/SpeakerModalContext";
 
-export default function SpeakersModal() {
-  const { modalShow } = useContext(SpeakersModalContext);
+export default function SpeakerModal() {
+  const { modalShow } = useContext(SpeakerModalContext);
+  
   const cssShowHide =
     modalShow && modalShow === true ? "modal show-modal" : "modal hide-modal";
-
+  
+  console.log("SpeakerModal:cssShowHide:",cssShowHide);
   return (
     <>
       <style jsx>

@@ -71,15 +71,18 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
       try {
         setData(function (oriState) {
           const dataRecord = oriState.find((rec) => rec.id === id);
+          
+          // only update the fields passed in for the updateObject
           for (const [key, value] of Object.entries(updateObject)) {
             dataRecord[key] = value === undefined ? dataRecord[key] : value;
           }
           return oriState.map((rec) => (rec.id === id ? dataRecord : rec));
         });
         await new Promise((resolve) => setTimeout(resolve, 2000));
-        await axios.put(`${url}/${id}`, {
-          ...updateObject,
-        });
+
+        // get the full record back that has been updated
+        const updatedRecord = data.find((rec) => rec.id === id);
+        await axios.put(`${url}/${id}`, updatedRecord);
         if (callbackDone) callbackDone();
       } catch (e) {
         setData(startingData);
