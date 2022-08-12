@@ -1,4 +1,4 @@
-import React, { useContext, useMemo, useState } from "react";
+import React, { useContext, useState } from "react";
 
 import { Header } from "./Header";
 import SpeakerDetail from "./SpeakerDetail";
@@ -37,7 +37,7 @@ const Speakers = ({}) => {
     e.preventDefault();
     const newSpeakerRec = { ...speakerRec, favorite: !speakerRec.favorite };
     setUpdating(true);
-    updateSpeaker(newSpeakerRec,() => {
+    updateSpeaker(newSpeakerRec, () => {
       setUpdating(false);
     });
   };
@@ -61,16 +61,6 @@ const Speakers = ({}) => {
   if (hasErrored === true) return <div>Error: {error.message}</div>;
 
   if (isLoading) return <div>Loading...</div>;
-
-  // // just used to convert base data
-  // var x = speakerListFiltered.map(function (rec) {
-  //   return {
-  //     ...rec,
-  //     imageUrl: `/images/Speaker-${rec.id}.jpg`,
-  //     email: rec.firstName + "." + rec.lastName + "@codecamp.net",
-  //   };
-  // });
-  // console.log(x);
 
   return (
     <div>
@@ -117,17 +107,22 @@ const Speakers = ({}) => {
               // TO MAKE BLACK AND WHITE OR COLOR INSTEAD OF FUNKY TERNARY EXPRESSION
               // IN IMAGE CONTROL
               setUpdating(true);
-              createSpeaker({
-                id: "0",
-                firstName: firstName,
-                lastName: "SpeakerInserted",
-                sat: true,
-                sun: true,
-                favorite: false,
-                company: "Code Camp",
-                twitterHandle: "unknown",
-                userBioShort: "Dummy Bio",
-              },() => { setUpdating(false)});
+              createSpeaker(
+                {
+                  id: "0",
+                  firstName: firstName,
+                  lastName: "SpeakerInserted",
+                  sat: true,
+                  sun: true,
+                  favorite: false,
+                  company: "Code Camp",
+                  twitterHandle: "unknown",
+                  userBioShort: "Dummy Bio",
+                },
+                () => {
+                  setUpdating(false);
+                }
+              );
             }}
           >
             Add New Speaker <i className="fa fa-plus"></i>
@@ -165,3 +160,13 @@ const Speakers = ({}) => {
 };
 
 export default Speakers;
+
+// // just used to convert base data
+// var x = speakerListFiltered.map(function (rec) {
+//   return {
+//     ...rec,
+//     imageUrl: `/images/Speaker-${rec.id}.jpg`,
+//     email: rec.firstName + "." + rec.lastName + "@codecamp.net",
+//   };
+// });
+// console.log(x);

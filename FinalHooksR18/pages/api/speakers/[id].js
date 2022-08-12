@@ -1,5 +1,6 @@
 import path from "path";
 import fs from "fs";
+
 const { promisify } = require("util");
 
 const writeFile = promisify(fs.writeFile);
@@ -72,7 +73,7 @@ export default async function userHandler(req, res) {
           recordFromBody,
           ...speakers.map(function (rec) {
             return rec.id === id ? recordFromBody : rec;
-          })
+          }),
         ];
         writeFile(
           jsonFile,

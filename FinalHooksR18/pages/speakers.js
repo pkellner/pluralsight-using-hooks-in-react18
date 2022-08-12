@@ -1,8 +1,8 @@
-import App from '../src/App';
+import App from "../src/App";
 
-import path from 'path';
-import fs from 'fs';
-import React from 'react';
+import path from "path";
+import fs from "fs";
+import React from "react";
 
 export const InitialSpeakersDataContext = React.createContext();
 
@@ -33,15 +33,15 @@ export const InitialSpeakersDataContext = React.createContext();
 // }
 
 export async function getStaticProps(context) {
-  const { promisify } = require('util');
+  const { promisify } = require("util");
   const readFile = promisify(fs.readFile);
-  const jsonFile = path.resolve('./', 'db.json');
+  const jsonFile = path.resolve("./", "db.json");
   let initialSpeakersData;
   try {
     const readFileData = await readFile(jsonFile);
     initialSpeakersData = JSON.parse(readFileData).speakers;
   } catch (e) {
-    console.log('/api/speakers error:', e);
+    console.log("/api/speakers error:", e);
   }
 
   if (!initialSpeakersData) {

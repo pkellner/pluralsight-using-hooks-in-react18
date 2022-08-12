@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class bootstrap extends Component {
   render() {
@@ -75,10 +75,7 @@ class bootstrap extends Component {
           <div className="row">
             <div className="card-deck">
               <div className="card col-4 cardmin">
-                <img
-                  className="card-img-top"
-                  src="/images/Speaker-8367.jpg"
-                />
+                <img className="card-img-top" src="/images/Speaker-8367.jpg" />
                 <div className="card-body">
                   <a
                     href="#"
@@ -95,10 +92,7 @@ class bootstrap extends Component {
               </div>
 
               <div className="card col-4 cardmin ">
-                <img
-                  className="card-img-top"
-                  src="/images/Speaker-2920.jpg"
-                />
+                <img className="card-img-top" src="/images/Speaker-2920.jpg" />
                 <div className="card-body">
                   <a
                     href="#"
@@ -115,10 +109,7 @@ class bootstrap extends Component {
               </div>
 
               <div className="card col-4 cardmin">
-                <img
-                  className="card-img-top"
-                  src="/images/Speaker-1124.jpg"
-                />
+                <img className="card-img-top" src="/images/Speaker-1124.jpg" />
                 <div className="card-body">
                   <a
                     href="#"
@@ -137,10 +128,7 @@ class bootstrap extends Component {
               </div>
 
               <div className="card col-4 cardmin">
-                <img
-                  className="card-img-top"
-                  src="/images/Speaker-39062.jpg"
-                />
+                <img className="card-img-top" src="/images/Speaker-39062.jpg" />
                 <div className="card-body">
                   <a
                     href="#"
@@ -175,7 +163,7 @@ class bootstrap extends Component {
                   </h4>
                   <h6 className="card-title">Douglas Crockford</h6>
                   <p className="card-text">
-                    Douglas Crockford is the author of{' '}
+                    Douglas Crockford is the author of{" "}
                     <b>How JavaScript Works</b>, the shocking best seller that
                     rips the lid off behind the scenes. In this light-hearted
                     romp thru the world's most misunderstood programming
@@ -222,7 +210,7 @@ class bootstrap extends Component {
         <div className="jumbotron text-center">
           <h7>
             <b>Silicon Valley Code Camp 2018</b> is Hosted by PayPal in San Jose
-            at their Town Hall location. 2121 North First Street.{' '}
+            at their Town Hall location. 2121 North First Street.{" "}
             <b>October 13-14 2018</b>
           </h7>
         </div>

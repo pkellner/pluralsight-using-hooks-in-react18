@@ -1,9 +1,9 @@
-import React from 'react';
-import useEmailValidation from '../hooks/useEmailValidation';
+import React from "react";
+import useEmailValidation from "../hooks/useEmailValidation";
 
 function EmailValidatingForm() {
   const { setEmail, count, email, emailValid, setCount } = useEmailValidation(
-    30,
+    30
   );
 
   return (
@@ -37,7 +37,7 @@ function EmailValidatingForm() {
           <div>
             {count > 0
               ? `You Have ${count} Seconds To Enter Your Email`
-              : 'Email Entered or Time Expired'}
+              : "Email Entered or Time Expired"}
           </div>
         </div>
       </div>

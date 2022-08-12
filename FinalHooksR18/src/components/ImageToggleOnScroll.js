@@ -42,7 +42,6 @@ const ImageToggleOnScroll = ({
       height="200"
     />
   );
-  
 };
 
 export default ImageToggleOnScroll;

@@ -3,7 +3,6 @@ import SpeakersModalBody from "./SpeakersModalBody";
 import SpeakersModalFooter from "./SpeakersModalFooter";
 import { SpeakersModalContext } from "../App";
 import { useContext } from "react";
-import SpeakersModalTags from "./SpeakersModalTags";
 
 export default function SpeakersModal() {
   const { modalShow } = useContext(SpeakersModalContext);

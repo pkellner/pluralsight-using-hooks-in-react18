@@ -1,5 +1,5 @@
-import { useReducer, useState } from 'react';
-import useInterval from './useInterval';
+import { useReducer, useState } from "react";
+import useInterval from "./useInterval";
 
 function useEmailValidation(seconds) {
   const validateEmail = (email) => {
@@ -13,7 +13,7 @@ function useEmailValidation(seconds) {
     return action;
   };
 
-  const [email, setEmail] = useReducer(emailReducer, '');
+  const [email, setEmail] = useReducer(emailReducer, "");
   const maxSeconds = seconds;
   const [count, setCount] = useState(maxSeconds);
 

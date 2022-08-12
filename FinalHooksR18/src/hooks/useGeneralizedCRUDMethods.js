@@ -11,7 +11,7 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
   if (!url || url.length === 0) {
     throw "useGeneralizedCrudMethods no url passed in error";
   }
-  
+
   function formatErrorString(e, url) {
     const errorString =
       e?.response?.status === 404
@@ -36,24 +36,21 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
     getData();
   }, [url]);
 
-  function createRecord(createObject,callbackDone) {
-    
+  function createRecord(createObject, callbackDone) {
     // NEED TO HANDLE FAILURE CASE HERE WITH REWIND TO STARTING DATA
     // AND VERIFY createObject has id
-    
+
     async function addData() {
-      const startingData = data.map(function(rec) {
-        return {...rec};
+      const startingData = data.map(function (rec) {
+        return { ...rec };
       });
       try {
-        
-        
-        createObject.id = Math.max(...data.map(o => o.id), 0) + 1;
+        createObject.id = Math.max(...data.map((o) => o.id), 0) + 1;
         setData(function (oriState) {
-          return [createObject,...oriState, ];
+          return [createObject, ...oriState];
         });
         await axios.post(`${url}/${createObject.id}`, createObject);
-        
+
         if (callbackDone) callbackDone();
       } catch (e) {
         setData(startingData);
@@ -64,13 +61,12 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
     }
     addData();
   }
-  function updateRecord(updateObject,callbackDone) {
+  function updateRecord(updateObject, callbackDone) {
     const id = updateObject.id; // + 999; // all speakers must have a column "id"
     async function updateData() {
-      
       //const startingData = [...data]; // FAILS BECAUSE NOT DEEP COPY
-      const startingData = data.map(function(rec) {
-        return {...rec};
+      const startingData = data.map(function (rec) {
+        return { ...rec };
       });
       try {
         setData(function (oriState) {
@@ -100,10 +96,10 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
       errorNotificationFn?.(errorString);
     }
   }
-  function deleteRecord(id,callbackDone) {
+  function deleteRecord(id, callbackDone) {
     async function deleteData() {
-      const startingData = data.map(function(rec) {
-        return {...rec};
+      const startingData = data.map(function (rec) {
+        return { ...rec };
       });
       try {
         setData(function (oriState) {
