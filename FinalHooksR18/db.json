@@ -20,7 +20,7 @@
       "lastName": "Gupta",
       "sat": false,
       "sun": true,
-      "favorite": false,
+      "favorite": true,
       "bio": "Arun Gupta is a Principal Open Source Technologist at Amazon Web Services. He has built and led developer communities for 12+ years at Sun, Oracle, Red Hat and Couchbase.",
       "twitterHandle": "arungupta",
       "userBioShort": "Arun Gupta is a Principal Open Source Technologist at Amazon Web Services. ",
