@@ -37,24 +37,6 @@ const Speakers = ({}) => {
     updateSpeaker(newSpeakerRec);
   };
 
-  // const newSpeakerList = useMemo(
-  //   () =>
-  //     speakerList
-  //       .filter(
-  //         ({ sat, sun }) => (speakingSaturday && sat) || (speakingSunday && sun)
-  //       )
-  //       .sort(function (a, b) {
-  //         if (a.firstName < b.firstName) {
-  //           return -1;
-  //         }
-  //         if (a.firstName > b.firstName) {
-  //           return 1;
-  //         }
-  //         return 0;
-  //       }),
-  //   [speakingSaturday, speakingSunday, speakerList] // speakerList needed for heartFavoriteToggle
-  // );
-  
   const newSpeakerList = speakerList
     .filter(
       ({ sat, sun }) => (speakingSaturday && sat) || (speakingSunday && sun)
@@ -74,6 +56,15 @@ const Speakers = ({}) => {
   if (hasErrored === true) return <div>Error: {error.message}</div>;
 
   if (isLoading) return <div>Loading...</div>;
+
+  // var x = speakerListFiltered.map(function (rec) {
+  //   return {
+  //     ...rec,
+  //     imageUrl: `/images/Speaker-${rec.id}.jpg`,
+  //     email: rec.firstName + "." + rec.lastName + "@codecamp.net",
+  //   };
+  // });
+  // console.log(x);
 
   return (
     <div>

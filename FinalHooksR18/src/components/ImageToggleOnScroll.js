@@ -29,10 +29,12 @@ const ImageToggleOnScroll = ({
   const scrollHandler = () => {
     setInView(isInView());
   };
-  
+
+  const grayScale = inView ? "grayscale(0%)" : "grayscale(100%)";
 
   return (
     <img
+      style={{ filter: `${grayScale}` }}
       src={imageUrl}
       alt={alt}
       ref={imageRef}
@@ -41,21 +43,6 @@ const ImageToggleOnScroll = ({
     />
   );
   
-  return (
-    <img
-      src={
-        isLoading
-          ? "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" // 1x1gif
-          : inView
-          ? secondaryImg
-          : primaryImg
-      }
-      alt={alt}
-      ref={imageRef}
-      width="200"
-      height="200"
-    />
-  );
 };
 
 export default ImageToggleOnScroll;

@@ -17,13 +17,15 @@ const SpeakerDetail = ({
     userBioShort,
     company,
     twitterHandle,
+    email,
+    imageUrl
   } = speakerRec;
 
   return (
     <div className="card col-4 cardmin">
       <ImageToggleOnScroll
         className="card-img-top"
-        imageUrl={`/images/Speaker-${id}.jpg`}
+        imageUrl={imageUrl}
         alt="{firstName} {lastName}"
         speakingSaturday={speakingSaturday}
         speakingSunday={speakingSunday}
@@ -57,6 +59,9 @@ const SpeakerDetail = ({
         </div>
         <div>
           <b>Twitter</b>: {twitterHandle}
+        </div>
+        <div>
+          <b>Email</b>: {email}
         </div>
       </div>
     </div>
