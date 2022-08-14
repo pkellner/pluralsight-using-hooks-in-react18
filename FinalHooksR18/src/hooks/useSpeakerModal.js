@@ -6,6 +6,7 @@ function useSpeakerModal() {
   const [modalSpeakerId, setModalSpeakerId] = useState(0);
   const [modalSpeakerFirstName, setModalSpeakerFirstName] = useState("");
   const [modalSpeakerLastName, setModalSpeakerLastName] = useState("");
+  const [modalSpeakerImageUrl, setModalSpeakerImageUrl] = useState("");
 
   return {
     modalShow,
@@ -17,6 +18,8 @@ function useSpeakerModal() {
     setModalSpeakerFirstName,
     modalSpeakerLastName,
     setModalSpeakerLastName,
+    modalSpeakerImageUrl,
+    setModalSpeakerImageUrl,
   };
 }
 

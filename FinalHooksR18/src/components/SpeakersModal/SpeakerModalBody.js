@@ -8,6 +8,8 @@ function NotesModalBody() {
     setModalSpeakerFirstName,
     modalSpeakerLastName,
     setModalSpeakerLastName,
+    modalSpeakerImageUrl,
+    setModalSpeakerImageUrl,
   } = useContext(SpeakerModalContext);
   return (
     <div className="modal-body">
@@ -42,6 +44,20 @@ function NotesModalBody() {
                     value={modalSpeakerLastName}
                     onChange={(event) => {
                       setModalSpeakerLastName(event.target.value);
+                    }}
+                    type="text"
+                    className="form-control"
+                    placeholder="Title"
+                  />
+                </div>
+              </div>
+              <div className="col-md-12">
+                <div className="note-title">
+                  <label>Speaker Image URL:</label>
+                  <input
+                    value={modalSpeakerImageUrl}
+                    onChange={(event) => {
+                      setModalSpeakerImageUrl(event.target.value);
                     }}
                     type="text"
                     className="form-control"

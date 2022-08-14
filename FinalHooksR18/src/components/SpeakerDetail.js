@@ -32,6 +32,8 @@ const SpeakerDetail = ({
     setModalSpeakerFirstName,
     modalSpeakerLastName,
     setModalSpeakerLastName,
+    modalSpeakerImageUrl,
+    setModalSpeakerImageUrl
   } = useContext(SpeakerModalContext);
   
   const {
@@ -67,7 +69,7 @@ const SpeakerDetail = ({
               onClick={(e) => {
                 e.preventDefault();
                 setUpdating(true);
-                deleteSpeaker(speakerRec.id, () => {
+                deleteSpeaker(id, () => {
                   setUpdating(false);
                 });
               }}
@@ -80,21 +82,9 @@ const SpeakerDetail = ({
                 e.preventDefault();
                 setModalSpeakerId(id);
                 
-                setModalSpeakerFirstName(speakerRec.firstName);
-                setModalSpeakerLastName(speakerRec.lastName);
-                
-                
-
-                // setModalNoteTitle(notesData.find((rec) => rec.id === noteId).title);
-                // setModalNoteDescription(
-                //   notesData.find((rec) => rec.id === noteId).description
-                // );
-                // setTagNamesNewValue("");
-                // setModalNoteTagIds(
-                //   noteOnTagsData
-                //     .filter((rec) => rec.noteId === noteId)
-                //     .map((rec) => rec.tagId)
-                // );
+                setModalSpeakerFirstName(firstName);
+                setModalSpeakerLastName(lastName);
+                setModalSpeakerImageUrl(imageUrl);
 
                 setModalShow(true);
               }}

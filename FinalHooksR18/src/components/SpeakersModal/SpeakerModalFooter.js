@@ -5,12 +5,10 @@ import { SpeakersDataContext } from "../../contexts/SpeakersDataContext";
 export default function NotesModalFooter() {
   const {
     setModalShow,
-    modalShow,
     modalSpeakerId,
     modalSpeakerFirstName,
-    setModalSpeakerFirstName,
     modalSpeakerLastName,
-    setModalSpeakerLastName,
+    modalSpeakerImageUrl,
   } = useContext(SpeakerModalContext);
   
   
@@ -31,6 +29,7 @@ export default function NotesModalFooter() {
               id: modalSpeakerId,
               firstName: modalSpeakerFirstName,
               lastName: modalSpeakerLastName,
+              imageUrl: modalSpeakerImageUrl,
             });
             setModalShow(false);
           }}

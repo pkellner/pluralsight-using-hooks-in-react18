@@ -11,12 +11,12 @@
       "company": "SportInsight",
       "twitterHandle": "hisbiz",
       "userBioShort": "Antony Ross is a consultant specializing in data science and machine learning in sports.",
-      "imageUrl": "/images/Speaker-10808.jpg",
+      "imageUrl": "/images/Speaker-New.jpg",
       "email": "Antony.Ross@codecamp.net"
     },
     {
       "id": 1269,
-      "firstName": "Arun",
+      "firstName": "Arunxxx",
       "lastName": "Gupta",
       "sat": false,
       "sun": true,
@@ -24,7 +24,7 @@
       "bio": "Arun Gupta is a Principal Open Source Technologist at Amazon Web Services. He has built and led developer communities for 12+ years at Sun, Oracle, Red Hat and Couchbase.",
       "twitterHandle": "arungupta",
       "userBioShort": "Arun Gupta is a Principal Open Source Technologist at Amazon Web Services. ",
-      "imageUrl": "/images/Speaker-1269.jpg",
+      "imageUrl": "https://ddrt7tzfkdwdf.cloudfront.net/Images/silicon-valley-code-camp.png",
       "email": "Arun.Gupta@codecamp.net"
     },
     {
@@ -38,7 +38,7 @@
       "company": "Brad Irby Consulting LLC",
       "twitterHandle": "bradirby",
       "userBioShort": "I help retail companies migrate Software Monoliths to microservices and Event Driven Architecture",
-      "imageUrl": "/images/Speaker-1725.jpg",
+      "imageUrl": "https://ddrt7tzfkdwdf.cloudfront.net/Images/silicon-valley-code-camp.png",
       "email": "Brad.Irby@codecamp.net"
     },
     {
@@ -80,7 +80,7 @@
       "company": "Intel",
       "twitterHandle": "davenielsen",
       "userBioShort": "I head up ecosystem programs at Redis Labs. I'm also the co-founder of CloudCamp. ",
-      "imageUrl": "/images/Speaker-187.jpg",
+      "imageUrl": "http://ddrt7tzfkdwdf.cloudfront.net/Images/silicon-valley-code-camp.png",
       "email": "Dave.Nielsen@codecamp.net"
     },
     {
