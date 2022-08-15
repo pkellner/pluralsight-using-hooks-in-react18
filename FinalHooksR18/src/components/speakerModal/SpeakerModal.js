@@ -6,10 +6,10 @@ import { SpeakerModalContext } from "../../contexts/SpeakerModalContext";
 
 export default function SpeakerModal() {
   const { modalShow } = useContext(SpeakerModalContext);
-  
+
   const cssShowHide =
     modalShow && modalShow === true ? "modal show-modal" : "modal hide-modal";
-  
+
   return (
     <>
       <style jsx>

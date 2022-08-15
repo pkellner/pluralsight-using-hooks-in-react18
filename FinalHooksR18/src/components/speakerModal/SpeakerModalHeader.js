@@ -6,7 +6,11 @@ function SpeakersModalHeader() {
   return (
     <div className="modal-header bg-info text-white">
       <h5 className="modal-title text-white">
-        {modalSpeakerId === 0 ? <span>Add Speaker</span> : <span>Edit Note</span>}
+        {modalSpeakerId === 0 ? (
+          <span>Add Speaker</span>
+        ) : (
+          <span>Edit Note</span>
+        )}
       </h5>
       <button
         type="button"

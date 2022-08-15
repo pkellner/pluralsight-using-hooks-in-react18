@@ -1,66 +1,49 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import ImageToggleOnScroll from "../utils/ImageToggleOnScroll";
 import SpeakerModal from "../speakerModal/SpeakerModal";
 import { SpeakersDataContext } from "../../contexts/SpeakersDataContext";
 import EditSpeakerDialog from "./EditSpeakerDialog";
 
-const SpeakerDetail = ({
-  speakerRec,
-  onHeartFavoriteHandler,
-  speakingSunday,
-  speakingSaturday,
-  setUpdating,
-}) => {
-  const {
-    id,
-    firstName,
-    lastName,
-    favorite,
-    userBioShort,
-    company,
-    twitterHandle,
-    email,
-    imageUrl,
-  } = speakerRec;
+const SpeakerDetail = ({ speakerRec }) => {
+  const { updateSpeaker, deleteSpeaker } = useContext(SpeakersDataContext);
+  const [updating, setUpdating] = useState(false);
 
- 
-  
-  const {
-    data,
-    createSpeaker,
-    updateSpeaker,
-    deleteSpeaker,
-    loadingStatus,
-  } = useContext(SpeakersDataContext);
-  
-  
-  
   return (
     <>
       {speakerRec && <SpeakerModal />}
-  
+
       <div className="card col-4 cardmin">
         <ImageToggleOnScroll
           className="card-img-top"
-          imageUrl={imageUrl}
+          imageUrl={speakerRec.imageUrl}
           alt="{firstName} {lastName}"
-          speakingSaturday={speakingSaturday}
-          speakingSunday={speakingSunday}
         />
+
+        {updating ? <i className="spinner-border text-secondary" /> : null}
         <div className="card-body">
           <h4 className="card-title">
             <button
-              className={favorite ? "heartredbutton" : "heartdarkbutton"}
+              className={
+                speakerRec.favorite ? "heartredbutton" : "heartdarkbutton"
+              }
               onClick={(e) => {
-                onHeartFavoriteHandler(e, speakerRec);
+                e.preventDefault();
+                const newSpeakerRec = {
+                  ...speakerRec,
+                  favorite: !speakerRec.favorite,
+                };
+                setUpdating(true);
+                updateSpeaker(newSpeakerRec, () => {
+                  setUpdating(false);
+                });
               }}
             />
-        
+
             <button
               onClick={(e) => {
                 e.preventDefault();
                 setUpdating(true);
-                deleteSpeaker(id, () => {
+                deleteSpeaker(speakerRec.id, () => {
                   setUpdating(false);
                 });
               }}
@@ -69,21 +52,21 @@ const SpeakerDetail = ({
             </button>
             <br />
             <EditSpeakerDialog {...speakerRec} />
-        
+
             <span>
-              {firstName} {lastName}
+              {speakerRec.firstName} {speakerRec.lastName}
             </span>
           </h4>
-      
-          <span>{userBioShort}</span>
+
+          <span>{speakerRec.userBioShort}</span>
           <div>
-            <b>Company:</b> {company}
+            <b>Company:</b> {speakerRec.company}
           </div>
           <div>
-            <b>Twitter</b>: {twitterHandle}
+            <b>Twitter</b>: {speakerRec.twitterHandle}
           </div>
           <div>
-            <b>Email</b>: {email}
+            <b>Email</b>: {speakerRec.email}
           </div>
         </div>
       </div>

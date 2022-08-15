@@ -6,11 +6,10 @@ export const SpeakersDataContext = createContext({
   createSpeaker: () => {},
   updateSpeaker: () => {},
   deleteSpeaker: () => {},
-  loadingStatus: false,
+  loadingStatus: "",
 });
 
 export const SpeakersDataProvider = ({ children }) => {
-  
   const {
     data,
     createSpeaker,

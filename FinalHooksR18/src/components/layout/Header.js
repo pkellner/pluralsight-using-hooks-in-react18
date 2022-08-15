@@ -1,4 +1,4 @@
-export const Header = () => {
+export default function Header() {
   return (
     <div className="jumbotron jumbotronheight">
       <div className="row">
@@ -15,4 +15,4 @@ export const Header = () => {
       </div>
     </div>
   );
-};
+}

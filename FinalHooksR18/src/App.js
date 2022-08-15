@@ -1,21 +1,18 @@
 import React from "react";
 import Speakers from "./components/speakers/Speakers";
+import { ConfigProvider } from "./contexts/ConfigContext";
+import Layout from "./components/layout/Layout";
 import { SpeakersDataProvider } from "./contexts/SpeakersDataContext";
 
-export const ConfigContext = React.createContext();
-
-const configValue = {
-  showSignMeUp: true,
-  showSpeakerSpeakingDays: true,
-};
-
-const App = ({ pageName }) => {
+const App = () => {
   return (
-    <ConfigContext.Provider value={configValue}>
+    <ConfigProvider>
       <SpeakersDataProvider>
-        <Speakers />
+        <Layout>
+          <Speakers />
+        </Layout>
       </SpeakersDataProvider>
-    </ConfigContext.Provider>
+    </ConfigProvider>
   );
 };
 

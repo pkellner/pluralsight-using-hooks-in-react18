@@ -1,12 +1,12 @@
 {
   "speakers": [
     {
-      "firstName": "AAA11",
-      "lastName": "AAA!",
+      "firstName": "A",
+      "lastName": "AA",
       "imageUrl": "/images/Speaker-New.jpg",
       "sat": true,
       "sun": true,
-      "favorite": true,
+      "favorite": false,
       "company": "Code Camp",
       "twitterHandle": "unknown",
       "userBioShort": "Dummy Bio",
@@ -26,8 +26,8 @@
     },
     {
       "id": 10808,
-      "firstName": "AntonyXX",
-      "lastName": "Ross",
+      "firstName": "AntonyXX1r",
+      "lastName": "Rossr",
       "sat": true,
       "sun": false,
       "favorite": false,
@@ -53,11 +53,11 @@
     },
     {
       "id": 8590,
-      "firstName": "Chris",
+      "firstName": "Chrisx",
       "lastName": "Richardson",
       "sat": true,
       "sun": false,
-      "favorite": true,
+      "favorite": false,
       "bio": "Chris Richardson is a developer and architect. He is a Java Champion, a JavaOne rock star and the author of POJOs in Action, which describes how to build enterprise Java applications with frameworks such as Spring and Hibernate.",
       "company": "Eventuate, Inc",
       "twitterHandle": "crichardson",

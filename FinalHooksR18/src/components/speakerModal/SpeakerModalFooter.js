@@ -10,8 +10,7 @@ export default function NotesModalFooter() {
     modalSpeakerLastName,
     modalSpeakerImageUrl,
   } = useContext(SpeakerModalContext);
-  
-  
+
   const {
     data,
     createSpeaker,
@@ -19,7 +18,7 @@ export default function NotesModalFooter() {
     deleteSpeaker,
     loadingStatus,
   } = useContext(SpeakersDataContext);
-  
+
   return (
     <div className="modal-footer">
       {modalSpeakerId !== 0 && (
@@ -57,12 +56,12 @@ export default function NotesModalFooter() {
               firstName: modalSpeakerFirstName,
               lastName: modalSpeakerLastName,
               imageUrl: modalSpeakerImageUrl,
-              "sat": true,
-              "sun": true,
-              "favorite": false,
-              "company": "Code Camp",
-              "twitterHandle": "unknown",
-              "userBioShort": "Dummy Bio",
+              sat: true,
+              sun: true,
+              favorite: false,
+              company: "Code Camp",
+              twitterHandle: "unknown",
+              userBioShort: "Dummy Bio",
             });
             setModalShow(false);
           }}

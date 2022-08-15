@@ -1,14 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { MenuContext } from "../../contexts/MenuContext";
 
-const ImageToggleOnScroll = ({
-  imageUrl,
-  alt,
-  speakingSaturday,
-  speakingSunday,
-}) => {
+const ImageToggleOnScroll = ({ imageUrl, alt }) => {
   const imageRef = useRef(null);
 
-  const [isLoading, setIsLoading] = useState(true);
+  const { speakingSaturday, speakingSunday } = useContext(MenuContext);
 
   const isInView = () => {
     const rect = imageRef.current.getBoundingClientRect();
@@ -18,7 +14,6 @@ const ImageToggleOnScroll = ({
   const [inView, setInView] = useState(false);
 
   useEffect(() => {
-    setIsLoading(false);
     setInView(isInView());
     window.addEventListener("scroll", scrollHandler);
     return () => {
