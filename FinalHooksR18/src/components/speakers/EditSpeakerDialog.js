@@ -6,6 +6,7 @@ export default function EditSpeakerDialog({
   id,
   firstName,
   lastName,
+  email,
   imageUrl,
 }) {
   const {
@@ -17,6 +18,8 @@ export default function EditSpeakerDialog({
     setModalSpeakerFirstName,
     modalSpeakerLastName,
     setModalSpeakerLastName,
+    modalSpeakerEmail,
+    setModalSpeakerEmail,
     modalSpeakerImageUrl,
     setModalSpeakerImageUrl,
   } = useContext(SpeakerModalContext);
@@ -36,6 +39,7 @@ export default function EditSpeakerDialog({
         setModalSpeakerFirstName(firstName);
         setModalSpeakerLastName(lastName);
         setModalSpeakerImageUrl(imageUrl);
+        setModalSpeakerEmail(email);
 
         setModalShow(true);
       }}

@@ -24,6 +24,8 @@ export const SpeakerModalProvider = ({ children }) => {
     setModalSpeakerFirstName,
     modalSpeakerLastName,
     setModalSpeakerLastName,
+    modalSpeakerEmail,
+    setModalSpeakerEmail,
     modalSpeakerImageUrl,
     setModalSpeakerImageUrl,
   } = useSpeakerModal();
@@ -37,6 +39,8 @@ export const SpeakerModalProvider = ({ children }) => {
     setModalSpeakerFirstName,
     modalSpeakerLastName,
     setModalSpeakerLastName,
+    modalSpeakerEmail,
+    setModalSpeakerEmail,
     modalSpeakerImageUrl,
     setModalSpeakerImageUrl,
   };

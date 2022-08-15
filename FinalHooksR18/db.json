@@ -1,6 +1,18 @@
 {
   "speakers": [
     {
+      "firstName": "A",
+      "lastName": "Z",
+      "imageUrl": "/images/Speaker-New.jpg",
+      "sat": true,
+      "sun": true,
+      "favorite": false,
+      "company": "Code Camp",
+      "twitterHandle": "unknown",
+      "userBioShort": "Dummy Bio",
+      "id": 41813
+    },
+    {
       "firstName": "R",
       "lastName": "RR",
       "imageUrl": "/images/Speaker-New.jpg",
@@ -18,7 +30,7 @@
       "imageUrl": "/images/Speaker-New.jpg",
       "sat": true,
       "sun": true,
-      "favorite": true,
+      "favorite": false,
       "company": "Code Camp",
       "twitterHandle": "unknown",
       "userBioShort": "Dummy Bio",
@@ -48,35 +60,21 @@
       "twitterHandle": "crichardson",
       "userBioShort": "Founder of Eventuate, Author of POJOs in Action, creator of the original Cloud Foundry",
       "imageUrl": "/images/Speaker-8590.jpg",
-      "email": "Chris.Richardson@codecamp.net"
+      "email": "Chris.Richardson@codecamp.netxx"
     },
     {
       "id": 5996,
-      "firstName": "Craig",
+      "firstName": "CraigX",
       "lastName": "Berntson",
       "sat": true,
       "sun": true,
-      "favorite": true,
+      "favorite": false,
       "bio": "Craig has a passion for community and helping other developers improve their skills. He writes the column \"Software Gardening\" in DotNet Curry Magazine and is the co-author of \"Continuous Integration in .NET\" available from Manning.",
       "company": "HealthEquity",
       "twitterHandle": "craigber",
       "userBioShort": "Speaker, author, architect, and engineer. Currently he's a Senior Software Engineer at HealthEquity.",
       "imageUrl": "/images/Speaker-5996.jpg",
       "email": "Craig.Berntson@codecamp.net"
-    },
-    {
-      "id": 187,
-      "firstName": "Dave",
-      "lastName": "Nielsen",
-      "sat": true,
-      "sun": true,
-      "favorite": false,
-      "bio": "As Head of Ecosystem Programs, Dave uses emerging technologies and open source projects like Microservices, Serverless & Kubernetes to bring the magic of Redis to the broader community.",
-      "company": "Intel",
-      "twitterHandle": "davenielsen",
-      "userBioShort": "I head up ecosystem programs at Redis Labs. I'm also the co-founder of CloudCamp. ",
-      "imageUrl": "/images/Speaker-187.jpg",
-      "email": "Dave.Nielsen@codecamp.net"
     },
     {
       "id": 10803,
@@ -98,7 +96,7 @@
       "lastName": "McDowell",
       "sat": true,
       "sun": false,
-      "favorite": false,
+      "favorite": true,
       "bio": "Gayle Laakmann McDowell is the founder and CEO of CareerCup.com and the author of three best selling books.",
       "company": "CareerCup",
       "twitterHandle": "gayle",

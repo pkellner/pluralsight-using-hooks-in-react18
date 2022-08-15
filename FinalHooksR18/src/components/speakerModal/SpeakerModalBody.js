@@ -10,6 +10,8 @@ function NotesModalBody() {
     setModalSpeakerLastName,
     modalSpeakerImageUrl,
     setModalSpeakerImageUrl,
+    modalSpeakerEmail,
+    setModalSpeakerEmail,
   } = useContext(SpeakerModalContext);
   return (
     <div className="modal-body">
@@ -48,6 +50,20 @@ function NotesModalBody() {
                     type="text"
                     className="form-control"
                     placeholder="Title"
+                  />
+                </div>
+              </div>
+              <div className="col-md-12">
+                <div className="note-title">
+                  <label>Email</label>
+                  <input
+                    value={modalSpeakerEmail}
+                    onChange={(event) => {
+                      setModalSpeakerEmail(event.target.value);
+                    }}
+                    type="text"
+                    className="form-control"
+                    placeholder="Email"
                   />
                 </div>
               </div>

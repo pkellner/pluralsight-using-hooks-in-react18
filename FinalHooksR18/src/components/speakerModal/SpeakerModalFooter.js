@@ -8,6 +8,7 @@ export default function NotesModalFooter() {
     modalSpeakerId,
     modalSpeakerFirstName,
     modalSpeakerLastName,
+    modalSpeakerEmail,
     modalSpeakerImageUrl,
   } = useContext(SpeakerModalContext);
 
@@ -29,6 +30,7 @@ export default function NotesModalFooter() {
               firstName: modalSpeakerFirstName,
               lastName: modalSpeakerLastName,
               imageUrl: modalSpeakerImageUrl,
+              email: modalSpeakerEmail,
             });
             setModalShow(false);
           }}
