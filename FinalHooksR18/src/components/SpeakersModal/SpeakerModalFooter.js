@@ -53,9 +53,17 @@ export default function NotesModalFooter() {
         <button
           className="btn btn-info"
           onClick={() => {
-            // createSpeaker(
-            //
-            // );
+            createSpeaker({
+              firstName: modalSpeakerFirstName,
+              lastName: modalSpeakerLastName,
+              imageUrl: modalSpeakerImageUrl,
+              "sat": true,
+              "sun": true,
+              "favorite": false,
+              "company": "Code Camp",
+              "twitterHandle": "unknown",
+              "userBioShort": "Dummy Bio",
+            });
             setModalShow(false);
           }}
         >

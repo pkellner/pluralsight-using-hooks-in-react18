@@ -5,6 +5,7 @@ import SpeakerDetail from "./SpeakerDetail";
 import { ConfigContext } from "../App";
 import { SpeakerModalProvider } from "../contexts/SpeakerModalContext";
 import { SpeakersDataContext } from "../contexts/SpeakersDataContext";
+import AddSpeakerDialog from "./AddSpeakerDialog";
 
 const Speakers = ({}) => {
   const [speakingSaturday, setSpeakingSaturday] = useState(true);
@@ -93,45 +94,9 @@ const Speakers = ({}) => {
           )}
         </div>
         <div className="row">
-          <button
-            onClick={(e) => {
-              let firstName = prompt(
-                "Please enter first name of speaker",
-                "Harry"
-              );
-
-              // NEED TO CHANGE IMAGE URL RENDERING TO RENDERING FROM A STRING URL
-              // AND NOT CONCAT SPEAKER ID. ALSO ADD IMAGE PROCESSING (MAYBE HTML5)
-              // TO MAKE BLACK AND WHITE OR COLOR INSTEAD OF FUNKY TERNARY EXPRESSION
-              // IN IMAGE CONTROL
-              setUpdating(true);
-              createSpeaker(
-                {
-                  id: "0",
-                  firstName: firstName,
-                  lastName: "SpeakerInserted",
-                  sat: true,
-                  sun: true,
-                  favorite: false,
-                  company: "Code Camp",
-                  twitterHandle: "unknown",
-                  userBioShort: "Dummy Bio",
-                },
-                () => {
-                  setUpdating(false);
-                }
-              );
-            }}
-          >
-            Add New Speaker <i className="fa fa-plus"></i>
-          </button>
-          {updating ? (
-            <div>
-              &nbsp;&nbsp;&nbsp;<i className="fas fa-sync fa-spin"></i>
-            </div>
-          ) : (
-            <div>SAME SPACE AS UPDATING ICON</div>
-          )}
+          <SpeakerModalProvider>
+            <AddSpeakerDialog />
+          </SpeakerModalProvider>
         </div>
         <div className="row">
           <div className="card-deck">

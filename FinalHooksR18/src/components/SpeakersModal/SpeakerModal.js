@@ -10,7 +10,6 @@ export default function SpeakerModal() {
   const cssShowHide =
     modalShow && modalShow === true ? "modal show-modal" : "modal hide-modal";
   
-  console.log("SpeakerModal:cssShowHide:",cssShowHide);
   return (
     <>
       <style jsx>
