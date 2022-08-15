@@ -1,6 +1,18 @@
 {
   "speakers": [
     {
+      "firstName": "AAA11",
+      "lastName": "AAA!",
+      "imageUrl": "/images/Speaker-New.jpg",
+      "sat": true,
+      "sun": true,
+      "favorite": true,
+      "company": "Code Camp",
+      "twitterHandle": "unknown",
+      "userBioShort": "Dummy Bio",
+      "id": 41811
+    },
+    {
       "firstName": "x3e43",
       "lastName": "34",
       "imageUrl": "/images/Speaker-New.jpg",
@@ -14,11 +26,11 @@
     },
     {
       "id": 10808,
-      "firstName": "Antony",
+      "firstName": "AntonyXX",
       "lastName": "Ross",
       "sat": true,
       "sun": false,
-      "favorite": true,
+      "favorite": false,
       "bio": "Antony Ross is a consultant specializing in data science and machine learning applied to sports performance. He has worked closely with USC and UCLA and is presently involved with the Recurse Center in New York researching deep learning and voice recognition.",
       "company": "SportInsight",
       "twitterHandle": "hisbiz",

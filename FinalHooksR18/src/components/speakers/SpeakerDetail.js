@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import ImageToggleOnScroll from "../utils/ImageToggleOnScroll";
-import { SpeakerModalContext } from "../../contexts/SpeakerModalContext";
 import SpeakerModal from "../speakerModal/SpeakerModal";
 import { SpeakersDataContext } from "../../contexts/SpeakersDataContext";
+import EditSpeakerDialog from "./EditSpeakerDialog";
 
 const SpeakerDetail = ({
   speakerRec,
@@ -23,18 +23,7 @@ const SpeakerDetail = ({
     imageUrl,
   } = speakerRec;
 
-  const {
-    setModalShow,
-    modalShow,
-    modalSpeakerId,
-    setModalSpeakerId,
-    modalSpeakerFirstName,
-    setModalSpeakerFirstName,
-    modalSpeakerLastName,
-    setModalSpeakerLastName,
-    modalSpeakerImageUrl,
-    setModalSpeakerImageUrl
-  } = useContext(SpeakerModalContext);
+ 
   
   const {
     data,
@@ -43,11 +32,13 @@ const SpeakerDetail = ({
     deleteSpeaker,
     loadingStatus,
   } = useContext(SpeakersDataContext);
-
+  
+  
+  
   return (
     <>
       {speakerRec && <SpeakerModal />}
-
+  
       <div className="card col-4 cardmin">
         <ImageToggleOnScroll
           className="card-img-top"
@@ -64,7 +55,7 @@ const SpeakerDetail = ({
                 onHeartFavoriteHandler(e, speakerRec);
               }}
             />
-
+        
             <button
               onClick={(e) => {
                 e.preventDefault();
@@ -77,26 +68,13 @@ const SpeakerDetail = ({
               Delete Speaker <i className="fa fa-trash"></i>{" "}
             </button>
             <br />
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                setModalSpeakerId(id);
-                
-                setModalSpeakerFirstName(firstName);
-                setModalSpeakerLastName(lastName);
-                setModalSpeakerImageUrl(imageUrl);
-
-                setModalShow(true);
-              }}
-            >
-              Edit Speaker <i className="fa fa-edit"></i>{" "}
-            </button>
-
+            <EditSpeakerDialog {...speakerRec} />
+        
             <span>
               {firstName} {lastName}
             </span>
           </h4>
-
+      
           <span>{userBioShort}</span>
           <div>
             <b>Company:</b> {company}
