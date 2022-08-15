@@ -42,10 +42,15 @@ const SpeakerDetail = ({ speakerRec }) => {
             <button
               onClick={(e) => {
                 e.preventDefault();
-                setUpdating(true);
-                deleteSpeaker(speakerRec.id, () => {
-                  setUpdating(false);
-                });
+                const confirmed = confirm(
+                  "Are you sure you want to delete this speaker?"
+                );
+                if (confirmed) {
+                  setUpdating(true);
+                  deleteSpeaker(speakerRec.id, () => {
+                    setUpdating(false);
+                  });
+                }
               }}
             >
               Delete Speaker <i className="fa fa-trash"></i>{" "}
