@@ -1,5 +1,5 @@
 import React from "react";
-import ImageToggleOnScroll from "../utils/ImageToggleOnScroll";
+import SpeakerImageToggleOnScroll from "./SpeakerImageToggleOnScroll";
 import SpeakerModal from "../speakerModal/SpeakerModal";
 import EditSpeakerDialog from "./EditSpeakerDialog";
 import FavoriteSpeakerToggle from "./FavoriteSpeakerToggle";
@@ -10,7 +10,7 @@ const SpeakerDetail = ({ speakerRec }) => {
     <>
       {speakerRec && <SpeakerModal />}
       <div className="card col-4 cardmin">
-        <ImageToggleOnScroll
+        <SpeakerImageToggleOnScroll
           className="card-img-top"
           imageUrl={speakerRec.imageUrl}
           alt="{firstName} {lastName}"

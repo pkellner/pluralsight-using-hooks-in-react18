@@ -1,7 +1,7 @@
 {
   "name": "using-hooks-in-react-18-course",
   "version": "1.0.0",
-  "description": "Using Hooks in Reacgt 18 Course Demo Files",
+  "description": "Using Hooks in React 18 Course Demo Files",
   "main": "index.js",
   "scripts": {
     "dev": "next dev",

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { MenuContext } from "../../contexts/MenuContext";
 
-const ImageToggleOnScroll = ({ imageUrl, alt }) => {
+const SpeakerImageToggleOnScroll = ({ imageUrl, alt }) => {
   const imageRef = useRef(null);
 
   const { speakingSaturday, speakingSunday } = useContext(MenuContext);
@@ -39,4 +39,4 @@ const ImageToggleOnScroll = ({ imageUrl, alt }) => {
   );
 };
 
-export default ImageToggleOnScroll;
+export default SpeakerImageToggleOnScroll;
