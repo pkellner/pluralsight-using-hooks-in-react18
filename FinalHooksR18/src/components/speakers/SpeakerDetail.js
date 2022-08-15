@@ -24,7 +24,7 @@ const SpeakerDetail = ({ speakerRec }) => {
               {speakerRec.firstName} {speakerRec.lastName}
             </span>
           </h4>
-      
+
           <span>{speakerRec.userBioShort}</span>
           <div>
             <b>Company:</b> {speakerRec.company}

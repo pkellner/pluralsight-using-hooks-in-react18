@@ -1,7 +1,7 @@
 import { SpeakersDataContext } from "../../contexts/SpeakersDataContext";
 import { useContext, useState } from "react";
 
-export default function FavoriteSpeakerToggle({speakerRec}) {
+export default function FavoriteSpeakerToggle({ speakerRec }) {
   const { updateSpeaker } = useContext(SpeakersDataContext);
   const [updating, setUpdating] = useState(false);
 
