@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
 
-import { Header } from "./Header";
+import { Header } from "../layout/Header";
 import SpeakerDetail from "./SpeakerDetail";
-import { ConfigContext } from "../App";
-import { SpeakerModalProvider } from "../contexts/SpeakerModalContext";
-import { SpeakersDataContext } from "../contexts/SpeakersDataContext";
+import { ConfigContext } from "../../App";
+import { SpeakerModalProvider } from "../../contexts/SpeakerModalContext";
+import { SpeakersDataContext } from "../../contexts/SpeakersDataContext";
 import AddSpeakerDialog from "./AddSpeakerDialog";
 
 const Speakers = ({}) => {

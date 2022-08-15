@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import ImageToggleOnScroll from "./ImageToggleOnScroll";
-import { SpeakerModalContext } from "../contexts/SpeakerModalContext";
-import SpeakerModal from "./SpeakersModal/SpeakerModal";
-import { SpeakersDataContext } from "../contexts/SpeakersDataContext";
+import ImageToggleOnScroll from "../utils/ImageToggleOnScroll";
+import { SpeakerModalContext } from "../../contexts/SpeakerModalContext";
+import SpeakerModal from "../speakerModal/SpeakerModal";
+import { SpeakersDataContext } from "../../contexts/SpeakersDataContext";
 
 const SpeakerDetail = ({
   speakerRec,

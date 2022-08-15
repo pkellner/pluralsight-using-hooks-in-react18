@@ -1,5 +1,5 @@
 import React from "react";
-import useEmailValidation from "../hooks/useEmailValidation";
+import useEmailValidation from "../../hooks/useEmailValidation";
 
 function EmailValidatingForm() {
   const { setEmail, count, email, emailValid, setCount } = useEmailValidation(

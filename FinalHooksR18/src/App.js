@@ -1,5 +1,5 @@
 import React from "react";
-import Speakers from "./components/Speakers";
+import Speakers from "./components/speakers/Speakers";
 import { SpeakersDataProvider } from "./contexts/SpeakersDataContext";
 
 export const ConfigContext = React.createContext();

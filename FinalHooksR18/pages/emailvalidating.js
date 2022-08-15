@@ -1,6 +1,6 @@
 //import React from 'react';
 
-import EmailValidatingForm from "../src/components/EmailValidatingForm";
+import EmailValidatingForm from "../src/components/utils/EmailValidatingForm";
 
 function emailvalidating() {
   return <EmailValidatingForm />;

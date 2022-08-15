@@ -40,20 +40,6 @@
       "email": "Arun.Gupta@codecamp.net"
     },
     {
-      "id": 1725,
-      "firstName": "Brad",
-      "lastName": "Irby",
-      "sat": true,
-      "sun": false,
-      "favorite": true,
-      "bio": "Brad is an accomplished .NET software architect specializing in Domain Driven Design and Event Driven Architectures.",
-      "company": "Brad Irby Consulting LLC",
-      "twitterHandle": "bradirby",
-      "userBioShort": "I help retail companies migrate Software Monoliths to microservices and Event Driven Architecture",
-      "imageUrl": "/images/Speaker-1725.jpg",
-      "email": "Brad.Irby@codecamp.net"
-    },
-    {
       "id": 8590,
       "firstName": "Chris",
       "lastName": "Richardson",
