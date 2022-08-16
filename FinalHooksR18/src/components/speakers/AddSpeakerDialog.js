@@ -5,14 +5,7 @@ import SpeakerModal from "../speakerModal/SpeakerModal";
 export default function AddSpeakerDialog() {
   const {
     setModalShow,
-    modalShow,
-    modalSpeakerId,
     setModalSpeakerId,
-    modalSpeakerFirstName,
-    setModalSpeakerFirstName,
-    modalSpeakerLastName,
-    setModalSpeakerLastName,
-    modalSpeakerImageUrl,
     setModalSpeakerImageUrl,
   } = useContext(SpeakerModalContext);
 
