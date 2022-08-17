@@ -1,56 +1,61 @@
+body, html {
+    font-family: 'Roboto', sans-serif;
+}
+
 .large {
-    padding: 50px
+  padding: 50px;
 }
 .cardwidth {
-    width: 20rem;
+  width: 20rem;
 }
 .margintopbottom {
-    margin-top: 20px;
-    margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .margintopbottom10 {
-    margin-top: 10px;
-    margin-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .margintopbottom5 {
-    margin-top: 5px;
-    margin-bottom: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .cardmin {
-    min-width: 300px;
+  min-width: 300px;
 }
 
 .large-text {
-    font-size: x-large;
+  font-size: x-large;
 }
 
 .checkbox-bigger {
-    zoom: 1.5;
+  zoom: 1.5;
 }
 
-
-.heartredbutton
-{
-    background-image:  url('/images/heart-red.png');
-    background-color: transparent;
-    cursor: pointer;
-    border: none;
-    background-repeat: no-repeat;
-    width: 25px;
-    height: 25px;
-    float: right;
+.heartredbutton {
+  background-image: url("/images/heart-red.png");
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  background-repeat: no-repeat;
+  width: 25px;
+  height: 25px;
+  float: right;
 }
 
-.heartdarkbutton
-{
-    background-image:  url('/images/heart-dark.png');
-    background-color: transparent;
-    cursor: pointer;
-    border: none;
-    background-repeat: no-repeat;
-    width: 25px;
-    height: 25px;
-    float: right;
+.heartdarkbutton {
+  background-image: url("/images/heart-dark.png");
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  background-repeat: no-repeat;
+  width: 25px;
+  height: 25px;
+  float: right;
 }
 
+.hero {
+    background-color: #f5f5f5;
+    padding: 20px;
+}

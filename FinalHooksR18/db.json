@@ -15,19 +15,6 @@
       "email": "Antony.Ross@codecamp.net"
     },
     {
-      "id": 1269,
-      "firstName": "Arun",
-      "lastName": "Gupta",
-      "sat": false,
-      "sun": true,
-      "favorite": false,
-      "bio": "Arun Gupta is a Principal Open Source Technologist at Amazon Web Services. He has built and led developer communities for 12+ years at Sun, Oracle, Red Hat and Couchbase.",
-      "twitterHandle": "arungupta",
-      "userBioShort": "Arun Gupta is a Principal Open Source Technologist at Amazon Web Services. ",
-      "imageUrl": "/images/Speaker-1269.jpg",
-      "email": "Arun.Gupta@codecamp.net"
-    },
-    {
       "id": 1725,
       "firstName": "Brad",
       "lastName": "Irby",
@@ -75,7 +62,7 @@
       "lastName": "Nielsen",
       "sat": true,
       "sun": true,
-      "favorite": false,
+      "favorite": true,
       "bio": "As Head of Ecosystem Programs, Dave uses emerging technologies and open source projects like Microservices, Serverless & Kubernetes to bring the magic of Redis to the broader community.",
       "company": "Intel",
       "twitterHandle": "davenielsen",
@@ -131,7 +118,7 @@
       "lastName": "Nilson",
       "sat": false,
       "sun": true,
-      "favorite": false,
+      "favorite": true,
       "bio": "Team Lead of the Chromecast Technical Solutions Engineer team, a Java Champion and three time JavaOne Rock Star Presenter. Kevin has spoken at conferences such as JavaOne, Devoxx, JAX, O'Reilly Fluent, Silicon Valley Code Camp, JAX and HTML5DevConf.",
       "company": "Google",
       "twitterHandle": "javaclimber",
