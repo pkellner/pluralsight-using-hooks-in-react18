@@ -4,6 +4,8 @@ import SpeakerDetail from "./SpeakerDetail";
 import { SpeakerModalProvider } from "../../contexts/SpeakerModalContext";
 import { SpeakersDataContext } from "../../contexts/SpeakersDataContext";
 import useSpeakerSortAndFilter from "../../hooks/useSpeakerSortAndFilter";
+import SpeakerMenu from "./SpeakerMenu";
+import { SpeakerMenuProvider } from "../../contexts/SpeakerMenuContext";
 
 const Speakers = () => {
   const { data: speakerList, loadingStatus } = useContext(SpeakersDataContext);
@@ -12,21 +14,28 @@ const Speakers = () => {
   if (loadingStatus === "hasErrored") return <div>Errored on load</div>;
 
   return (
-    <div>
-      <div className="container">
-        <div className="row">
-          <div className="card-deck">
-            <SpeakerModalProvider>
-              {speakerListFiltered.map((speakerRec) => {
-                return (
-                  <SpeakerDetail key={speakerRec.id} speakerRec={speakerRec} />
-                );
-              })}
-            </SpeakerModalProvider>
+    <>
+      <SpeakerMenuProvider>
+        <SpeakerMenu />
+        <div className="container">
+          <div className="row">
+            <div className="card-deck">
+              <SpeakerModalProvider>
+                {speakerListFiltered.map((speakerRec) => {
+                  return (
+                    <SpeakerDetail
+                      key={speakerRec.id}
+                      speakerRec={speakerRec}
+                      showDetails={false}
+                    />
+                  );
+                })}
+              </SpeakerModalProvider>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      </SpeakerMenuProvider>
+    </>
   );
 };
 

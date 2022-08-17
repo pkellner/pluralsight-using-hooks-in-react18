@@ -1,6 +1,6 @@
 import React, { createContext, useState } from "react";
 
-export const MenuContext = createContext({
+export const SpeakerMenuContext = createContext({
   updating: true,
   setUpdating: () => {},
   speakingSaturday: true,
@@ -9,7 +9,7 @@ export const MenuContext = createContext({
   setSpeakingSunday: () => {},
 });
 
-export const MenuProvider = ({ children }) => {
+export const SpeakerMenuProvider = ({ children }) => {
   const [updating, setUpdating] = useState(false);
   const [speakingSaturday, setSpeakingSaturday] = useState(true);
   const [speakingSunday, setSpeakingSunday] = useState(true);
@@ -23,5 +23,5 @@ export const MenuProvider = ({ children }) => {
     setSpeakingSunday,
   };
 
-  return <MenuContext.Provider value={value}>{children}</MenuContext.Provider>;
+  return <SpeakerMenuContext.Provider value={value}>{children}</SpeakerMenuContext.Provider>;
 };

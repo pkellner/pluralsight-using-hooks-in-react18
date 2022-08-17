@@ -50,7 +50,6 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
           return [createObject, ...oriState];
         });
         await axios.post(`${url}/${createObject.id}`, createObject);
-
         if (callbackDone) callbackDone();
       } catch (e) {
         setData(startingData);
@@ -62,7 +61,7 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
     addData();
   }
   function updateRecord(updateObject, callbackDone) {
-    const id = updateObject.id; // + 999; // all speakers must have a column "id"
+    const id = updateObject.id; // all speakers must have a column "id"
     async function updateData() {
       //const startingData = [...data]; // FAILS BECAUSE NOT DEEP COPY
       const startingData = data.map(function (rec) {
@@ -83,7 +82,7 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
         // get the full record back that has been updated
         const updatedRecord = data.find((rec) => rec.id === id);
         await axios.put(`${url}/${id}`, updatedRecord);
-        console.log(`done  call axios.put`);
+        // console.log(`done  call axios.put`);
         if (callbackDone) callbackDone();
       } catch (e) {
         setData(startingData);

@@ -1,15 +1,17 @@
 import Header from "./Header";
-import Menu from "./Menu";
-import { MenuProvider } from "../../contexts/MenuContext";
+import { SpeakerMenuProvider } from "../../contexts/SpeakerMenuContext";
+import AppMenu from "./AppMenu";
+import { AppRouterContext } from "../../contexts/AppRouterContext";
+import { useContext } from "react";
 
-export default function Layout({ children }) {
+// Layout does not use children but instead uses what comes from AppRouteProvider
+export default function Layout() {
+  const { activeComponent } = useContext(AppRouterContext);
   return (
     <div>
       <Header />
-      <MenuProvider>
-        <Menu />
-        {children}
-      </MenuProvider>
+      <AppMenu />
+      {activeComponent}
     </div>
   );
 }

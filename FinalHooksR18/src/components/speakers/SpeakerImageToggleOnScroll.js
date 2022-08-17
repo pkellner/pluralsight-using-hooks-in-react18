@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { MenuContext } from "../../contexts/MenuContext";
+import { SpeakerMenuContext } from "../../contexts/SpeakerMenuContext";
 
 const SpeakerImageToggleOnScroll = ({ imageUrl, alt }) => {
   const imageRef = useRef(null);
 
-  const { speakingSaturday, speakingSunday } = useContext(MenuContext);
+  const { speakingSaturday, speakingSunday } = useContext(SpeakerMenuContext);
 
   const isInView = () => {
     const rect = imageRef.current.getBoundingClientRect();
