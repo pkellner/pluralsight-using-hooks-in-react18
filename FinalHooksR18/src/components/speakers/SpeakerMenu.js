@@ -12,43 +12,51 @@ export default function SpeakerMenu() {
   } = useContext(SpeakerMenuContext);
 
   return (
-    <div className="btn-toolbar  margintopbottom5 checkbox-bigger">
-      <div className="hide">
-        <div className="form-check-inline">
-          <label className="form-check-label">
-            <input
-              type="checkbox"
-              className="form-check-input"
-              onChange={() => {
-                setSpeakingSaturday(!speakingSaturday);
-              }}
-              checked={speakingSaturday}
-            />
-            Saturday Speakers
-          </label>
-        </div>
-        <div className="form-check-inline">
-          <label className="form-check-label">
-            <input
-              type="checkbox"
-              className="form-check-input"
-              onChange={() => {
-                setSpeakingSunday(!speakingSunday);
-              }}
-              checked={speakingSunday}
-            />
-            Sunday Speakers
-          </label>
-        </div>
+    <div className="btn-toolbar" role="toolbar" aria-label="Speaker toolbar filter">
+    <div className="hide toolbar-trigger mb-3">
+      <div className="form-check-inline">
+        <label className="form-check-label">
+          <input
+            type="checkbox"
+            className="form-check-input"
+            onChange={() => {
+              setSpeakingSaturday(!speakingSaturday);
+            }}
+            checked={speakingSaturday}
+          />
+          Saturday Speakers
+        </label>
+      </div>
+
+      <div className="form-check-inline">
+        <label className="form-check-label">
+          <input
+            type="checkbox"
+            className="form-check-input"
+            onChange={() => {
+              setSpeakingSunday(!speakingSunday);
+            }}
+            checked={speakingSunday}
+          />
+          Sunday Speakers
+        </label>
+      </div>
+      <div className="input-group">
+        <SpeakerModalProvider>
+          <AddSpeakerDialog />
+        </SpeakerModalProvider>
+      </div>
+    </div>
+
+      {/* <div className="hide">
+        
+        
         <div className="form-check-inline">
           <SpeakerModalProvider>
             <AddSpeakerDialog />
           </SpeakerModalProvider>
         </div>
-      </div>
-
-      <br />
-      <br />
+      </div> */}
     </div>
   );
 }

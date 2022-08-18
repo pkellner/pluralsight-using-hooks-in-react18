@@ -5,25 +5,29 @@ export default function AppMenu() {
   const { setRoute } = useContext(AppRouterContext);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="navbar-nav">
-        <button
-          onClick={() => {
-            setRoute("/");
-          }}
-          className="nav-item nav-link active"
-        >
-          Speakers
-        </button>
-        <button
-          onClick={() => {
-            setRoute("/about");
-          }}
-          className="nav-item nav-link"
-        >
-          About
-        </button>
-      </div>
-    </nav>
+    <header className="d-flex justify-content-center py-3">
+      <ul className="nav nav-pills gap-3">
+        <li className="nav-item">
+          <button
+            onClick={() => {
+              setRoute("/");
+            }}
+            className="nav-link"
+          >
+            Speakers
+          </button>
+        </li>
+        <li className="nav-item">
+          <button
+            onClick={() => {
+              setRoute("/about");
+            }}
+            className="nav-item nav-link"
+          >
+            About
+          </button>
+        </li>
+      </ul>
+    </header>
   );
 }
