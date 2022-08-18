@@ -14,45 +14,47 @@ const SpeakerDetail = ({ speakerRec, showDetails }) => {
   return (
     <>
       {speakerRec && <SpeakerModal />}
-      <div className="card col-4 cardmin">
-        <SpeakerImageToggleOnScroll
-          className="card-img-top"
-          imageUrl={speakerRec.imageUrl}
-          alt="{firstName} {lastName}"
-        />
-        <div className="card-body">
-          <h4 className="card-title">
-            <FavoriteSpeakerToggle speakerRec={speakerRec} />
-            <DeleteSpeakerButton id={speakerRec.id} />
-            <EditSpeakerDialog {...speakerRec} />
-            <br />
-            <br />
-            <span>
-              <a
-                onClick={() => {
-                  setRoute(`/speaker/${speakerRec.id}`);
-                }}
-                href="#"
-              >
-                {speakerRec.firstName} {speakerRec.lastName}
-              </a>
-            </span>
-          </h4>
-  
-          {showDetails === true ?
-            <>
-              <span>{speakerRec.bio}</span>
-              
-            </>
-            : <>
-              <span>{speakerRec.userBioShort}</span>
-            </>
-          }
-          <div>
-            <b>Company:</b> {speakerRec.company}
-          </div>
-          <div>
-            <b>Twitter</b>: {speakerRec.twitterHandle}
+      <div className="col-md-4">
+        <div className="card shadow border-0">
+          <SpeakerImageToggleOnScroll
+            className="card-img-top"
+            imageUrl={speakerRec.imageUrl}
+            alt="{firstName} {lastName}"
+          />
+          <div className="card-body">
+            <h4 className="card-title">
+              <FavoriteSpeakerToggle speakerRec={speakerRec} />
+              <DeleteSpeakerButton id={speakerRec.id} />
+              <EditSpeakerDialog {...speakerRec} />
+              <br />
+              <br />
+              <span>
+                <a
+                  onClick={() => {
+                    setRoute(`/speaker/${speakerRec.id}`);
+                  }}
+                  href="#"
+                >
+                  {speakerRec.firstName} {speakerRec.lastName}
+                </a>
+              </span>
+            </h4>
+    
+            {showDetails === true ?
+              <>
+                <span>{speakerRec.bio}</span>
+                
+              </>
+              : <>
+                <span>{speakerRec.userBioShort}</span>
+              </>
+            }
+            <div>
+              <b>Company:</b> {speakerRec.company}
+            </div>
+            <div>
+              <b>Twitter</b>: {speakerRec.twitterHandle}
+            </div>
           </div>
         </div>
       </div>

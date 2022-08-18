@@ -18,20 +18,18 @@ const Speakers = () => {
       <SpeakerMenuProvider>
         <SpeakerMenu />
         <div className="container">
-          <div className="row">
-            <div className="card-deck">
-              <SpeakerModalProvider>
-                {speakerListFiltered.map((speakerRec) => {
-                  return (
-                    <SpeakerDetail
-                      key={speakerRec.id}
-                      speakerRec={speakerRec}
-                      showDetails={false}
-                    />
-                  );
-                })}
-              </SpeakerModalProvider>
-            </div>
+          <div className="row g-4">
+            <SpeakerModalProvider>
+              {speakerListFiltered.map((speakerRec) => {
+                return (
+                  <SpeakerDetail
+                    key={speakerRec.id}
+                    speakerRec={speakerRec}
+                    showDetails={false}
+                  />
+                );
+              })}
+            </SpeakerModalProvider>
           </div>
         </div>
       </SpeakerMenuProvider>

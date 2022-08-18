@@ -1,134 +1,177 @@
 :root {
-    --primary: #04b1b8;
-    --info: #1b59ed;
-    --accent: #fdab08;
-    --dark: #181827;
-    --less-dark: #242439;
-    --light: #f4f4f7;
-    --less-light: #ababc9;
+  --primary: #04b1b8;
+  --info: #1b59ed;
+  --accent: #fdab08;
+  --dark: #181827;
+  --less-dark: #242439;
+  --light: #f4f4f7;
+  --less-light: #ababc9;
 }
 
-body, html {
-    font-family: 'Roboto', sans-serif;
-    color: var(--dark);
+body,
+html {
+  font-family: "Roboto", sans-serif;
+  color: var(--dark);
 }
 
 a {
-    color: var(--primary);
-    text-decoration: none;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.form-check-input:checked {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+.form-check-input[type="checkbox"] {
+  border-radius: 0.25em;
+}
+.form-check-input {
+  width: 1.3rem;
+  height: 1.3rem;
+  margin-top: 0.1em;
+  margin-right: 5px;
+  vertical-align: top;
+}
+
+.btn-accent {
+  background: var(--primary);
+  border-radius: var(--bs-btn-border-radius) !important;
+  color: var(--light);
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-shadow: inherit;
 }
 
 .hero {
-    background-color: var(--dark);
-    color: var(--light);
+  background-color: var(--dark);
+  color: var(--light);
 }
 
 .hero .logo {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    /* justify-content: flex-end; */
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  /* justify-content: flex-end; */
 }
 
 .hero .logo h2 {
-    font-size: 17px;
-    text-transform: uppercase;
-    margin: 0;
-    letter-spacing: 1px;
-    color: var(--less-light);
+  font-size: 17px;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 1px;
+  color: var(--less-light);
 }
 
 .hero .date-meta h5 {
-    margin-bottom: 3px;
-    color: var(--light);
-    letter-spacing: 0.3px;
-    font-size: 19px;
+  margin-bottom: 3px;
+  color: var(--light);
+  letter-spacing: 0.3px;
+  font-size: 19px;
 }
 
 .hero .date-meta h6 {
-    margin: 0;
-    font-size: 15px;
-    letter-spacing: 0.4px;
-    color: var(--less-light);
+  margin: 0;
+  font-size: 15px;
+  letter-spacing: 0.4px;
+  color: var(--less-light);
 }
 
 header {
-    background-color: var(--less-dark);
-    position: sticky;
-    top: 0;
-    z-index: 9;
-    box-shadow: 0px 12px 15px 0px rgb(114 116 118 / 57%);
+  background-color: var(--less-dark);
+  position: sticky;
+  top: 0;
+  z-index: 9;
+  box-shadow: 0px 12px 15px 0px rgb(114 116 118 / 57%);
 }
 
 header ul li button {
-    color: #b2b2c6 !important;
-    text-transform: uppercase;
-    font-weight: 400 !important;
-    letter-spacing: 0.5px;
-    font-size: 0.95rem !important;
-    border: 1px solid #3e3e5c !important;
-    line-height: 1.3;
+  color: #b2b2c6 !important;
+  text-transform: uppercase;
+  font-weight: 400 !important;
+  letter-spacing: 0.5px;
+  font-size: 0.95rem !important;
+  border: 1px solid #3e3e5c !important;
+  line-height: 1.3;
 }
 
 header ul li button:hover,
 header ul li button:focus {
-    background-color: #3e3e5c !important;
-    color: var(--light) !important;
-    border-width: 1px !important;
+  background-color: #3e3e5c !important;
+  color: var(--light) !important;
+  border-width: 1px !important;
 }
 
 .btn-toolbar {
-    align-items: center;
-    justify-content: center;
-    position: sticky;
-    top: 52px;
-    z-index: 9;
-    margin-top: 12px;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 80px;
+  z-index: 9;
+  margin-top: 12px;
 }
 
 .btn-toolbar .toolbar-trigger {
-    display: flex;
-    align-items: center;
-    background: var(--accent);
-    padding: 5px 10px;
-    border-radius: 8px;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(145deg, #ffe598, #ffffff);
+  padding: 5px 10px;
+  border-radius: 8px;
+  padding: 7px 9px;
+  border-radius: 8px;
+  gap: 1rem;
 }
 
+@media screen and (max-width: 768px) {
+  .btn-toolbar {
+    top: 71px;
+    margin-top: 0px;
+  }
+  .btn-toolbar .toolbar-trigger {
+    border-radius: 0;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
 
 /* Fancy Checkbox to replace the toolbar bulky appearance */
 
-.fancyCheckBox{
-    margin: 4px;
-    background-color: #104068;
-    border-radius: 4px;
-    border: 1px solid #fff;
-    overflow: hidden;
-  }
-  
-  .fancyCheckBox label {
-    /* height: 3.0em; */
-  }
-  
-  .fancyCheckBox label span {
-    text-align: center;
-    padding: 3px 0;
-    display: block;
-  }
-  
-  .fancyCheckBox label input {
-    position: absolute;
-    display: none;
-    color: var(--light) !important;
-  }
-  /* selects all of the text within the input element and changes the color of the text */
-  .fancyCheckBox label input + span{color: #fff;}
-  
-  
-  /* This will declare how a selected input will look giving generic properties */
-  .fancyCheckBox input:checked + span {
-      color: #ffffff;
-      background-color: red;
-  }
+.fancyCheckBox {
+  margin: 4px;
+  background-color: #104068;
+  border-radius: 4px;
+  border: 1px solid #fff;
+  overflow: hidden;
+}
+
+.fancyCheckBox label {
+  /* height: 3.0em; */
+}
+
+.fancyCheckBox label span {
+  text-align: center;
+  padding: 3px 0;
+  display: block;
+}
+
+.fancyCheckBox label input {
+  position: absolute;
+  display: none;
+  color: var(--light) !important;
+}
+/* selects all of the text within the input element and changes the color of the text */
+.fancyCheckBox label input + span {
+  color: #fff;
+}
+
+/* This will declare how a selected input will look giving generic properties */
+.fancyCheckBox input:checked + span {
+  color: #ffffff;
+  background-color: red;
+}
 
 .large {
   padding: 50px;

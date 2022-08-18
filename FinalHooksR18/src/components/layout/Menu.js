@@ -12,7 +12,7 @@ export default function Menu() {
   } = useContext(MenuContext);
 
   return (
-    <div className="btn-toolbar  margintopbottom5 checkbox-bigger">
+    <div className="btn-toolbar">
       <div className="hide">
         <div className="form-check-inline">
           <label className="form-check-label">

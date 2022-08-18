@@ -18,6 +18,7 @@ export default function AddSpeakerDialog() {
           setModalSpeakerImageUrl("/images/Speaker-New.jpg");
           setModalShow(true);
         }}
+        className="btn btn-accent"
       >
         Add Speaker <i className="fa fa-plus" />
       </button>
