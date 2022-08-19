@@ -14,8 +14,10 @@ export default function DeleteSpeakerButton({ id }) {
           deleteSpeaker(id);
         }
       }}
+
+      className="btn btn-danger btn-sm"
     >
-      Delete Speaker <i className="fa fa-trash"></i>{" "}
+      <i className="fa fa-trash"></i>{" Delete "}
     </button>
   );
 }

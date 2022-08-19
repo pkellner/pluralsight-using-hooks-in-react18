@@ -43,8 +43,9 @@ export default function EditSpeakerDialog({
 
         setModalShow(true);
       }}
+      className="btn btn-accent btn-sm"
     >
-      Edit Speaker <i className="fa fa-edit"></i>{" "}
+      <i className="fa fa-edit"></i>{" Edit "}
     </button>
   );
 }

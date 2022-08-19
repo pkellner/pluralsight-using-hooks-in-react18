@@ -8,52 +8,58 @@ import { AppRouterContext } from "../../contexts/AppRouterContext";
 
 const SpeakerDetail = ({ speakerRec, showDetails }) => {
   const { setRoute } = useContext(AppRouterContext);
-  
+
   //if (!speakerRec) return null;
-  
+
   return (
     <>
       {speakerRec && <SpeakerModal />}
-      <div className="col-md-4">
-        <div className="card shadow border-0">
-          <SpeakerImageToggleOnScroll
-            className="card-img-top"
-            imageUrl={speakerRec.imageUrl}
-            alt="{firstName} {lastName}"
-          />
-          <div className="card-body">
-            <h4 className="card-title">
-              <FavoriteSpeakerToggle speakerRec={speakerRec} />
-              <DeleteSpeakerButton id={speakerRec.id} />
-              <EditSpeakerDialog {...speakerRec} />
-              <br />
-              <br />
-              <span>
-                <a
-                  onClick={() => {
-                    setRoute(`/speaker/${speakerRec.id}`);
-                  }}
-                  href="#"
-                >
-                  {speakerRec.firstName} {speakerRec.lastName}
-                </a>
-              </span>
-            </h4>
-    
-            {showDetails === true ?
-              <>
-                <span>{speakerRec.bio}</span>
-                
-              </>
-              : <>
-                <span>{speakerRec.userBioShort}</span>
-              </>
-            }
-            <div>
-              <b>Company:</b> {speakerRec.company}
+
+      <div className="col-md-6">
+        <div className="card border-0">
+          <div className="row g-0">
+            <div className="col-4">
+              <SpeakerImageToggleOnScroll
+                imageUrl={speakerRec.imageUrl}
+                alt="{firstName} {lastName}"
+              />
             </div>
-            <div>
-              <b>Twitter</b>: {speakerRec.twitterHandle}
+
+            <div className="col-8 d-flex flex-column flex-nowrap">
+              <div className="card-body">
+                <div className="speaker-action d-flex">
+                  <div className="favoriteToggleWrapper">
+                    <FavoriteSpeakerToggle speakerRec={speakerRec} />
+                  </div>
+
+                  <div className="modifyWrapper">
+                    <EditSpeakerDialog {...speakerRec} />
+                    <DeleteSpeakerButton id={speakerRec.id} />
+                  </div>
+                </div>
+                <h4 className="card-title">
+                  <a
+                    onClick={() => {
+                      setRoute(`/speaker/${speakerRec.id}`);
+                    }}
+                    href="#"
+                  >
+                    {speakerRec.firstName} {speakerRec.lastName}
+                  </a>
+                </h4>
+
+                {showDetails === true ? (
+                  <p className="card-text">{speakerRec.bio}</p>
+                ) : (
+                  <p className="card-text">{speakerRec.userBioShort}</p>
+                )}
+                
+              </div>
+
+              <div className="card-footer text-muted d-flex flex-wrap justify-content-between align-items-center">
+                <small><strong>Company:</strong> {speakerRec.company}</small>
+                <small><strong>Twitter</strong>: {speakerRec.twitterHandle}</small>
+              </div>
             </div>
           </div>
         </div>

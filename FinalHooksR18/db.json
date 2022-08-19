@@ -20,7 +20,7 @@
       "lastName": "Irby",
       "sat": true,
       "sun": false,
-      "favorite": true,
+      "favorite": false,
       "bio": "Brad is an accomplished .NET software architect specializing in Domain Driven Design and Event Driven Architectures.",
       "company": "Brad Irby Consulting LLC",
       "twitterHandle": "bradirby",

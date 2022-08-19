@@ -21,7 +21,7 @@ export default function NotesModalFooter() {
   } = useContext(SpeakersDataContext);
 
   return (
-    <div className="modal-footer">
+    <div className="modal-footer justify-content-center">
       {modalSpeakerId !== 0 && (
         <button
           onClick={() => {
@@ -34,7 +34,7 @@ export default function NotesModalFooter() {
             });
             setModalShow(false);
           }}
-          className="float-left btn btn-success"
+          className="float-left btn btn-accent"
         >
           Save
         </button>
@@ -52,7 +52,7 @@ export default function NotesModalFooter() {
 
       {modalSpeakerId === 0 && (
         <button
-          className="btn btn-info"
+          className="btn btn-accent"
           onClick={() => {
             createSpeaker({
               firstName: modalSpeakerFirstName,

@@ -35,6 +35,7 @@ const SpeakerImageToggleOnScroll = ({ imageUrl, alt }) => {
       ref={imageRef}
       width="200"
       height="200"
+      className="img-fluid rounded-start speaker-image"
     />
   );
 };

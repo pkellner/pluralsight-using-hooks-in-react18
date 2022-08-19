@@ -8,7 +8,7 @@ export default function SpeakerModal() {
   const { modalShow } = useContext(SpeakerModalContext);
 
   const cssShowHide =
-    modalShow && modalShow === true ? "modal show-modal" : "modal hide-modal";
+    modalShow && modalShow === true ? "modal show-modal has-backdrop" : "modal hide-modal";
 
   return (
     <>
@@ -17,6 +17,19 @@ export default function SpeakerModal() {
           .show-modal {
             display: block;
           }
+
+          .has-backdrop:before {
+            content: '';
+            background: rgb(24 26 29 / 77%);
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+            margin: 0;
+            backdrop-filter: blur(5px);
+          }
+
           .hide-modal {
             display: none;
           }
