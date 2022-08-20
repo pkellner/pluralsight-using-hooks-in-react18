@@ -9,7 +9,8 @@ function StateManagementExample({reRenderMe}) {
   function myUseState(initialValue) {
   
     localStateValueIndex++;
-    const localStateValueIndexLocal =  Number(localStateValueIndex);
+    //const localStateValueIndexLocal =  Number(localStateValueIndex);
+    const localStateValueIndexLocal =  localStateValueIndex;
     
     if (localStateValues[localStateValueIndexLocal] === undefined) {
       localStateValues[localStateValueIndexLocal] = initialValue;
@@ -18,8 +19,6 @@ function StateManagementExample({reRenderMe}) {
     const setValue = (val) => {
       localStateValues[localStateValueIndexLocal] = val;
     }
-    
-    
     
     const retVals = [localStateValues[localStateValueIndexLocal], setValue];
     return retVals;
