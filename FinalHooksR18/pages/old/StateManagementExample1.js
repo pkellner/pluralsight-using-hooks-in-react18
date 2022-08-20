@@ -1,29 +1,29 @@
 let localStateValue;
 
-export default function StateManagementExample({reRenderMe}) {
+export default function StateManagementExample1({reRenderMe}) {
   
   function myUseState(initialValue) {
     
     if (localStateValue === undefined) {
-      localStateValue = 100;
+      localStateValue = initialValue;
     }
     
-    const setValue = () => {
-      localStateValue++;
+    const setValue = (val) => {
+      localStateValue = val;
     }
     
     const retVals = [localStateValue, setValue];
     return retVals;
   }
 
-  const [cnt, setCnt] = myUseState("Hello");
+  const [cnt1, setCnt1] = myUseState(100);
   
   return (
     <div>
       <button onClick={() => {
-        setCnt();
+        setCnt1(cnt1+1);
         reRenderMe();
-      }}>{cnt}</button>
+      }}>{cnt1}</button>
     </div>
   );
 }
