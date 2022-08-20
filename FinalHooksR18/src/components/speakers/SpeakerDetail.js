@@ -53,12 +53,19 @@ const SpeakerDetail = ({ speakerRec, showDetails }) => {
                 ) : (
                   <p className="card-text">{speakerRec.userBioShort}</p>
                 )}
-                
               </div>
 
               <div className="card-footer text-muted d-flex flex-wrap justify-content-between align-items-center">
-                <small><strong>Company:</strong> {speakerRec.company}</small>
-                <small><strong>Twitter</strong>: {speakerRec.twitterHandle}</small>
+                <small>
+                  <strong>Company:</strong> {speakerRec.company}
+                </small>
+                
+                {speakerRec.twitterHandle.length > 0 ? (
+                  <small>
+                    <strong>Twitter</strong>: {speakerRec.twitterHandle}
+                  </small>
+                ) : null}
+                {/* <small><strong>Twitter</strong>: {speakerRec.twitterHandle}</small> */}
               </div>
             </div>
           </div>

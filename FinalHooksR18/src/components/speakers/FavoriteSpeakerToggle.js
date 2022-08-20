@@ -24,7 +24,7 @@ export default function FavoriteSpeakerToggle({ speakerRec }) {
         });
       }}
     >
-      {updating ? <i className="spinner-grow text-dark" role="status" /> : null}
+      {updating ? <i className="spinner-border text-dark" role="status" /> : null}
     </button>
   );
 }
