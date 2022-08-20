@@ -56,16 +56,17 @@ const SpeakerDetail = ({ speakerRec, showDetails }) => {
               </div>
 
               <div className="card-footer text-muted d-flex flex-wrap justify-content-between align-items-center">
-                <small>
-                  <strong>Company:</strong> {speakerRec.company}
-                </small>
-                
+                {speakerRec?.company?.length > 0 ? (
+                  <small>
+                    <strong>Company:</strong> {speakerRec.company}
+                  </small>
+                ) : null}
+
                 {speakerRec.twitterHandle.length > 0 ? (
                   <small>
                     <strong>Twitter</strong>: {speakerRec.twitterHandle}
                   </small>
                 ) : null}
-                {/* <small><strong>Twitter</strong>: {speakerRec.twitterHandle}</small> */}
               </div>
             </div>
           </div>
