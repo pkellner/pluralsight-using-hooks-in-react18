@@ -113,6 +113,10 @@ a:focus {
   color: var(--less-light);
 }
 
+.content-wrapper {
+  margin-top: 1rem;
+}
+
 header {
   background-color: var(--less-dark);
 
@@ -203,6 +207,10 @@ header ul li button:focus {
 
 .card-body {
   min-height: 215px;
+}
+
+.about .card-body {
+  min-height: initial;
 }
 
 .card-body .card-text {
