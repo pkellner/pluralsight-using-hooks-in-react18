@@ -2,10 +2,10 @@
   "speakers": [
     {
       "id": 10808,
-      "firstName": "Antonyx",
+      "firstName": "Antony",
       "lastName": "Ross",
-      "sat": true,
-      "sun": false,
+      "sat": false,
+      "sun": true,
       "favorite": true,
       "bio": "Antony Ross is a consultant specializing in data science and machine learning applied to sports performance. He has worked closely with USC and UCLA and is presently involved with the Recurse Center in New York researching deep learning and voice recognition.",
       "company": "SportInsight",
@@ -27,20 +27,6 @@
       "userBioShort": "I help retail companies migrate Software Monoliths to microservices and Event Driven Architecture",
       "imageUrl": "/images/Speaker-1725.jpg",
       "email": "Brad.Irby@codecamp.net"
-    },
-    {
-      "id": 8590,
-      "firstName": "Chris",
-      "lastName": "Richardson",
-      "sat": true,
-      "sun": false,
-      "favorite": true,
-      "bio": "Chris Richardson is a developer and architect. He is a Java Champion, a JavaOne rock star and the author of POJOs in Action, which describes how to build enterprise Java applications with frameworks such as Spring and Hibernate.",
-      "company": "Eventuate, Inc",
-      "twitterHandle": "crichardson",
-      "userBioShort": "Founder of Eventuate, Author of POJOs in Action, creator of the original Cloud Foundry",
-      "imageUrl": "/images/Speaker-8590.jpg",
-      "email": "Chris.Richardson@codecamp.net"
     },
     {
       "id": 5996,
