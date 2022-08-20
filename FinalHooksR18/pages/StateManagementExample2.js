@@ -8,11 +8,10 @@ function StateManagementExample({reRenderMe}) {
   
   function myUseState(initialValue) {
   
-    localStateValueIndex++;
-    //const localStateValueIndexLocal =  Number(localStateValueIndex);
-    const localStateValueIndexLocal =  localStateValueIndex;
+    localStateValueIndex++; // update global
+    const localStateValueIndexLocal = localStateValueIndex; // capture in closure
     
-    if (localStateValues[localStateValueIndexLocal] === undefined) {
+    if (localStateValues[localStateValueIndex] === undefined) {
       localStateValues[localStateValueIndexLocal] = initialValue;
     }
     
