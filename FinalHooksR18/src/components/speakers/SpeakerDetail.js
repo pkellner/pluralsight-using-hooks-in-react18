@@ -15,7 +15,7 @@ const SpeakerDetail = ({ speakerRec, showDetails }) => {
     <>
       {speakerRec && <SpeakerModal />}
 
-      <div className="col-md-6">
+      <div className="col-xl-6 col-md-12">
         <div className="card border-0">
           <div className="row g-0">
             <div className="col-4">
