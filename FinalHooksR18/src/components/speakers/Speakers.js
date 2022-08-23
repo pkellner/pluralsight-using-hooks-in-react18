@@ -1,38 +1,39 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 
 import SpeakerDetail from "./SpeakerDetail";
 import { SpeakerModalProvider } from "../../contexts/SpeakerModalContext";
 import { SpeakersDataContext } from "../../contexts/SpeakersDataContext";
 import useSpeakerSortAndFilter from "../../hooks/useSpeakerSortAndFilter";
 import SpeakerMenu from "./SpeakerMenu";
-import { SpeakerMenuProvider } from "../../contexts/SpeakerMenuContext";
+import { SpeakerMenuContext } from "../../contexts/SpeakerMenuContext";
 
 const Speakers = () => {
   const { data: speakerList, loadingStatus } = useContext(SpeakersDataContext);
+  const { speakingSaturday, speakingSunday } = useContext(SpeakerMenuContext);
+
+  useEffect(() => {}, [speakingSaturday, speakingSunday]);
 
   const speakerListFiltered = useSpeakerSortAndFilter(speakerList);
   if (loadingStatus === "hasErrored") return <div>Errored on load</div>;
 
   return (
     <>
-      <SpeakerMenuProvider>
-        <SpeakerMenu />
-        <div className="container">
-          <div className="row g-4">
-            <SpeakerModalProvider>
-              {speakerListFiltered.map((speakerRec) => {
-                return (
-                  <SpeakerDetail
-                    key={speakerRec.id}
-                    speakerRec={speakerRec}
-                    showDetails={false}
-                  />
-                );
-              })}
-            </SpeakerModalProvider>
-          </div>
+      <SpeakerMenu />
+      <div className="container">
+        <div className="row g-4">
+          <SpeakerModalProvider>
+            {speakerListFiltered.map((speakerRec) => {
+              return (
+                <SpeakerDetail
+                  key={speakerRec.id}
+                  speakerRec={speakerRec}
+                  showDetails={false}
+                />
+              );
+            })}
+          </SpeakerModalProvider>
         </div>
-      </SpeakerMenuProvider>
+      </div>
     </>
   );
 };
