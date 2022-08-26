@@ -1,14 +1,8 @@
-
-
 function SpeakersModalHeader() {
   return (
     <div className="modal-header bg-main-gradient text-white">
       <h5 className="modal-title">
-        {1 === 0 ? (
-          <span>Add Speaker</span>
-        ) : (
-          <span>Edit Speaker</span>
-        )}
+        {1 === 0 ? <span>Add Speaker</span> : <span>Edit Speaker</span>}
       </h5>
       <button
         type="button"

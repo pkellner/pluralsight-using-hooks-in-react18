@@ -7,13 +7,12 @@ export default function DeleteSpeakerButton({ id }) {
           "Are you sure you want to delete this speaker?"
         );
         if (confirmed) {
-        
         }
       }}
-
       className="btn btn-danger btn-sm"
     >
-      <i className="fa fa-trash"></i>{" Delete "}
+      <i className="fa fa-trash"></i>
+      {" Delete "}
     </button>
   );
 }

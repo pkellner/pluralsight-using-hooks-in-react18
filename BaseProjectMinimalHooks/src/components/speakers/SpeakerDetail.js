@@ -11,9 +11,7 @@ const SpeakerDetail = ({ speakerRec, showDetails }) => {
         <div className="card border-0">
           <div className="row g-0">
             <div className="col-4">
-              <SpeakerImageToggleOnScroll
-                imageUrl={speakerRec?.imageUrl}
-              />
+              <SpeakerImageToggleOnScroll imageUrl={speakerRec?.imageUrl} />
             </div>
 
             <div className="col-8 d-flex flex-column flex-nowrap">
@@ -31,7 +29,7 @@ const SpeakerDetail = ({ speakerRec, showDetails }) => {
                 <h4 className="card-title">
                   <a
                     onClick={() => {
-                      window.location.href = `/speaker/${speakerRec.id}`
+                      window.location.href = `/speaker/${speakerRec.id}`;
                     }}
                     href="#"
                   >

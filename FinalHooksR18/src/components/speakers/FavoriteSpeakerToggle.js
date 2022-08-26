@@ -8,9 +8,7 @@ export default function FavoriteSpeakerToggle({ speakerRec }) {
   return (
     <button
       className={
-        speakerRec.favorite
-          ? "heartredbutton btn"
-          : "heartdarkbutton btn"
+        speakerRec.favorite ? "heartredbutton btn" : "heartdarkbutton btn"
       }
       onClick={(e) => {
         e.preventDefault();
@@ -24,7 +22,9 @@ export default function FavoriteSpeakerToggle({ speakerRec }) {
         });
       }}
     >
-      {updating ? <i className="spinner-border text-dark" role="status" /> : null}
+      {updating ? (
+        <i className="spinner-border text-dark" role="status" />
+      ) : null}
     </button>
   );
 }

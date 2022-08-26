@@ -32,9 +32,7 @@ export default function Layout({ url }) {
       {url.startsWith("/speaker/") && (
         <SpeakerDetail speakerRec={speakerRec} showDetails={true} />
       )}
-      {url.startsWith("/speakerpopup") && (
-        <SpeakerModal modalShow={true} />
-      )}
+      {url.startsWith("/speakerpopup") && <SpeakerModal modalShow={true} />}
     </div>
   );
 }

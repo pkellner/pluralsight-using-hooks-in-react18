@@ -45,7 +45,8 @@ export default function EditSpeakerDialog({
       }}
       className="btn btn-accent btn-sm"
     >
-      <i className="fa fa-edit"></i>{" Edit "}
+      <i className="fa fa-edit"></i>
+      {" Edit "}
     </button>
   );
 }

@@ -2,10 +2,11 @@ import SpeakersModalHeader from "./SpeakerModalHeader";
 import SpeakersModalBody from "./SpeakerModalBody";
 import SpeakersModalFooter from "./SpeakerModalFooter";
 
-export default function SpeakerModal({modalShow}) {
-  
+export default function SpeakerModal({ modalShow }) {
   const cssShowHide =
-    modalShow && modalShow === true ? "modal show-modal has-backdrop" : "modal hide-modal";
+    modalShow && modalShow === true
+      ? "modal show-modal has-backdrop"
+      : "modal hide-modal";
 
   return (
     <>
@@ -16,7 +17,7 @@ export default function SpeakerModal({modalShow}) {
           }
 
           .has-backdrop:before {
-            content: '';
+            content: "";
             background: rgb(24 26 29 / 77%);
             position: absolute;
             height: 100%;

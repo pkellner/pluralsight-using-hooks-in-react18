@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function MyComponent({length = 3}) {
+export default function MyComponent({ length = 3 }) {
   const speakers = [
     {
       id: 10808,
@@ -33,7 +33,7 @@ export default function MyComponent({length = 3}) {
       imageUrl: "/images/Speaker-187.jpg",
     },
   ];
-  
+
   const speakerListFiltered = speakers.splice(0, length);
 
   return (

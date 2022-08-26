@@ -6,7 +6,7 @@ import { SpeakerModalProvider } from "../../contexts/SpeakerModalContext";
 export default function Speaker({ id }) {
   const { data: speakerList, loadingStatus } = useContext(SpeakersDataContext);
   const speakerRec = speakerList?.find((rec) => rec.id === id);
-  
+
   if (loadingStatus === "loading") return null;
 
   return speakerRec ? (

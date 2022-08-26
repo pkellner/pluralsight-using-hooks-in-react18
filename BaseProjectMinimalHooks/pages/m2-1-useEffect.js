@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 
-export default function MyComponent({length = 3}) {
+export default function MyComponent({ length = 3 }) {
   const speakers = [
     {
       id: 10808,
@@ -34,15 +34,15 @@ export default function MyComponent({length = 3}) {
     },
   ];
   const [speakerListFiltered, setSpeakerListFiltered] = useState([]);
-  
+
   useEffect(() => {
     async function fetchSpeakers() {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      setSpeakerListFiltered(speakers.slice(0,length));
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      setSpeakerListFiltered(speakers.slice(0, length));
     }
     fetchSpeakers();
   }, []);
-  
+
   return (
     <div className="container">
       <div className="row">
@@ -50,7 +50,7 @@ export default function MyComponent({length = 3}) {
           return (
             <div className="col-12" key={speakerRec.id}>
               <img src={speakerRec.imageUrl} width="200" height="200" />
-              
+
               <h4>
                 {speakerRec.firstName} {speakerRec.lastName}
               </h4>

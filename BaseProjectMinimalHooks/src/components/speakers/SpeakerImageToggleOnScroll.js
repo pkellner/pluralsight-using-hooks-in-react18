@@ -1,7 +1,6 @@
 import React from "react";
 
 const SpeakerImageToggleOnScroll = ({ imageUrl, alt }) => {
- 
   return (
     <img
       src={imageUrl}

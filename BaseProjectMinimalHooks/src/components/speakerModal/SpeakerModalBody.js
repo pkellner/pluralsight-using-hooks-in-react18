@@ -1,8 +1,4 @@
-
-
-
 function NotesModalBody() {
- 
   return (
     <div className="modal-body">
       <div className="notes-box">
@@ -19,9 +15,7 @@ function NotesModalBody() {
                 <div className="note-title">
                   <label>First Name</label>
                   <input
-                    onChange={(event) => {
-                    
-                    }}
+                    onChange={(event) => {}}
                     type="text"
                     className="form-control"
                     placeholder="First Name"
@@ -32,9 +26,7 @@ function NotesModalBody() {
                 <div className="note-title">
                   <label>Last Name</label>
                   <input
-                    onChange={(event) => {
-                    
-                    }}
+                    onChange={(event) => {}}
                     type="text"
                     className="form-control"
                     placeholder="Last Name"
@@ -45,10 +37,7 @@ function NotesModalBody() {
                 <div className="note-title">
                   <label>Email</label>
                   <input
-                    
-                    onChange={(event) => {
-                    
-                    }}
+                    onChange={(event) => {}}
                     type="text"
                     className="form-control"
                     placeholder="Email"
@@ -59,10 +48,7 @@ function NotesModalBody() {
                 <div className="note-title">
                   <label>Speaker Image URL:</label>
                   <input
-                   
-                    onChange={(event) => {
-                    
-                    }}
+                    onChange={(event) => {}}
                     type="text"
                     className="form-control"
                     placeholder="https://"

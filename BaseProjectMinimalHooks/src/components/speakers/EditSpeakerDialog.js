@@ -7,16 +7,16 @@ export default function EditSpeakerDialog({
   email,
   imageUrl,
 }) {
-
   return (
     <button
       onClick={(e) => {
         e.preventDefault();
-        window.location.href = "/speakerpopup"
+        window.location.href = "/speakerpopup";
       }}
       className="btn btn-accent btn-sm"
     >
-      <i className="fa fa-edit"></i>{" Edit "}
+      <i className="fa fa-edit"></i>
+      {" Edit "}
     </button>
   );
 }
