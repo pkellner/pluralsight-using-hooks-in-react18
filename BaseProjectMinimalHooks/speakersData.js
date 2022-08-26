@@ -1,21 +1,5 @@
 export const speakerList = [
   {
-    id: 10808,
-    firstName: "Antony",
-    lastName: "Ross",
-    sat: true,
-    sun: false,
-    favorite: false,
-    bio:
-      "Antony Ross is a consultant specializing in data science and machine learning applied to sports performance. He has worked closely with USC and UCLA and is presently involved with the Recurse Center in New York researching deep learning and voice recognition.",
-    company: "SportInsight",
-    twitterHandle: "hisbiz",
-    userBioShort:
-      "Antony Ross is a consultant specializing in data science and machine learning in sports.",
-    imageUrl: "/images/Speaker-10808.jpg",
-    email: "Antony.Ross@codecamp.net",
-  },
-  {
     id: 1269,
     firstName: "Arun",
     lastName: "Gupta",
@@ -30,38 +14,7 @@ export const speakerList = [
     imageUrl: "/images/Speaker-1269.jpg",
     email: "Arun.Gupta@codecamp.net",
   },
-  {
-    id: 1725,
-    firstName: "Brad",
-    lastName: "Irby",
-    sat: false,
-    sun: true,
-    favorite: true,
-    bio:
-      "Brad is an accomplished .NET software architect specializing in Domain Driven Design and Event Driven Architectures.",
-    company: "Brad Irby Consulting LLC",
-    twitterHandle: "bradirby",
-    userBioShort:
-      "I help retail companies migrate Software Monoliths to microservices and Event Driven Architecture",
-    imageUrl: "/images/Speaker-1725.jpg",
-    email: "Brad.Irby@codecamp.net",
-  },
-  {
-    id: 8590,
-    firstName: "Chris",
-    lastName: "Richardson",
-    sat: true,
-    sun: false,
-    favorite: true,
-    bio:
-      "Chris Richardson is a developer and architect. He is a Java Champion, a JavaOne rock star and the author of POJOs in Action, which describes how to build enterprise Java applications with frameworks such as Spring and Hibernate.",
-    company: "Eventuate, Inc",
-    twitterHandle: "crichardson",
-    userBioShort:
-      "Founder of Eventuate, Author of POJOs in Action, creator of the original Cloud Foundry",
-    imageUrl: "/images/Speaker-8590.jpg",
-    email: "Chris.Richardson@codecamp.net",
-  },
+
   {
     id: 5996,
     firstName: "Craig",
@@ -142,22 +95,7 @@ export const speakerList = [
     imageUrl: "/images/Speaker-8367.jpg",
     email: "Gayle Laakmann.McDowell@codecamp.net",
   },
-  {
-    id: 823,
-    firstName: "Kevin",
-    lastName: "Nilson",
-    sat: false,
-    sun: true,
-    favorite: false,
-    bio:
-      "Team Lead of the Chromecast Technical Solutions Engineer team, a Java Champion and three time JavaOne Rock Star Presenter. Kevin has spoken at conferences such as JavaOne, Devoxx, JAX, O'Reilly Fluent, Silicon Valley Code Camp, JAX and HTML5DevConf.",
-    company: "Google",
-    twitterHandle: "javaclimber",
-    userBioShort:
-      "Chromecast Technical Solutions Engineering Lead at Google, Java Champion, 3 time JavaOne Rock Star",
-    imageUrl: "/images/Speaker-823.jpg",
-    email: "Kevin.Nilson@codecamp.net",
-  },
+
   {
     id: 18805,
     firstName: "Mickey W.",

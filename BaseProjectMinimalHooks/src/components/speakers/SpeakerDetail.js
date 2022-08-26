@@ -5,7 +5,6 @@ import DeleteSpeakerButton from "./DeleteSpeakerButton";
 import SpeakerImageToggleOnScroll from "./SpeakerImageToggleOnScroll";
 
 const SpeakerDetail = ({ speakerRec, showDetails }) => {
-
   return (
     <>
       <div className="col-xl-6 col-md-12">
@@ -13,8 +12,7 @@ const SpeakerDetail = ({ speakerRec, showDetails }) => {
           <div className="row g-0">
             <div className="col-4">
               <SpeakerImageToggleOnScroll
-                imageUrl={speakerRec.imageUrl}
-                alt="{firstName} {lastName}"
+                imageUrl={speakerRec?.imageUrl}
               />
             </div>
 
@@ -27,37 +25,37 @@ const SpeakerDetail = ({ speakerRec, showDetails }) => {
 
                   <div className="modifyWrapper">
                     <EditSpeakerDialog {...speakerRec} />
-                    <DeleteSpeakerButton id={speakerRec.id} />
+                    <DeleteSpeakerButton id={speakerRec?.id} />
                   </div>
                 </div>
                 <h4 className="card-title">
                   <a
                     onClick={() => {
-                      setRoute(`/speaker/${speakerRec.id}`);
+                      window.location.href = `/speaker/${speakerRec.id}`
                     }}
                     href="#"
                   >
-                    {speakerRec.firstName} {speakerRec.lastName}
+                    {speakerRec?.firstName} {speakerRec?.lastName}
                   </a>
                 </h4>
 
                 {showDetails === true ? (
-                  <p className="card-text">{speakerRec.bio}</p>
+                  <p className="card-text">{speakerRec?.bio}</p>
                 ) : (
-                  <p className="card-text">{speakerRec.userBioShort}</p>
+                  <p className="card-text">{speakerRec?.userBioShort}</p>
                 )}
               </div>
 
               <div className="card-footer text-muted d-flex flex-wrap justify-content-between align-items-center">
                 {speakerRec?.company?.length > 0 ? (
                   <small>
-                    <strong>Company:</strong> {speakerRec.company}
+                    <strong>Company:</strong> {speakerRec?.company}
                   </small>
                 ) : null}
 
-                {speakerRec.twitterHandle.length > 0 ? (
+                {speakerRec?.twitterHandle.length > 0 ? (
                   <small>
-                    <strong>Twitter</strong>: {speakerRec.twitterHandle}
+                    <strong>Twitter</strong>: {speakerRec?.twitterHandle}
                   </small>
                 ) : null}
               </div>
