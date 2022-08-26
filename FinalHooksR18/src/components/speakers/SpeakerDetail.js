@@ -6,11 +6,14 @@ import FavoriteSpeakerToggle from "./FavoriteSpeakerToggle";
 import DeleteSpeakerButton from "./DeleteSpeakerButton";
 import { AppRouterContext } from "../../contexts/AppRouterContext";
 
-const SpeakerDetail = ({ speakerRec, showDetails }) => {
-  const { setRoute } = useContext(AppRouterContext);
+const SpeakerDetail = React.memo(({ speakerRec, showDetails }) => {
+  //const { setRoute } = useContext(AppRouterContext);
 
   //if (!speakerRec) return null;
-
+  console.log(
+    `SpeakerDetail: ${speakerRec.id}: ${speakerRec.firstName} ${speakerRec.lastName} `
+  );
+  
   return (
     <>
       {speakerRec && <SpeakerModal />}
@@ -74,6 +77,8 @@ const SpeakerDetail = ({ speakerRec, showDetails }) => {
       </div>
     </>
   );
-};
+},(prevProps,nextProps) => {
+  return prevProps.speakerRec.favorite === nextProps.speakerRec.favorite;
+});
 
 export default SpeakerDetail;

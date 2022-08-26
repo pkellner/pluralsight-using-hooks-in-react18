@@ -13,14 +13,13 @@
       "imageUrl": "/images/Speaker-1269.jpg",
       "email": "Arun.Gupta@codecamp.net"
     },
-
     {
       "id": 5996,
       "firstName": "Craig",
       "lastName": "Berntson",
       "sat": true,
       "sun": true,
-      "favorite": true,
+      "favorite": false,
       "bio": "Craig has a passion for community and helping other developers improve their skills. He writes the column \"Software Gardening\" in DotNet Curry Magazine and is the co-author of \"Continuous Integration in .NET\" available from Manning.",
       "company": "HealthEquity",
       "twitterHandle": "craigber",
@@ -48,7 +47,7 @@
       "lastName": "Crockford",
       "sat": true,
       "sun": false,
-      "favorite": true,
+      "favorite": false,
       "bio": "Douglas Crockford discovered the JSON Data Interchange Format. He is also the author of _JavaScript: The Good Parts_. He has been called a guru, but he is actually more of a mahatma.",
       "company": "PayPal",
       "twitterHandle": "",
@@ -84,7 +83,6 @@
       "imageUrl": "/images/Speaker-8367.jpg",
       "email": "Gayle Laakmann.McDowell@codecamp.net"
     },
-
     {
       "id": 18805,
       "firstName": "Mickey W.",
