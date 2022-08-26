@@ -4,7 +4,7 @@ import { SpeakerMenuContext } from "../../contexts/SpeakerMenuContext";
 const SpeakerImageToggleOnScroll = ({ imageUrl, alt }) => {
   const imageRef = useRef(null);
 
-  const { speakingSaturday, speakingSunday } = useContext(SpeakerMenuContext);
+  const { speakingSaturday, speakingSunday, searchText } = useContext(SpeakerMenuContext);
 
   const isInView = () => {
     const rect = imageRef.current.getBoundingClientRect();
@@ -19,7 +19,7 @@ const SpeakerImageToggleOnScroll = ({ imageUrl, alt }) => {
     return () => {
       window.removeEventListener("scroll", scrollHandler);
     };
-  }, [speakingSaturday, speakingSunday]);
+  }, [speakingSaturday, speakingSunday, searchText]);
 
   const scrollHandler = () => {
     setInView(isInView());

@@ -9,7 +9,9 @@ import { SpeakerMenuContext } from "../../contexts/SpeakerMenuContext";
 
 const Speakers = () => {
   const { data: speakerList, loadingStatus } = useContext(SpeakersDataContext);
-  const { speakingSaturday, speakingSunday } = useContext(SpeakerMenuContext);
+  const { speakingSaturday, speakingSunday, searchText } = useContext(
+    SpeakerMenuContext
+  );
 
   useEffect(() => {}, [speakingSaturday, speakingSunday]);
 

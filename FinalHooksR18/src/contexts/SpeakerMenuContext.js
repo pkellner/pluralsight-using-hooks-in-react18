@@ -7,12 +7,15 @@ export const SpeakerMenuContext = createContext({
   setSpeakingSaturday: () => {},
   speakingSunday: true,
   setSpeakingSunday: () => {},
+  searchText: "",
+  setSearchText: () => {},
 });
 
 export const SpeakerMenuProvider = ({ children }) => {
   const [updating, setUpdating] = useState(false);
   const [speakingSaturday, setSpeakingSaturday] = useState(true);
   const [speakingSunday, setSpeakingSunday] = useState(true);
+  const [searchText, setSearchText] = useState("");
 
   const value = {
     updating,
@@ -21,7 +24,13 @@ export const SpeakerMenuProvider = ({ children }) => {
     setSpeakingSaturday,
     speakingSunday,
     setSpeakingSunday,
+    searchText,
+    setSearchText,
   };
 
-  return <SpeakerMenuContext.Provider value={value}>{children}</SpeakerMenuContext.Provider>;
+  return (
+    <SpeakerMenuContext.Provider value={value}>
+      {children}
+    </SpeakerMenuContext.Provider>
+  );
 };
