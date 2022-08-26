@@ -3,6 +3,7 @@ import AppMenu from "./AppMenu";
 import About from "../about/About";
 import Speakers from "../speakers/Speakers";
 import SpeakerDetail from "../speakers/SpeakerDetail";
+import SpeakerModal from "../speakerModal/SpeakerModal";
 
 export default function Layout({ url }) {
   const speakerRec = {
@@ -30,6 +31,9 @@ export default function Layout({ url }) {
       {url === "/" && <Speakers />}
       {url.startsWith("/speaker/") && (
         <SpeakerDetail speakerRec={speakerRec} showDetails={true} />
+      )}
+      {url.startsWith("/speakerpopup") && (
+        <SpeakerModal modalShow={true} />
       )}
     </div>
   );

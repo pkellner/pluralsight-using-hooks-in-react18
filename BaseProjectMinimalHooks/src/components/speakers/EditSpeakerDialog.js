@@ -12,6 +12,7 @@ export default function EditSpeakerDialog({
     <button
       onClick={(e) => {
         e.preventDefault();
+        window.location.href = "/speakerpopup"
       }}
       className="btn btn-accent btn-sm"
     >

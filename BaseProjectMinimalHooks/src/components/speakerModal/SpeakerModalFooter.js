@@ -3,14 +3,15 @@ import { useContext } from "react";
 export default function NotesModalFooter() {
   return (
     <div className="modal-footer justify-content-center">
-      {modalSpeakerId !== 0 && (
-        <button onClick={() => {}} className="float-left btn btn-accent">
-          Save
-        </button>
-      )}
+      <button onClick={() => {}} className="float-left btn btn-accent">
+        Save
+      </button>
+      
       <button
         className="btn btn-danger"
-        onClick={() => {}}
+        onClick={() => {
+          window.location.href = "/";
+        }}
         data-dismiss="modal"
       >
         Discard
@@ -18,7 +19,7 @@ export default function NotesModalFooter() {
       <button className="btn btn-accent" onClick={() => {}}>
         Add
       </button>
-      )
+      
     </div>
   );
 }

@@ -1,18 +1,8 @@
-import {useContext} from "react";
-import {SpeakerModalContext} from "../../contexts/SpeakerModalContext";
+
+
 
 function NotesModalBody() {
-  const {
-    modalSpeakerId,
-    modalSpeakerFirstName,
-    setModalSpeakerFirstName,
-    modalSpeakerLastName,
-    setModalSpeakerLastName,
-    modalSpeakerImageUrl,
-    setModalSpeakerImageUrl,
-    modalSpeakerEmail,
-    setModalSpeakerEmail,
-  } = useContext(SpeakerModalContext);
+ 
   return (
     <div className="modal-body">
       <div className="notes-box">
@@ -22,20 +12,19 @@ function NotesModalBody() {
               <div className="col-md-12">
                 <div className="note-title">
                   <label>Speaker Id:</label>
-                  <span>{modalSpeakerId}</span>
+                  <span>101</span>
                 </div>
               </div>
               <div className="col-md-12">
                 <div className="note-title">
                   <label>First Name</label>
                   <input
-                    value={modalSpeakerFirstName}
                     onChange={(event) => {
-                      setModalSpeakerFirstName(event.target.value);
+                    
                     }}
                     type="text"
                     className="form-control"
-                    placeholder="Title"
+                    placeholder="First Name"
                   />
                 </div>
               </div>
@@ -43,13 +32,12 @@ function NotesModalBody() {
                 <div className="note-title">
                   <label>Last Name</label>
                   <input
-                    value={modalSpeakerLastName}
                     onChange={(event) => {
-                      setModalSpeakerLastName(event.target.value);
+                    
                     }}
                     type="text"
                     className="form-control"
-                    placeholder="Title"
+                    placeholder="Last Name"
                   />
                 </div>
               </div>
@@ -57,9 +45,9 @@ function NotesModalBody() {
                 <div className="note-title">
                   <label>Email</label>
                   <input
-                    value={modalSpeakerEmail}
+                    
                     onChange={(event) => {
-                      setModalSpeakerEmail(event.target.value);
+                    
                     }}
                     type="text"
                     className="form-control"
@@ -71,13 +59,13 @@ function NotesModalBody() {
                 <div className="note-title">
                   <label>Speaker Image URL:</label>
                   <input
-                    value={modalSpeakerImageUrl}
+                   
                     onChange={(event) => {
-                      setModalSpeakerImageUrl(event.target.value);
+                    
                     }}
                     type="text"
                     className="form-control"
-                    placeholder="Title"
+                    placeholder="https://"
                   />
                 </div>
               </div>
