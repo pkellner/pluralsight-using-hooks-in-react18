@@ -24,18 +24,13 @@ export default function EditSpeakerDialog({
     setModalSpeakerImageUrl,
   } = useContext(SpeakerModalContext);
 
+  //console.log(`EditSpeakerDialog: rendered ${modalSpeakerId}`);
+
   return (
     <button
       onClick={(e) => {
         e.preventDefault();
-        // setModalSpeakerId(speakerRec.id);
-        //
-        // setModalSpeakerFirstName(speakerRec.firstName);
-        // setModalSpeakerLastName(speakerRec.lastName);
-        // setModalSpeakerImageUrl(speakerRec.imageUrl);
-
         setModalSpeakerId(id);
-
         setModalSpeakerFirstName(firstName);
         setModalSpeakerLastName(lastName);
         setModalSpeakerImageUrl(imageUrl);
