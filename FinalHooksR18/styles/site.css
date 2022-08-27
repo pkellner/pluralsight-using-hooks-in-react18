@@ -166,6 +166,10 @@ header ul li button:focus {
   gap: 1rem;
 }
 
+.btn-toolbar .note-title input {
+  border: 0;
+}
+
 @media screen and (max-width: 768px) {
   .btn-toolbar {
     top: 71px;
@@ -174,6 +178,9 @@ header ul li button:focus {
     gap: 1rem;
     flex-wrap: wrap;
     justify-content: center;
+  }
+  .btn-toolbar .note-title {
+    width: 100%;
   }
 }
 
