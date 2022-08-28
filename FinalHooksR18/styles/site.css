@@ -59,6 +59,17 @@ a:focus {
   vertical-align: top;
 }
 
+/* by adding 'spinner-bottom' class as a wrapper will change the spinner position to bottom */
+.spinner-bottom .spinner-grow,
+.spinner-bottom .spinner-border {
+  --bs-spinner-width: 1rem;
+  --bs-spinner-height: 1rem;
+  --bs-spinner-border-width: 0.18em;
+  position: absolute;
+  top: 24px;
+  left: 2px;
+}
+
 .spinner-grow,
 .spinner-border {
   --bs-spinner-width: 1.5rem;
@@ -67,7 +78,7 @@ a:focus {
   position: absolute;
   top: 0px;
   left: 35px;
-}
+} 
 
 .btn-accent {
   background: var(--primary);
@@ -120,11 +131,12 @@ a:focus {
 header {
   background-color: var(--less-dark);
 
-  /* Uncomment below code when the header need to be sticky onScroll */
+  /* Uncomment below code when the header need to be sticky onScrollDown */
   /* position: sticky;
   top: 0;
   z-index: 9; */
   box-shadow: 0px 12px 15px 0px rgb(114 116 118 / 57%);
+  margin-bottom: 13px;
 }
 
 header ul li button {
@@ -152,7 +164,6 @@ header ul li button:focus {
   /* position: sticky;
   top: 80px;
   z-index: 9; */
-  margin-top: 12px;
 }
 
 .btn-toolbar .toolbar-trigger {
@@ -166,7 +177,7 @@ header ul li button:focus {
   gap: 1rem;
 }
 
-.btn-toolbar .note-title input {
+.btn-toolbar .toolbar-search input {
   border: 0;
 }
 
@@ -179,7 +190,7 @@ header ul li button:focus {
     flex-wrap: wrap;
     justify-content: center;
   }
-  .btn-toolbar .note-title {
+  .btn-toolbar .toolbar-search {
     width: 100%;
   }
 }
@@ -214,6 +225,10 @@ header ul li button:focus {
 
 .card-body {
   min-height: 215px;
+}
+
+.speaker-list .card-body {
+  min-height: auto;
 }
 
 .about .card-body {

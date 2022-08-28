@@ -32,7 +32,7 @@ const SpeakerList = () => {
     <>
       <SpeakerMenu />
       <div className="container">
-        <div className="row g-4">
+        <div className="row g-3">
           {speakerListFiltered.map((speakerRec) => {
             return (
               <SpeakerLine

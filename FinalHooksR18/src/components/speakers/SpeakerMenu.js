@@ -19,8 +19,8 @@ export default function SpeakerMenu() {
       role="toolbar"
       aria-label="Speaker toolbar filter"
     >
-      <div className="hide toolbar-trigger mb-3">
-        <div className="note-title">
+      <div className="toolbar-trigger mb-3">
+        <div className="toolbar-search">
           <input
             value={searchText}
             onChange={(event) => {
