@@ -29,20 +29,9 @@ const SpeakerLine = ({ speakerRec, setSpeakerRec, updating }) => {
   );
 };
 
-export default SpeakerLine;
-
-// export default memo(SpeakerLine, (prevProps, nextProps) => {
-//   return prevProps.speakerRec.favorite === nextProps.speakerRec.favorite;
-// });
-
-//
-// EDIT MULTIPLE TIMES FAILED UPDATE WITH MEMO
-// (prevProps, nextProps) => {
-//   return (
-//     prevProps.speakerRec.favorite === nextProps.speakerRec.favorite &&
-//     prevProps.speakerRec.firstName === nextProps.speakerRec.firstName &&
-//     prevProps.speakerRec.lastName === nextProps.speakerRec.lastName &&
-//     prevProps.speakerRec.email === nextProps.speakerRec.email &&
-//     prevProps.speakerRec.imageUrl === nextProps.speakerRec.imageUrl
-//   );
-// }
+export default memo(SpeakerLine, (prevProps, nextProps) => {
+  return (
+    prevProps.speakerRec.favorite === nextProps.speakerRec.favorite &&
+    prevProps.updating === nextProps.updating
+  );
+});
