@@ -1,19 +1,17 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 
 import SpeakerDetail from "./SpeakerDetail";
 import { SpeakerModalProvider } from "../../contexts/SpeakerModalContext";
 import { SpeakersDataContext } from "../../contexts/SpeakersDataContext";
 import useSpeakerSortAndFilter from "../../hooks/useSpeakerSortAndFilter";
 import SpeakerMenu from "./SpeakerMenu";
-import { SpeakerMenuContext } from "../../contexts/SpeakerMenuContext";
+// import { SpeakerMenuContext } from "../../contexts/SpeakerMenuContext";
 
 const Speakers = () => {
   const { data: speakerList, loadingStatus } = useContext(SpeakersDataContext);
-  const { speakingSaturday, speakingSunday, searchText } = useContext(
-    SpeakerMenuContext
-  );
-
-  useEffect(() => {}, [speakingSaturday, speakingSunday]);
+  // const { speakingSaturday, speakingSunday } = useContext(
+  //   SpeakerMenuContext
+  // );
 
   const speakerListFiltered = useSpeakerSortAndFilter(speakerList);
   if (loadingStatus === "hasErrored") return <div>Errored on load</div>;

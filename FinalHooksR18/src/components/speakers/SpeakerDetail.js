@@ -10,9 +10,9 @@ const SpeakerDetail = ({ speakerRec, showDetails }) => {
   const { setRoute } = useContext(AppRouterContext);
 
   //if (!speakerRec) return null;
-  console.log(
-    `SpeakerDetail: ${speakerRec.id}: ${speakerRec.firstName} ${speakerRec.lastName} `
-  );
+  // console.log(
+  //   `SpeakerDetail: ${speakerRec.id}: ${speakerRec.firstName} ${speakerRec.lastName} `
+  // );
 
   return (
     <>

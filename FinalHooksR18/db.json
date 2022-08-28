@@ -1,25 +1,12 @@
 {
   "speakers": [
     {
-      "id": 1269,
-      "firstName": "Arun",
-      "lastName": "Gupta",
-      "sat": false,
-      "sun": true,
-      "favorite": false,
-      "bio": "Arun Gupta is a Principal Open Source Technologist at Amazon Web Services. He has built and led developer communities for 12+ years at Sun, Oracle, Red Hat and Couchbase.",
-      "twitterHandle": "arungupta",
-      "userBioShort": "Arun Gupta is a Principal Open Source Technologist at Amazon Web Services. ",
-      "imageUrl": "/images/Speaker-1269.jpg",
-      "email": "Arun.Gupta@codecamp.net"
-    },
-    {
       "id": 5996,
       "firstName": "Craig",
       "lastName": "Berntson",
       "sat": true,
       "sun": true,
-      "favorite": false,
+      "favorite": true,
       "bio": "Craig has a passion for community and helping other developers improve their skills. He writes the column \"Software Gardening\" in DotNet Curry Magazine and is the co-author of \"Continuous Integration in .NET\" available from Manning.",
       "company": "HealthEquity",
       "twitterHandle": "craigber",
@@ -29,7 +16,7 @@
     },
     {
       "id": 187,
-      "firstName": "Dave",
+      "firstName": "DaveRx",
       "lastName": "Nielsen",
       "sat": true,
       "sun": true,
@@ -44,10 +31,10 @@
     {
       "id": 1124,
       "firstName": "Douglas",
-      "lastName": "Crockford",
+      "lastName": "Crockford456",
       "sat": true,
       "sun": false,
-      "favorite": false,
+      "favorite": true,
       "bio": "Douglas Crockford discovered the JSON Data Interchange Format. He is also the author of _JavaScript: The Good Parts_. He has been called a guru, but he is actually more of a mahatma.",
       "company": "PayPal",
       "twitterHandle": "",
