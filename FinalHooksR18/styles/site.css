@@ -317,10 +317,10 @@ header ul li button:focus {
 }
 
 .theme-dark {
-  background-color: #0062cc;
+  background-color: #ccc;
 }
 .theme-light {
-  background-color: #0062cc37;
+  background-color: #fff;
 }
 
 /* Maybe we can integrate fonticons instead of the image? */

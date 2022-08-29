@@ -2,9 +2,9 @@ import React, { useContext, useState, memo } from "react";
 import FavoriteSpeakerToggleLine from "./FavoriteSpeakerToggleLine";
 
 const SpeakerLine = ({ speakerRec, setSpeakerRec, updating }) => {
-  console.log(
-    `SpeakerLine: ${speakerRec.id}: ${speakerRec.firstName} ${speakerRec.lastName} `
-  );
+  // console.log(
+  //   `SpeakerLine: ${speakerRec.id}: ${speakerRec.firstName} ${speakerRec.lastName} `
+  // );
 
   return (
     <>

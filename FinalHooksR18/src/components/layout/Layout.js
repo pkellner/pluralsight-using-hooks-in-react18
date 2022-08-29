@@ -1,25 +1,18 @@
 import Header from "./Header";
 import AppMenu from "./AppMenu";
 import { AppRouterContext } from "../../contexts/AppRouterContext";
-import { useContext, useState } from "react";
+import { useContext } from "react";
+import { ThemeProvider } from "../../contexts/ThemeContext";
 
 // Layout does not use children but instead uses what comes from AppRouteProvider
 export default function Layout() {
   const { activeComponent } = useContext(AppRouterContext);
-  const [darkTheme, setDarkTheme] = useState(false);
-  
-  function toggleTheme() {
-    setDarkTheme(!darkTheme);
-  }
-  
+
   return (
-    <div>
+    <ThemeProvider>
       <Header />
-      <AppMenu toggleTheme={toggleTheme} />
-      {/*{activeComponent}*/}
-      <div className={darkTheme ? "theme-dark" : "theme-light"}>
-        {activeComponent}
-      </div>
-    </div>
+      <AppMenu />
+      {activeComponent}}
+    </ThemeProvider>
   );
 }
