@@ -316,6 +316,13 @@ header ul li button:focus {
   letter-spacing: 0.6px;
 }
 
+.theme-dark {
+  background-color: #0062cc;
+}
+.theme-light {
+  background-color: #0062cc37;
+}
+
 /* Maybe we can integrate fonticons instead of the image? */
 /* .heartredbutton {
   background-image: url("/images/heart-red.png");
