@@ -12,7 +12,7 @@ export default function Layout() {
     <ThemeProvider>
       <Header />
       <AppMenu />
-      {activeComponent}}
+      {activeComponent}
     </ThemeProvider>
   );
 }

@@ -1,5 +1,4 @@
-import React, { useContext, useState, memo } from "react";
-import FavoriteSpeakerToggleLine from "./FavoriteSpeakerToggleLine";
+import React, { memo } from "react";
 
 const SpeakerLine = ({ speakerRec, setSpeakerRec, updating }) => {
   // console.log(
@@ -25,19 +24,6 @@ const SpeakerLine = ({ speakerRec, setSpeakerRec, updating }) => {
                     <h5 className="mb-1">
                       {speakerRec.firstName} {speakerRec.lastName}
                     </h5>
-                    <div className="spinner-bottom">
-                      <FavoriteSpeakerToggleLine
-                        speakerRec={speakerRec}
-                        setSpeakerRec={setSpeakerRec}
-                      >
-                        {updating ? (
-                          <i
-                            className="spinner-border text-dark"
-                            role="status"
-                          />
-                        ) : null}
-                      </FavoriteSpeakerToggleLine>
-                    </div>
                   </div>
                   <small className="text-muted">
                     <strong>Company: </strong> {speakerRec.company}

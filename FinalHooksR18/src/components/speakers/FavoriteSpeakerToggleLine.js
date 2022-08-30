@@ -1,6 +1,3 @@
-import { SpeakersDataContext } from "../../contexts/SpeakersDataContext";
-import { useContext, useState, memo, useCallback } from "react";
-
 const FavoriteSpeakerToggleLine = ({ speakerRec, setSpeakerRec, children }) => {
   const onClickFavorite = () => {
     const newSpeakerRec = {
