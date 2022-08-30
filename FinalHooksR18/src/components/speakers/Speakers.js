@@ -5,6 +5,7 @@ import { SpeakerModalProvider } from "../../contexts/SpeakerModalContext";
 import { SpeakersDataContext } from "../../contexts/SpeakersDataContext";
 import useSpeakerSortAndFilter from "../../hooks/useSpeakerSortAndFilter";
 import SpeakerMenu from "./SpeakerMenu";
+import { ThemeContext } from "../../contexts/ThemeContext";
 // import { SpeakerMenuContext } from "../../contexts/SpeakerMenuContext";
 
 const Speakers = () => {
@@ -12,12 +13,13 @@ const Speakers = () => {
   // const { speakingSaturday, speakingSunday } = useContext(
   //   SpeakerMenuContext
   // );
+  const { darkTheme } = useContext(ThemeContext);
 
   const speakerListFiltered = useSpeakerSortAndFilter(speakerList);
   if (loadingStatus === "hasErrored") return <div>Errored on load</div>;
 
   return (
-    <>
+    <div className={darkTheme ? "theme-dark" : "theme-light"}>
       <SpeakerMenu />
       <div className="container">
         <div className="row g-4">
@@ -34,7 +36,7 @@ const Speakers = () => {
           </SpeakerModalProvider>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
