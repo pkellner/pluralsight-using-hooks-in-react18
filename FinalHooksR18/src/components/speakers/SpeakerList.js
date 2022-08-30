@@ -1,51 +1,44 @@
-import React, { useCallback, useContext, useState } from "react";
-import { SpeakersDataContext } from "../../contexts/SpeakersDataContext";
-import useSpeakerSortAndFilter from "../../hooks/useSpeakerSortAndFilter";
-import SpeakerMenu from "./SpeakerMenu";
+import React, { useContext, useEffect, useState } from "react";
 import SpeakerLine from "./SpeakerLine";
+import axios from "axios";
+import { ThemeContext } from "../../contexts/ThemeContext";
+
+function List({ getItems }) {
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    async function getIt() {
+      setItems(await getItems());
+    }
+    getIt();
+    console.log("list: updating items"); // this called when not useCallback below
+  }, [getItems]);
+  return (
+    <div className="container">
+      <div className="row g-3">
+        {items.map((speakerRec) => (
+          <SpeakerLine key={speakerRec.id} speakerRec={speakerRec} />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 const SpeakerList = () => {
-  const { data: speakerList, updateSpeaker, loadingStatus } = useContext(
-    SpeakersDataContext
-  );
-  const [updatingSpeakerId, setUpdatingSpeakerId] = useState(0);
+  const { darkTheme } = useContext(ThemeContext);
 
-  const setSpeakerRec = (newSpeakerRec) => {
-    setUpdatingSpeakerId(newSpeakerRec.id);
-    updateSpeaker(newSpeakerRec, () => {
-      setUpdatingSpeakerId(0); // 0 means no speaker updating
-    });
+  const getItems = async () => {
+    console.log("getItems called");
+    const results = await axios.get("/api/speakers/");
+    return results.data;
   };
 
-  // const setSpeakerRec = (newSpeakerRec) => {
-  //   setUpdatingSpeakerId(newSpeakerRec.id);
-  //   updateSpeaker(newSpeakerRec, () => {
-  //     setUpdatingSpeakerId(0); // 0 means no speaker updating
-  //   });
-  // };
-
-  if (loadingStatus === "hasErrored") return <div>Errored on load</div>;
-
-  const speakerListFiltered = useSpeakerSortAndFilter(speakerList);
+  console.log("SpeakerList rendered");
 
   return (
-    <>
-      <SpeakerMenu />
-      <div className="container">
-        <div className="row g-3">
-          {speakerListFiltered.map((speakerRec) => {
-            return (
-              <SpeakerLine
-                key={speakerRec.id}
-                speakerRec={speakerRec}
-                setSpeakerRec={setSpeakerRec}
-                updating={updatingSpeakerId === speakerRec.id}
-              />
-            );
-          })}
-        </div>
-      </div>
-    </>
+    <div className={darkTheme ? "theme-dark" : "theme-light"}>
+      {/*<List getItems={useCallback(getItems, [])} />*/}
+      <List getItems={getItems} />
+    </div>
   );
 };
 
