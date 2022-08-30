@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import SpeakerLine from "./SpeakerLine";
 import axios from "axios";
 import { ThemeContext } from "../../contexts/ThemeContext";
@@ -10,7 +10,6 @@ function List({ getItems }) {
       setItems(await getItems());
     }
     getIt();
-
     console.log("list: updating items"); // this called when not useCallback below
   }, [getItems]);
   return (
@@ -37,7 +36,8 @@ const SpeakerList = () => {
 
   return (
     <div className={darkTheme ? "theme-dark" : "theme-light"}>
-      <List getItems={useCallback(getItems, [])} />
+      {/*<List getItems={useCallback(getItems, [])} />*/}
+      <List getItems={getItems} />
     </div>
   );
 };
