@@ -14,13 +14,21 @@ body,
 html {
   font-family: "Roboto", sans-serif;
   color: var(--dark);
-  background: linear-gradient(
+  background-color: #fff;
+  padding-bottom: 1rem;
+}
+
+.theme-light {
+  background: linear-gradient(0deg, white, transparent);
+  /* background: linear-gradient(
       0deg,
       rgba(250, 250, 250, 0.5),
       rgba(250, 250, 250, 0.5)
     ),
-    #fff !important;
-  padding-bottom: 1rem;
+    #fff !important; */
+}
+.theme-dark {
+  background-color: #ccc;
 }
 
 a {
@@ -137,6 +145,14 @@ header {
   z-index: 9; */
   box-shadow: 0px 12px 15px 0px rgb(114 116 118 / 57%);
   margin-bottom: 13px;
+}
+
+header ul {
+  justify-content: center;
+}
+
+header ul li:last-child {
+  margin-left: auto;
 }
 
 header ul li button {
@@ -316,12 +332,47 @@ header ul li button:focus {
   letter-spacing: 0.6px;
 }
 
-.theme-dark {
-  background-color: #ccc;
+
+
+.themeToggleCheckbox {
+  opacity: 0;
+  position: absolute;
 }
-.theme-light {
+
+.themeToggleCheckbox-label {
+  background-color: var(--dark);
+  width: 50px;
+  height: 26px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fa-moon {color: #f1c40f;}
+
+.fa-sun {color: var(--accent);}
+
+.themeToggleCheckbox-label .ball {
   background-color: #fff;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
 }
+
+.themeToggleCheckbox:checked + .themeToggleCheckbox-label .ball {
+  transform: translateX(24px);
+}
+
+
+
 
 /* Maybe we can integrate fonticons instead of the image? */
 /* .heartredbutton {

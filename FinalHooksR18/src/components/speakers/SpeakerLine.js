@@ -7,14 +7,14 @@ const SpeakerLine = ({ speakerRec, setSpeakerRec, updating }) => {
 
   return (
     <>
-      <div className="col-xl-6 col-md-12">
+      <div className="col-xl-12 col-md-12">
         <div className="card border-0 speaker-list">
-          <div className="card-body">
+          <div className="card-body p-0">
             <div className="d-flex align-items-center">
               <div className="flex-shrink-0">
                 <img
                   src={speakerRec.imageUrl}
-                  width={100}
+                  width={80}
                   alt={`${speakerRec?.firstName} ${speakerRec?.lastName}`}
                 />
               </div>
