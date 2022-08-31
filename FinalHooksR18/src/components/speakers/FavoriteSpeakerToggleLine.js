@@ -1,18 +1,11 @@
-const FavoriteSpeakerToggleLine = ({ speakerRec, setSpeakerRec, children }) => {
-  const onClickFavorite = () => {
-    const newSpeakerRec = {
-      ...speakerRec,
-      favorite: !speakerRec.favorite,
-    };
-    setSpeakerRec(newSpeakerRec);
-  };
-
+const FavoriteSpeakerToggleLine = ({ speakerRec, toggleFavoriteSpeaker, children }) => {
+  
   return (
     <button
       className={
         speakerRec.favorite ? "heartredbutton btn" : "heartdarkbutton btn"
       }
-      onClick={onClickFavorite}
+      onClick={toggleFavoriteSpeaker}
     >
       {children}
     </button>

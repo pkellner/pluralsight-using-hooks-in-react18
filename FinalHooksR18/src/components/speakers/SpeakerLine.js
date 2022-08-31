@@ -1,6 +1,7 @@
 import React, { memo } from "react";
+import FavoriteSpeakerToggleLine from "./FavoriteSpeakerToggleLine";
 
-const SpeakerLine = ({ speakerRec, setSpeakerRec, updating }) => {
+const SpeakerLine = ({ speakerRec, toggleFavoriteSpeaker, updating }) => {
   // console.log(
   //   `SpeakerLine: ${speakerRec.id}: ${speakerRec.firstName} ${speakerRec.lastName} `
   // );
@@ -28,6 +29,19 @@ const SpeakerLine = ({ speakerRec, setSpeakerRec, updating }) => {
                   <small className="text-muted">
                     <strong>Company: </strong> {speakerRec.company}
                   </small>
+                  <div className="spinner-bottom">
+                    <FavoriteSpeakerToggleLine
+                      speakerRec={speakerRec}
+                      toggleFavoriteSpeaker={toggleFavoriteSpeaker}
+                    >
+                      {updating ? (
+                        <i
+                          className="spinner-border text-dark"
+                          role="status"
+                        />
+                      ) : null}
+                    </FavoriteSpeakerToggleLine>
+                  </div>
                 </div>
               </div>
             </div>

@@ -12,11 +12,33 @@ function List({ getItems }) {
     getIt();
     console.log("list: updating items"); // this called when not useCallback below
   }, [getItems]);
+
+  function toggleFavoriteSpeaker(id) {
+    let updateSpeakerRec = {};
+    const speakerDataRecs = items.map(function (rec) {
+      if (rec.id === id) {
+        updateSpeakerRec =  { ...rec, favorite: !rec.favorite };
+        return updateSpeakerRec;
+      } else {
+        return rec;
+      }
+    });
+    const updateItem = async (id,rec) => {
+      await axios.put(`/api/speakers/${id}`,rec);
+    }
+    setItems(speakerDataRecs);
+    updateItem(id, updateSpeakerRec)
+  }
+
   return (
     <div className="container">
       <div className="row g-3">
         {items.map((speakerRec) => (
-          <SpeakerLine key={speakerRec.id} speakerRec={speakerRec} />
+          <SpeakerLine
+            key={speakerRec.id}
+            speakerRec={speakerRec}
+            toggleFavoriteSpeaker={() => toggleFavoriteSpeaker(speakerRec.id)}
+          />
         ))}
       </div>
     </div>
