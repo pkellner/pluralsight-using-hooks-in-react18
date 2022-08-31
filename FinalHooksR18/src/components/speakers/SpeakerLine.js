@@ -2,9 +2,9 @@ import React, { memo } from "react";
 import FavoriteSpeakerToggleLine from "./FavoriteSpeakerToggleLine";
 
 const SpeakerLine = ({ speakerRec, toggleFavoriteSpeaker, updating }) => {
-  // console.log(
-  //   `SpeakerLine: ${speakerRec.id}: ${speakerRec.firstName} ${speakerRec.lastName} `
-  // );
+  console.log(
+    `SpeakerLine: ${speakerRec.id}: ${speakerRec.firstName} ${speakerRec.lastName} `
+  );
 
   return (
     <>
@@ -52,9 +52,11 @@ const SpeakerLine = ({ speakerRec, toggleFavoriteSpeaker, updating }) => {
   );
 };
 
-export default memo(SpeakerLine, (prevProps, nextProps) => {
-  return (
-    prevProps.speakerRec.favorite === nextProps.speakerRec.favorite &&
-    prevProps.updating === nextProps.updating
-  );
-});
+export default SpeakerLine;
+
+// export default memo(SpeakerLine, (prevProps, nextProps) => {
+//   return (
+//     prevProps.speakerRec.favorite === nextProps.speakerRec.favorite &&
+//     prevProps.updating === nextProps.updating
+//   );
+// });

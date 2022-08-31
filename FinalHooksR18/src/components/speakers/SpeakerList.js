@@ -5,7 +5,7 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 
 function List({ getItems }) {
   const [items, setItems] = useState([]);
-  const [updating, setUpdating] = useState(false);
+  const [updatingId, setUpdatingId] = useState(0); // 0 means no current speaker updating
   useEffect(() => {
     async function getIt() {
       setItems(await getItems());
@@ -15,23 +15,22 @@ function List({ getItems }) {
   }, [getItems]);
 
   function toggleFavoriteSpeaker(id) {
-    let updateSpeakerRec = {};
-    
+    let updateSpeakerRec;
     const speakerDataRecs = items.map(function (rec) {
       if (rec.id === id) {
-        updateSpeakerRec =  { ...rec, favorite: !rec.favorite };
+        updateSpeakerRec = { ...rec, favorite: !rec.favorite };
         return updateSpeakerRec;
       } else {
         return rec;
       }
     });
-    const updateItem = async (id,rec) => {
-      setUpdating(true);
-      await axios.put(`/api/speakers/${id}`,rec);
-      setUpdating(false);
-    }
+    const updateItem = async (id, rec) => {
+      setUpdatingId(id);
+      await axios.put(`/api/speakers/${id}`, rec);
+      setUpdatingId(0);
+    };
     setItems(speakerDataRecs);
-    updateItem(id, updateSpeakerRec)
+    updateItem(id, updateSpeakerRec);
   }
 
   return (
@@ -41,7 +40,7 @@ function List({ getItems }) {
           <SpeakerLine
             key={speakerRec.id}
             speakerRec={speakerRec}
-            updating={updating}
+            updating={updatingId === speakerRec.id ? updatingId : 0}
             toggleFavoriteSpeaker={() => toggleFavoriteSpeaker(speakerRec.id)}
           />
         ))}
