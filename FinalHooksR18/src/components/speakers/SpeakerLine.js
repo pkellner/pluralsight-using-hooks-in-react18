@@ -52,11 +52,11 @@ const SpeakerLine = ({ speakerRec, toggleFavoriteSpeaker, updating }) => {
   );
 };
 
-export default SpeakerLine;
+//export default SpeakerLine;
 
-// export default memo(SpeakerLine, (prevProps, nextProps) => {
-//   return (
-//     prevProps.speakerRec.favorite === nextProps.speakerRec.favorite &&
-//     prevProps.updating === nextProps.updating
-//   );
-// });
+export default memo(SpeakerLine, (prevProps, nextProps) => {
+  return (
+    prevProps.speakerRec.favorite === nextProps.speakerRec.favorite &&
+    prevProps.updating === nextProps.updating
+  );
+});
