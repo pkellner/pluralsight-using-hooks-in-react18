@@ -14,21 +14,35 @@ body,
 html {
   font-family: "Roboto", sans-serif;
   color: var(--dark);
-  background-color: #fff;
-  padding-bottom: 1rem;
-}
-
-.theme-light {
-  background: linear-gradient(0deg, white, transparent);
-  /* background: linear-gradient(
+  background: linear-gradient(
       0deg,
       rgba(250, 250, 250, 0.5),
       rgba(250, 250, 250, 0.5)
     ),
-    #fff !important; */
+    #fff;
+  padding-bottom: 1rem;
 }
-.theme-dark {
-  background-color: #ccc;
+
+.theme-light:before,
+.theme-dark:before {
+  content: "";
+  position: fixed;
+  z-index: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.theme-light:before {
+  background: linear-gradient(
+      0deg, rgba(250, 250, 250, 0.5), 
+       rgba(250, 250, 250, 0.5)
+    ),
+    #fff;
+}
+.theme-dark::before {
+  background: #ccc;
 }
 
 a {
@@ -86,7 +100,7 @@ a:focus {
   position: absolute;
   top: 0px;
   left: 35px;
-} 
+}
 
 .btn-accent {
   background: var(--primary);
@@ -102,6 +116,8 @@ a:focus {
 .hero {
   background-color: var(--dark);
   color: var(--light);
+  position: relative;
+  z-index: 1;
 }
 
 .hero .logo {
@@ -134,6 +150,8 @@ a:focus {
 
 .content-wrapper {
   margin-top: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 header {
@@ -145,6 +163,8 @@ header {
   z-index: 9; */
   box-shadow: 0px 12px 15px 0px rgb(114 116 118 / 57%);
   margin-bottom: 13px;
+  position: relative;
+  z-index: 1;
 }
 
 header ul {
@@ -175,6 +195,8 @@ header ul li button:focus {
 .btn-toolbar {
   align-items: center;
   justify-content: center;
+  position: relative;
+  z-index: 1;
 
   /* Uncomment below code when the toolbar need to be sticky onScroll */
   /* position: sticky;
@@ -332,8 +354,6 @@ header ul li button:focus {
   letter-spacing: 0.6px;
 }
 
-
-
 .themeToggleCheckbox {
   opacity: 0;
   position: absolute;
@@ -352,9 +372,13 @@ header ul li button:focus {
   align-items: center;
 }
 
-.fa-moon {color: #f1c40f;}
+.fa-moon {
+  color: #f1c40f;
+}
 
-.fa-sun {color: var(--accent);}
+.fa-sun {
+  color: var(--accent);
+}
 
 .themeToggleCheckbox-label .ball {
   background-color: #fff;
@@ -370,9 +394,6 @@ header ul li button:focus {
 .themeToggleCheckbox:checked + .themeToggleCheckbox-label .ball {
   transform: translateX(24px);
 }
-
-
-
 
 /* Maybe we can integrate fonticons instead of the image? */
 /* .heartredbutton {
