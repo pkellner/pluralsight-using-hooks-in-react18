@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, {memo} from "react";
 import FavoriteSpeakerToggleLine from "./FavoriteSpeakerToggleLine";
 
 const SpeakerLine = ({ speakerRec, toggleFavoriteSpeaker, updating }) => {

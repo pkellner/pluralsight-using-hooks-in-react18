@@ -1,6 +1,7 @@
 import SpeakersModalHeader from "./SpeakerModalHeader";
 import SpeakersModalBody from "./SpeakerModalBody";
 import SpeakersModalFooter from "./SpeakerModalFooter";
+
 export default function SpeakerModal({ modalShow }) {
   const cssShowHide =
     modalShow && modalShow === true
