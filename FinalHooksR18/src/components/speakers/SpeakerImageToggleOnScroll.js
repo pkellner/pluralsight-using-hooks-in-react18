@@ -3,7 +3,6 @@ import { SpeakerMenuContext } from "../../contexts/SpeakerMenuContext";
 
 const SpeakerImageToggleOnScroll = ({ imageUrl, alt }) => {
   const imageRef = useRef(null);
-
   const { speakingSaturday, speakingSunday, searchText } = useContext(
     SpeakerMenuContext
   );

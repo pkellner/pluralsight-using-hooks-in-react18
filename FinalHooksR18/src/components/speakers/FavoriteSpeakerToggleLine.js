@@ -1,8 +1,8 @@
-const FavoriteSpeakerToggleLine = ({
+export default function FavoriteSpeakerToggleLine({
   speakerRec,
   toggleFavoriteSpeaker,
   children,
-}) => {
+}) {
   return (
     <button
       className={
@@ -13,6 +13,4 @@ const FavoriteSpeakerToggleLine = ({
       {children}
     </button>
   );
-};
-
-export default FavoriteSpeakerToggleLine;
+}

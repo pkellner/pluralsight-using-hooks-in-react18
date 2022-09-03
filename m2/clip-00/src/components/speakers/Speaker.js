@@ -3,7 +3,6 @@ import { speakerList } from "../../../speakersData";
 
 export default function Speaker({ id }) {
   const speakerRec = speakerList?.find((rec) => rec.id === id);
-
   return speakerRec ? (
     <SpeakerDetail speakerRec={speakerRec} showDetails={true} />
   ) : (

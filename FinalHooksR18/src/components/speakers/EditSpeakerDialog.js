@@ -24,8 +24,6 @@ export default function EditSpeakerDialog({
     setModalSpeakerImageUrl,
   } = useContext(SpeakerModalContext);
 
-  //console.log(`EditSpeakerDialog: rendered ${modalSpeakerId}`);
-
   return (
     <button
       onClick={(e) => {
@@ -35,7 +33,6 @@ export default function EditSpeakerDialog({
         setModalSpeakerLastName(lastName);
         setModalSpeakerImageUrl(imageUrl);
         setModalSpeakerEmail(email);
-
         setModalShow(true);
       }}
       className="btn btn-accent btn-sm"

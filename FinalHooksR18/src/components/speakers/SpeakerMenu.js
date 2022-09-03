@@ -65,16 +65,6 @@ export default function SpeakerMenu() {
           </SpeakerModalProvider>
         </div>
       </div>
-
-      {/* <div className="hide">
-        
-        
-        <div className="form-check-inline">
-          <SpeakerModalProvider>
-            <AddSpeakerDialog />
-          </SpeakerModalProvider>
-        </div>
-      </div> */}
     </div>
   );
 }

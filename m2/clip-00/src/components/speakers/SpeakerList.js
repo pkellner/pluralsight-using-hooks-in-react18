@@ -6,7 +6,22 @@ function List() {
   const [updatingId, setUpdatingId] = [0, () => {}];
 
   function toggleFavoriteSpeaker(id) {
-    //
+    let updateSpeakerRec;
+    const speakerDataRecs = items.map(function (rec) {
+      if (rec.id === id) {
+        updateSpeakerRec = { ...rec, favorite: !rec.favorite };
+        return updateSpeakerRec;
+      } else {
+        return rec;
+      }
+    });
+    const updateItem = async (id, rec) => {
+      setUpdatingId(id);
+      // update REST
+      setUpdatingId(0);
+    };
+    setItems(speakerDataRecs);
+    updateItem(id, updateSpeakerRec);
   }
 
   return (

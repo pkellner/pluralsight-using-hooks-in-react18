@@ -4,7 +4,6 @@ import { speakerList } from "../../../speakersData";
 
 const Speakers = () => {
   const darkTheme = false;
-
   return (
     <div className={darkTheme ? "theme-dark" : "theme-light"}>
       <SpeakerMenu />

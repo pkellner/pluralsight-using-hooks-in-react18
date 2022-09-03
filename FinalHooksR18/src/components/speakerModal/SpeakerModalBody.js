@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { SpeakerModalContext } from "../../contexts/SpeakerModalContext";
 
-function NotesModalBody() {
+export default function NotesModalBody() {
   const {
     modalSpeakerId,
     modalSpeakerFirstName,
@@ -35,7 +35,7 @@ function NotesModalBody() {
                     }}
                     type="text"
                     className="form-control"
-                    placeholder="Title"
+                    placeholder="First Name"
                   />
                 </div>
               </div>
@@ -49,7 +49,7 @@ function NotesModalBody() {
                     }}
                     type="text"
                     className="form-control"
-                    placeholder="Title"
+                    placeholder="First Name"
                   />
                 </div>
               </div>
@@ -77,7 +77,7 @@ function NotesModalBody() {
                     }}
                     type="text"
                     className="form-control"
-                    placeholder="Title"
+                    placeholder="https://"
                   />
                 </div>
               </div>
@@ -88,4 +88,3 @@ function NotesModalBody() {
     </div>
   );
 }
-export default NotesModalBody;

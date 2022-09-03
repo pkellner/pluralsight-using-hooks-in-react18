@@ -41,36 +41,6 @@ export default function AppMenu() {
             </button>
           </li>
           <li>
-            {/* <div className="btn-group">
-              <input
-                type="radio"
-                className="btn-check"
-                name="options"
-                id="radio1"
-                autoComplete="off"
-                defaultChecked={true}
-                onClick={() => {
-                  toggleTheme();
-                }}
-              />
-              <label className="btn btn-outline-primary" htmlFor="radio1">
-                Light
-              </label>
-
-              <input
-                type="radio"
-                className="btn-check"
-                name="options"
-                id="radio2"
-                autoComplete="off"
-                onClick={() => {
-                  toggleTheme();
-                }}
-              />
-              <label className="btn btn-outline-primary" htmlFor="radio2">
-                Dark
-              </label>
-            </div> */}
             <input
               type="checkbox"
               className="themeToggleCheckbox"

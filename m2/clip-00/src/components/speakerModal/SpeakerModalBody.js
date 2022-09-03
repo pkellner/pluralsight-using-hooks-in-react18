@@ -42,7 +42,7 @@ export default function NotesModalBody() {
                     }}
                     type="text"
                     className="form-control"
-                    placeholder="Title"
+                    placeholder="First Name"
                   />
                 </div>
               </div>
@@ -56,7 +56,7 @@ export default function NotesModalBody() {
                     }}
                     type="text"
                     className="form-control"
-                    placeholder="Title"
+                    placeholder="First Name"
                   />
                 </div>
               </div>
@@ -84,7 +84,7 @@ export default function NotesModalBody() {
                     }}
                     type="text"
                     className="form-control"
-                    placeholder="Title"
+                    placeholder="https://"
                   />
                 </div>
               </div>

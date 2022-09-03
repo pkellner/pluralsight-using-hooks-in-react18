@@ -1,10 +1,7 @@
 import SpeakersModalHeader from "./SpeakerModalHeader";
 import SpeakersModalBody from "./SpeakerModalBody";
 import SpeakersModalFooter from "./SpeakerModalFooter";
-
-export default function SpeakerModal() {
-  const modalShow = true;
-
+export default function SpeakerModal({ modalShow }) {
   const cssShowHide =
     modalShow && modalShow === true
       ? "modal show-modal has-backdrop"

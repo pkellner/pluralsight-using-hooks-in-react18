@@ -1,6 +1,22 @@
 import AddSpeakerDialog from "./AddSpeakerDialog";
 
 export default function SpeakerMenu() {
+  const {
+    speakingSaturday,
+    setSpeakingSaturday,
+    speakingSunday,
+    setSpeakingSunday,
+    searchText,
+    setSearchText,
+  } = {
+    speakingSaturday: true,
+    setSpeakingSaturday: () => {},
+    speakingSunday: true,
+    setSpeakingSunday: () => {},
+    searchText: "",
+    setSearchText: () => {},
+  };
+
   return (
     <div
       className="btn-toolbar"
@@ -10,9 +26,9 @@ export default function SpeakerMenu() {
       <div className="toolbar-trigger mb-3">
         <div className="toolbar-search">
           <input
-            value=""
+            value={searchText}
             onChange={(event) => {
-              //
+              setSearchText(event.target.value);
             }}
             type="text"
             className="form-control"
@@ -26,9 +42,9 @@ export default function SpeakerMenu() {
               type="checkbox"
               className="form-check-input"
               onChange={() => {
-                //
+                setSpeakingSaturday(!speakingSaturday);
               }}
-              checked
+              checked={speakingSaturday}
             />
             Saturday Speakers
           </label>
@@ -40,9 +56,9 @@ export default function SpeakerMenu() {
               type="checkbox"
               className="form-check-input"
               onChange={() => {
-                //
+                setSpeakingSunday(!speakingSunday);
               }}
-              checked
+              checked={speakingSunday}
             />
             Sunday Speakers
           </label>

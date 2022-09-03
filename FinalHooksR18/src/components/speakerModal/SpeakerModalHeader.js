@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { SpeakerModalContext } from "../../contexts/SpeakerModalContext";
 
-function SpeakersModalHeader() {
+export default function SpeakersModalHeader() {
   const { setModalShow, modalSpeakerId } = useContext(SpeakerModalContext);
   return (
     <div className="modal-header bg-main-gradient text-white">
@@ -26,5 +26,3 @@ function SpeakersModalHeader() {
     </div>
   );
 }
-
-export default SpeakersModalHeader;

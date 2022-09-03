@@ -1,4 +1,11 @@
 export default function AppMenu() {
+  const { setRoute } = {
+    setRoute: (route) => {
+      window.location.href = route;
+    },
+  };
+  const { toggleTheme } = { toggleTheme: () => {} };
+
   return (
     <header className="d-flex justify-content-center py-3">
       <div className="container">
@@ -6,7 +13,7 @@ export default function AppMenu() {
           <li className="nav-item">
             <button
               onClick={() => {
-                window.location.href = "/";
+                setRoute("/");
               }}
               className="nav-link"
             >
@@ -16,7 +23,7 @@ export default function AppMenu() {
           <li className="nav-item">
             <button
               onClick={() => {
-                window.location.href = "/speakerlist";
+                setRoute("/speakerlist");
               }}
               className="nav-link"
             >
@@ -26,7 +33,7 @@ export default function AppMenu() {
           <li className="nav-item">
             <button
               onClick={() => {
-                window.location.href = "/about";
+                setRoute("/about");
               }}
               className="nav-item nav-link"
             >
@@ -41,7 +48,7 @@ export default function AppMenu() {
               id="themeToggle"
               defaultChecked={false}
               onClick={() => {
-                //
+                toggleTheme();
               }}
             />
             <label htmlFor="themeToggle" className="themeToggleCheckbox-label">

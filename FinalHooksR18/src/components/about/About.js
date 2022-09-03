@@ -9,10 +9,6 @@ export default function About() {
         <div id="content" className="content-wrapper">
           <div className="about">
             <h1 className="hTitle">About</h1>
-            {/* <img
-            src="/images/svcc-organizers.jpeg"
-            alt="image4"
-          /> */}
             <div className="card border-0 p-3">
               <div className="card-body">
                 <p className="card-text">

@@ -41,13 +41,3 @@ const Speakers = () => {
 };
 
 export default Speakers;
-
-// // just used to convert base data
-// var x = speakerListFiltered.map(function (rec) {
-//   return {
-//     ...rec,
-//     imageUrl: `/images/Speaker-${rec.id}.jpg`,
-//     email: rec.firstName + "." + rec.lastName + "@codecamp.net",
-//   };
-// });
-// console.log(x);

@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function SpeakerImageToggleOnScroll({ imageUrl, alt }) {
   return (
     <img

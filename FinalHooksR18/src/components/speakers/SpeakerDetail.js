@@ -6,13 +6,8 @@ import FavoriteSpeakerToggle from "./FavoriteSpeakerToggle";
 import DeleteSpeakerButton from "./DeleteSpeakerButton";
 import { AppRouterContext } from "../../contexts/AppRouterContext";
 
-const SpeakerDetail = ({ speakerRec, showDetails }) => {
+export default function SpeakerDetail({ speakerRec, showDetails }) {
   const { setRoute } = useContext(AppRouterContext);
-
-  //if (!speakerRec) return null;
-  // console.log(
-  //   `SpeakerDetail: ${speakerRec.id}: ${speakerRec.firstName} ${speakerRec.lastName} `
-  // );
 
   return (
     <>
@@ -77,18 +72,4 @@ const SpeakerDetail = ({ speakerRec, showDetails }) => {
       </div>
     </>
   );
-};
-
-export default SpeakerDetail;
-
-//
-// EDIT MULTIPLE TIMES FAILED UPDATE WITH MEMO
-// (prevProps, nextProps) => {
-//   return (
-//     prevProps.speakerRec.favorite === nextProps.speakerRec.favorite &&
-//     prevProps.speakerRec.firstName === nextProps.speakerRec.firstName &&
-//     prevProps.speakerRec.lastName === nextProps.speakerRec.lastName &&
-//     prevProps.speakerRec.email === nextProps.speakerRec.email &&
-//     prevProps.speakerRec.imageUrl === nextProps.speakerRec.imageUrl
-//   );
-// }
+}
