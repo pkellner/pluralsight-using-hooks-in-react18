@@ -1,6 +1,6 @@
 export default function DeleteSpeakerButton({ id }) {
   const { deleteSpeaker } = {
-    deleteSpeaker: () => { }
+    deleteSpeaker: () => {},
   };
   return (
     <button

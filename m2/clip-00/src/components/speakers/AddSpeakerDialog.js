@@ -20,10 +20,10 @@ export default function AddSpeakerDialog() {
     setModalSpeakerEmail: () => {},
     setModalSpeakerImageUrl: () => {},
   };
-  
+
   return (
     <>
-      <SpeakerModal modalShow={false}  />
+      <SpeakerModal modalShow={false} />
       <button
         onClick={() => {
           setModalSpeakerId(0);
