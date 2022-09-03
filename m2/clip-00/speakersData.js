@@ -14,7 +14,7 @@ export const speakerList = [
     imageUrl: "/images/Speaker-1269.jpg",
     email: "Arun.Gupta@codecamp.net",
   },
-  
+
   {
     id: 5996,
     firstName: "Craig",
@@ -95,7 +95,7 @@ export const speakerList = [
     imageUrl: "/images/Speaker-8367.jpg",
     email: "Gayle Laakmann.McDowell@codecamp.net",
   },
-  
+
   {
     id: 18805,
     firstName: "Mickey W.",

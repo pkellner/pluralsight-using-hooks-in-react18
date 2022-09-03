@@ -3,7 +3,7 @@ import SpeakersModalBody from "./SpeakerModalBody";
 import SpeakersModalFooter from "./SpeakerModalFooter";
 
 export default function SpeakerModal() {
-  const { modalShow } = useContext(SpeakerModalContext);
+  const modalShow = true;
 
   const cssShowHide =
     modalShow && modalShow === true

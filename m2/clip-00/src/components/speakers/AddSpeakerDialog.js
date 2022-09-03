@@ -4,6 +4,7 @@ export default function AddSpeakerDialog() {
       <button
         onClick={() => {
           //
+          window.location.href = "/speakerpopup";
         }}
         className="btn btn-accent"
       >

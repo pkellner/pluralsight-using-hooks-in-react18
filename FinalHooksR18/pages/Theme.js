@@ -1,7 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
 
-
-
 function List({ getItems }) {
   const [items, setItems] = useState([]);
   useEffect(() => {
@@ -10,7 +8,9 @@ function List({ getItems }) {
   }, [getItems]);
   return (
     <div>
-      {items.map(item => <div key={item}>{item}</div>)}
+      {items.map((item) => (
+        <div key={item}>{item}</div>
+      ))}
     </div>
   );
 }
@@ -26,11 +26,11 @@ const Page = () => {
       setTheme("light");
     }
   }
-  
+
   const getItems = () => {
     return [number, number + 1];
   };
-  
+
   return (
     <>
       <style jsx>
@@ -47,7 +47,7 @@ const Page = () => {
         <button onClick={toggleTheme}>Toggle Theme</button>
         <br />
         {/*<List getItems={getItems} />*/}
-        <List getItems={useCallback(getItems,[])} />
+        <List getItems={useCallback(getItems, [])} />
       </div>
     </>
   );

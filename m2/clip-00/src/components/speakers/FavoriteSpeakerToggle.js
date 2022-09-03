@@ -1,15 +1,22 @@
 export default function FavoriteSpeakerToggle({ speakerRec }) {
+  const { updateSpeaker } = { updateSpeaker: () => {} };
+  const [updating, setUpdating] = [false, () => {}];
 
-  const updating = false;
-  
   return (
     <button
       className={
-        true ? "heartredbutton btn" : "heartdarkbutton btn"
+        speakerRec.favorite ? "heartredbutton btn" : "heartdarkbutton btn"
       }
       onClick={(e) => {
         e.preventDefault();
-        //
+        const newSpeakerRec = {
+          ...speakerRec,
+          favorite: !speakerRec.favorite,
+        };
+        setUpdating(true);
+        updateSpeaker(newSpeakerRec, () => {
+          setUpdating(false);
+        });
       }}
     >
       {updating ? (

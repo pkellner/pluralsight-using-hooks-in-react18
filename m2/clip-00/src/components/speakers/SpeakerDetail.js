@@ -3,11 +3,7 @@ import EditSpeakerDialog from "./EditSpeakerDialog";
 import FavoriteSpeakerToggle from "./FavoriteSpeakerToggle";
 import SpeakerImageToggleOnScroll from "./SpeakerImageToggleOnScroll";
 
-
-const SpeakerDetail = ({ speakerRec, showDetails }) => {
-
-  
-
+export default function SpeakerDetail({ speakerRec, showDetails }) {
   return (
     <>
       <div className="col-xl-6 col-md-12">
@@ -35,7 +31,7 @@ const SpeakerDetail = ({ speakerRec, showDetails }) => {
                 <h4 className="card-title">
                   <a
                     onClick={() => {
-                      //
+                      window.location.href = `/speaker/${speakerRec.id}`;
                     }}
                     href="#"
                   >
@@ -69,6 +65,4 @@ const SpeakerDetail = ({ speakerRec, showDetails }) => {
       </div>
     </>
   );
-};
-
-export default SpeakerDetail;
+}

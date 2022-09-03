@@ -1,4 +1,5 @@
 import AddSpeakerDialog from "./AddSpeakerDialog";
+
 export default function SpeakerMenu() {
   return (
     <div

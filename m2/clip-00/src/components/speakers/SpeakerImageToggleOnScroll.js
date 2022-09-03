@@ -1,6 +1,6 @@
 import React from "react";
 
-const SpeakerImageToggleOnScroll = ({ imageUrl, alt }) => {
+export default function SpeakerImageToggleOnScroll({ imageUrl, alt }) {
   return (
     <img
       src={imageUrl}
@@ -10,6 +10,4 @@ const SpeakerImageToggleOnScroll = ({ imageUrl, alt }) => {
       className="img-fluid rounded-start speaker-image"
     />
   );
-};
-
-export default SpeakerImageToggleOnScroll;
+}

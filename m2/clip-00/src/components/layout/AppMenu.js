@@ -1,5 +1,4 @@
 export default function AppMenu() {
-
   return (
     <header className="d-flex justify-content-center py-3">
       <div className="container">
@@ -35,12 +34,12 @@ export default function AppMenu() {
             </button>
           </li>
           <li>
-            <input 
-              type="checkbox" 
-              className="themeToggleCheckbox" 
+            <input
+              type="checkbox"
+              className="themeToggleCheckbox"
               autoComplete="off"
               id="themeToggle"
-              defaultChecked={false} 
+              defaultChecked={false}
               onClick={() => {
                 //
               }}

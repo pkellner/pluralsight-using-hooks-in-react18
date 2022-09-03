@@ -71,12 +71,12 @@ export default function AppMenu() {
                 Dark
               </label>
             </div> */}
-            <input 
-              type="checkbox" 
-              className="themeToggleCheckbox" 
+            <input
+              type="checkbox"
+              className="themeToggleCheckbox"
               autoComplete="off"
               id="themeToggle"
-              defaultChecked={false} 
+              defaultChecked={false}
               onClick={() => {
                 toggleTheme();
               }}

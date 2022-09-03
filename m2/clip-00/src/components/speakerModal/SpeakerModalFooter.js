@@ -1,10 +1,41 @@
 export default function NotesModalFooter() {
+  const {
+    setModalShow,
+    modalSpeakerId,
+    modalSpeakerFirstName,
+    modalSpeakerLastName,
+    modalSpeakerEmail,
+    modalSpeakerImageUrl,
+  } = {
+    setModalShow: () => {},
+    modalSpeakerId: 0,
+    modalSpeakerFirstName: "",
+    modalSpeakerLastName: "",
+    modalSpeakerEmail: "",
+    modalSpeakerImageUrl: "",
+  };
+
+  const { data, createSpeaker, updateSpeaker, deleteSpeaker, loadingStatus } = {
+    data: [],
+    createSpeaker: () => {},
+    updateSpeaker: () => {},
+    deleteSpeaker: () => {},
+    loadingStatus: () => {},
+  };
+
   return (
     <div className="modal-footer justify-content-center">
       {modalSpeakerId !== 0 && (
         <button
           onClick={() => {
-            //
+            updateSpeaker({
+              id: modalSpeakerId,
+              firstName: modalSpeakerFirstName,
+              lastName: modalSpeakerLastName,
+              imageUrl: modalSpeakerImageUrl,
+              email: modalSpeakerEmail,
+            });
+            setModalShow(false);
           }}
           className="float-left btn btn-accent"
         >
@@ -15,12 +46,34 @@ export default function NotesModalFooter() {
       <button
         className="btn btn-danger"
         onClick={() => {
-          //
+          setModalShow(false);
         }}
         data-dismiss="modal"
       >
         Discard
       </button>
+
+      {modalSpeakerId === 0 && (
+        <button
+          className="btn btn-accent"
+          onClick={() => {
+            createSpeaker({
+              firstName: modalSpeakerFirstName,
+              lastName: modalSpeakerLastName,
+              imageUrl: modalSpeakerImageUrl,
+              sat: true,
+              sun: true,
+              favorite: false,
+              company: "Code Camp",
+              twitterHandle: "unknown",
+              userBioShort: "Dummy Bio",
+            });
+            setModalShow(false);
+          }}
+        >
+          Add
+        </button>
+      )}
     </div>
   );
 }

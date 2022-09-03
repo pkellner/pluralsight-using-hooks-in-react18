@@ -1,5 +1,3 @@
-
-
 export default function About() {
   const darkTheme = false;
   return (

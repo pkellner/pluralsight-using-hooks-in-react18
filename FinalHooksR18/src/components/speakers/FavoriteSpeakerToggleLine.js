@@ -1,5 +1,8 @@
-const FavoriteSpeakerToggleLine = ({ speakerRec, toggleFavoriteSpeaker, children }) => {
-  
+const FavoriteSpeakerToggleLine = ({
+  speakerRec,
+  toggleFavoriteSpeaker,
+  children,
+}) => {
   return (
     <button
       className={
