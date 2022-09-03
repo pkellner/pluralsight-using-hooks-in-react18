@@ -20,7 +20,7 @@ export default function NotesModalFooter() {
     createSpeaker: () => {},
     updateSpeaker: () => {},
     deleteSpeaker: () => {},
-    loadingStatus: () => {},
+    loadingStatus: "success"
   };
 
   return (
@@ -60,6 +60,7 @@ export default function NotesModalFooter() {
             createSpeaker({
               firstName: modalSpeakerFirstName,
               lastName: modalSpeakerLastName,
+              email: modalSpeakerEmail,
               imageUrl: modalSpeakerImageUrl,
               sat: true,
               sun: true,
@@ -67,6 +68,7 @@ export default function NotesModalFooter() {
               company: "Code Camp",
               twitterHandle: "unknown",
               userBioShort: "Dummy Bio",
+              bio: "Dummy Bio",
             });
             setModalShow(false);
           }}

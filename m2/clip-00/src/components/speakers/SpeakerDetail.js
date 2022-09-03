@@ -4,6 +4,12 @@ import FavoriteSpeakerToggle from "./FavoriteSpeakerToggle";
 import SpeakerImageToggleOnScroll from "./SpeakerImageToggleOnScroll";
 
 export default function SpeakerDetail({ speakerRec, showDetails }) {
+
+  const { setRoute } = {
+    setRoute: (route) => {
+       window.location.href = route;
+    }
+  }
   return (
     <>
       <div className="col-xl-6 col-md-12">
@@ -31,7 +37,7 @@ export default function SpeakerDetail({ speakerRec, showDetails }) {
                 <h4 className="card-title">
                   <a
                     onClick={() => {
-                      window.location.href = `/speaker/${speakerRec.id}`;
+                      setRoute(`/speaker/${speakerRec.id}`);
                     }}
                     href="#"
                   >

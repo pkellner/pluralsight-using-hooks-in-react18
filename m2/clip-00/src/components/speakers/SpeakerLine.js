@@ -1,11 +1,6 @@
-import React, {memo} from "react";
 import FavoriteSpeakerToggleLine from "./FavoriteSpeakerToggleLine";
 
-const SpeakerLine = ({ speakerRec, toggleFavoriteSpeaker, updating }) => {
-  console.log(
-    `SpeakerLine: ${speakerRec.id}: ${speakerRec.firstName} ${speakerRec.lastName} `
-  );
-
+export default function SpeakerLine({ speakerRec, toggleFavoriteSpeaker, updating }) {
   return (
     <>
       <div className="col-xl-12 col-md-12">
@@ -50,13 +45,4 @@ const SpeakerLine = ({ speakerRec, toggleFavoriteSpeaker, updating }) => {
       </div>
     </>
   );
-};
-
-//export default SpeakerLine;
-
-export default memo(SpeakerLine, (prevProps, nextProps) => {
-  return (
-    prevProps.speakerRec.favorite === nextProps.speakerRec.favorite &&
-    prevProps.updating === nextProps.updating
-  );
-});
+}

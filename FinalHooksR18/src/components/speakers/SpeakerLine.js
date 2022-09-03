@@ -2,10 +2,6 @@ import React, { memo } from "react";
 import FavoriteSpeakerToggleLine from "./FavoriteSpeakerToggleLine";
 
 const SpeakerLine = ({ speakerRec, toggleFavoriteSpeaker, updating }) => {
-  console.log(
-    `SpeakerLine: ${speakerRec.id}: ${speakerRec.firstName} ${speakerRec.lastName} `
-  );
-
   return (
     <>
       <div className="col-xl-12 col-md-12">
