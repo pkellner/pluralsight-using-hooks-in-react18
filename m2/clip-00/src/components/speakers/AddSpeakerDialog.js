@@ -4,6 +4,9 @@ export default function AddSpeakerDialog() {
   const {
     setModalShow,
     setModalSpeakerId,
+    setModalSpeakerFirstName,
+    setModalSpeakerLastName,
+    setModalSpeakerEmail,
     setModalSpeakerImageUrl,
   } = {
     setModalShow: (show) => {
@@ -12,8 +15,11 @@ export default function AddSpeakerDialog() {
       }
     },
     setModalSpeakerId: () => {},
-    setModalSpeakerImageUrl: () => {}
-  }
+    setModalSpeakerFirstName: () => {},
+    setModalSpeakerLastName: () => {},
+    setModalSpeakerEmail: () => {},
+    setModalSpeakerImageUrl: () => {},
+  };
   
   return (
     <>
@@ -21,6 +27,9 @@ export default function AddSpeakerDialog() {
       <button
         onClick={() => {
           setModalSpeakerId(0);
+          setModalSpeakerFirstName("");
+          setModalSpeakerLastName("");
+          setModalSpeakerEmail("");
           setModalSpeakerImageUrl("/images/Speaker-New.jpg");
           setModalShow(true);
         }}

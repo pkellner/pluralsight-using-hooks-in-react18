@@ -49,7 +49,7 @@ export default function NotesModalBody() {
                     }}
                     type="text"
                     className="form-control"
-                    placeholder="First Name"
+                    placeholder="Last Name"
                   />
                 </div>
               </div>
