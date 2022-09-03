@@ -58,8 +58,6 @@ const SpeakerList = () => {
     return results.data;
   };
 
-  console.log("SpeakerList rendered");
-
   return (
     <div className={darkTheme ? "theme-dark" : "theme-light"}>
       {/*<List getItems={useCallback(getItems, [])} />*/}
