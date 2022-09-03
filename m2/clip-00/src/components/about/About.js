@@ -1,18 +1,13 @@
-import { useContext } from "react";
-import { ThemeContext } from "../../contexts/ThemeContext";
+
 
 export default function About() {
-  const { darkTheme } = useContext(ThemeContext);
+  const darkTheme = false;
   return (
     <div className={darkTheme ? "theme-dark" : "theme-light"}>
       <div className="container">
         <div id="content" className="content-wrapper">
           <div className="about">
             <h1 className="hTitle">About</h1>
-            {/* <img
-            src="/images/svcc-organizers.jpeg"
-            alt="image4"
-          /> */}
             <div className="card border-0 p-3">
               <div className="card-body">
                 <p className="card-text">

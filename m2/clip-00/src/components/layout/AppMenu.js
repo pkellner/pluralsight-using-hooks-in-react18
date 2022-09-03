@@ -1,10 +1,4 @@
-import React, { useContext } from "react";
-import { AppRouterContext } from "../../contexts/AppRouterContext";
-import { ThemeContext } from "../../contexts/ThemeContext";
-
 export default function AppMenu() {
-  const { setRoute } = useContext(AppRouterContext);
-  const { toggleTheme } = useContext(ThemeContext);
 
   return (
     <header className="d-flex justify-content-center py-3">
@@ -13,7 +7,7 @@ export default function AppMenu() {
           <li className="nav-item">
             <button
               onClick={() => {
-                setRoute("/");
+                window.location.href = "/";
               }}
               className="nav-link"
             >
@@ -23,7 +17,7 @@ export default function AppMenu() {
           <li className="nav-item">
             <button
               onClick={() => {
-                setRoute("/speakerlist");
+                window.location.href = "/speakerlist";
               }}
               className="nav-link"
             >
@@ -33,7 +27,7 @@ export default function AppMenu() {
           <li className="nav-item">
             <button
               onClick={() => {
-                setRoute("/about");
+                window.location.href = "/about";
               }}
               className="nav-item nav-link"
             >
@@ -41,36 +35,6 @@ export default function AppMenu() {
             </button>
           </li>
           <li>
-            {/* <div className="btn-group">
-              <input
-                type="radio"
-                className="btn-check"
-                name="options"
-                id="radio1"
-                autoComplete="off"
-                defaultChecked={true}
-                onClick={() => {
-                  toggleTheme();
-                }}
-              />
-              <label className="btn btn-outline-primary" htmlFor="radio1">
-                Light
-              </label>
-
-              <input
-                type="radio"
-                className="btn-check"
-                name="options"
-                id="radio2"
-                autoComplete="off"
-                onClick={() => {
-                  toggleTheme();
-                }}
-              />
-              <label className="btn btn-outline-primary" htmlFor="radio2">
-                Dark
-              </label>
-            </div> */}
             <input 
               type="checkbox" 
               className="themeToggleCheckbox" 
@@ -78,7 +42,7 @@ export default function AppMenu() {
               id="themeToggle"
               defaultChecked={false} 
               onClick={() => {
-                toggleTheme();
+                //
               }}
             />
             <label htmlFor="themeToggle" className="themeToggleCheckbox-label">

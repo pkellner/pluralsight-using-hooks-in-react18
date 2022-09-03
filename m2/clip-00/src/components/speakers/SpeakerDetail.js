@@ -1,23 +1,15 @@
-import React, { useContext } from "react";
-import SpeakerImageToggleOnScroll from "./SpeakerImageToggleOnScroll";
-import SpeakerModal from "../speakerModal/SpeakerModal";
+import DeleteSpeakerButton from "./DeleteSpeakerButton";
 import EditSpeakerDialog from "./EditSpeakerDialog";
 import FavoriteSpeakerToggle from "./FavoriteSpeakerToggle";
-import DeleteSpeakerButton from "./DeleteSpeakerButton";
-import { AppRouterContext } from "../../contexts/AppRouterContext";
+import SpeakerImageToggleOnScroll from "./SpeakerImageToggleOnScroll";
+
 
 const SpeakerDetail = ({ speakerRec, showDetails }) => {
-  const { setRoute } = useContext(AppRouterContext);
 
-  //if (!speakerRec) return null;
-  // console.log(
-  //   `SpeakerDetail: ${speakerRec.id}: ${speakerRec.firstName} ${speakerRec.lastName} `
-  // );
+  
 
   return (
     <>
-      {speakerRec && <SpeakerModal />}
-
       <div className="col-xl-6 col-md-12">
         <div className="card border-0">
           <div className="row g-0">
@@ -43,7 +35,7 @@ const SpeakerDetail = ({ speakerRec, showDetails }) => {
                 <h4 className="card-title">
                   <a
                     onClick={() => {
-                      setRoute(`/speaker/${speakerRec.id}`);
+                      //
                     }}
                     href="#"
                   >
@@ -80,15 +72,3 @@ const SpeakerDetail = ({ speakerRec, showDetails }) => {
 };
 
 export default SpeakerDetail;
-
-//
-// EDIT MULTIPLE TIMES FAILED UPDATE WITH MEMO
-// (prevProps, nextProps) => {
-//   return (
-//     prevProps.speakerRec.favorite === nextProps.speakerRec.favorite &&
-//     prevProps.speakerRec.firstName === nextProps.speakerRec.firstName &&
-//     prevProps.speakerRec.lastName === nextProps.speakerRec.lastName &&
-//     prevProps.speakerRec.email === nextProps.speakerRec.email &&
-//     prevProps.speakerRec.imageUrl === nextProps.speakerRec.imageUrl
-//   );
-// }

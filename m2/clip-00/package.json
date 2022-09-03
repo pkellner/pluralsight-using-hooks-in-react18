@@ -1,7 +1,8 @@
 {
-  "name": "using-hooks-in-react-18-course",
+  "name": "using-react-hooks-in-react18-pluralsight-course",
+  "author": "Peter Kellner",
   "version": "1.0.0",
-  "description": "Using Hooks in React 18 Course Demo Files",
+  "description": "Using React Hooks in React 18 Course Demo Files",
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
@@ -9,8 +10,11 @@
     "start": "next start",
     "lint": "next lint"
   },
-  "keywords": [],
-  "author": "Peter Kellner",
+  "keywords": [
+    "react",
+    "JavaScript",
+    "Pluralsight"
+  ],
   "license": "MIT",
   "dependencies": {
     "axios": "^0.27.2",

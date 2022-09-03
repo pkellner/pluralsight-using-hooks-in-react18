@@ -1,7 +1,3 @@
-import React, { useContext } from "react";
-
-import { SpeakerModalContext } from "../../contexts/SpeakerModalContext";
-
 export default function EditSpeakerDialog({
   id,
   firstName,
@@ -9,34 +5,12 @@ export default function EditSpeakerDialog({
   email,
   imageUrl,
 }) {
-  const {
-    setModalShow,
-    modalShow,
-    modalSpeakerId,
-    setModalSpeakerId,
-    modalSpeakerFirstName,
-    setModalSpeakerFirstName,
-    modalSpeakerLastName,
-    setModalSpeakerLastName,
-    modalSpeakerEmail,
-    setModalSpeakerEmail,
-    modalSpeakerImageUrl,
-    setModalSpeakerImageUrl,
-  } = useContext(SpeakerModalContext);
-
-  //console.log(`EditSpeakerDialog: rendered ${modalSpeakerId}`);
-
+  
   return (
     <button
       onClick={(e) => {
         e.preventDefault();
-        setModalSpeakerId(id);
-        setModalSpeakerFirstName(firstName);
-        setModalSpeakerLastName(lastName);
-        setModalSpeakerImageUrl(imageUrl);
-        setModalSpeakerEmail(email);
-
-        setModalShow(true);
+        //
       }}
       className="btn btn-accent btn-sm"
     >

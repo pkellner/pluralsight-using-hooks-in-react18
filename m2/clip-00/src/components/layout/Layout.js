@@ -1,18 +1,22 @@
 import Header from "./Header";
 import AppMenu from "./AppMenu";
-import { AppRouterContext } from "../../contexts/AppRouterContext";
-import { useContext } from "react";
-import { ThemeProvider } from "../../contexts/ThemeContext";
+import SpeakerDetail from "../speakers/SpeakerDetail";
+import SpeakerModal from "../speakerModal/SpeakerModal";
+import Speakers from "../speakers/Speakers";
+import About from "../about/About";
 
 // Layout does not use children but instead uses what comes from AppRouteProvider
-export default function Layout() {
-  const { activeComponent } = useContext(AppRouterContext);
-
+export default function Layout({url}) {
   return (
-    <ThemeProvider>
+    <>
       <Header />
       <AppMenu />
-      {activeComponent}
-    </ThemeProvider>
+      {url === "/about" && <About />}
+      {url === "/" && <Speakers />}
+      {url.startsWith("/speaker/") && (
+        <SpeakerDetail speakerRec={speakerRec} showDetails={true} />
+      )}
+      {url.startsWith("/speakerpopup") && <SpeakerModal modalShow={true} />}
+    </>
   );
 }

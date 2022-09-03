@@ -1,18 +1,5 @@
-import React, { useContext } from "react";
-import { SpeakerMenuContext } from "../../contexts/SpeakerMenuContext";
 import AddSpeakerDialog from "./AddSpeakerDialog";
-import { SpeakerModalProvider } from "../../contexts/SpeakerModalContext";
-
 export default function SpeakerMenu() {
-  const {
-    speakingSaturday,
-    setSpeakingSaturday,
-    speakingSunday,
-    setSpeakingSunday,
-    searchText,
-    setSearchText,
-  } = useContext(SpeakerMenuContext);
-
   return (
     <div
       className="btn-toolbar"
@@ -22,9 +9,9 @@ export default function SpeakerMenu() {
       <div className="toolbar-trigger mb-3">
         <div className="toolbar-search">
           <input
-            value={searchText}
+            value=""
             onChange={(event) => {
-              setSearchText(event.target.value);
+              //
             }}
             type="text"
             className="form-control"
@@ -38,9 +25,9 @@ export default function SpeakerMenu() {
               type="checkbox"
               className="form-check-input"
               onChange={() => {
-                setSpeakingSaturday(!speakingSaturday);
+                //
               }}
-              checked={speakingSaturday}
+              checked
             />
             Saturday Speakers
           </label>
@@ -52,29 +39,17 @@ export default function SpeakerMenu() {
               type="checkbox"
               className="form-check-input"
               onChange={() => {
-                setSpeakingSunday(!speakingSunday);
+                //
               }}
-              checked={speakingSunday}
+              checked
             />
             Sunday Speakers
           </label>
         </div>
         <div className="input-group">
-          <SpeakerModalProvider>
-            <AddSpeakerDialog />
-          </SpeakerModalProvider>
+          <AddSpeakerDialog />
         </div>
       </div>
-
-      {/* <div className="hide">
-        
-        
-        <div className="form-check-inline">
-          <SpeakerModalProvider>
-            <AddSpeakerDialog />
-          </SpeakerModalProvider>
-        </div>
-      </div> */}
     </div>
   );
 }
