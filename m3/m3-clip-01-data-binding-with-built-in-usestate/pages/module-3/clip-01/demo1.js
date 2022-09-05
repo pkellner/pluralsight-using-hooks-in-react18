@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Demo1() {
+export default function Demo() {
   const [text1, setText1] = useState("first");
   const [text2, setText2] = useState("last");
   return (
