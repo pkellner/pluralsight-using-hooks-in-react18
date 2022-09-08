@@ -22,8 +22,7 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "eslint": "8.21.0",
-    "eslint-config-next": "12.2.4",
-    "prettier": "2.2.1"
+    "eslint": "8.23.0",
+    "eslint-config-next": "12.2.5"
   }
 }
