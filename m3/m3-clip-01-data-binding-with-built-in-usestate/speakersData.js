@@ -6,8 +6,7 @@ export const speakerList = [
     sat: false,
     sun: true,
     favorite: false,
-    bio:
-      "Arun Gupta is a Principal Open Source Technologist at Amazon Web Services. He has built and led developer communities for 12+ years at Sun, Oracle, Red Hat and Couchbase.",
+    bio: "Arun Gupta is a Principal Open Source Technologist at Amazon Web Services. He has built and led developer communities for 12+ years at Sun, Oracle, Red Hat and Couchbase.",
     twitterHandle: "arungupta",
     userBioShort:
       "Arun Gupta is a Principal Open Source Technologist at Amazon Web Services. ",
@@ -22,8 +21,7 @@ export const speakerList = [
     sat: true,
     sun: true,
     favorite: true,
-    bio:
-      'Craig has a passion for community and helping other developers improve their skills. He writes the column "Software Gardening" in DotNet Curry Magazine and is the co-author of "Continuous Integration in .NET" available from Manning.',
+    bio: 'Craig has a passion for community and helping other developers improve their skills. He writes the column "Software Gardening" in DotNet Curry Magazine and is the co-author of "Continuous Integration in .NET" available from Manning.',
     company: "HealthEquity",
     twitterHandle: "craigber",
     userBioShort:
@@ -38,8 +36,7 @@ export const speakerList = [
     sat: true,
     sun: true,
     favorite: false,
-    bio:
-      "As Head of Ecosystem Programs, Dave uses emerging technologies and open source projects like Microservices, Serverless & Kubernetes to bring the magic of Redis to the broader community.",
+    bio: "As Head of Ecosystem Programs, Dave uses emerging technologies and open source projects like Microservices, Serverless & Kubernetes to bring the magic of Redis to the broader community.",
     company: "Intel",
     twitterHandle: "davenielsen",
     userBioShort:
@@ -54,8 +51,7 @@ export const speakerList = [
     sat: true,
     sun: false,
     favorite: true,
-    bio:
-      "Douglas Crockford discovered the JSON Data Interchange Format. He is also the author of _JavaScript: The Good Parts_. He has been called a guru, but he is actually more of a mahatma.",
+    bio: "Douglas Crockford discovered the JSON Data Interchange Format. He is also the author of _JavaScript: The Good Parts_. He has been called a guru, but he is actually more of a mahatma.",
     company: "PayPal",
     twitterHandle: "",
     userBioShort:
@@ -70,8 +66,7 @@ export const speakerList = [
     sat: true,
     sun: false,
     favorite: false,
-    bio:
-      "Eugene Chuvyrov is  a Senior Cloud Architect at Microsoft. He works directly with both startups and enterprises to enable their solutions in Microsoft cloud, and to make Azure better as a result of this work with partners.",
+    bio: "Eugene Chuvyrov is  a Senior Cloud Architect at Microsoft. He works directly with both startups and enterprises to enable their solutions in Microsoft cloud, and to make Azure better as a result of this work with partners.",
     company: "Microsoft",
     twitterHandle: "EugeneChuvyrov",
     userBioShort:
@@ -86,8 +81,7 @@ export const speakerList = [
     sat: true,
     sun: false,
     favorite: false,
-    bio:
-      "Gayle Laakmann McDowell is the founder and CEO of CareerCup.com and the author of three best selling books.",
+    bio: "Gayle Laakmann McDowell is the founder and CEO of CareerCup.com and the author of three best selling books.",
     company: "CareerCup",
     twitterHandle: "gayle",
     userBioShort:
@@ -103,8 +97,7 @@ export const speakerList = [
     sat: true,
     sun: true,
     favorite: false,
-    bio:
-      "Mickey has been developing software systems and products for over 40 years, as a systems programmer, Tech Lead, Manager, VP Engineering, CTO, COO, and now CEO/CTO of his own company.",
+    bio: "Mickey has been developing software systems and products for over 40 years, as a systems programmer, Tech Lead, Manager, VP Engineering, CTO, COO, and now CEO/CTO of his own company.",
     company: "Wanderful, Inc.",
     twitterHandle: "mwmantleCA",
     userBioShort:
@@ -119,8 +112,7 @@ export const speakerList = [
     sat: true,
     sun: true,
     favorite: false,
-    bio:
-      "Paul is the PyCharm and WebStorm Developer Advocate at JetBrains. Before that, Paul was a partner at Agendaless Consulting and co-founder of Zope Corporation, taking the first open source application server through $14M of funding.",
+    bio: "Paul is the PyCharm and WebStorm Developer Advocate at JetBrains. Before that, Paul was a partner at Agendaless Consulting and co-founder of Zope Corporation, taking the first open source application server through $14M of funding.",
     company: "JetBrains, Inc.",
     twitterHandle: "paulweveritt",
     userBioShort:
@@ -138,8 +130,7 @@ export const speakerList = [
     company: "Code Camp",
     twitterHandle: "tammybaker123",
     userBioShort: "Tammy is a software development leader for over 20 years.",
-    bio:
-      "Tammy has held a number of executive and management roles over the past 15 years, including VP engineering Roles at USA Tech, Cantaloupe Systems, E-Color, and Untangle Inc.",
+    bio: "Tammy has held a number of executive and management roles over the past 15 years, including VP engineering Roles at USA Tech, Cantaloupe Systems, E-Color, and Untangle Inc.",
     imageUrl: "/images/Speaker-1530.jpg",
     email: "Tamara.Baker@codecamp.net",
   },

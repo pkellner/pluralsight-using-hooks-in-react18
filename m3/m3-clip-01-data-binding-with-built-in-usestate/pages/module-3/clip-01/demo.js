@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 export default function Demo() {
-
   const [text1, setText1] = useState("First");
   useEffect(() => {
     document.title = `${text1.length}`;
@@ -17,9 +16,10 @@ export default function Demo() {
       <input onChange={(e) => setText2(e.target.value)} value={text2} />
       <hr />
       <h2>
-        <i>{text1} {text2}</i>
+        <i>
+          {text1} {text2}
+        </i>
       </h2>
-
     </div>
-  )
+  );
 }

@@ -1,38 +1,23 @@
 import SpeakerLine from "./SpeakerLine";
-import {speakerList} from "../../../speakersData";
+import { speakerList } from "../../../speakersData";
 
-function List() {
-  const [items, setItems] = [speakerList, () => {}];
-  const [updatingId, setUpdatingId] = [0, () => {}];
+function List({ speakers, updateSpeaker }) {
+  const updatingId = 0; // 1269;
 
-  function toggleFavoriteSpeaker(id) {
-    let updateSpeakerRec;
-    const speakerDataRecs = items.map(function (rec) {
-      if (rec.id === id) {
-        updateSpeakerRec = { ...rec, favorite: !rec.favorite };
-        return updateSpeakerRec;
-      } else {
-        return rec;
-      }
-    });
-    const updateItem = async (id, rec) => {
-      setUpdatingId(id);
-      // update REST
-      setUpdatingId(0);
-    };
-    setItems(speakerDataRecs);
-    updateItem(id, updateSpeakerRec);
+  function toggleFavoriteSpeaker(speakerRec) {
+    const speakerRecUpdated = { ...speakerRec, favorite: !speakerRec.favorite };
+    updateSpeaker(speakerRecUpdated);
   }
 
   return (
     <div className="container">
       <div className="row g-3">
-        {items.map((speakerRec) => (
+        {speakers.map((speakerRec) => (
           <SpeakerLine
             key={speakerRec.id}
             speakerRec={speakerRec}
             updating={updatingId === speakerRec.id ? updatingId : 0}
-            toggleFavoriteSpeaker={() => toggleFavoriteSpeaker(speakerRec.id)}
+            toggleFavoriteSpeaker={() => toggleFavoriteSpeaker(speakerRec)}
           />
         ))}
       </div>
@@ -43,13 +28,11 @@ function List() {
 const SpeakerList = () => {
   const { darkTheme } = { darkTheme: false };
 
-  const getItems = async () => {
-    return speakerList;
-  };
+  const speakers = speakerList;
 
   return (
     <div className={darkTheme ? "theme-dark" : "theme-light"}>
-      <List />
+      <List speakers={speakers} updateSpeaker={() => {}} />
     </div>
   );
 };

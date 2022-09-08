@@ -1,6 +1,10 @@
 import FavoriteSpeakerToggleLine from "./FavoriteSpeakerToggleLine";
 
-export default function SpeakerLine({ speakerRec, toggleFavoriteSpeaker, updating }) {
+export default function SpeakerLine({
+  speakerRec,
+  toggleFavoriteSpeaker,
+  updating,
+}) {
   return (
     <>
       <div className="col-xl-12 col-md-12">

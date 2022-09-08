@@ -11,8 +11,7 @@ function List({ speakers, updateSpeaker }) {
     },
   ];
 
-  function toggleFavoriteSpeaker(id) {
-    const speakerRec = speakers.find((rec) => rec.id === id);
+  function toggleFavoriteSpeaker(speakerRec) {
     const speakerRecUpdated = { ...speakerRec, favorite: !speakerRec.favorite };
     updateSpeaker(speakerRecUpdated);
     const updateAsync = async (rec) => {
@@ -31,7 +30,7 @@ function List({ speakers, updateSpeaker }) {
             key={speakerRec.id}
             speakerRec={speakerRec}
             updating={updatingId === speakerRec.id ? updatingId : 0}
-            toggleFavoriteSpeaker={() => toggleFavoriteSpeaker(speakerRec.id)}
+            toggleFavoriteSpeaker={() => toggleFavoriteSpeaker(speakerRec)}
           />
         ))}
       </div>

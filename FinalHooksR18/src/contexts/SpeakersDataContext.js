@@ -10,15 +10,10 @@ export const SpeakersDataContext = createContext({
 });
 
 export const SpeakersDataProvider = ({ children }) => {
-  const {
-    data,
-    createSpeaker,
-    updateSpeaker,
-    deleteSpeaker,
-    loadingStatus,
-  } = useSpeakersData("/api/speakers/", (error) => {
-    alert(error);
-  });
+  const { data, createSpeaker, updateSpeaker, deleteSpeaker, loadingStatus } =
+    useSpeakersData("/api/speakers/", (error) => {
+      alert(error);
+    });
 
   const value = {
     data,

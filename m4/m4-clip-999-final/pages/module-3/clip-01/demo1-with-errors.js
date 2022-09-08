@@ -9,7 +9,6 @@ class Bad3 extends React.Component {
   }
 }
 
-
 function DisplayNames({ text1, text2 }) {
   return (
     <h2>
@@ -21,17 +20,12 @@ function DisplayNames({ text1, text2 }) {
 }
 
 export default function Demo() {
-  
-  
   function createStateHooks(first) {
     const [text1, setText1] = useState(first);
   }
   const [text1, setText1] = createStateHooks("First");
-  
-  
+
   //const [text1, setText1] = useState("First");
-  
-  
 
   if (trackChanges) {
     useEffect(() => {

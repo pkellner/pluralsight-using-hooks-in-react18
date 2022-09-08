@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
 export default function Demo() {
- 
   const [text1, setText1] = useState("First");
   useEffect(() => {
     document.title = `${text1.length} text1 length`;

@@ -3,9 +3,8 @@ import { SpeakerMenuContext } from "../../contexts/SpeakerMenuContext";
 
 const SpeakerImageToggleOnScroll = ({ imageUrl, alt }) => {
   const imageRef = useRef(null);
-  const { speakingSaturday, speakingSunday, searchText } = useContext(
-    SpeakerMenuContext
-  );
+  const { speakingSaturday, speakingSunday, searchText } =
+    useContext(SpeakerMenuContext);
 
   const isInView = () => {
     const rect = imageRef.current.getBoundingClientRect();

@@ -20,7 +20,7 @@ export default function NotesModalFooter() {
     createSpeaker: () => {},
     updateSpeaker: () => {},
     deleteSpeaker: () => {},
-    loadingStatus: "success"
+    loadingStatus: "success",
   };
 
   return (
