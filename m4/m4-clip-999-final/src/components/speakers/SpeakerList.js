@@ -3,35 +3,30 @@ import SpeakerLine from "./SpeakerLine";
 import { ThemeContext } from "../layout/Layout";
 import axios from "axios";
 
-function List({ items, setItems }) {
-  const [updatingId, setUpdatingId] = [0, () => {}];
-  
+function List({ speakers, updateSpeaker }) {
+  const [updatingId, setUpdatingId] = [
+    0,
+    (id) => {
+      console.log("SpeakerList setUpdatingId called ", id);
+    },
+  ];
+
   function toggleFavoriteSpeaker(id) {
-    let updateSpeakerRec;
-    debugger;
-    const speakerDataRecs = items.map(function (rec) {
-      if (rec.id === id) {
-        updateSpeakerRec = { ...rec, favorite: !rec.favorite };
-        return updateSpeakerRec;
-      } else {
-        return rec;
-      }
-    });
-    const updateItem = async (id, rec) => {
-      setUpdatingId(id);
-      await axios.put(`/api/speakers/${id}`, rec);
+    const speakerRec = speakers.find((rec) => rec.id === id);
+    const speakerRecUpdated = { ...speakerRec, favorite: !speakerRec.favorite };
+    updateSpeaker(speakerRecUpdated);
+    const updateAsync = async (rec) => {
+      setUpdatingId(rec.id);
+      await axios.put(`/api/speakers/${rec.id}`, speakerRecUpdated);
       setUpdatingId(0);
     };
-    
-    setItems(speakerDataRecs);
-    updateItem(id, updateSpeakerRec);
+    updateAsync(speakerRecUpdated);
   }
-  
-  
+
   return (
     <div className="container">
       <div className="row g-3">
-        {items.map((speakerRec) => (
+        {speakers.map((speakerRec) => (
           <SpeakerLine
             key={speakerRec.id}
             speakerRec={speakerRec}
@@ -47,24 +42,35 @@ function List({ items, setItems }) {
 const SpeakerList = () => {
   const { darkTheme } = useContext(ThemeContext);
 
-  const [items, setItems] = useState([]);
+  const [speakers, setSpeakers] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function getSpeakerData() {
+    async function getDataAsync() {
       setLoading(true);
       const results = await axios.get("/api/speakers/");
-      setItems(results.data);
+      setSpeakers(results.data);
       setLoading(false);
     }
-    getSpeakerData();
+    getDataAsync();
   }, []);
+
+  function updateSpeaker(speakerRec) {
+    const speakersUpdated = speakers.map(function (rec) {
+      return speakerRec.id === rec.id ? speakerRec : rec;
+    });
+    setSpeakers(speakersUpdated);
+  }
 
   if (loading) return <div>Loading...</div>;
 
   return (
     <div className={darkTheme ? "theme-dark" : "theme-light"}>
-      <List items={items} setItems={setItems} />
+      <List
+        speakers={speakers}
+        setSpeakers={setSpeakers}
+        updateSpeaker={updateSpeaker}
+      />
     </div>
   );
 };

@@ -4,11 +4,10 @@ import { ThemeContext } from "../layout/Layout";
 import axios from "axios";
 
 function List({ items, setItems }) {
-  const [updatingId, setUpdatingId] = [0, () => {}];
+  const [updatingId, setUpdatingId] = [0, (id) => {console.log("updating ", id)}];
   
   function toggleFavoriteSpeaker(id) {
     let updateSpeakerRec;
-    debugger;
     const speakerDataRecs = items.map(function (rec) {
       if (rec.id === id) {
         updateSpeakerRec = { ...rec, favorite: !rec.favorite };
@@ -17,14 +16,8 @@ function List({ items, setItems }) {
         return rec;
       }
     });
-    const updateItem = async (id, rec) => {
-      setUpdatingId(id);
-      await axios.put(`/api/speakers/${id}`, rec);
-      setUpdatingId(0);
-    };
-    
     setItems(speakerDataRecs);
-    updateItem(id, updateSpeakerRec);
+    return updateSpeakerRec;
   }
   
   
@@ -36,7 +29,15 @@ function List({ items, setItems }) {
             key={speakerRec.id}
             speakerRec={speakerRec}
             updating={updatingId === speakerRec.id ? updatingId : 0}
-            toggleFavoriteSpeaker={() => toggleFavoriteSpeaker(speakerRec.id)}
+            toggleFavoriteSpeaker={() => {
+              const updatedRec = toggleFavoriteSpeaker(speakerRec.id);
+              const updateItem = async (rec) => {
+                setUpdatingId(rec.id);
+                await axios.put(`/api/speakers/${rec.id}`, updatedRec);
+                setUpdatingId(0);
+              };
+              updateItem(speakerRec);
+            }}
           />
         ))}
       </div>
@@ -46,6 +47,19 @@ function List({ items, setItems }) {
 
 const SpeakerList = () => {
   const { darkTheme } = useContext(ThemeContext);
+  
+  function toggleFavoriteSpeaker(id) {
+    let updateSpeakerRec;
+    const speakerDataRecs = items.map(function (rec) {
+      if (rec.id === id) {
+        updateSpeakerRec = { ...rec, favorite: !rec.favorite };
+        return updateSpeakerRec;
+      } else {
+        return rec;
+      }
+    });
+    setItems(speakerDataRecs);
+  }
 
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -64,7 +78,7 @@ const SpeakerList = () => {
 
   return (
     <div className={darkTheme ? "theme-dark" : "theme-light"}>
-      <List items={items} setItems={setItems} />
+      <List items={items} setItems={setItems} toggleSpeakerFavorite={toggleFavoriteSpeaker} />
     </div>
   );
 };

@@ -6,7 +6,9 @@ import SpeakerModal from "../speakerModal/SpeakerModal";
 import Speakers from "../speakers/Speakers";
 import About from "../about/About";
 import Speaker from "../speakers/Speaker";
-import SpeakerList from "../speakers/SpeakerListWithReducer";
+//import SpeakerList from "../speakers/SpeakerList";
+//import SpeakerList from "../speakers/SpeakerListWithReducer";
+import SpeakerList from "../speakers/SpeakerListWithReducer2";
 
 export const ThemeContext = createContext({});
 
