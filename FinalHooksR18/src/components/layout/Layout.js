@@ -13,11 +13,9 @@ export default function Layout() {
   return (
     <ThemeProvider>
       <Header />
+      <AppMenu />
       <SpeakersDataProvider>
-        <SpeakerMenuProvider>
-          <AppMenu />
-          {activeComponent}
-        </SpeakerMenuProvider>
+        <SpeakerMenuProvider>{activeComponent}</SpeakerMenuProvider>
       </SpeakersDataProvider>
     </ThemeProvider>
   );
