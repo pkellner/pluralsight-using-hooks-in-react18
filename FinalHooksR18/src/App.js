@@ -8,11 +8,7 @@ const App = ({ url }) => {
   // Layout does not use children but instead uses what comes from AppRouteProvider
   return (
     <AppRouterProvider url={url}>
-      <SpeakersDataProvider>
-        <SpeakerMenuProvider>
-          <Layout />
-        </SpeakerMenuProvider>
-      </SpeakersDataProvider>
+      <Layout />
     </AppRouterProvider>
   );
 };

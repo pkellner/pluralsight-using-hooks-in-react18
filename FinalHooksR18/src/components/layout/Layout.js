@@ -1,8 +1,10 @@
+import { useContext } from "react";
 import Header from "./Header";
 import AppMenu from "./AppMenu";
 import { AppRouterContext } from "../../contexts/AppRouterContext";
-import { useContext } from "react";
 import { ThemeProvider } from "../../contexts/ThemeContext";
+import { SpeakerMenuProvider } from "../../contexts/SpeakerMenuContext";
+import { SpeakersDataProvider } from "../../contexts/SpeakersDataContext";
 
 // Layout does not use children but instead uses what comes from AppRouteProvider
 export default function Layout() {
@@ -11,8 +13,12 @@ export default function Layout() {
   return (
     <ThemeProvider>
       <Header />
-      <AppMenu />
-      {activeComponent}
+      <SpeakersDataProvider>
+        <SpeakerMenuProvider>
+          <AppMenu />
+          {activeComponent}
+        </SpeakerMenuProvider>
+      </SpeakersDataProvider>
     </ThemeProvider>
   );
 }
