@@ -3,7 +3,6 @@ import Speakers from "../components/speakers/Speakers";
 import Speaker from "../components/speakers/Speaker";
 import About from "../components/about/About";
 import SpeakerList from "../components/speakers/SpeakerList";
-import { SpeakerMenuProvider } from "../contexts/SpeakerMenuContext";
 import { SpeakersDataProvider } from "../contexts/SpeakersDataContext";
 
 export default function useAppRouter(url) {

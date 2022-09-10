@@ -1,7 +1,6 @@
 import SpeakerDetail from "./SpeakerDetail";
 import React, { useContext } from "react";
 import { SpeakersDataContext } from "../../contexts/SpeakersDataContext";
-import { SpeakerModalProvider } from "../../contexts/SpeakerModalContext";
 import { ThemeContext } from "../../contexts/ThemeContext";
 
 export default function Speaker({ id }) {
@@ -13,9 +12,7 @@ export default function Speaker({ id }) {
 
   return speakerRec ? (
     <div className={darkTheme ? "theme-dark" : "theme-light"}>
-      <SpeakerModalProvider>
-        <SpeakerDetail speakerRec={speakerRec} showDetails={true} />
-      </SpeakerModalProvider>
+      <SpeakerDetail speakerRec={speakerRec} showDetails={true} />
     </div>
   ) : (
     <h2 className="text-danger">Speaker {id} not found</h2>

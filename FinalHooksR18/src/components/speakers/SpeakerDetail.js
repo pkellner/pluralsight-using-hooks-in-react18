@@ -5,12 +5,13 @@ import EditSpeakerDialog from "./EditSpeakerDialog";
 import FavoriteSpeakerToggle from "./FavoriteSpeakerToggle";
 import DeleteSpeakerButton from "./DeleteSpeakerButton";
 import { AppRouterContext } from "../../contexts/AppRouterContext";
+import { SpeakerModalProvider } from "../../contexts/SpeakerModalContext";
 
 export default function SpeakerDetail({ speakerRec, showDetails }) {
   const { setRoute } = useContext(AppRouterContext);
 
   return (
-    <>
+    <SpeakerModalProvider>
       {speakerRec && <SpeakerModal />}
 
       <div className="col-xl-6 col-md-12">
@@ -70,6 +71,6 @@ export default function SpeakerDetail({ speakerRec, showDetails }) {
           </div>
         </div>
       </div>
-    </>
+    </SpeakerModalProvider>
   );
 }
