@@ -15,11 +15,9 @@ export default function useAppRouter(url) {
   }
 
   let activeComponent = (
-    <SpeakerMenuProvider>
-      <SpeakersDataProvider>
-        <Speakers />
-      </SpeakersDataProvider>
-    </SpeakerMenuProvider>
+    <SpeakersDataProvider>
+      <Speakers />
+    </SpeakersDataProvider>
   );
 
   if (routeUrl.startsWith("/speakerlist")) {

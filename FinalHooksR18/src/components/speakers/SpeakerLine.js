@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import FavoriteSpeakerToggleLine from "./FavoriteSpeakerToggleLine";
 
 const SpeakerLine = ({ speakerRec, toggleFavoriteSpeaker, updating }) => {
-  console.log("SpeakerLine:",speakerRec.id)
+  console.log("SpeakerLine:", speakerRec.id);
   return (
     <>
       <div className="col-xl-12 col-md-12">
@@ -53,7 +53,5 @@ const SpeakerLine = ({ speakerRec, toggleFavoriteSpeaker, updating }) => {
 
 // takes advantage of every time there is a change, the updating spinner shows. that will also cause favorite icon to re-render
 export default memo(SpeakerLine, (prevProps, nextProps) => {
-  return (
-    prevProps.updating === nextProps.updating
-  );
+  return prevProps.updating === nextProps.updating;
 });

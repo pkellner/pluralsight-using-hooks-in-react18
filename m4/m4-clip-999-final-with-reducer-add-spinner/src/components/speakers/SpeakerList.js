@@ -19,9 +19,7 @@ function List({ state, dispatch }) {
     };
     updateAsync(speakerRecUpdated);
   }
-  
-  
-  
+
   return (
     <div className="container">
       <div className="row g-3">
