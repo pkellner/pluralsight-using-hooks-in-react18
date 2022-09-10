@@ -26,9 +26,9 @@ export default function useAppRouter(url) {
     activeComponent = <About />;
   } else {
     activeComponent = (
-      <SpeakersDataProvider>
+      
         <Speakers />
-      </SpeakersDataProvider>
+     
     );
   }
 

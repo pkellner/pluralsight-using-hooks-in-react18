@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import { SpeakersDataContext } from "../../contexts/SpeakersDataContext";
+import { SpeakersDataContext, SpeakersDataProvider } from "../../contexts/SpeakersDataContext";
 import SpeakerMenu from "./SpeakerMenu";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { SpeakerMenuProvider } from "../../contexts/SpeakerMenuContext";
 import SpeakersList from "./SpeakersList";
 
-const Speakers = () => {
+const SpeakersX = () => {
   const { data: speakerList, loadingStatus } = useContext(SpeakersDataContext);
   const { darkTheme } = useContext(ThemeContext);
 
@@ -26,4 +26,12 @@ const Speakers = () => {
   );
 };
 
-export default Speakers;
+export default function Speakers() {
+  return (
+    <SpeakersDataProvider>
+      <SpeakersX />
+    </SpeakersDataProvider>
+  );
+}
+
+
