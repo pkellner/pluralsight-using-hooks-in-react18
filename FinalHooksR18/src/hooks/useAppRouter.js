@@ -9,16 +9,11 @@ export default function useAppRouter(url) {
   const [routeUrl, setRouteUrl] = useState(url);
 
   function setRoute(url) {
-    //history.replaceState({}, url.substring(2), url);
+    history.replaceState({}, url.substring(2), url); // makes URL change when menu selected
     setRouteUrl(url);
   }
 
-  let activeComponent = (
-    <SpeakersDataProvider>
-      <Speakers />
-    </SpeakersDataProvider>
-  );
-
+  let activeComponent;
   if (routeUrl.startsWith("/speakerlist")) {
     activeComponent = <SpeakerList />;
   } else if (routeUrl.startsWith("/speaker")) {
@@ -29,6 +24,12 @@ export default function useAppRouter(url) {
     );
   } else if (routeUrl === "/about") {
     activeComponent = <About />;
+  } else {
+    activeComponent = (
+      <SpeakersDataProvider>
+        <Speakers />
+      </SpeakersDataProvider>
+    );
   }
 
   return { activeComponent, setRoute };

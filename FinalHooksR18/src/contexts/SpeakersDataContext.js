@@ -22,6 +22,8 @@ export const SpeakersDataProvider = ({ children }) => {
     deleteSpeaker,
     loadingStatus,
   };
+  
+  //console.log("SpeakersDataContext used");
 
   return (
     <SpeakersDataContext.Provider value={value}>
