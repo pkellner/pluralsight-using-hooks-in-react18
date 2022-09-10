@@ -6,7 +6,7 @@ const LOADING_STATES = ["loading", "errored", "success"];
 function useGeneralizedCrudMethods(url, errorNotificationFn) {
   const [data, setData] = useState();
   const [error, setError] = useState();
-  const [loadingStatus, setLoadingStatus] = useState("");
+  const [loadingStatus, setLoadingStatus] = useState("loading");
 
   if (!url || url.length === 0) {
     throw "useGeneralizedCrudMethods no url passed in error";
@@ -126,12 +126,12 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
   }
 
   return {
-    data,
-    loadingStatus,
-    error,
-    createRecord,
-    updateRecord,
-    deleteRecord,
+    data, // returned data after loadingStatus === "success"
+    loadingStatus, // "success", "errored", "loading"
+    error, // error string
+    createRecord, // creates new record at end, takes first record as parameter, second as callback function when done
+    updateRecord, // update new record at end, takes single record as parameter, second as callback function when done
+    deleteRecord, // takes primary key named "id"
   };
 }
 

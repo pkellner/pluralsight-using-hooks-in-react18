@@ -10,7 +10,7 @@ export default function useAppRouter(url) {
   const [routeUrl, setRouteUrl] = useState(url);
 
   function setRoute(url) {
-    history.replaceState({}, url.substring(2), url);
+    //history.replaceState({}, url.substring(2), url);
     setRouteUrl(url);
   }
 
