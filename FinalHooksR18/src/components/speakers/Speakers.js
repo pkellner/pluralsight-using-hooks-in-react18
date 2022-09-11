@@ -8,28 +8,9 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 import { SpeakerMenuProvider } from "../../contexts/SpeakerMenuContext";
 import SpeakersList from "./SpeakersList";
 
-const SpeakersX = () => {
-  const { data: speakerList, loadingStatus } = useContext(SpeakersDataContext);
-  const { darkTheme } = useContext(ThemeContext);
 
-  if (loadingStatus === "hasErrored") return <div>Errored on load</div>;
-  if (loadingStatus === "loading") return <div>Loading...</div>;
 
-  return (
-    <div className={darkTheme ? "theme-dark" : "theme-light"}>
-      <SpeakerMenu />
-      <div className="container">
-        <div className="row g-4">
-          <SpeakerMenuProvider>
-            <SpeakersList speakerList={speakerList} />
-          </SpeakerMenuProvider>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const SpeakersX1 = () => {
+const WithContext = () => {
   const { data: speakerList, loadingStatus } = useContext(SpeakersDataContext);
   const { darkTheme } = useContext(ThemeContext);
 
@@ -53,8 +34,7 @@ const SpeakersX1 = () => {
 export default function Speakers() {
   return (
     <SpeakersDataProvider>
-      {() => SpeakersX1()}
-      <SpeakersX1 />
+      <WithContext />
     </SpeakersDataProvider>
   );
 }
