@@ -107,6 +107,7 @@ a:focus {
   height: 2rem;
   position: absolute !important;
   right: 22%;
+  top: 13px;
 }
 
 .btn-accent {
