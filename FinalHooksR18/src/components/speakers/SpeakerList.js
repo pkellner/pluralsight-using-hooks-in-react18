@@ -73,9 +73,9 @@ function List({ getItems }) {
               />
             </div>
             <div className="spinner-height">
-              {/* {isPending && ( */}
-              <i className="spinner-border text-dark" role="status" />
-              {/* )} */}
+              {isPending && (
+                <i className="spinner-border text-dark" role="status" />
+              )}
             </div>
           </div>
         </div>
