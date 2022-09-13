@@ -408,6 +408,8 @@ header ul li button:focus {
 /* this does not work for me */
 .blue-box-background {
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQAQMAAAC032DuAAAAAXNSR0IArs4c6QAAAANQTFRFdsvgfwLFxQAAABBJREFUGBljGAWjYBTQDQAAA3AAATXTgHYAAAAASUVORK5CYII=");
+  height: 80px;
+  width: 80px;
 }
 
 .flex-grow-04 {
