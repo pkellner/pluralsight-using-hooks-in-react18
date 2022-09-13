@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Speakers from "../components/speakers/Speakers";
 import Speaker from "../components/speakers/Speaker";
 import About from "../components/about/About";
-import SpeakerList from "../components/speakers/SpeakerList";
+import SpeakerList from "../components/speakers/SpeakerListSearchHighlightDeferredValue";
 
 export default function useAppRouter(url) {
   const [routeUrl, setRouteUrl] = useState(url);

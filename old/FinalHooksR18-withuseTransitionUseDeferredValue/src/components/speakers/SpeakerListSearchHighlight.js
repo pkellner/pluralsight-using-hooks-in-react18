@@ -1,30 +1,38 @@
-import React, { useContext, useDeferredValue, useEffect, useState, useTransition } from "react";
+import React, { useContext, useEffect, useState, useTransition } from "react";
 import SpeakerLine from "./SpeakerLine";
 import axios from "axios";
 import { ThemeContext } from "../../contexts/ThemeContext";
 
-
-
 function List({ getItems }) {
   const [items, setItems] = useState([]);
-  const [highlightChars, setHighlightChars] = useState("");   // * comment this out for useDeferredValue
-  
+  const [highlightChars, setHighlightChars] = useState("");
   const [searchName, setSearchName] = useState("");
-  //const highlightChars = useDeferredValue(searchName,  {timeoutMs: 10000}); // use for useDeferredValue
-  
-  const [isPending, startTransition] = useTransition();  // * comment this out for useDeferredValue
-  //const isPending = false; // use for useDeferredValue
-  
+  const [isPending, startTransition] = useTransition();
+
   const [updatingId, setUpdatingId] = useState(0); // 0 means no current speaker updating
   useEffect(() => {
-    async function getItemsAsync() {
+    async function getIt() {
       let itemsLoaded = await getItems();
-      addDummySpeakers(itemsLoaded,8000);
+      for (let increment = 1; increment < 15000; increment++) {
+        itemsLoaded.push({
+          id: 1000000 + increment,
+          firstName: `Craig${increment}`,
+          lastName: `Mantle${increment}`,
+          favorite: false,
+          bio: "fake bio",
+          company: "fake company",
+          twitterHandle: `fakeTwitterHandle${increment}`,
+          userBioShort: `fake short bio ${increment}`,
+          imageUrl: "",
+          email: `FakeEmail${increment}@codecamp.net`,
+        });
+      }
       setItems(itemsLoaded);
     }
-    getItemsAsync();
+    getIt();
+    // console.log("list: updating items"); // this called when not useCallback below
   }, [getItems]);
-  
+
   function toggleFavoriteSpeaker(id) {
     let updateSpeakerRec;
     const speakerDataRecs = items.map(function (rec) {
@@ -43,7 +51,7 @@ function List({ getItems }) {
     setItems(speakerDataRecs);
     updateItem(id, updateSpeakerRec);
   }
-  
+
   return (
     <div className="container">
       <div className="row g-3">
@@ -60,9 +68,9 @@ function List({ getItems }) {
                     value={searchName}
                     onChange={(event) => {
                       setSearchName(event.target.value);
-                      startTransition(() => {  // * comment this out for useDeferredValue
-                        setHighlightChars(event.target.value);  // * comment this out for useDeferredValue
-                      });  // * comment this out for useDeferredValue
+                      startTransition(() => {
+                        setHighlightChars(event.target.value);
+                      });
                     }}
                     type="text"
                     className="form-control"
@@ -87,7 +95,7 @@ function List({ getItems }) {
             ).includes(highlightChars.toLowerCase())
               ? true
               : false;
-          
+
           return (
             <SpeakerLine
               key={speakerRec.id}
@@ -105,12 +113,13 @@ function List({ getItems }) {
 
 const SpeakerList = () => {
   const { darkTheme } = useContext(ThemeContext);
-  
+
   const getItems = async () => {
+    //console.log("getItems called");
     const results = await axios.get("/api/speakers/");
     return results.data;
   };
-  
+
   return (
     <div className={darkTheme ? "theme-dark" : "theme-light"}>
       {/*<List getItems={useCallback(getItems, [])} />*/}
@@ -119,24 +128,4 @@ const SpeakerList = () => {
   );
 };
 
-
 export default SpeakerList;
-
-
-function addDummySpeakers(itemsLoaded, numToAdd) {
-  for (let increment = 1; increment < numToAdd; increment++) {
-    itemsLoaded.push({
-      id: 1000000 + increment,
-      firstName: `Craig${increment}`,
-      lastName: `Mantle${increment}`,
-      favorite: false,
-      bio: "fake bio",
-      company: "fake company",
-      twitterHandle: `fakeTwitterHandle${increment}`,
-      userBioShort: `fake short bio ${increment}`,
-      imageUrl: "",
-      email: `FakeEmail${increment}@codecamp.net`
-    });
-  }
-}
-
