@@ -8,11 +8,13 @@
       "sun": true,
       "favorite": false,
       "bio": "Arun Gupta is a Principal Open Source Technologist at Amazon Web Services. He has built and led developer communities for 12+ years at Sun, Oracle, Red Hat and Couchbase.",
+      "company": "Amazon",
       "twitterHandle": "arungupta",
       "userBioShort": "Arun Gupta is a Principal Open Source Technologist at Amazon Web Services. ",
       "imageUrl": "/images/Speaker-1269.jpg",
       "email": "Arun.Gupta@codecamp.net"
     },
+
     {
       "id": 5996,
       "firstName": "Craig",
@@ -83,6 +85,7 @@
       "imageUrl": "/images/Speaker-8367.jpg",
       "email": "Gayle Laakmann.McDowell@codecamp.net"
     },
+
     {
       "id": 18805,
       "firstName": "Mickey W.",

@@ -7,6 +7,7 @@ export const speakerList = [
     sun: true,
     favorite: false,
     bio: "Arun Gupta is a Principal Open Source Technologist at Amazon Web Services. He has built and led developer communities for 12+ years at Sun, Oracle, Red Hat and Couchbase.",
+    company: "Amazon",
     twitterHandle: "arungupta",
     userBioShort:
       "Arun Gupta is a Principal Open Source Technologist at Amazon Web Services. ",

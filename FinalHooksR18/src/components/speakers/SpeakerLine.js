@@ -1,14 +1,6 @@
 import React, { memo } from "react";
 import FavoriteSpeakerToggleLine from "./FavoriteSpeakerToggleLine";
 
-// Base64 string data -- we can remove this
-const data =
-  "iVBORw0KGgoAAAANSUhEUgAAAFAAAABQAQMAAAC032DuAAAAAXNSR0IArs4c6QAAAANQTFRFdsvgfwLFxQAAABBJREFUGBljGAWjYBTQDQAAA3AAATXTgHYAAAAASUVORK5CYII=";
-
-/* make this CSS?
-url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQAQMAAAC032DuAAAAAXNSR0IArs4c6QAAAANQTFRFdsvgfwLFxQAAABBJREFUGBljGAWjYBTQDQAAA3AAATXTgHYAAAAASUVORK5CYII=')
- */
-
 const SpeakerLine = ({
   speakerRec,
   toggleFavoriteSpeaker,
@@ -38,7 +30,7 @@ const SpeakerLine = ({
                   <h5
                     className={
                       highlight === true
-                        ? "mb-1 speakerNameBackgroundHighlight"
+                        ? "mb-1 background-text-highlight"
                         : "mb-1"
                     }
                   >

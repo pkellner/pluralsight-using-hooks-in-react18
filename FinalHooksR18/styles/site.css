@@ -404,11 +404,10 @@ header ul li button:focus {
   transform: translateX(24px);
 }
 
-.speakerNameBackgroundHighlight {
+.background-text-highlight {
   background: var(--accent);
 }
 
-/* this does not work for me */
 .blue-box-background {
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQAQMAAAC032DuAAAAAXNSR0IArs4c6QAAAANQTFRFdsvgfwLFxQAAABBJREFUGBljGAWjYBTQDQAAA3AAATXTgHYAAAAASUVORK5CYII=");
   height: 80px;
