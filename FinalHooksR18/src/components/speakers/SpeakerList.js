@@ -106,7 +106,7 @@ function List({ getItems }) {
 const SpeakerList = () => {
   const { darkTheme } = useContext(ThemeContext);
   
-  const getItems = async () => {
+  const getItems = async () => {f
     const results = await axios.get("/api/speakers/");
     return results.data;
   };
