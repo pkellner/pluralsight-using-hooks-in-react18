@@ -1,30 +1,34 @@
-import React, { useContext, useDeferredValue, useEffect, useState, useTransition } from "react";
+import React, {
+  useContext,
+  useDeferredValue,
+  useEffect,
+  useState,
+  useTransition,
+} from "react";
 import SpeakerLine from "./SpeakerLine";
 import axios from "axios";
 import { ThemeContext } from "../../contexts/ThemeContext";
 
-
-
 function List({ getItems }) {
   const [items, setItems] = useState([]);
-  const [highlightChars, setHighlightChars] = useState("");   // * comment this out for useDeferredValue
-  
+  const [highlightChars, setHighlightChars] = useState(""); // * comment this out for useDeferredValue
+
   const [searchName, setSearchName] = useState("");
   //const highlightChars = useDeferredValue(searchName,  {timeoutMs: 10000}); // use for useDeferredValue
-  
-  const [isPending, startTransition] = useTransition();  // * comment this out for useDeferredValue
+
+  const [isPending, startTransition] = useTransition(); // * comment this out for useDeferredValue
   //const isPending = false; // use for useDeferredValue
-  
+
   const [updatingId, setUpdatingId] = useState(0); // 0 means no current speaker updating
   useEffect(() => {
     async function getItemsAsync() {
       let itemsLoaded = await getItems();
-      addDummySpeakers(itemsLoaded,8000);
+      addDummySpeakers(itemsLoaded, 8000);
       setItems(itemsLoaded);
     }
     getItemsAsync();
   }, [getItems]);
-  
+
   function toggleFavoriteSpeaker(id) {
     let updateSpeakerRec;
     const speakerDataRecs = items.map(function (rec) {
@@ -43,41 +47,41 @@ function List({ getItems }) {
     setItems(speakerDataRecs);
     updateItem(id, updateSpeakerRec);
   }
-  
+
   return (
     <div className="container">
-      <div className="row g-3">
-        <div className="col-xl-12 col-md-12">
-          <div className="card border-0 speaker-list">
-            <div
-              className="btn-toolbarxx"
-              role="toolbar"
-              aria-label="Speaker toolbar filter"
-            >
-              <div className="toolbar-trigger mb-3">
-                <div className="toolbar-search">
-                  <input
-                    value={searchName}
-                    onChange={(event) => {
-                      setSearchName(event.target.value);
-                      startTransition(() => {  // * comment this out for useDeferredValue
-                        setHighlightChars(event.target.value);  // * comment this out for useDeferredValue
-                      });  // * comment this out for useDeferredValue
-                    }}
-                    type="text"
-                    className="form-control"
-                    placeholder="Highlight Names"
-                  />
-                </div>
-              </div>
+      <div className="border-0">
+        <div
+          className="btn-toolbar"
+          role="toolbar"
+          aria-label="Speaker toolbar filter"
+        >
+          <div className="toolbar-trigger mb-3 flex-grow-04">
+            <div className="toolbar-search w-100">
+              <input
+                value={searchName}
+                onChange={(event) => {
+                  setSearchName(event.target.value);
+                  startTransition(() => {
+                    // * comment this out for useDeferredValue
+                    setHighlightChars(event.target.value); // * comment this out for useDeferredValue
+                  }); // * comment this out for useDeferredValue
+                }}
+                type="text"
+                className="form-control"
+                placeholder="Highlight Names"
+              />
             </div>
-            <div className="toolbar-trigger mb-3">
+            <div className="position-relative spinner-height">
               {isPending && (
                 <i className="spinner-border text-dark" role="status" />
               )}
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="row g-3">
         {items.map(function (speakerRec) {
           const highlight =
             highlightChars?.length > 0 &&
@@ -87,7 +91,7 @@ function List({ getItems }) {
             ).includes(highlightChars.toLowerCase())
               ? true
               : false;
-          
+
           return (
             <SpeakerLine
               key={speakerRec.id}
@@ -105,12 +109,12 @@ function List({ getItems }) {
 
 const SpeakerList = () => {
   const { darkTheme } = useContext(ThemeContext);
-  
-  const getItems = async () => {f
+
+  const getItems = async () => {
     const results = await axios.get("/api/speakers/");
     return results.data;
   };
-  
+
   return (
     <div className={darkTheme ? "theme-dark" : "theme-light"}>
       {/*<List getItems={useCallback(getItems, [])} />*/}
@@ -119,9 +123,7 @@ const SpeakerList = () => {
   );
 };
 
-
 export default SpeakerList;
-
 
 function addDummySpeakers(itemsLoaded, numToAdd) {
   for (let increment = 1; increment < numToAdd; increment++) {
@@ -135,8 +137,7 @@ function addDummySpeakers(itemsLoaded, numToAdd) {
       twitterHandle: `fakeTwitterHandle${increment}`,
       userBioShort: `fake short bio ${increment}`,
       imageUrl: "",
-      email: `FakeEmail${increment}@codecamp.net`
+      email: `FakeEmail${increment}@codecamp.net`,
     });
   }
 }
-

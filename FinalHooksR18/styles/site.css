@@ -103,6 +103,10 @@ a:focus {
   left: 35px;
 }
 
+.spinner-height {
+  height: 2rem;
+}
+
 .btn-accent {
   background: var(--primary);
   border-radius: var(--bs-btn-border-radius) !important;
@@ -222,7 +226,8 @@ header ul li button:focus {
 
 @media screen and (max-width: 768px) {
   .btn-toolbar {
-    top: 71px;
+    /* top: 71px; */
+    top: 0px;
   }
   .btn-toolbar .toolbar-trigger {
     gap: 1rem;
@@ -397,34 +402,20 @@ header ul li button:focus {
 }
 
 .speakerNameBackgroundHighlight {
-  background: yellow;
+  background: var(--accent);
 }
 
 /* this does not work for me */
 .blue-box-background {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQAQMAAAC032DuAAAAAXNSR0IArs4c6QAAAANQTFRFdsvgfwLFxQAAABBJREFUGBljGAWjYBTQDQAAA3AAATXTgHYAAAAASUVORK5CYII=')
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQAQMAAAC032DuAAAAAXNSR0IArs4c6QAAAANQTFRFdsvgfwLFxQAAABBJREFUGBljGAWjYBTQDQAAA3AAATXTgHYAAAAASUVORK5CYII=");
 }
 
+.flex-grow-04 {
+  flex-grow: 0.4;
+}
 
-/* Maybe we can integrate fonticons instead of the image? */
-/* .heartredbutton {
-  background-image: url("/images/heart-red.png");
-  background-color: transparent;
-  cursor: pointer;
-  border: none;
-  background-repeat: no-repeat;
-  width: 25px;
-  height: 25px;
-  float: right;
-} */
-
-/* .heartdarkbutton {
-  background-image: url("/images/heart-dark.png");
-  background-color: transparent;
-  cursor: pointer;
-  border: none;
-  background-repeat: no-repeat;
-  width: 25px;
-  height: 25px;
-  float: right;
-} */
+@media screen and (max-width: 768px) {
+  .flex-grow-04 {
+    flex-grow: 1;
+  }
+}
