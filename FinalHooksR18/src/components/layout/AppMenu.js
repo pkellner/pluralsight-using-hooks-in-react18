@@ -9,7 +9,7 @@ export default function AppMenu() {
   return (
     <header className="d-flex justify-content-center py-3">
       <div className="container">
-        <ul className="nav nav-pills gap-3 align-items-center">
+        <ul className="nav nav-pills gap-1 align-items-center justify-content-start">
           <li className="nav-item">
             <button
               onClick={() => {

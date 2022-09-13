@@ -72,10 +72,10 @@ function List({ getItems }) {
                 placeholder="Highlight Names"
               />
             </div>
-            <div className="position-relative spinner-height">
-              {isPending && (
-                <i className="spinner-border text-dark" role="status" />
-              )}
+            <div className="spinner-height">
+              {/* {isPending && ( */}
+              <i className="spinner-border text-dark" role="status" />
+              {/* )} */}
             </div>
           </div>
         </div>

@@ -105,6 +105,8 @@ a:focus {
 
 .spinner-height {
   height: 2rem;
+  position: absolute !important;
+  right: 22%;
 }
 
 .btn-accent {
@@ -185,7 +187,7 @@ header ul li button {
   text-transform: uppercase;
   font-weight: 400 !important;
   letter-spacing: 0.5px;
-  font-size: 0.95rem !important;
+  font-size: 0.85rem !important;
   border: 1px solid #3e3e5c !important;
   line-height: 1.3;
 }
