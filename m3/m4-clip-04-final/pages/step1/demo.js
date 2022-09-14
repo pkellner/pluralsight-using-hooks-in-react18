@@ -1,6 +1,15 @@
-import React, { useEffect } from "react";
+import React, {useEffect} from "react";
 
-export default function Demo({useMyState: useState}) {
+let localStateValue;
+
+function useState(initial) {
+  const setValue = (val) => {
+    localStateValue = val;
+  };
+  return [localStateValue, setValue];
+}
+
+export default function Demo() {
   const [text1, setText1] = useState("First");
   useEffect(() => {
     document.title = `${text1.length}`;
