@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import TextInputExample from "./textInputExample";
+import Demo from "./Demo";
 
 const localStateValues = [];
 let localStateValueIndex = 0;
@@ -35,5 +35,5 @@ export default function ParentComponent() {
   
   localStateValueIndex = 0;
   
-  return <TextInputExample useMyState={(val) => useMyState(val, reRenderMe)} />;
+  return <Demo useMyState={(val) => useMyState(val, reRenderMe)} />;
 }
