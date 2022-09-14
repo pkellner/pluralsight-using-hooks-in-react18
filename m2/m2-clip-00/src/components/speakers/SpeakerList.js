@@ -1,14 +1,12 @@
 import SpeakerLine from "./SpeakerLine";
 import { speakerList } from "../../../speakersData";
 
-
 function List() {
   const updatingId = 0; // 1269;
   const isPending = false;
-  
-  function toggleFavoriteSpeaker(id) {
-  }
-  
+
+  function toggleFavoriteSpeaker(id) {}
+
   return (
     <div className="container">
       <div className="border-0">
@@ -21,8 +19,7 @@ function List() {
             <div className="toolbar-search w-100">
               <input
                 value=""
-                onChange={(event) => {
-                }}
+                onChange={(event) => {}}
                 type="text"
                 className="form-control"
                 placeholder="Highlight Names"
@@ -36,7 +33,7 @@ function List() {
           </div>
         </div>
       </div>
-      
+
       <div className="row g-3">
         {speakerList.map(function (speakerRec) {
           const highlight = false;

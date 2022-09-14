@@ -13,7 +13,7 @@ function List({ getItems }) {
     getIt();
     console.log("list: updating items"); // this called when not useCallback below
   }, [getItems]);
-  
+
   function toggleFavoriteSpeaker(id) {
     let updateSpeakerRec;
     const speakerDataRecs = items.map(function (rec) {
@@ -32,7 +32,7 @@ function List({ getItems }) {
     setItems(speakerDataRecs);
     updateItem(id, updateSpeakerRec);
   }
-  
+
   return (
     <div className="container">
       <div className="row g-3">
@@ -51,13 +51,13 @@ function List({ getItems }) {
 
 const SpeakerList = () => {
   const { darkTheme } = useContext(ThemeContext);
-  
+
   const getItems = async () => {
     console.log("getItems called");
     const results = await axios.get("/api/speakers/");
     return results.data;
   };
-  
+
   return (
     <div className={darkTheme ? "theme-dark" : "theme-light"}>
       {/*<List getItems={useCallback(getItems, [])} />*/}

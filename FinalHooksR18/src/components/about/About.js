@@ -3,7 +3,7 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 
 export default function About() {
   const { darkTheme } = useContext(ThemeContext);
-  
+
   return (
     <div className={darkTheme ? "theme-dark" : "theme-light"}>
       <div className="container">

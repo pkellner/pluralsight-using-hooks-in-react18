@@ -1,11 +1,11 @@
 import FavoriteSpeakerToggleLine from "./FavoriteSpeakerToggleLine";
 
 const SpeakerLine = ({
-                       speakerRec,
-                       toggleFavoriteSpeaker,
-                       updating,
-                       highlight,
-                     }) => {
+  speakerRec,
+  toggleFavoriteSpeaker,
+  updating,
+  highlight,
+}) => {
   return (
     <div className="col-xl-12 col-md-12">
       <div className="card border-0 speaker-list">

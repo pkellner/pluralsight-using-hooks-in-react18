@@ -9,7 +9,6 @@ const data =
 url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQAQMAAAC032DuAAAAAXNSR0IArs4c6QAAAANQTFRFdsvgfwLFxQAAABBJREFUGBljGAWjYBTQDQAAA3AAATXTgHYAAAAASUVORK5CYII=')
  */
 
-
 const SpeakerLine = ({
   speakerRec,
   toggleFavoriteSpeaker,
@@ -29,7 +28,7 @@ const SpeakerLine = ({
                   alt={`${speakerRec?.firstName} ${speakerRec?.lastName}`}
                 />
               ) : (
-                 <img src={`data:image/jpeg;base64,${data}`} width={80} />
+                <img src={`data:image/jpeg;base64,${data}`} width={80} />
               )}
             </div>
             <div className="flex-grow-1 ms-3 me-5">

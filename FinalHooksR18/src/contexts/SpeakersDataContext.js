@@ -22,7 +22,7 @@ export const SpeakersDataProvider = ({ children }) => {
     deleteSpeaker,
     loadingStatus,
   };
-  
+
   //console.log("SpeakersDataContext used");
 
   return (

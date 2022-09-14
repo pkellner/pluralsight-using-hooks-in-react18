@@ -8,8 +8,6 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 import { SpeakerMenuProvider } from "../../contexts/SpeakerMenuContext";
 import SpeakersList from "./SpeakersList";
 
-
-
 const WithContext = () => {
   const { data: speakerList, loadingStatus } = useContext(SpeakersDataContext);
   const { darkTheme } = useContext(ThemeContext);

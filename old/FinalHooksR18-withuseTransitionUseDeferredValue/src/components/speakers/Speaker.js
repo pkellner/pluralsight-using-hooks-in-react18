@@ -1,6 +1,9 @@
 import SpeakerDetail from "./SpeakerDetail";
 import React, { useContext } from "react";
-import { SpeakersDataContext, SpeakersDataProvider } from "../../contexts/SpeakersDataContext";
+import {
+  SpeakersDataContext,
+  SpeakersDataProvider,
+} from "../../contexts/SpeakersDataContext";
 import { ThemeContext } from "../../contexts/ThemeContext";
 
 function WithContext({ id }) {
@@ -24,5 +27,5 @@ export default function Speaker(props) {
     <SpeakersDataProvider>
       <WithContext {...props} />
     </SpeakersDataProvider>
-  )
+  );
 }

@@ -1,4 +1,10 @@
-import React, { useContext, useDeferredValue, useEffect, useState, useTransition } from "react";
+import React, {
+  useContext,
+  useDeferredValue,
+  useEffect,
+  useState,
+  useTransition,
+} from "react";
 import SpeakerLine from "./SpeakerLine";
 import axios from "axios";
 import { ThemeContext } from "../../contexts/ThemeContext";
@@ -6,10 +12,10 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 function List({ getItems }) {
   const [items, setItems] = useState([]);
   //const [highlightChars, setHighlightChars] = useState("");
- 
+
   const [searchName, setSearchName] = useState("");
-  const highlightChars = useDeferredValue(searchName,  {timeoutMs: 10000});
-  
+  const highlightChars = useDeferredValue(searchName, { timeoutMs: 10000 });
+
   //const [isPending, startTransition] = useTransition();
   const isPending = false;
 
