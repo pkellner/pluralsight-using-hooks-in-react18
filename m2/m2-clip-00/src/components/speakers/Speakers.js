@@ -1,27 +1,22 @@
-import SpeakerDetail from "./SpeakerDetail";
-import SpeakerMenu from "./SpeakerMenu";
+import React from "react";
 import { speakerList } from "../../../speakersData";
+import SpeakerMenu from "./SpeakerMenu";
+import SpeakersList from "./SpeakersList";
 
-const Speakers = () => {
+function Speakers() {
   const darkTheme = false;
+  
   return (
     <div className={darkTheme ? "theme-dark" : "theme-light"}>
-      <SpeakerMenu />
-      <div className="container">
-        <div className="row g-4">
-          {speakerList.map((speakerRec) => {
-            return (
-              <SpeakerDetail
-                key={speakerRec.id}
-                speakerRec={speakerRec}
-                showDetails={false}
-              />
-            );
-          })}
+        <SpeakerMenu />
+        <div className="container">
+          <div className="row g-4">
+            <SpeakersList speakerList={speakerList} />
+          </div>
         </div>
-      </div>
+     
     </div>
   );
-};
+}
 
-export default Speakers;
+export default Speakers
