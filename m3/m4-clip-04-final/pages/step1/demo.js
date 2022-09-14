@@ -1,12 +1,18 @@
 import React, {useEffect} from "react";
 
-let localStateValue;
+let localStateValue = "";
 
 function useState(initial) {
+  if (initial != undefined) {
+    localStateValue = initial;
+  }
   const setValue = (val) => {
     localStateValue = val;
   };
-  return [localStateValue, setValue];
+  debugger;
+  const retVals = [localStateValue, setValue];
+  return retVals;
+  
 }
 
 export default function Demo() {
