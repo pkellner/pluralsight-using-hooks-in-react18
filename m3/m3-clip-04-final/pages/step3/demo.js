@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
-import Demo from "./demo";
+import DemoApp from "./demoApp";
 
 
 const localStateValues = [];
 let localStateValueIndex = 0;
 
-export default function ParentComponent() {
+export default function Demo() {
   
   function useMyState(initialValue, reRenderMe) {
     const localStateValueIndexLocal = localStateValueIndex; // capture in closure
@@ -36,5 +36,5 @@ export default function ParentComponent() {
   
   localStateValueIndex = 0;
   
-  return <Demo useMyState={(val) => useMyState(val, reRenderMe)} />;
+  return <DemoApp useMyState={(val) => useMyState(val, reRenderMe)} />;
 }

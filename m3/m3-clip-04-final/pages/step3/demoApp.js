@@ -1,20 +1,6 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 
-let localStateValue = "";
-
-function useState(initial) {
-  if (initial != undefined) {
-    localStateValue = initial;
-  }
-  const setValue = (val) => {
-    localStateValue = val;
-  };
-  const retVals = [localStateValue, setValue];
-  return retVals;
-  
-}
-
-export default function Demo() {
+export default function DemoApp({ useMyState: useState}) {
   const [text1, setText1] = useState("First");
   useEffect(() => {
     document.title = `${text1.length}`;
