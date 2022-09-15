@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react";
 import DemoApp from "./demoApp";
 
+let localStateValue = undefined;
+
 export default function Demo() {
-
-  let localStateValue = undefined;
-
+  
   function useMyState(initial) {
     if (localStateValue === undefined) {
       localStateValue = initial;
     }
     const setValue = (val) => {
       localStateValue = val;
+      debugger;
       reRenderMe();
     };
     const retVals = [localStateValue, setValue];
