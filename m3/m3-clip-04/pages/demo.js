@@ -1,40 +1,28 @@
-import React, { useEffect } from "react";
-
-let localStateValue = undefined;
-
-function useState(initial) {
-  if (localStateValue === undefined) {
-    localStateValue = initial;
-  }
-
-  const setValue = (val) => {
-    localStateValue = val;
-  }
-
-  const retVals = [localStateValue, setValue];
-  return retVals;
-}
+import { useState, useEffect } from "react";
+import DemoApp from "./demoApp";
 
 export default function Demo() {
-  const [text1, setText1] = useState("First");
+
+  let localStateValue = undefined;
+
+  function useMyState(initial) {
+    if (localStateValue === undefined) {
+      localStateValue = initial;
+    }
+    const setValue = (val) => {
+      localStateValue = val;
+      reRenderMe();
+    };
+    const retVals = [localStateValue, setValue];
+    return retVals;
+  }
+  const [cnt, setCnt] = useState(0);
   useEffect(() => {
-    document.title = `${text1.length}`;
-  });
-  const [text2, setText2] = useState("Last");
-
-  return (
-    <div className="container">
-      <h3>Simple State and Lifecycle Management</h3>
-
-      <input onChange={(e) => setText1(e.target.value)} value={text1} />
-      <hr />
-      <input onChange={(e) => setText2(e.target.value)} value={text2} />
-      <hr />
-      <h2>
-        <i>
-          {text1} {text2}
-        </i>
-      </h2>
-    </div>
-  );
+    console.log('rendering...');
+  }, [cnt]);
+  function reRenderMe() {
+    console.log("reRenderMe called...");
+    setCnt(cnt + 1);
+  }
+  return <DemoApp useState={(val) => useMyState(val,reRenderMe)} />
 }
