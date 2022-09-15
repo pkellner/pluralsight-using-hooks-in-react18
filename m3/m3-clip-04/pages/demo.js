@@ -4,14 +4,12 @@ import DemoApp from "./demoApp";
 let localStateValue = undefined;
 
 export default function Demo() {
-  
   function useMyState(initial) {
     if (localStateValue === undefined) {
       localStateValue = initial;
     }
     const setValue = (val) => {
       localStateValue = val;
-      debugger;
       reRenderMe();
     };
     const retVals = [localStateValue, setValue];
@@ -25,5 +23,5 @@ export default function Demo() {
     console.log("reRenderMe called...");
     setCnt(cnt + 1);
   }
-  return <DemoApp useState={(val) => useMyState(val,reRenderMe)} />
+  return <DemoApp useState={useMyState} />
 }
