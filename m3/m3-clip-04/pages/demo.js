@@ -1,27 +1,30 @@
-import { useState, useEffect } from "react";
 import DemoApp from "./demoApp";
+import { useState, useEffect } from "react";
 
-let localStateValue = undefined;
-
+const localStateValues = [];
+let localStateValueIndex = 0;
 export default function Demo() {
   function useMyState(initial) {
-    if (localStateValue === undefined) {
-      localStateValue = initial;
+    const localStateValueIndexLocal = localStateValueIndex; // closure
+    if (localStateValues[localStateValueIndexLocal] === undefined) {
+      localStateValues[localStateValueIndexLocal] = initial;
     }
     const setValue = (val) => {
-      localStateValue = val;
+      localStateValues[localStateValueIndexLocal] = val;
       reRenderMe();
     };
-    const retVals = [localStateValue, setValue];
+    localStateValueIndex++; // update global
+    const retVals = [localStateValues[localStateValueIndexLocal], setValue];
     return retVals;
   }
   const [cnt, setCnt] = useState(0);
   useEffect(() => {
-    console.log('rendering...');
+    console.log("rendering...");
   }, [cnt]);
   function reRenderMe() {
-    console.log("reRenderMe called...");
     setCnt(cnt + 1);
+    console.log("reRenderMe called...");
   }
+  localStateValueIndex = 0;
   return <DemoApp useState={useMyState} />
 }
