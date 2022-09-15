@@ -18,7 +18,6 @@ export default function ParentComponent() {
     };
     localStateValueIndex++; // update global
     
-    debugger;
     const retVals = [localStateValues[localStateValueIndexLocal], setValue];
     return retVals;
   }

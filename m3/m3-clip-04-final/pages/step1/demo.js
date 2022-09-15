@@ -1,9 +1,9 @@
 import React, {useEffect} from "react";
 
-let localStateValue = "";
+let localStateValue = undefined
 
 function useState(initial) {
-  if (initial != undefined) {
+  if (localStateValue === undefined) {
     localStateValue = initial;
   }
   const setValue = (val) => {
