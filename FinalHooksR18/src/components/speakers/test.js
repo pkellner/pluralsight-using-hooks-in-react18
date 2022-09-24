@@ -1,14 +1,9 @@
 function demo() {
-
-
   const [value, setValue] = useState("Init");
 
-  useEffect(() => { 
+  useEffect(() => {
     // code after render
-  })
+  });
 
-
-  return (
-    <div>ABCD</div>
-  )
+  return <div>ABCD</div>;
 }

@@ -1,6 +1,6 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 
-let localStateValue = undefined
+let localStateValue = undefined;
 
 function useState(initial) {
   if (localStateValue === undefined) {
@@ -11,7 +11,6 @@ function useState(initial) {
   };
   const retVals = [localStateValue, setValue];
   return retVals;
-  
 }
 
 export default function Demo() {
@@ -20,11 +19,11 @@ export default function Demo() {
     document.title = `${text1.length}`;
   });
   const [text2, setText2] = useState("Last");
-  
+
   return (
     <div className="container">
       <h3>Simple State and Lifecycle Management</h3>
-      
+
       <input onChange={(e) => setText1(e.target.value)} value={text1} />
       <hr />
       <input onChange={(e) => setText2(e.target.value)} value={text2} />

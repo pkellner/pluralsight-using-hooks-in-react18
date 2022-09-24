@@ -17,11 +17,11 @@ export default () => {
   }
   const [cnt, setCnt] = useState(0);
   useEffect(() => {
-    console.log('rendering...');
+    console.log("rendering...");
   }, [cnt]);
   function reRenderMe() {
     console.log("reRenderMe called...");
     setCnt(cnt + 1);
   }
-  return <DemoApp useState={useMyState} />
-}
+  return <DemoApp useState={useMyState} />;
+};
