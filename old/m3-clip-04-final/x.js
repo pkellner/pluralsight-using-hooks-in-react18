@@ -3,7 +3,7 @@ import DemoApp from "./demoApp";
 
 let localStateValue = undefined;
 
-export default function Demo() {
+export default () => {
   function useMyState(initial) {
     if (localStateValue === undefined) {
       localStateValue = initial;

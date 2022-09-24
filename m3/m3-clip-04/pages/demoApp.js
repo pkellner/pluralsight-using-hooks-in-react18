@@ -9,16 +9,19 @@ export default function Demo({useState}) {
 
   return (
     <div className="container">
-      <h3>Simple State and Lifecycle Management</h3>
-
-      <input onChange={(e) => setText1(e.target.value)} value={text1} />
+      <h3>
+        Simple State and Lifecycle Management
+      </h3>
+      <input onChange=
+        {(e) => setText1(e.target.value)}
+        value={text1} />
       <hr />
-      <input onChange={(e) => setText2(e.target.value)} value={text2} />
+      <input onChange={
+        (e) => setText2(e.target.value)}
+        value={text2} />
       <hr />
       <h2>
-        <i>
-          {text1} {text2}
-        </i>
+        <i>{text1} {text2}</i>
       </h2>
     </div>
   );
