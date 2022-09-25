@@ -1,25 +1,20 @@
 import SpeakerLine from "./SpeakerLine";
-import { useContext, useEffect, useReducer, useState } from "react";
-import axios from "axios";
+import { useContext, useState } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
+import { SpeakersDataContext } from "../contexts/SpeakersDataContext";
 
-function List({ state, dispatch }) {
+function List({ speakers }) {
   const [updatingId, setUpdatingId] = useState(0);
+  const { updateSpeaker } = useContext(SpeakersDataContext);
 
   const isPending = false;
 
   function toggleFavoriteSpeaker(speakerRec) {
     const speakerRecUpdated = { ...speakerRec, favorite: !speakerRec.favorite };
-    dispatch({
-      type: "updateSpeaker",
-      speaker: speakerRecUpdated,
-    });
-    const updateAsync = async (rec) => {
-      setUpdatingId(rec.id);
-      await axios.put(`/api/speakers/${rec.id}`, speakerRecUpdated);
+    setUpdatingId(speakerRecUpdated.id);
+    updateSpeaker(speakerRecUpdated, () => {
       setUpdatingId(0);
-    };
-    updateAsync(speakerRecUpdated);
+    });
   }
 
   return (
@@ -50,7 +45,7 @@ function List({ state, dispatch }) {
       </div>
 
       <div className="row g-3">
-        {state.speakers.map(function (speakerRec) {
+        {speakers.map(function (speakerRec) {
           const highlight = false;
           return (
             <SpeakerLine
@@ -69,47 +64,13 @@ function List({ state, dispatch }) {
 
 const SpeakerList = () => {
   const { darkTheme } = useContext(ThemeContext);
+  const { data: speakerList, loadingStatus } = useContext(SpeakersDataContext);
 
-  function reducer(state, action) {
-    switch (action.type) {
-      case "updateSpeaker":
-        const speakersUpdated = state.speakers.map((rec) =>
-          action.speaker.id === rec.id ? action.speaker : rec
-        );
-        return { ...state, speakers: speakersUpdated };
-      case "speakersLoaded":
-        return { ...state, loading: false, speakers: action.speakers };
-      case "setLoadingStatus":
-        return { ...state, loading: action.loading };
-      default:
-        throw new Error(`case failure. type: ${action.type}`);
-    }
-  }
-
-  const initialState = {
-    speakers: [],
-    loading: true,
-    updateItem: () => {},
-  };
-
-  const [state, dispatch] = useReducer(reducer, initialState);
-
-  useEffect(() => {
-    async function getDataAsync() {
-      const results = await axios.get("/api/speakers/");
-      dispatch({
-        type: "speakersLoaded",
-        speakers: results.data,
-      });
-    }
-    getDataAsync();
-  }, []);
-
-  if (state.loading) return <div>Loading...</div>;
+  if (loadingStatus === "loading") return <div>Loading...</div>;
 
   return (
     <div className={darkTheme ? "theme-dark" : "theme-light"}>
-      <List state={state} dispatch={dispatch} />
+      <List speakers={speakerList} />
     </div>
   );
 };
