@@ -23,7 +23,9 @@ export default function useAppRouter(url) {
     );
   } else if (routeUrl.startsWith("/speaker")) {
     activeComponent = (
-      <Speaker id={parseInt(routeUrl.substring(9).replace("#", ""))} />
+      <SpeakersDataProvider>
+        <Speaker id={parseInt(routeUrl.substring(9).replace("#", ""))} />
+      </SpeakersDataProvider>
     );
   } else if (routeUrl === "/about") {
     activeComponent = <About />;
