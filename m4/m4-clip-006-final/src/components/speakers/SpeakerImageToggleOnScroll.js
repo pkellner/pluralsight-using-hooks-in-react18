@@ -1,10 +1,11 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
-import { SpeakerMenuContext } from "../../contexts/SpeakerMenuContext";
+import { useEffect, useRef, useState } from "react";
 
-const SpeakerImageToggleOnScroll = ({ imageUrl, alt, width }) => {
+export default function SpeakerImageToggleOnScroll({
+  imageUrl,
+  alt,
+  thumbNail,
+}) {
   const imageRef = useRef(null);
-  const { speakingSaturday, speakingSunday, searchText } =
-    useContext(SpeakerMenuContext);
 
   const isInView = () => {
     const rect = imageRef.current.getBoundingClientRect();
@@ -14,12 +15,13 @@ const SpeakerImageToggleOnScroll = ({ imageUrl, alt, width }) => {
   const [inView, setInView] = useState(false);
 
   useEffect(() => {
+    console.log("SpeakerImageToggleOnScroll:", imageUrl, isInView());
     setInView(isInView());
     window.addEventListener("scroll", scrollHandler);
     return () => {
       window.removeEventListener("scroll", scrollHandler);
     };
-  }, [speakingSaturday, speakingSunday, searchText]);
+  }, []);
 
   const scrollHandler = () => {
     setInView(isInView());
@@ -33,11 +35,13 @@ const SpeakerImageToggleOnScroll = ({ imageUrl, alt, width }) => {
       src={imageUrl}
       alt={alt}
       ref={imageRef}
-      width={width}
-      height={width}
-      className="img-fluid rounded-start speaker-imagexxxxx"
+      width={thumbNail ? 50 : 200}
+      height={thumbNail ? 50 : 200}
+      className={
+        thumbNail
+          ? "img-fluid rounded-start "
+          : "img-fluid rounded-start speaker-image"
+      }
     />
   );
-};
-
-export default SpeakerImageToggleOnScroll;
+}

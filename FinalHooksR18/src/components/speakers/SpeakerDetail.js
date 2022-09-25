@@ -21,6 +21,7 @@ export default function SpeakerDetail({ speakerRec, showDetails }) {
               <SpeakerImageToggleOnScroll
                 imageUrl={speakerRec.imageUrl}
                 alt="{firstName} {lastName}"
+                width={200}
               />
             </div>
 

@@ -1,4 +1,4 @@
-export default function SpeakerImageToggleOnScroll({ imageUrl, alt }) {
+export default function SpeakerImageToggleOnScroll({ imageUrl, alt, thumbNail }) {
   return (
     <img
       src={imageUrl}
