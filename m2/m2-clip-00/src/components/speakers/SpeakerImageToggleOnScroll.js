@@ -2,7 +2,8 @@ export default function SpeakerImageToggleOnScroll({
   imageUrl,
   alt,
   thumbNail }) {
-  const inView = true;
+  
+  const inView = false;
   
   const grayScale = inView ? "grayscale(0%)" : "grayscale(100%)";
 
@@ -17,6 +18,7 @@ export default function SpeakerImageToggleOnScroll({
           ? "img-fluid rounded-start "
           : "img-fluid rounded-start speaker-image"
       }
+      style={{ filter: `${grayScale}` }}
     />
   );
 }
