@@ -20,12 +20,6 @@ const SpeakerLine = ({
                   thumbNail={true}
                 />
               ) : (
-                // <img
-                //   src={speakerRec.imageUrl}
-                //   width={80}
-                //   alt={`${speakerRec?.firstName} ${speakerRec?.lastName}`}
-                // />
-                // To make the background work I have replaced it with div
                 <div className="blue-box-background" />
               )}
             </div>

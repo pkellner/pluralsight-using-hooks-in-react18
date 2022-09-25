@@ -1,4 +1,5 @@
 import FavoriteSpeakerToggleLine from "./FavoriteSpeakerToggleLine";
+import SpeakerImageToggleOnScroll from "./SpeakerImageToggleOnScroll";
 
 const SpeakerLine = ({
   speakerRec,
@@ -13,13 +14,12 @@ const SpeakerLine = ({
           <div className="d-flex align-items-center">
             <div className="flex-shrink-0">
               {speakerRec?.imageUrl ? (
-                <img
-                  src={speakerRec.imageUrl}
-                  width={80}
+                <SpeakerImageToggleOnScroll
+                  imageUrl={speakerRec?.imageUrl}
                   alt={`${speakerRec?.firstName} ${speakerRec?.lastName}`}
+                  thumbNail={true}
                 />
               ) : (
-                // To make the background work I have replaced it with div
                 <div className="blue-box-background" />
               )}
             </div>
