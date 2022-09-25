@@ -8,7 +8,7 @@ import { SpeakersDataContext } from "../contexts/SpeakersDataContext";
 function Speakers() {
   const { darkTheme } = useContext(ThemeContext);
   const { data: speakerList, loadingStatus } = useContext(SpeakersDataContext);
-  
+
   if (loadingStatus === "hasErrored") return <div>Errored on load</div>;
   if (loadingStatus === "loading") return <div>Loading...</div>;
 

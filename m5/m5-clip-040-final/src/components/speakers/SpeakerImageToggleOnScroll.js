@@ -15,7 +15,6 @@ export default function SpeakerImageToggleOnScroll({
   const [inView, setInView] = useState(false);
 
   useEffect(() => {
-    console.log("SpeakerImageToggleOnScroll:", imageUrl, isInView());
     setInView(isInView());
     window.addEventListener("scroll", scrollHandler);
     return () => {
