@@ -15,11 +15,11 @@ const SpeakerLine = ({
           <div className="d-flex align-items-center">
             <div className="flex-shrink-0">
               {speakerRec?.imageUrl ? (
-                  <SpeakerImageToggleOnScroll
-                    imageUrl={speakerRec?.imageUrl}
-                    alt={`${speakerRec?.firstName} ${speakerRec?.lastName}`}
-                    width={80}
-                  />
+                <SpeakerImageToggleOnScroll
+                  imageUrl={speakerRec?.imageUrl}
+                  alt={`${speakerRec?.firstName} ${speakerRec?.lastName}`}
+                  width={80}
+                />
               ) : (
                 // To make the background work I have replaced it with div
                 <div className="blue-box-background" />

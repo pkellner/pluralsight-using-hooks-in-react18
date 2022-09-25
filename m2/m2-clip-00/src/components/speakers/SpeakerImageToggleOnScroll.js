@@ -1,10 +1,10 @@
 export default function SpeakerImageToggleOnScroll({
   imageUrl,
   alt,
-  thumbNail }) {
-  
+  thumbNail,
+}) {
   const inView = false;
-  
+
   const grayScale = inView ? "grayscale(0%)" : "grayscale(100%)";
 
   return (

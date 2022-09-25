@@ -1,0 +1,425 @@
+:root {
+  --primary: #04b1b8;
+  --info: #1b59ed;
+  --accent: #fdab08;
+  --dark: #181827;
+  --less-dark: #242439;
+  --light: #f4f4f7;
+  --less-light: #ababc9;
+  --danger: #f72f2f;
+  --button-danger: #ee7d7d;
+}
+
+body,
+html {
+  font-family: "Roboto", sans-serif;
+  color: var(--dark);
+  background: linear-gradient(
+          0deg,
+          rgba(250, 250, 250, 0.5),
+          rgba(250, 250, 250, 0.5)
+  ),
+  #fff;
+  padding-bottom: 1rem;
+}
+
+.theme-light:before,
+.theme-dark:before {
+  content: "";
+  position: fixed;
+  z-index: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.theme-light:before {
+  background: linear-gradient(
+          0deg,
+          rgba(250, 250, 250, 0.5),
+          rgba(250, 250, 250, 0.5)
+  ),
+  #fff;
+}
+.theme-dark::before {
+  background: #ccc;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: var(--primary);
+}
+
+.btn-danger {
+  background-color: var(--button-danger);
+  border-color: var(--button-danger);
+}
+
+.bg-main-gradient {
+  background: linear-gradient(145deg, #ffe598, #ffffff);
+}
+
+.form-check-input:checked {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.form-check-input[type="checkbox"] {
+  border-radius: 0.25em;
+}
+
+.form-check-input {
+  width: 1.3rem;
+  height: 1.3rem;
+  margin-top: 0.1em;
+  margin-right: 5px;
+  vertical-align: top;
+}
+
+/* by adding 'spinner-bottom' class as a wrapper will change the spinner position to bottom */
+.spinner-bottom .spinner-grow,
+.spinner-bottom .spinner-border {
+  --bs-spinner-width: 1rem;
+  --bs-spinner-height: 1rem;
+  --bs-spinner-border-width: 0.18em;
+  position: absolute;
+  top: 24px;
+  left: 2px;
+}
+
+.spinner-grow,
+.spinner-border {
+  --bs-spinner-width: 1.5rem;
+  --bs-spinner-height: 1.5rem;
+  --bs-spinner-border-width: 0.18em;
+  position: absolute;
+  top: 0px;
+  left: 35px;
+}
+
+.spinner-height {
+  height: 2rem;
+  position: absolute !important;
+  right: 22%;
+  top: 13px;
+}
+
+.btn-accent {
+  background: var(--primary);
+  border-radius: var(--bs-btn-border-radius) !important;
+  color: var(--light);
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-shadow: inherit;
+}
+
+.hero {
+  background-color: var(--dark);
+  color: var(--light);
+  position: relative;
+  z-index: 1;
+}
+
+.hero .logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.hero .logo h2 {
+  font-size: 17px;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 1px;
+  color: var(--less-light);
+}
+
+.hero .date-meta h5 {
+  margin-bottom: 3px;
+  color: var(--light);
+  letter-spacing: 0.3px;
+  font-size: 19px;
+}
+
+.hero .date-meta h6 {
+  margin: 0;
+  font-size: 15px;
+  letter-spacing: 0.4px;
+  color: var(--less-light);
+}
+
+.content-wrapper {
+  margin-top: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+header {
+  background-color: var(--less-dark);
+
+  /* Uncomment below code when the header need to be sticky onScrollDown */
+  /* position: sticky;
+  top: 0;
+  z-index: 9; */
+  box-shadow: 0px 12px 15px 0px rgb(114 116 118 / 57%);
+  margin-bottom: 13px;
+  position: relative;
+  z-index: 1;
+}
+
+header ul {
+  justify-content: center;
+}
+
+header ul li:last-child {
+  margin-left: auto;
+}
+
+header ul li button {
+  color: #b2b2c6 !important;
+  text-transform: uppercase;
+  font-weight: 400 !important;
+  letter-spacing: 0.5px;
+  font-size: 0.85rem !important;
+  border: 1px solid #3e3e5c !important;
+  line-height: 1.3;
+}
+
+header ul li button:hover,
+header ul li button:focus {
+  background-color: #3e3e5c !important;
+  color: var(--light) !important;
+  border-width: 1px !important;
+}
+
+.btn-toolbar {
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+
+  /* Uncomment below code when the toolbar need to be sticky onScroll */
+  /* position: sticky;
+  top: 80px;
+  z-index: 9; */
+}
+
+.btn-toolbar .toolbar-trigger {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(145deg, #ffe598, #ffffff);
+  padding: 5px 10px;
+  border-radius: 8px;
+  padding: 7px 9px;
+  border-radius: 8px;
+  gap: 1rem;
+}
+
+.btn-toolbar .toolbar-search input {
+  border: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .btn-toolbar {
+    /* top: 71px; */
+    top: 0px;
+  }
+  .btn-toolbar .toolbar-trigger {
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .btn-toolbar .toolbar-search {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .btn-toolbar {
+    margin-top: 0px;
+  }
+  .btn-toolbar .toolbar-trigger {
+    border-radius: 0px;
+  }
+}
+
+.card {
+  transition: 250ms ease all;
+  box-shadow: 10px 40px 50px rgb(207 211 224 / 42%);
+}
+
+.card:hover {
+  box-shadow: 10px 40px 50px rgb(173 179 198 / 42%);
+}
+
+.card h4.card-title a {
+  color: var(--less-darkdark);
+  opacity: 0.9;
+  transition: 250ms ease all;
+}
+
+.card:hover h4.card-title a {
+  color: var(--primary);
+}
+
+.card-body {
+  min-height: 215px;
+}
+
+.speaker-list .card-body {
+  min-height: auto;
+}
+
+.about .card-body {
+  min-height: initial;
+}
+
+.card-body .card-text {
+  color: var(--dark);
+  opacity: 0.7;
+}
+
+.card-footer {
+  background-color: white;
+  border-top-color: rgb(0 0 0 / 6%);
+}
+
+.card-footer small strong {
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+  color: var(--less-dark);
+}
+
+.speaker-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.speaker-action {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.speaker-action .favoriteToggleWrapper {
+  font-size: 22px;
+}
+
+.speaker-action .modifyWrapper > button {
+  margin-right: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.speaker-action .modifyWrapper > button:last-child {
+  margin-right: 0px;
+}
+
+.heartdarkbutton,
+.heartredbutton {
+  display: inline-block;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  border: none;
+  padding: 2px 2px;
+  line-height: 1;
+  position: relative;
+  opacity: 0.8;
+}
+
+.heartdarkbutton::before,
+.heartredbutton::before {
+  content: "\f004";
+}
+
+.heartdarkbutton::before {
+  color: var(--dark);
+}
+
+.heartredbutton::before {
+  color: var(--danger);
+}
+
+.modal-header .modal-title {
+  color: var(--dark);
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 0.6px;
+}
+
+.themeToggleCheckbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.themeToggleCheckbox-label {
+  background-color: var(--dark);
+  width: 50px;
+  height: 26px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fa-moon {
+  color: #f1c40f;
+}
+
+.fa-sun {
+  color: var(--accent);
+}
+
+.themeToggleCheckbox-label .ball {
+  background-color: #fff;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.themeToggleCheckbox:checked + .themeToggleCheckbox-label .ball {
+  transform: translateX(24px);
+}
+
+.background-text-highlight {
+  background: var(--accent);
+}
+
+.blue-box-background {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQAQMAAAC032DuAAAAAXNSR0IArs4c6QAAAANQTFRFdsvgfwLFxQAAABBJREFUGBljGAWjYBTQDQAAA3AAATXTgHYAAAAASUVORK5CYII=");
+  height: 80px;
+  width: 80px;
+}
+
+.flex-grow-04 {
+  flex-grow: 0.4;
+}
+
+@media screen and (max-width: 768px) {
+  .flex-grow-04 {
+    flex-grow: 1;
+  }
+}
