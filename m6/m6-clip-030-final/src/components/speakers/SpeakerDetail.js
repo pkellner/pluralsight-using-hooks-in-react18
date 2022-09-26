@@ -4,11 +4,13 @@ import FavoriteSpeakerToggle from "./FavoriteSpeakerToggle";
 import SpeakerImageToggleOnScroll from "./SpeakerImageToggleOnScroll";
 
 export default function SpeakerDetail({ speakerRec, showDetails }) {
+  
   const { setRoute } = {
     setRoute: (route) => {
       window.location.href = route;
     },
   };
+
   return (
     <>
       <div className="col-xl-6 col-md-12">
