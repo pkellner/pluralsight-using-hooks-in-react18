@@ -7,7 +7,7 @@ export default function SpeakerImageToggleOnScroll({
   thumbNail,
 }) {
   const imageRef = useRef(null);
-  
+
   const { speakingSaturday, speakingSunday, searchText } =
     useContext(SpeakerMenuContext);
 
@@ -24,7 +24,7 @@ export default function SpeakerImageToggleOnScroll({
     return () => {
       window.removeEventListener("scroll", scrollHandler);
     };
-  },  [speakingSaturday, speakingSunday, searchText]);
+  }, [speakingSaturday, speakingSunday, searchText]);
 
   const scrollHandler = () => {
     setInView(isInView());

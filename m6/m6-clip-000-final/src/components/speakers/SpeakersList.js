@@ -3,9 +3,8 @@ import SpeakerDetail from "./SpeakerDetail";
 import useSpeakerSortAndFilter from "../hooks/useSpeakerSortAndFilter";
 
 export default function SpeakersList({ speakerList }) {
-  
   const speakerListFiltered = useSpeakerSortAndFilter(speakerList);
-  
+
   return (
     <>
       {speakerListFiltered.map(function (speakerRec) {
