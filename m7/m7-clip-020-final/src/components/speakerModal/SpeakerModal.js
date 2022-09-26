@@ -12,7 +12,7 @@ export default function SpeakerModal() {
       ? "modal show-modal has-backdrop"
       : "modal hide-modal";
 
-  console.log("speakerModal: cssShowHide", cssShowHide);
+  
 
   return (
     <>

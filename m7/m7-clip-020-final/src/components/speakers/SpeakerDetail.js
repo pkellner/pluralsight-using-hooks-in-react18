@@ -8,7 +8,6 @@ import { SpeakerModalProvider } from "../contexts/SpeakerModalContext";
 import SpeakerModal from "../speakerModal/SpeakerModal";
 
 export default function SpeakerDetail({ speakerRec, showDetails }) {
-  console.log("SpeakerDeatil:", speakerRec);
   const { setRoute } = useContext(AppRouterContext);
   return (
     <SpeakerModalProvider>
