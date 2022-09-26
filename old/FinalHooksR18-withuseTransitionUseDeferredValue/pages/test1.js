@@ -1,4 +1,4 @@
-import { useEffect, useState, useTransition } from "react";
+import { useState, useTransition } from "react";
 
 function Spinner() {
   return <div>spinner...</div>;

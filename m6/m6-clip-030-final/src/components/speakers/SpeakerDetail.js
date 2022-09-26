@@ -4,7 +4,6 @@ import FavoriteSpeakerToggle from "./FavoriteSpeakerToggle";
 import SpeakerImageToggleOnScroll from "./SpeakerImageToggleOnScroll";
 
 export default function SpeakerDetail({ speakerRec, showDetails }) {
-  
   const { setRoute } = {
     setRoute: (route) => {
       window.location.href = route;

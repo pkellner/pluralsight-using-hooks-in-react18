@@ -1,5 +1,5 @@
 import DemoApp from "./demoApp";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const localStateValues = [];
 let localStateValueIndex = 0;

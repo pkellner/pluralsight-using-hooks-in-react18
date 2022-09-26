@@ -1,8 +1,7 @@
-import { useContext, useEffect, useReducer, useState } from "react";
+import { useContext, useEffect, useReducer } from "react";
 import SpeakerLine from "./SpeakerLine";
 import { ThemeContext } from "../layout/Layout";
 import axios from "axios";
-import { reducer } from "next/dist/client/components/reducer";
 
 function List({ state, dispatch }) {
   const [updatingId, setUpdatingId] = [

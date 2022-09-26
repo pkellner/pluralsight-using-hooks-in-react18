@@ -1,10 +1,4 @@
-import React, {
-  useContext,
-  useDeferredValue,
-  useEffect,
-  useState,
-  useTransition,
-} from "react";
+import React, { useContext, useEffect, useState, useTransition } from "react";
 import SpeakerLine from "./SpeakerLine";
 import axios from "axios";
 import { ThemeContext } from "../../contexts/ThemeContext";
