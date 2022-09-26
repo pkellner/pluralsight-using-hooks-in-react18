@@ -10,7 +10,6 @@ export default function useAppRouter(url) {
   const [routeUrl, setRouteUrl] = useState(url);
 
   function setRoute(url) {
-    console.log("useAppROuter url:", url);
     history.replaceState({}, url.substring(2), url); // makes URL change when menu selected
     setRouteUrl(url);
   }

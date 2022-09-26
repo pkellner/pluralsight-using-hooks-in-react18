@@ -2,13 +2,12 @@ import DeleteSpeakerButton from "./DeleteSpeakerButton";
 import EditSpeakerDialog from "./EditSpeakerDialog";
 import FavoriteSpeakerToggle from "./FavoriteSpeakerToggle";
 import SpeakerImageToggleOnScroll from "./SpeakerImageToggleOnScroll";
+import { AppRouterContext } from "../contexts/AppRouterContext";
+import { useContext } from "react";
 
 export default function SpeakerDetail({ speakerRec, showDetails }) {
-  const { setRoute } = {
-    setRoute: (route) => {
-      window.location.href = route;
-    },
-  };
+  
+  const { setRoute } = useContext(AppRouterContext);
   return (
     <>
       <div className="col-xl-6 col-md-12">
