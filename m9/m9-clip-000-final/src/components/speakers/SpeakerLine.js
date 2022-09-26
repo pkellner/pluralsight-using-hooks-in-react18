@@ -8,6 +8,7 @@ const SpeakerLine = ({
   updating,
   highlight,
 }) => {
+  console.log("SpeakerLine: ",speakerRec);
   return (
     <div className="col-xl-12 col-md-12">
       <div className="card border-0 speaker-list">
