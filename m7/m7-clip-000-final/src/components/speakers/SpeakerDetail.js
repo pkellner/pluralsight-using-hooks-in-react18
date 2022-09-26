@@ -6,7 +6,6 @@ import { AppRouterContext } from "../contexts/AppRouterContext";
 import { useContext } from "react";
 
 export default function SpeakerDetail({ speakerRec, showDetails }) {
-  
   const { setRoute } = useContext(AppRouterContext);
   return (
     <>

@@ -4,12 +4,15 @@ import FavoriteSpeakerToggle from "./FavoriteSpeakerToggle";
 import SpeakerImageToggleOnScroll from "./SpeakerImageToggleOnScroll";
 import { AppRouterContext } from "../contexts/AppRouterContext";
 import { useContext } from "react";
+import { SpeakerModalProvider } from "../contexts/SpeakerModalContext";
+import SpeakerModal from "../speakerModal/SpeakerModal";
 
 export default function SpeakerDetail({ speakerRec, showDetails }) {
-  
+  console.log("SpeakerDeatil:", speakerRec);
   const { setRoute } = useContext(AppRouterContext);
   return (
-    <>
+    <SpeakerModalProvider>
+      {speakerRec && <SpeakerModal />}
       <div className="col-xl-6 col-md-12">
         <div className="card border-0">
           <div className="row g-0">
@@ -68,6 +71,6 @@ export default function SpeakerDetail({ speakerRec, showDetails }) {
           </div>
         </div>
       </div>
-    </>
+    </SpeakerModalProvider>
   );
 }
