@@ -16,8 +16,9 @@ export default function SpeakerDetail({ speakerRec, showDetails }) {
           <div className="row g-0">
             <div className="col-4">
               <SpeakerImageToggleOnScroll
-                imageUrl={speakerRec.imageUrl}
-                alt="{firstName} {lastName}"
+                imageUrl={speakerRec?.imageUrl}
+                alt={`${speakerRec?.firstName} ${speakerRec?.lastName}`}
+                thumbNail={false}
               />
             </div>
 

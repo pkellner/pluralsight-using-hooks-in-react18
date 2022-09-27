@@ -5,7 +5,7 @@ function List() {
   const updatingId = 0; // 1269;
   const isPending = false;
 
-  function toggleFavoriteSpeaker(id) {}
+  function toggleFavoriteSpeaker(speakerRec) {}
 
   return (
     <div className="container">
@@ -42,7 +42,7 @@ function List() {
               key={speakerRec.id}
               speakerRec={speakerRec}
               updating={updatingId === speakerRec.id ? updatingId : 0}
-              toggleFavoriteSpeaker={() => toggleFavoriteSpeaker(speakerRec.id)}
+              toggleFavoriteSpeaker={() => toggleFavoriteSpeaker(speakerRec)}
               highlight={highlight}
             />
           );
