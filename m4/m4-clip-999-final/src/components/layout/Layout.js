@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import {createContext, useState} from "react";
 
 import Header from "./Header";
 import AppMenu from "./AppMenu";

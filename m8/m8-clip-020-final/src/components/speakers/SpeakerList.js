@@ -1,7 +1,7 @@
 import SpeakerLine from "./SpeakerLine";
-import { useContext, useState } from "react";
-import { ThemeContext } from "../contexts/ThemeContext";
-import { SpeakersDataContext } from "../contexts/SpeakersDataContext";
+import {useContext, useState} from "react";
+import {ThemeContext} from "../contexts/ThemeContext";
+import {SpeakersDataContext} from "../contexts/SpeakersDataContext";
 
 function List({ speakers }) {
   const [updatingId, setUpdatingId] = useState(0);

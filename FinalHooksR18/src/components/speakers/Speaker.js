@@ -1,10 +1,7 @@
 import SpeakerDetail from "./SpeakerDetail";
-import React, { useContext } from "react";
-import {
-  SpeakersDataContext,
-  SpeakersDataProvider,
-} from "../../contexts/SpeakersDataContext";
-import { ThemeContext } from "../../contexts/ThemeContext";
+import React, {useContext} from "react";
+import {SpeakersDataContext, SpeakersDataProvider,} from "../../contexts/SpeakersDataContext";
+import {ThemeContext} from "../../contexts/ThemeContext";
 
 function WithContext({ id }) {
   const { data: speakerList, loadingStatus } = useContext(SpeakersDataContext);

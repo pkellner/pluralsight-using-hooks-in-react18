@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { ThemeContext } from "../layout/Layout";
+import {useContext} from "react";
+import {ThemeContext} from "../layout/Layout";
 
 export default function About() {
   const { darkTheme } = useContext(ThemeContext);

@@ -1,6 +1,6 @@
-import { useContext, useEffect, useReducer } from "react";
+import {useContext, useEffect, useReducer} from "react";
 import SpeakerLine from "./SpeakerLine";
-import { ThemeContext } from "../layout/Layout";
+import {ThemeContext} from "../layout/Layout";
 import axios from "axios";
 
 function List({ state, dispatch }) {

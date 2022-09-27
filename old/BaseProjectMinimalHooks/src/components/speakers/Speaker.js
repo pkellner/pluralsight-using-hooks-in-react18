@@ -1,5 +1,5 @@
 import SpeakerDetail from "./SpeakerDetail";
-import React, { useContext } from "react";
+import React, {useContext} from "react";
 
 export default function Speaker({ id }) {
   const { data: speakerList, loadingStatus } = useContext(SpeakersDataContext);

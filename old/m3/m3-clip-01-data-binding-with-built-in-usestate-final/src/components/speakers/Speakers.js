@@ -1,6 +1,6 @@
 import SpeakerDetail from "./SpeakerDetail";
 import SpeakerMenu from "./SpeakerMenu";
-import { speakerList } from "../../../speakersData";
+import {speakerList} from "../../../speakersData";
 
 const Speakers = () => {
   const darkTheme = false;

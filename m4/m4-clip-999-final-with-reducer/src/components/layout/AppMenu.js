@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { ThemeContext } from "./Layout";
+import {useContext} from "react";
+import {ThemeContext} from "./Layout";
 
 export default function AppMenu() {
   const { setRoute } = {

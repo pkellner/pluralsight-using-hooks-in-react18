@@ -1,6 +1,6 @@
 import FavoriteSpeakerToggleLine from "./FavoriteSpeakerToggleLine";
 import SpeakerImageToggleOnScroll from "./SpeakerImageToggleOnScroll";
-import { memo } from "react";
+import {memo} from "react";
 
 const SpeakerLine = ({
   speakerRec,

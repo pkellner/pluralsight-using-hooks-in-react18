@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
+import React, {useContext} from "react";
 
-import { SpeakerModalContext } from "../../contexts/SpeakerModalContext";
+import {SpeakerModalContext} from "../../contexts/SpeakerModalContext";
 
 export default function EditSpeakerDialog({
   id,

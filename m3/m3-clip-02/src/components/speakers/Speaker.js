@@ -1,5 +1,5 @@
 import SpeakerDetail from "./SpeakerDetail";
-import { speakerList } from "../../../speakersData";
+import {speakerList} from "../../../speakersData";
 
 export default function Speaker({ id }) {
   const { darkTheme } = {

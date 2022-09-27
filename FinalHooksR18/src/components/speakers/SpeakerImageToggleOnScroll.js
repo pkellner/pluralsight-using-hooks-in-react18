@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
-import { SpeakerMenuContext } from "../../contexts/SpeakerMenuContext";
+import React, {useContext, useEffect, useRef, useState} from "react";
+import {SpeakerMenuContext} from "../../contexts/SpeakerMenuContext";
 
 const SpeakerImageToggleOnScroll = ({ imageUrl, alt, width }) => {
   const imageRef = useRef(null);

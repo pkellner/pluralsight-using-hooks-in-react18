@@ -1,6 +1,6 @@
-import { useContext } from "react";
-import { SpeakerModalContext } from "../../contexts/SpeakerModalContext";
-import { SpeakersDataContext } from "../../contexts/SpeakersDataContext";
+import {useContext} from "react";
+import {SpeakerModalContext} from "../../contexts/SpeakerModalContext";
+import {SpeakersDataContext} from "../../contexts/SpeakersDataContext";
 
 export default function NotesModalFooter() {
   const {

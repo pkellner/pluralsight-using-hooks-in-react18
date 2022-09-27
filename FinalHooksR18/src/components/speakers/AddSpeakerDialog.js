@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { SpeakerModalContext } from "../../contexts/SpeakerModalContext";
+import React, {useContext} from "react";
+import {SpeakerModalContext} from "../../contexts/SpeakerModalContext";
 import SpeakerModal from "../speakerModal/SpeakerModal";
 
 export default function AddSpeakerDialog() {

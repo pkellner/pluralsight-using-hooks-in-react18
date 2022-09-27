@@ -1,11 +1,8 @@
-import React, { useContext } from "react";
-import {
-  SpeakersDataContext,
-  SpeakersDataProvider,
-} from "../../contexts/SpeakersDataContext";
+import React, {useContext} from "react";
+import {SpeakersDataContext, SpeakersDataProvider,} from "../../contexts/SpeakersDataContext";
 import SpeakerMenu from "./SpeakerMenu";
-import { ThemeContext } from "../../contexts/ThemeContext";
-import { SpeakerMenuProvider } from "../../contexts/SpeakerMenuContext";
+import {ThemeContext} from "../../contexts/ThemeContext";
+import {SpeakerMenuProvider} from "../../contexts/SpeakerMenuContext";
 import SpeakersList from "./SpeakersList";
 
 const WithContext = () => {

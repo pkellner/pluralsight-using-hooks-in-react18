@@ -2,8 +2,8 @@ import DeleteSpeakerButton from "./DeleteSpeakerButton";
 import EditSpeakerDialog from "./EditSpeakerDialog";
 import FavoriteSpeakerToggle from "./FavoriteSpeakerToggle";
 import SpeakerImageToggleOnScroll from "./SpeakerImageToggleOnScroll";
-import { AppRouterContext } from "../contexts/AppRouterContext";
-import { useContext } from "react";
+import {AppRouterContext} from "../contexts/AppRouterContext";
+import {useContext} from "react";
 
 export default function SpeakerDetail({ speakerRec, showDetails }) {
   const { setRoute } = useContext(AppRouterContext);

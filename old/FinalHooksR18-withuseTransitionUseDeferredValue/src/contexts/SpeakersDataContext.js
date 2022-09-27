@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import React, {createContext} from "react";
 import useSpeakersData from "../hooks/useSpeakersData";
 
 export const SpeakersDataContext = createContext({

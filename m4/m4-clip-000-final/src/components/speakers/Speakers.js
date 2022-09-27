@@ -1,5 +1,5 @@
 import React from "react";
-import { speakerList } from "../../../speakersData";
+import {speakerList} from "../../../speakersData";
 import SpeakerMenu from "./SpeakerMenu";
 import SpeakersList from "./SpeakersList";
 

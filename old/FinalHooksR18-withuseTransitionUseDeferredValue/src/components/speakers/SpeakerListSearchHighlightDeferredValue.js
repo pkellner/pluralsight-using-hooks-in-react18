@@ -1,12 +1,7 @@
-import React, {
-  useContext,
-  useDeferredValue,
-  useEffect,
-  useState,
-} from "react";
+import React, {useContext, useDeferredValue, useEffect, useState,} from "react";
 import SpeakerLine from "./SpeakerLine";
 import axios from "axios";
-import { ThemeContext } from "../../contexts/ThemeContext";
+import {ThemeContext} from "../../contexts/ThemeContext";
 
 function List({ getItems }) {
   const [items, setItems] = useState([]);
