@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function SpeakerImageToggleOnScroll({
   imageUrl,
@@ -18,15 +18,14 @@ export default function SpeakerImageToggleOnScroll({
 
   useEffect(() => {
     //setIsLoading(false);
-    
+
     // THIS SHOULD JUST BE THE SETINVIEW(...) CALL
     async function sleepTime() {
-      await new Promise(r => setTimeout(r, 2100));
+      await new Promise((r) => setTimeout(r, 2100));
       setInView(isInView());
     }
     sleepTime();
-    
-    
+
     window.addEventListener("scroll", scrollHandler);
     return () => {
       window.removeEventListener("scroll", scrollHandler);
@@ -38,7 +37,8 @@ export default function SpeakerImageToggleOnScroll({
   };
 
   const grayScale = inView ? "grayscale(0%)" : "grayscale(100%)";
-  const gif1x1Transparent = 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==';
+  const gif1x1Transparent =
+    "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==";
   return (
     <img
       src={isLoading ? gif1x1Transparent : imageUrl}
