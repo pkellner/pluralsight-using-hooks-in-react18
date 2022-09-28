@@ -95,6 +95,10 @@ const SpeakerList = () => {
 
   useEffect(() => {
     async function getDataAsync() {
+      dispatch({
+        type: "setLoadingStatus",
+        speakers: results.data,
+      });
       const results = await axios.get("/api/speakers/");
       dispatch({
         type: "speakersLoaded",
