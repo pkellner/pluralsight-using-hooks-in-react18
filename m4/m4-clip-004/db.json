@@ -76,7 +76,7 @@
       "lastName": "McDowell",
       "sat": true,
       "sun": false,
-      "favorite": false,
+      "favorite": true,
       "bio": "Gayle Laakmann McDowell is the founder and CEO of CareerCup.com and the author of three best selling books.",
       "company": "CareerCup",
       "twitterHandle": "gayle",
