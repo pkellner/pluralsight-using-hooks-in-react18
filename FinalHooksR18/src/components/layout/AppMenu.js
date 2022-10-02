@@ -1,6 +1,6 @@
-import React, {useContext} from "react";
-import {AppRouterContext} from "../../contexts/AppRouterContext";
-import {ThemeContext} from "../../contexts/ThemeContext";
+import React, { useContext } from "react";
+import { AppRouterContext } from "../../contexts/AppRouterContext";
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 export default function AppMenu() {
   const { setRoute } = useContext(AppRouterContext);

@@ -1,8 +1,8 @@
-import {useContext} from "react";
+import { useContext } from "react";
 import Header from "./Header";
 import AppMenu from "./AppMenu";
-import {AppRouterContext} from "../../contexts/AppRouterContext";
-import {ThemeProvider} from "../../contexts/ThemeContext";
+import { AppRouterContext } from "../../contexts/AppRouterContext";
+import { ThemeProvider } from "../../contexts/ThemeContext";
 
 // Layout does not use children but instead uses what comes from AppRouteProvider
 export default function Layout() {

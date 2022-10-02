@@ -1,6 +1,6 @@
 import FavoriteSpeakerToggleLine from "./FavoriteSpeakerToggleLine";
 import SpeakerImageToggleOnScroll from "./SpeakerImageToggleOnScroll";
-import {memo} from "react";
+import { memo } from "react";
 
 const SpeakerLine = ({
   speakerRec,
@@ -8,7 +8,7 @@ const SpeakerLine = ({
   updating,
   highlight,
 }) => {
-  console.log("SpeakerLine: ",speakerRec);
+  console.log("SpeakerLine: ", speakerRec);
   return (
     <div className="col-xl-12 col-md-12">
       <div className="card border-0 speaker-list">

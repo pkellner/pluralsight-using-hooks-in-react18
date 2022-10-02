@@ -1,4 +1,5 @@
-import { useRef, useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
+
 export default function SpeakerImageToggleOnScroll({
   imageUrl,
   alt,
@@ -18,13 +19,13 @@ export default function SpeakerImageToggleOnScroll({
     window.addEventListener("scroll", scrollHandler);
     return () => {
       window.removeEventListener("scroll", scrollHandler);
-    }
-  },[]);
-  
+    };
+  }, []);
+
   function isInView() {
     const rect = imageRef.current.getBoundingClientRect();
     return rect.top >= 0 && rect.bottom <= window.innerHeight;
-  };
+  }
 
   const grayScale = inView ? "grayscale(0%)" : "grayscale(100%)";
   const gif1x1Transparent =

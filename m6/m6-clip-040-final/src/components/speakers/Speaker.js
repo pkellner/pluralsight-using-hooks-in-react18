@@ -1,7 +1,7 @@
 import SpeakerDetail from "./SpeakerDetail";
-import React, {useContext} from "react";
-import {ThemeContext} from "../contexts/ThemeContext";
-import {SpeakersDataContext} from "../contexts/SpeakersDataContext";
+import React, { useContext } from "react";
+import { ThemeContext } from "../contexts/ThemeContext";
+import { SpeakersDataContext } from "../contexts/SpeakersDataContext";
 
 export default function Speaker({ id }) {
   const { darkTheme } = useContext(ThemeContext);

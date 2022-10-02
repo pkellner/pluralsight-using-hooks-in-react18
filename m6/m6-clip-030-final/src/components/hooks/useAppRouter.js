@@ -1,10 +1,10 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 import Speaker from "../speakers/Speaker";
 import About from "../about/About";
 import Speakers from "../speakers/Speakers";
 import SpeakerList from "../speakers/SpeakerList";
-import {SpeakersDataProvider} from "../contexts/SpeakersDataContext";
+import { SpeakersDataProvider } from "../contexts/SpeakersDataContext";
 
 export default function useAppRouter(url) {
   const [routeUrl, setRouteUrl] = useState(url);

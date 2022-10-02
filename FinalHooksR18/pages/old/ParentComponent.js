@@ -1,5 +1,5 @@
 import StateManagementExample from "./StateManagementExample2";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
 export default function ParentComponent() {
   const [cnt, setCnt] = useState(0);

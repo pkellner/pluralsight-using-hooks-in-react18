@@ -10,9 +10,8 @@ export default function SpeakerImageToggleOnScroll({
 
   const [isLoading, setIsLoading] = useState(true);
 
-  const { speakingSaturday, speakingSunday, searchText } = useContext(
-    SpeakerMenuContext
-  );
+  const { speakingSaturday, speakingSunday, searchText } =
+    useContext(SpeakerMenuContext);
 
   const isInView = () => {
     const rect = imageRef.current.getBoundingClientRect();

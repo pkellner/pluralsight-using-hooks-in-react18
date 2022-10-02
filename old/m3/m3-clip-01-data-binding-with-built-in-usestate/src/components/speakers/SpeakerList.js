@@ -1,5 +1,5 @@
 import SpeakerLine from "./SpeakerLine";
-import {speakerList} from "../../../speakersData";
+import { speakerList } from "../../../speakersData";
 
 function List() {
   const [items, setItems] = [speakerList, () => {}];

@@ -1,5 +1,5 @@
 import SpeakerLine from "./SpeakerLine";
-import { useEffect, useState, useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
 import axios from "axios";
 
 function List({ state, dispatch }) {

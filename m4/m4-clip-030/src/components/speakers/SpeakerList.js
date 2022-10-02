@@ -6,8 +6,7 @@ function List({ speakers }) {
   const updatingId = 0; // 1269;
   const isPending = false;
 
-  function toggleFavoriteSpeaker(speakerRec) {
-  }
+  function toggleFavoriteSpeaker(speakerRec) {}
 
   return (
     <div className="container">
@@ -68,7 +67,7 @@ const SpeakerList = () => {
     }
     getDataAsync();
   }, []);
-  
+
   if (loading) return <div>Loading...</div>;
 
   return (

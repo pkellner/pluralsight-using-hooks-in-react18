@@ -8,7 +8,7 @@ export default function AppMenu() {
     },
   };
   const { toggleTheme } = useContext(ThemeContext);
-  
+
   return (
     <header className="d-flex justify-content-center py-3">
       <div className="container">

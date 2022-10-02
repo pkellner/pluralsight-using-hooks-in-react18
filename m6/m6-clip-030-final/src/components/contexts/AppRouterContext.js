@@ -1,4 +1,4 @@
-import React, {createContext} from "react";
+import React, { createContext } from "react";
 import useAppRouter from "../hooks/useAppRouter";
 
 export const AppRouterContext = createContext({});

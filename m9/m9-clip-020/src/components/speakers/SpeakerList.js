@@ -1,7 +1,7 @@
 import SpeakerLine from "./SpeakerLine";
-import {useContext, useDeferredValue, useState} from "react";
-import {ThemeContext} from "../contexts/ThemeContext";
-import {SpeakersDataContext} from "../contexts/SpeakersDataContext";
+import { useContext, useDeferredValue, useState } from "react";
+import { ThemeContext } from "../contexts/ThemeContext";
+import { SpeakersDataContext } from "../contexts/SpeakersDataContext";
 
 function List({ speakers }) {
   const [updatingId, setUpdatingId] = useState(0);
@@ -77,7 +77,7 @@ function List({ speakers }) {
 const SpeakerList = () => {
   const { darkTheme } = useContext(ThemeContext);
   const { data: speakerList, loadingStatus } = useContext(SpeakersDataContext);
-  
+
   if (speakerList) {
     addDummySpeakers(speakerList, 8000);
   }
@@ -109,4 +109,3 @@ function addDummySpeakers(itemsLoaded, numToAdd) {
     });
   }
 }
-
