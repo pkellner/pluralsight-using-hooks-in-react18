@@ -6,7 +6,7 @@ export default function useTheme() {
 
   const value = {
     darkTheme,
-    toggleTheme,
+    toggleTheme,h
   };
 
   return value;
