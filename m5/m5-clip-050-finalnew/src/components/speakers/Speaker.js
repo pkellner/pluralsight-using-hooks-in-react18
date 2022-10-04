@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 import SpeakerDetail from "./SpeakerDetail";
-import { SpeakersDataContext } from "../contexts/SpeakersDataContext";
+import { SpeakersDataContext, SpeakersDataProvider } from "../contexts/SpeakersDataContext";
 
-export default function Speaker({ id }) {
+function Inner({ id }) {
   const { darkTheme } = useContext(ThemeContext);
   const { data: speakerList, loadingStatus } = useContext(SpeakersDataContext);
 
@@ -18,5 +18,13 @@ export default function Speaker({ id }) {
     </div>
   ) : (
     <h2 className="text-danger">Speaker {id} not found</h2>
+  );
+}
+
+export default function Speaker(props) {
+  return (
+    <SpeakersDataProvider>
+      <Inner {...props} />
+    </SpeakersDataProvider>
   );
 }

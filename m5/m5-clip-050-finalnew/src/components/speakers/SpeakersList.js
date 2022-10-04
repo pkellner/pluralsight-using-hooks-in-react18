@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import SpeakerDetail from "./SpeakerDetail";
+import { SpeakersDataContext } from "../contexts/SpeakersDataContext";
 
-export default function SpeakersList({ speakerList }) {
+export default function SpeakersList() {
+  const { data: speakerList, loadingStatus } = useContext(SpeakersDataContext);
+
+  if (loadingStatus === "hasErrored")
+    return <div className="card">Errored on load</div>;
+  if (loadingStatus === "loading") {
+    return <div className="card">Loading...</div>;
+  }
+
   return (
     <>
       {speakerList.map(function (speakerRec) {

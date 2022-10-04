@@ -18,14 +18,14 @@ export default function Layout({ url }) {
       <AppMenu />
       {url === "/about" && <About />}
       {url === "/" && (
-        <SpeakersDataProvider>
+        
           <Speakers />
-        </SpeakersDataProvider>
+       
       )}
       {url.startsWith("/speaker/") && (
-        <SpeakersDataProvider>
+
           <Speaker id={speakerId} />
-        </SpeakersDataProvider>
+        
       )}
       {url.startsWith("/speakerlist") && <SpeakerList />}
       {url.startsWith("/speakerpopup") && <SpeakerModal modalShow={true} />}
