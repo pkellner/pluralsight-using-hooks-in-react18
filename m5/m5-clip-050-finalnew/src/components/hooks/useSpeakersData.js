@@ -1,6 +1,12 @@
 import useGeneralizedCrudMethods from "./useGeneralizedCrudMethods";
 
-function useSpeakersData(url, errorNotificationFn) {
+function useSpeakersData() {
+
+  const url = "/api/speakers";
+  const errorNotificationFn = (error) => {
+    console.log("Error From useSpeakersData", error);
+  }
+
   const {
     data,
     error,
@@ -23,7 +29,7 @@ function useSpeakersData(url, errorNotificationFn) {
   }
 
   return {
-    data,
+    speakerList: data,
     loadingStatus,
     error,
     createSpeaker,

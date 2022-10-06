@@ -2,7 +2,7 @@ import React, { createContext } from "react";
 import useSpeakersData from "../hooks/useSpeakersData";
 
 export const SpeakersDataContext = createContext({
-  data: [],
+  speakerList: [],
   createSpeaker: () => {},
   updateSpeaker: () => {},
   deleteSpeaker: () => {},
@@ -10,13 +10,13 @@ export const SpeakersDataContext = createContext({
 });
 
 export const SpeakersDataProvider = ({ children }) => {
-  const { data, createSpeaker, updateSpeaker, deleteSpeaker, loadingStatus } =
+  const { speakerList, createSpeaker, updateSpeaker, deleteSpeaker, loadingStatus } =
     useSpeakersData("/api/speakers/", (error) => {
       alert(error);
     });
 
   const value = {
-    data,
+    speakerList,
     createSpeaker,
     updateSpeaker,
     deleteSpeaker,

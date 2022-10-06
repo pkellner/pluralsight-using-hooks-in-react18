@@ -3,7 +3,7 @@ import SpeakerDetail from "./SpeakerDetail";
 import { SpeakersDataContext } from "../contexts/SpeakersDataContext";
 
 export default function SpeakersList() {
-  const { data: speakerList, loadingStatus } = useContext(SpeakersDataContext);
+  const { speakerList, loadingStatus } = useContext(SpeakersDataContext);
 
   if (loadingStatus === "hasErrored")
     return <div className="card">Errored on load</div>;
