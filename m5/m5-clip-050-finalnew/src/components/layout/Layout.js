@@ -17,16 +17,8 @@ export default function Layout({ url }) {
       <Header />
       <AppMenu />
       {url === "/about" && <About />}
-      {url === "/" && (
-        
-          <Speakers />
-       
-      )}
-      {url.startsWith("/speaker/") && (
-
-          <Speaker id={speakerId} />
-        
-      )}
+      {url === "/" && <Speakers />}
+      {url.startsWith("/speaker/") && <Speaker id={speakerId} />}
       {url.startsWith("/speakerlist") && <SpeakerList />}
       {url.startsWith("/speakerpopup") && <SpeakerModal modalShow={true} />}
     </ThemeProvider>
