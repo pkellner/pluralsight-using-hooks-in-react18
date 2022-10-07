@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import { SpeakerMenuContext } from "../contexts/SpeakerMenuContext";
+
 export default function useSpeakerSortAndFilter(speakerList) {
   const { speakingSaturday, speakingSunday, searchText } =
     useContext(SpeakerMenuContext);
+
   return speakerList
     ? speakerList
         .filter(
@@ -17,8 +19,12 @@ export default function useSpeakerSortAndFilter(speakerList) {
           );
         })
         .sort(function (a, b) {
-          if (a.firstName < b.firstName) { return -1; }
-          if (a.firstName > b.firstName) { return 1; }
+          if (a.firstName < b.firstName) {
+            return -1;
+          }
+          if (a.firstName > b.firstName) {
+            return 1;
+          }
           return 0;
         })
     : [];
