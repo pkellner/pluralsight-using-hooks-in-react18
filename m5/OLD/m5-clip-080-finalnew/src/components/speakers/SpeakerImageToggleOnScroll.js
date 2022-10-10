@@ -9,7 +9,7 @@ export default function SpeakerImageToggleOnScroll({
   const [inView, setInView] = useState(false);
   const imageRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true);
-  
+
   const { speakingSaturday, speakingSunday, searchText } =
     useContext(SpeakerMenuContext);
 
