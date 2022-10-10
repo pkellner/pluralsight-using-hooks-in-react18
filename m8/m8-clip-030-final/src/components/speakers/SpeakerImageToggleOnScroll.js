@@ -8,6 +8,8 @@ export default function SpeakerImageToggleOnScroll({
 }) {
   const imageRef = useRef(null);
 
+  const [isLoading, setIsLoading] = useState(true);
+
   const { speakingSaturday, speakingSunday, searchText } =
     useContext(SpeakerMenuContext);
 
@@ -19,6 +21,7 @@ export default function SpeakerImageToggleOnScroll({
   const [inView, setInView] = useState(false);
 
   useEffect(() => {
+    setIsLoading(false);
     setInView(isInView());
     window.addEventListener("scroll", scrollHandler);
     return () => {
@@ -31,10 +34,11 @@ export default function SpeakerImageToggleOnScroll({
   };
 
   const grayScale = inView ? "grayscale(0%)" : "grayscale(100%)";
-
+  const gif1x1Transparent =
+    "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==";
   return (
     <img
-      src={imageUrl}
+      src={isLoading ? gif1x1Transparent : imageUrl}
       alt={alt}
       ref={imageRef}
       width={thumbNail ? 50 : 200}

@@ -10,7 +10,6 @@ export default function useSpeakerSortAndFilter(speakerList) {
   }
 
   function speakerListCalc(speakerSaturday, speakingSunday, searchText) {
-    console.log("speakerListCalc running");
     return speakerList
       .filter(
         ({ sat, sun }) => (speakingSaturday && sat) || (speakingSunday && sun)

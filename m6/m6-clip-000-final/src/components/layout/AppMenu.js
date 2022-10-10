@@ -1,12 +1,9 @@
 import { useContext } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
+import { AppRouterContext } from "../contexts/AppRouterContext";
 
 export default function AppMenu() {
-  const { setRoute } = {
-    setRoute: (route) => {
-      window.location.href = route;
-    },
-  };
+  const { setRoute } = useContext(AppRouterContext);
 
   const { toggleTheme } = useContext(ThemeContext);
 

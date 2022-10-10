@@ -2,11 +2,11 @@
   "speakers": [
     {
       "id": 187,
-      "firstName": "DaveX",
+      "firstName": "Dave",
       "lastName": "Nielsen",
       "sat": true,
       "sun": true,
-      "favorite": true,
+      "favorite": false,
       "bio": "As Head of Ecosystem Programs, Dave uses emerging technologies and open source projects like Microservices, Serverless & Kubernetes to bring the magic of Redis to the broader community.",
       "company": "Intel",
       "twitterHandle": "davenielsen",
@@ -20,7 +20,7 @@
       "lastName": "Crockford",
       "sat": true,
       "sun": false,
-      "favorite": true,
+      "favorite": false,
       "bio": "Douglas Crockford discovered the JSON Data Interchange Format. He is also the author of _JavaScript: The Good Parts_. He has been called a guru, but he is actually more of a mahatma.",
       "company": "PayPal",
       "twitterHandle": "",

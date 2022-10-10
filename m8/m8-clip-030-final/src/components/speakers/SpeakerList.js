@@ -1,13 +1,14 @@
 import SpeakerLine from "./SpeakerLine";
-import { useContext, useState } from "react";
+import { useContext, useState, useTransition } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 import { SpeakersDataContext } from "../contexts/SpeakersDataContext";
 
 function List({ speakers }) {
   const [updatingId, setUpdatingId] = useState(0);
   const { updateSpeaker } = useContext(SpeakersDataContext);
-
-  const isPending = false;
+  const [searchName, setSearchName] = useState("");
+  const [highlightChars, setHighlightChars] = useState("");
+  const [isPending, startTransition] = useTransition();
 
   function toggleFavoriteSpeaker(speakerRec) {
     const speakerRecUpdated = { ...speakerRec, favorite: !speakerRec.favorite };
@@ -28,8 +29,13 @@ function List({ speakers }) {
           <div className="toolbar-trigger mb-3 flex-grow-04">
             <div className="toolbar-search w-100">
               <input
-                value=""
-                onChange={(event) => {}}
+                value={searchName}
+                onChange={(event) => {
+                  setSearchName(event.target.value);
+                  startTransition(() => {
+                    setHighlightChars(event.target.value);
+                  });
+                }}
                 type="text"
                 className="form-control"
                 placeholder="Highlight Names"
@@ -46,7 +52,14 @@ function List({ speakers }) {
 
       <div className="row g-3">
         {speakers.map(function (speakerRec) {
-          const highlight = false;
+          const highlight =
+            highlightChars?.length > 0 &&
+            (
+              speakerRec.firstName?.toLowerCase() +
+              speakerRec.lastName?.toLowerCase()
+            ).includes(highlightChars.toLowerCase())
+              ? true
+              : false;
           return (
             <SpeakerLine
               key={speakerRec.id}
@@ -66,6 +79,10 @@ const SpeakerList = () => {
   const { darkTheme } = useContext(ThemeContext);
   const { data: speakerList, loadingStatus } = useContext(SpeakersDataContext);
 
+  if (speakerList) {
+    addDummySpeakers(speakerList, 8000);
+  }
+
   if (loadingStatus === "loading") return <div>Loading...</div>;
 
   return (
@@ -76,3 +93,20 @@ const SpeakerList = () => {
 };
 
 export default SpeakerList;
+
+function addDummySpeakers(itemsLoaded, numToAdd) {
+  for (let increment = 1; increment < numToAdd; increment++) {
+    itemsLoaded.push({
+      id: 1000000 + increment,
+      firstName: `Craig${increment}`,
+      lastName: `Mantle${increment}`,
+      favorite: false,
+      bio: "fake bio",
+      company: "fake company",
+      twitterHandle: `fakeTwitterHandle${increment}`,
+      userBioShort: `fake short bio ${increment}`,
+      imageUrl: "",
+      email: `FakeEmail${increment}@codecamp.net`,
+    });
+  }
+}

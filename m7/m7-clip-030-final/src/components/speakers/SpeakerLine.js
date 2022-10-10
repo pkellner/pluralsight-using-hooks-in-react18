@@ -1,5 +1,6 @@
 import FavoriteSpeakerToggleLine from "./FavoriteSpeakerToggleLine";
 import SpeakerImageToggleOnScroll from "./SpeakerImageToggleOnScroll";
+import { memo } from "react";
 
 const SpeakerLine = ({
   speakerRec,
@@ -7,6 +8,7 @@ const SpeakerLine = ({
   updating,
   highlight,
 }) => {
+  console.log("SpeakerLine: ", speakerRec);
   return (
     <div className="col-xl-12 col-md-12">
       <div className="card border-0 speaker-list">
@@ -58,4 +60,12 @@ const SpeakerLine = ({
   );
 };
 
-export default SpeakerLine;
+// takes advantage of every time there is a change, the updating spinner shows. that will also cause favorite icon to re-render
+export default memo(SpeakerLine, (prevProps, nextProps) => {
+  return (
+    prevProps.updating === nextProps.updating &&
+    prevProps.highlight === nextProps.highlight
+  );
+});
+
+//export default SpeakerLine;
