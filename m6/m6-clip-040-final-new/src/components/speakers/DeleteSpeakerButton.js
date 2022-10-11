@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import { SpeakersDataContext } from "../contexts/SpeakersDataContext";
-
 export default function DeleteSpeakerButton({ id }) {
-  const { deleteSpeaker } = useContext(SpeakersDataContext);
+  const { deleteSpeaker } = {
+    deleteSpeaker: () => {},
+  };
   return (
     <button
       onClick={(e) => {

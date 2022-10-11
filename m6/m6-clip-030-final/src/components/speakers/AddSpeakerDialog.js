@@ -1,6 +1,4 @@
 import SpeakerModal from "../speakerModal/SpeakerModal";
-import { useContext } from "react";
-import { SpeakerModalContext } from "../contexts/SpeakerModalContext";
 
 export default function AddSpeakerDialog() {
   const {
@@ -10,11 +8,22 @@ export default function AddSpeakerDialog() {
     setModalSpeakerLastName,
     setModalSpeakerEmail,
     setModalSpeakerImageUrl,
-  } = useContext(SpeakerModalContext);
+  } = {
+    setModalShow: (show) => {
+      if (show === true) {
+        window.location.href = "/speakerpopup";
+      }
+    },
+    setModalSpeakerId: () => {},
+    setModalSpeakerFirstName: () => {},
+    setModalSpeakerLastName: () => {},
+    setModalSpeakerEmail: () => {},
+    setModalSpeakerImageUrl: () => {},
+  };
 
   return (
     <>
-      <SpeakerModal />
+      <SpeakerModal modalShow={false} />
       <button
         onClick={() => {
           setModalSpeakerId(0);

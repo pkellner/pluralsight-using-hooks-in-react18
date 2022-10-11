@@ -11,14 +11,14 @@ function Speakers() {
   return (
     <div className={darkTheme ? "theme-dark" : "theme-light"}>
       <SpeakerMenuProvider>
-        <SpeakersDataProvider>
-          <SpeakerMenu />
-          <div className="container">
-            <div className="row g-4">
+        <SpeakerMenu />
+        <div className="container">
+          <div className="row g-4">
+            <SpeakersDataProvider>
               <SpeakersList />
-            </div>
+            </SpeakersDataProvider>
           </div>
-        </SpeakersDataProvider>
+        </div>
       </SpeakerMenuProvider>
     </div>
   );
