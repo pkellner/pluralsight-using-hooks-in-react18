@@ -1,51 +1,9 @@
 {
   "speakers": [
     {
-      "firstName": "Ab",
-      "lastName": "Cd",
-      "email": "",
-      "imageUrl": "/images/Speaker-New.jpg",
-      "sat": true,
-      "sun": true,
-      "favorite": false,
-      "company": "Code Camp",
-      "twitterHandle": "unknown",
-      "userBioShort": "Dummy Bio",
-      "bio": "Dummy Bio",
-      "id": 41811
-    },
-    {
-      "firstName": "44",
-      "lastName": "55",
-      "email": "",
-      "imageUrl": "/images/Speaker-New.jpg",
-      "sat": true,
-      "sun": true,
-      "favorite": false,
-      "company": "Code Camp",
-      "twitterHandle": "unknown",
-      "userBioShort": "Dummy Bio",
-      "bio": "Dummy Bio",
-      "id": 41810
-    },
-    {
-      "firstName": "34",
-      "lastName": "34adf",
-      "email": "",
-      "imageUrl": "/images/Speaker-New.jpg",
-      "sat": true,
-      "sun": true,
-      "favorite": false,
-      "company": "Code Camp",
-      "twitterHandle": "unknown",
-      "userBioShort": "Dummy Bio",
-      "bio": "Dummy Bio",
-      "id": 41809
-    },
-    {
       "id": 1269,
-      "firstName": "Arunx",
-      "lastName": "Guptay1111",
+      "firstName": "Arun",
+      "lastName": "Gupta",
       "sat": false,
       "sun": true,
       "favorite": true,

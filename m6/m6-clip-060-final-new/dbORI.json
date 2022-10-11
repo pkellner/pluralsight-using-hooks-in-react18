@@ -1,54 +1,12 @@
 {
   "speakers": [
     {
-      "firstName": "Ab",
-      "lastName": "Cd",
-      "email": "",
-      "imageUrl": "/images/Speaker-New.jpg",
-      "sat": true,
-      "sun": true,
-      "favorite": false,
-      "company": "Code Camp",
-      "twitterHandle": "unknown",
-      "userBioShort": "Dummy Bio",
-      "bio": "Dummy Bio",
-      "id": 41811
-    },
-    {
-      "firstName": "44",
-      "lastName": "55",
-      "email": "",
-      "imageUrl": "/images/Speaker-New.jpg",
-      "sat": true,
-      "sun": true,
-      "favorite": false,
-      "company": "Code Camp",
-      "twitterHandle": "unknown",
-      "userBioShort": "Dummy Bio",
-      "bio": "Dummy Bio",
-      "id": 41810
-    },
-    {
-      "firstName": "34",
-      "lastName": "34adf",
-      "email": "",
-      "imageUrl": "/images/Speaker-New.jpg",
-      "sat": true,
-      "sun": true,
-      "favorite": false,
-      "company": "Code Camp",
-      "twitterHandle": "unknown",
-      "userBioShort": "Dummy Bio",
-      "bio": "Dummy Bio",
-      "id": 41809
-    },
-    {
       "id": 1269,
-      "firstName": "Arunx",
-      "lastName": "Guptay1111",
+      "firstName": "Arun",
+      "lastName": "Gupta",
       "sat": false,
       "sun": true,
-      "favorite": true,
+      "favorite": false,
       "bio": "Arun Gupta is a Principal Open Source Technologist at Amazon Web Services. He has built and led developer communities for 12+ years at Sun, Oracle, Red Hat and Couchbase.",
       "company": "Amazon",
       "twitterHandle": "arungupta",
@@ -56,6 +14,7 @@
       "imageUrl": "/images/Speaker-1269.jpg",
       "email": "Arun.Gupta@codecamp.net"
     },
+
     {
       "id": 5996,
       "firstName": "Craig",
@@ -90,7 +49,7 @@
       "lastName": "Crockford",
       "sat": true,
       "sun": false,
-      "favorite": false,
+      "favorite": true,
       "bio": "Douglas Crockford discovered the JSON Data Interchange Format. He is also the author of _JavaScript: The Good Parts_. He has been called a guru, but he is actually more of a mahatma.",
       "company": "PayPal",
       "twitterHandle": "",
@@ -118,7 +77,7 @@
       "lastName": "McDowell",
       "sat": true,
       "sun": false,
-      "favorite": true,
+      "favorite": false,
       "bio": "Gayle Laakmann McDowell is the founder and CEO of CareerCup.com and the author of three best selling books.",
       "company": "CareerCup",
       "twitterHandle": "gayle",
@@ -126,6 +85,7 @@
       "imageUrl": "/images/Speaker-8367.jpg",
       "email": "Gayle Laakmann.McDowell@codecamp.net"
     },
+
     {
       "id": 18805,
       "firstName": "Mickey W.",
