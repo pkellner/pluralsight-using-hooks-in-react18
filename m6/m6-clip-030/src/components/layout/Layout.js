@@ -19,7 +19,6 @@ export default function Layout({ url }) {
       {url === "/" && <Speakers />}
       {url.startsWith("/speaker/") && <Speaker id={speakerId} />}
       {url.startsWith("/speakerlist") && <SpeakerList />}
-      {url.startsWith("/speakerpopup") && <SpeakerModal modalShow={true} />}
     </ThemeProvider>
   );
 }

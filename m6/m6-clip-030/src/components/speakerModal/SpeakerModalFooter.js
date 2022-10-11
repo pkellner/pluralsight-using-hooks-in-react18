@@ -1,3 +1,7 @@
+import { useContext } from "react";
+import { SpeakerModalContext } from "../contexts/SpeakerModalContext";
+import { SpeakersDataContext } from "../contexts/SpeakersDataContext";
+
 export default function NotesModalFooter() {
   const {
     setModalShow,
@@ -6,22 +10,10 @@ export default function NotesModalFooter() {
     modalSpeakerLastName,
     modalSpeakerEmail,
     modalSpeakerImageUrl,
-  } = {
-    setModalShow: () => {},
-    modalSpeakerId: 0,
-    modalSpeakerFirstName: "",
-    modalSpeakerLastName: "",
-    modalSpeakerEmail: "",
-    modalSpeakerImageUrl: "",
-  };
+  } = useContext(SpeakerModalContext);
 
-  const { data, createSpeaker, updateSpeaker, deleteSpeaker, loadingStatus } = {
-    data: [],
-    createSpeaker: () => {},
-    updateSpeaker: () => {},
-    deleteSpeaker: () => {},
-    loadingStatus: "success",
-  };
+  const { data, createSpeaker, updateSpeaker } =
+    useContext(SpeakersDataContext);
 
   return (
     <div className="modal-footer justify-content-center">
