@@ -14,7 +14,7 @@ export default function NotesModalFooter() {
     modalSpeakerEmail: "",
     modalSpeakerImageUrl: "",
   };
-  
+
   const { data, createSpeaker, updateSpeaker, deleteSpeaker, loadingStatus } = {
     data: [],
     createSpeaker: () => {},
@@ -22,7 +22,7 @@ export default function NotesModalFooter() {
     deleteSpeaker: () => {},
     loadingStatus: "success",
   };
-  
+
   return (
     <div className="modal-footer justify-content-center">
       {modalSpeakerId !== 0 && (
@@ -42,7 +42,7 @@ export default function NotesModalFooter() {
           Save
         </button>
       )}
-      
+
       <button
         className="btn btn-danger"
         onClick={() => {
@@ -52,7 +52,7 @@ export default function NotesModalFooter() {
       >
         Discard
       </button>
-      
+
       {modalSpeakerId === 0 && (
         <button
           className="btn btn-accent"

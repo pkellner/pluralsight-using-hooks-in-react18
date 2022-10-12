@@ -14,8 +14,6 @@ export default function NotesModalFooter() {
 
   const { createSpeaker, updateSpeaker } = useContext(SpeakersDataContext);
 
-  //console.log(`modalSpeakerId:${modalSpeakerId}`);
-
   return (
     <div className="modal-footer justify-content-center">
       {modalSpeakerId !== 0 && (

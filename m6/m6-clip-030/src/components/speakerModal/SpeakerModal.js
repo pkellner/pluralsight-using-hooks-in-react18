@@ -7,7 +7,7 @@ export default function SpeakerModal({ modalShow }) {
     modalShow && modalShow === true
       ? "modal show-modal has-backdrop"
       : "modal hide-modal";
-  
+
   return (
     <>
       <style jsx>
