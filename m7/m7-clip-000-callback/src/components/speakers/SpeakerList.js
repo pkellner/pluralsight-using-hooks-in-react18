@@ -1,5 +1,5 @@
 import SpeakerLine from "./SpeakerLine";
-import { useContext, useEffect, useReducer, useState } from "react";
+import {useCallback, useContext, useEffect, useReducer, useState} from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 import axios from "axios";
 
@@ -8,7 +8,7 @@ function List({ state, dispatch }) {
   const isPending = false;
   const speakers = state.speakers;
 
-  function toggleFavoriteSpeaker(speakerRec) {
+  const toggleFavoriteSpeaker = speakerRec => {
     const speakerRecUpdated = {
       ...speakerRec,
       favorite: !speakerRec.favorite,
@@ -20,7 +20,7 @@ function List({ state, dispatch }) {
       setUpdatingId(0);
     }
     updateAsync(speakerRecUpdated);
-  }
+  };
 
   return (
     <div className="container">
@@ -57,7 +57,7 @@ function List({ state, dispatch }) {
               key={speakerRec.id}
               speakerRec={speakerRec}
               updating={updatingId === speakerRec.id ? updatingId : 0}
-              toggleFavoriteSpeaker={() => toggleFavoriteSpeaker(speakerRec)}
+              toggleFavoriteSpeaker={useCallback(() => toggleFavoriteSpeaker(speakerRec),[])}
               highlight={highlight}
             />
           );
