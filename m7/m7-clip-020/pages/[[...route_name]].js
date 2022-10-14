@@ -1,10 +1,12 @@
-import App from "../src/App";
+import App from '../src/App';
 
 function index({ url }) {
   return <App url={url} />;
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps(
+  context,
+) {
   return {
     props: {
       url: context.resolvedUrl,

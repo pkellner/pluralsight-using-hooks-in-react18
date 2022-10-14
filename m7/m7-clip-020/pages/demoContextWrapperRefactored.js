@@ -1,4 +1,4 @@
-import MyContextProvider from "./demoContextDedicated";
+import MyContextProvider from './demoContextDedicated';
 
 function App() {
   return (

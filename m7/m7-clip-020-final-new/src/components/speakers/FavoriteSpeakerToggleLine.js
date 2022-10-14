@@ -6,7 +6,9 @@ export default function FavoriteSpeakerToggleLine({
   return (
     <button
       className={
-        speakerRec.favorite ? "heartredbutton btn" : "heartdarkbutton btn"
+        speakerRec.favorite
+          ? 'heartredbutton btn'
+          : 'heartdarkbutton btn'
       }
       onClick={toggleFavoriteSpeaker}
     >

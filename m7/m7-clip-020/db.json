@@ -20,7 +20,7 @@
       "lastName": "Berntson",
       "sat": true,
       "sun": true,
-      "favorite": true,
+      "favorite": false,
       "bio": "Craig has a passion for community and helping other developers improve their skills. He writes the column \"Software Gardening\" in DotNet Curry Magazine and is the co-author of \"Continuous Integration in .NET\" available from Manning.",
       "company": "HealthEquity",
       "twitterHandle": "craigber",

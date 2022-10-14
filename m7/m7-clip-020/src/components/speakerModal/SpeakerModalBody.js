@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { SpeakerModalContext } from "../contexts/SpeakerModalContext";
+import { useContext } from 'react';
+import { SpeakerModalContext } from '../contexts/SpeakerModalContext';
 
 export default function NotesModalBody() {
   const {
@@ -12,7 +12,9 @@ export default function NotesModalBody() {
     setModalSpeakerImageUrl,
     modalSpeakerEmail,
     setModalSpeakerEmail,
-  } = useContext(SpeakerModalContext);
+  } = useContext(
+    SpeakerModalContext,
+  );
   return (
     <div className="modal-body">
       <div className="notes-box">
@@ -21,17 +23,33 @@ export default function NotesModalBody() {
             <div className="row">
               <div className="col-md-12">
                 <div className="note-title">
-                  <label>Speaker Id:</label>
-                  <span>{modalSpeakerId}</span>
+                  <label>
+                    Speaker Id:
+                  </label>
+                  <span>
+                    {
+                      modalSpeakerId
+                    }
+                  </span>
                 </div>
               </div>
               <div className="col-md-12">
                 <div className="note-title">
-                  <label>First Name</label>
+                  <label>
+                    First Name
+                  </label>
                   <input
-                    value={modalSpeakerFirstName}
-                    onChange={(event) => {
-                      setModalSpeakerFirstName(event.target.value);
+                    value={
+                      modalSpeakerFirstName
+                    }
+                    onChange={(
+                      event,
+                    ) => {
+                      setModalSpeakerFirstName(
+                        event
+                          .target
+                          .value,
+                      );
                     }}
                     type="text"
                     className="form-control"
@@ -41,11 +59,21 @@ export default function NotesModalBody() {
               </div>
               <div className="col-md-12">
                 <div className="note-title">
-                  <label>Last Name</label>
+                  <label>
+                    Last Name
+                  </label>
                   <input
-                    value={modalSpeakerLastName}
-                    onChange={(event) => {
-                      setModalSpeakerLastName(event.target.value);
+                    value={
+                      modalSpeakerLastName
+                    }
+                    onChange={(
+                      event,
+                    ) => {
+                      setModalSpeakerLastName(
+                        event
+                          .target
+                          .value,
+                      );
                     }}
                     type="text"
                     className="form-control"
@@ -55,11 +83,21 @@ export default function NotesModalBody() {
               </div>
               <div className="col-md-12">
                 <div className="note-title">
-                  <label>Email</label>
+                  <label>
+                    Email
+                  </label>
                   <input
-                    value={modalSpeakerEmail}
-                    onChange={(event) => {
-                      setModalSpeakerEmail(event.target.value);
+                    value={
+                      modalSpeakerEmail
+                    }
+                    onChange={(
+                      event,
+                    ) => {
+                      setModalSpeakerEmail(
+                        event
+                          .target
+                          .value,
+                      );
                     }}
                     type="text"
                     className="form-control"
@@ -69,11 +107,22 @@ export default function NotesModalBody() {
               </div>
               <div className="col-md-12">
                 <div className="note-title">
-                  <label>Speaker Image URL:</label>
+                  <label>
+                    Speaker Image
+                    URL:
+                  </label>
                   <input
-                    value={modalSpeakerImageUrl}
-                    onChange={(event) => {
-                      setModalSpeakerImageUrl(event.target.value);
+                    value={
+                      modalSpeakerImageUrl
+                    }
+                    onChange={(
+                      event,
+                    ) => {
+                      setModalSpeakerImageUrl(
+                        event
+                          .target
+                          .value,
+                      );
                     }}
                     type="text"
                     className="form-control"

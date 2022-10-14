@@ -1,8 +1,13 @@
-import { useContext } from "react";
-import { SpeakerModalContext } from "../contexts/SpeakerModalContext";
+import { useContext } from 'react';
+import { SpeakerModalContext } from '../contexts/SpeakerModalContext';
 
 export default function SpeakersModalHeader() {
-  const { setModalShow, modalSpeakerId } = useContext(SpeakerModalContext);
+  const {
+    setModalShow,
+    modalSpeakerId,
+  } = useContext(
+    SpeakerModalContext,
+  );
   return (
     <div className="modal-header bg-main-gradient text-white">
       <h5 className="modal-title">

@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { ThemeContext } from "../contexts/ThemeContext";
+import { useContext } from 'react';
+import { ThemeContext } from '../contexts/ThemeContext';
 
 export default function AppMenu() {
   const { setRoute } = {
@@ -7,7 +7,8 @@ export default function AppMenu() {
       window.location.href = route;
     },
   };
-  const { toggleTheme } = useContext(ThemeContext);
+  const { toggleTheme } =
+    useContext(ThemeContext);
 
   return (
     <header className="d-flex justify-content-center py-3">
@@ -16,7 +17,7 @@ export default function AppMenu() {
           <li className="nav-item">
             <button
               onClick={() => {
-                setRoute("/");
+                setRoute('/');
               }}
               className="nav-link"
             >
@@ -26,7 +27,9 @@ export default function AppMenu() {
           <li className="nav-item">
             <button
               onClick={() => {
-                setRoute("/speakerlist");
+                setRoute(
+                  '/speakerlist',
+                );
               }}
               className="nav-link"
             >
@@ -36,7 +39,7 @@ export default function AppMenu() {
           <li className="nav-item">
             <button
               onClick={() => {
-                setRoute("/about");
+                setRoute('/about');
               }}
               className="nav-item nav-link"
             >
@@ -49,12 +52,17 @@ export default function AppMenu() {
               className="themeToggleCheckbox"
               autoComplete="off"
               id="themeToggle"
-              defaultChecked={false}
+              defaultChecked={
+                false
+              }
               onClick={() => {
                 toggleTheme();
               }}
             />
-            <label htmlFor="themeToggle" className="themeToggleCheckbox-label">
+            <label
+              htmlFor="themeToggle"
+              className="themeToggleCheckbox-label"
+            >
               <i className="fas fa-moon"></i>
               <i className="fas fa-sun"></i>
               <span className="ball"></span>

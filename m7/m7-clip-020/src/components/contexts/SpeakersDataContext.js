@@ -1,34 +1,40 @@
-import React, { createContext } from "react";
-import useSpeakersData from "../hooks/useSpeakersData";
+import React, {
+  createContext,
+} from 'react';
+import useSpeakersData from '../hooks/useSpeakersData';
 
-export const SpeakersDataContext = createContext({
-  speakerList: [],
-  createSpeaker: () => {},
-  updateSpeaker: () => {},
-  deleteSpeaker: () => {},
-  loadingStatus: "",
-});
+export const SpeakersDataContext =
+  createContext({
+    speakerList: [],
+    createSpeaker: () => {},
+    updateSpeaker: () => {},
+    deleteSpeaker: () => {},
+    loadingStatus: '',
+  });
 
-export const SpeakersDataProvider = ({ children }) => {
-  const {
-    speakerList,
-    createSpeaker,
-    updateSpeaker,
-    deleteSpeaker,
-    loadingStatus,
-  } = useSpeakersData();
+export const SpeakersDataProvider =
+  ({ children }) => {
+    const {
+      speakerList,
+      createSpeaker,
+      updateSpeaker,
+      deleteSpeaker,
+      loadingStatus,
+    } = useSpeakersData();
 
-  const value = {
-    speakerList,
-    createSpeaker,
-    updateSpeaker,
-    deleteSpeaker,
-    loadingStatus,
+    const value = {
+      speakerList,
+      createSpeaker,
+      updateSpeaker,
+      deleteSpeaker,
+      loadingStatus,
+    };
+
+    return (
+      <SpeakersDataContext.Provider
+        value={value}
+      >
+        {children}
+      </SpeakersDataContext.Provider>
+    );
   };
-
-  return (
-    <SpeakersDataContext.Provider value={value}>
-      {children}
-    </SpeakersDataContext.Provider>
-  );
-};

@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useReducer } from 'react';
 
 export default function () {
   //const [cnt, setCnt] = useState(100);
@@ -18,14 +18,17 @@ export default function () {
 
   function reducer(state, action) {
     switch (action.type) {
-      case "increment":
+      case 'increment':
         return state + action.incrementValue;
       default:
         return action;
     }
   }
 
-  const [cnt, setCnt] = useReducer(reducer, 300);
+  const [cnt, setCnt] = useReducer(
+    reducer,
+    300,
+  );
 
   // next thing is to change setCnt to dispatch
 
@@ -35,13 +38,13 @@ export default function () {
 
   return (
     <div className="container">
-      {" "}
+      {' '}
       d<h1>Demo Reducer</h1>
       <button
         onClick={() => {
           //setCnt(cnt + 1);
           setCnt({
-            type: "increment",
+            type: 'increment',
             incrementValue: 10,
           });
         }}
