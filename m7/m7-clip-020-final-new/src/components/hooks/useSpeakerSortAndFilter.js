@@ -44,10 +44,10 @@ export default function useSpeakerSortAndFilter(
     return results;
   }
 
-  //return getResults(speakingSaturday, speakingSunday, searchText);
+  return getResults(speakingSaturday, speakingSunday, searchText);
 
-  return useMemo(
-    () => getResults(speakingSaturday, speakingSunday, searchText),
-    [speakingSaturday, speakingSunday, searchText]
-  );
+  // return useMemo(
+  //   () => getResults(speakingSaturday, speakingSunday, searchText),
+  //   [speakingSaturday, speakingSunday, searchText]
+  // );
 }
