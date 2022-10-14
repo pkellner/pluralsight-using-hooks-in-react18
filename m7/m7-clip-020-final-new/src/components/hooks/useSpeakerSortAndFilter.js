@@ -1,21 +1,10 @@
-import { useContext, useMemo } from "react";
-import { SpeakerMenuContext } from "../contexts/SpeakerMenuContext";
 export default function useSpeakerSortAndFilter(
   speakerList,
   speakingSaturday,
   speakingSunday,
   searchText
 ) {
-  // const { speakingSaturday, speakingSunday, searchText } = useContext(
-  //   SpeakerMenuContext
-  // );
-
-  // const { speakingSaturday, speakingSunday, searchText } = {
-  //   speakingSaturday: true,
-  //   speakingSunday: false,
-  //   searchText: "",
-  // };
-
+ 
   if (!speakerList) {
     return [];
   }
@@ -45,9 +34,4 @@ export default function useSpeakerSortAndFilter(
   }
 
   return getResults(speakingSaturday, speakingSunday, searchText);
-
-  // return useMemo(
-  //   () => getResults(speakingSaturday, speakingSunday, searchText),
-  //   [speakingSaturday, speakingSunday, searchText]
-  // );
 }

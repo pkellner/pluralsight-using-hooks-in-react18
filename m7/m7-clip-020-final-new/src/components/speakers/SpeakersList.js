@@ -6,20 +6,26 @@ import { SpeakerMenuContext } from "../contexts/SpeakerMenuContext";
 
 export default function SpeakersList() {
   const { speakerList, loadingStatus } = useContext(SpeakersDataContext);
-  
+
   const { speakingSaturday, speakingSunday, searchText } = useContext(
     SpeakerMenuContext
   );
 
-  
-  const speakerListFiltered = useMemo(() => useSpeakerSortAndFilter(speakerList,speakingSaturday, speakingSunday, searchText), [speakingSaturday, speakingSunday, searchText]);
-  
-  
+  const speakerListFiltered = useMemo(
+    () =>
+      useSpeakerSortAndFilter(
+        speakerList,
+        speakingSaturday,
+        speakingSunday,
+        searchText
+      ),
+    [speakingSaturday, speakingSunday, searchText,loadingStatus]
+  );
+
   if (loadingStatus === "loading") {
     return <div className="card">Loading...</div>;
   }
-  
-  
+
   return (
     <>
       {speakerListFiltered.map(function (speakerRec) {
