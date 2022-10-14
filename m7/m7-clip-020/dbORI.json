@@ -6,7 +6,7 @@
       "lastName": "Gupta",
       "sat": false,
       "sun": true,
-      "favorite": true,
+      "favorite": false,
       "bio": "Arun Gupta is a Principal Open Source Technologist at Amazon Web Services. He has built and led developer communities for 12+ years at Sun, Oracle, Red Hat and Couchbase.",
       "company": "Amazon",
       "twitterHandle": "arungupta",
@@ -14,6 +14,7 @@
       "imageUrl": "/images/Speaker-1269.jpg",
       "email": "Arun.Gupta@codecamp.net"
     },
+
     {
       "id": 5996,
       "firstName": "Craig",
@@ -34,7 +35,7 @@
       "lastName": "Nielsen",
       "sat": true,
       "sun": true,
-      "favorite": true,
+      "favorite": false,
       "bio": "As Head of Ecosystem Programs, Dave uses emerging technologies and open source projects like Microservices, Serverless & Kubernetes to bring the magic of Redis to the broader community.",
       "company": "Intel",
       "twitterHandle": "davenielsen",
@@ -48,7 +49,7 @@
       "lastName": "Crockford",
       "sat": true,
       "sun": false,
-      "favorite": false,
+      "favorite": true,
       "bio": "Douglas Crockford discovered the JSON Data Interchange Format. He is also the author of _JavaScript: The Good Parts_. He has been called a guru, but he is actually more of a mahatma.",
       "company": "PayPal",
       "twitterHandle": "",
@@ -76,7 +77,7 @@
       "lastName": "McDowell",
       "sat": true,
       "sun": false,
-      "favorite": true,
+      "favorite": false,
       "bio": "Gayle Laakmann McDowell is the founder and CEO of CareerCup.com and the author of three best selling books.",
       "company": "CareerCup",
       "twitterHandle": "gayle",
@@ -84,6 +85,7 @@
       "imageUrl": "/images/Speaker-8367.jpg",
       "email": "Gayle Laakmann.McDowell@codecamp.net"
     },
+
     {
       "id": 18805,
       "firstName": "Mickey W.",
