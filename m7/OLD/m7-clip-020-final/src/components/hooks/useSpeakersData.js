@@ -1,9 +1,6 @@
-import useGeneralizedCrudMethods from './useGeneralizedCrudMethods';
+import useGeneralizedCrudMethods from "./useGeneralizedCrudMethods";
 
-function useSpeakersData(
-  url,
-  errorNotificationFn,
-) {
+function useSpeakersData(url, errorNotificationFn) {
   const {
     data,
     error,
@@ -11,22 +8,13 @@ function useSpeakersData(
     createRecord,
     updateRecord,
     deleteRecord,
-  } = useGeneralizedCrudMethods(
-    url,
-    errorNotificationFn,
-  );
+  } = useGeneralizedCrudMethods(url, errorNotificationFn);
 
-  function createSpeaker(
-    speakerRec,
-    callbackDone,
-  ) {
+  function createSpeaker(speakerRec, callbackDone) {
     createRecord(speakerRec, callbackDone);
   }
 
-  function updateSpeaker(
-    speakerRec,
-    callbackDone,
-  ) {
+  function updateSpeaker(speakerRec, callbackDone) {
     updateRecord(speakerRec, callbackDone);
   }
 

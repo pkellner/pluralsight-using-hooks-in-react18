@@ -8,31 +8,21 @@ import SpeakerList from '../speakers/SpeakerList';
 import { ThemeProvider } from '../contexts/ThemeContext';
 
 // Layout does not use children but instead uses what comes from AppRouteProvider
-export default function Layout({
-  url,
-}) {
+export default function Layout({ url }) {
   const speakerId = parseInt(
-    url
-      .substring(9)
-      .replace('#', ''),
+    url.substring(9).replace('#', ''),
   );
 
   return (
     <ThemeProvider>
       <Header />
       <AppMenu />
-      {url === '/about' && (
-        <About />
-      )}
+      {url === '/about' && <About />}
       {url === '/' && <Speakers />}
-      {url.startsWith(
-        '/speaker/',
-      ) && (
+      {url.startsWith('/speaker/') && (
         <Speaker id={speakerId} />
       )}
-      {url.startsWith(
-        '/speakerlist',
-      ) && <SpeakerList />}
+      {url.startsWith('/speakerlist') && <SpeakerList />}
     </ThemeProvider>
   );
 }

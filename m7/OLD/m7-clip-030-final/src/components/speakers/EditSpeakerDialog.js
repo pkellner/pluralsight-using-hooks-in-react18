@@ -1,5 +1,5 @@
-import { SpeakerModalContext } from '../contexts/SpeakerModalContext';
-import { useContext } from 'react';
+import { SpeakerModalContext } from "../contexts/SpeakerModalContext";
+import { useContext } from "react";
 
 export default function EditSpeakerDialog({
   id,
@@ -37,7 +37,7 @@ export default function EditSpeakerDialog({
       className="btn btn-accent btn-sm"
     >
       <i className="fa fa-edit"></i>
-      {' Edit '}
+      {" Edit "}
     </button>
   );
 }

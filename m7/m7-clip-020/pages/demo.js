@@ -1,54 +1,36 @@
 import DemoApp from './demoApp';
-import {
-  useEffect,
-  useState,
-} from 'react';
+import { useEffect, useState } from 'react';
 
 const localStateValues = [];
 let localStateValueIndex = 0;
 export default function Demo() {
   function useMyState(initial) {
-    const localStateValueIndexLocal =
-      localStateValueIndex; // closure
+    const localStateValueIndexLocal = localStateValueIndex; // closure
     if (
-      localStateValues[
-        localStateValueIndexLocal
-      ] === undefined
+      localStateValues[localStateValueIndexLocal] ===
+      undefined
     ) {
-      localStateValues[
-        localStateValueIndexLocal
-      ] = initial;
+      localStateValues[localStateValueIndexLocal] = initial;
     }
     const setValue = (val) => {
-      localStateValues[
-        localStateValueIndexLocal
-      ] = val;
+      localStateValues[localStateValueIndexLocal] = val;
       reRenderMe();
     };
     localStateValueIndex++; // update global
     const retVals = [
-      localStateValues[
-        localStateValueIndexLocal
-      ],
+      localStateValues[localStateValueIndexLocal],
       setValue,
     ];
     return retVals;
   }
-  const [cnt, setCnt] =
-    useState(0);
+  const [cnt, setCnt] = useState(0);
   useEffect(() => {
     console.log('rendering...');
   }, [cnt]);
   function reRenderMe() {
     setCnt(cnt + 1);
-    console.log(
-      'reRenderMe called...',
-    );
+    console.log('reRenderMe called...');
   }
   localStateValueIndex = 0;
-  return (
-    <DemoApp
-      useState={useMyState}
-    />
-  );
+  return <DemoApp useState={useMyState} />;
 }

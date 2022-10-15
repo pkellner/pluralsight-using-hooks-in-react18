@@ -1,39 +1,25 @@
-import { useContext, useMemo } from 'react';
-import { SpeakerMenuContext } from '../contexts/SpeakerMenuContext';
+import { useContext, useMemo } from "react";
+import { SpeakerMenuContext } from "../contexts/SpeakerMenuContext";
 
-export default function useSpeakerSortAndFilter(
-  speakerList,
-) {
-  const {
-    speakingSaturday,
-    speakingSunday,
-    searchText,
-  } = useContext(SpeakerMenuContext);
+export default function useSpeakerSortAndFilter(speakerList) {
+  const { speakingSaturday, speakingSunday, searchText } =
+    useContext(SpeakerMenuContext);
 
   if (!speakerList) {
     return [];
   }
 
-  function speakerListCalc(
-    speakerSaturday,
-    speakingSunday,
-    searchText,
-  ) {
-    console.log('speakerListCalc running');
+  function speakerListCalc(speakerSaturday, speakingSunday, searchText) {
+    console.log("speakerListCalc running");
     return speakerList
       .filter(
-        ({ sat, sun }) =>
-          (speakingSaturday && sat) ||
-          (speakingSunday && sun),
+        ({ sat, sun }) => (speakingSaturday && sat) || (speakingSunday && sun)
       )
       .filter(({ firstName, lastName }) => {
         return (
           searchText.length === 0 ||
-          (
-            firstName?.toLowerCase() +
-            lastName?.toLowerCase()
-          ).includes(
-            searchText.toLowerCase(),
+          (firstName?.toLowerCase() + lastName?.toLowerCase()).includes(
+            searchText.toLowerCase()
           )
         );
       })
@@ -57,17 +43,8 @@ export default function useSpeakerSortAndFilter(
   // );
 
   const speakerListFinal = useMemo(
-    () =>
-      speakerListCalc(
-        speakingSaturday,
-        speakingSunday,
-        searchText,
-      ),
-    [
-      speakingSaturday,
-      speakingSunday,
-      searchText,
-    ],
+    () => speakerListCalc(speakingSaturday, speakingSunday, searchText),
+    [speakingSaturday, speakingSunday, searchText]
   );
 
   return speakerListFinal;

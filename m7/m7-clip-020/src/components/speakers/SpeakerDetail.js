@@ -16,17 +16,13 @@ export default function SpeakerDetail({
   };
   return (
     <SpeakerModalProvider>
-      {speakerRec && (
-        <SpeakerModal />
-      )}
+      {speakerRec && <SpeakerModal />}
       <div className="col-xl-6 col-md-12">
         <div className="card border-0">
           <div className="row g-0">
             <div className="col-4">
               <SpeakerImageToggleOnScroll
-                imageUrl={
-                  speakerRec?.imageUrl
-                }
+                imageUrl={speakerRec?.imageUrl}
                 alt={`${speakerRec?.firstName} ${speakerRec?.lastName}`}
                 thumbNail={false}
               />
@@ -37,82 +33,52 @@ export default function SpeakerDetail({
                 <div className="speaker-action d-flex">
                   <div className="favoriteToggleWrapper">
                     <FavoriteSpeakerToggle
-                      speakerRec={
-                        speakerRec
-                      }
+                      speakerRec={speakerRec}
                     />
                   </div>
 
                   <div className="modifyWrapper">
-                    <EditSpeakerDialog
-                      {...speakerRec}
-                    />
+                    <EditSpeakerDialog {...speakerRec} />
                     <DeleteSpeakerButton
-                      id={
-                        speakerRec.id
-                      }
+                      id={speakerRec.id}
                     />
                   </div>
                 </div>
                 <h4 className="card-title">
                   <a
                     onClick={() => {
-                      setRoute(
-                        `/speaker/${speakerRec.id}`,
-                      );
+                      setRoute(`/speaker/${speakerRec.id}`);
                     }}
                     href="#"
                   >
-                    {
-                      speakerRec.firstName
-                    }{' '}
-                    {
-                      speakerRec.lastName
-                    }
+                    {speakerRec.firstName}{' '}
+                    {speakerRec.lastName}
                   </a>
                 </h4>
 
-                {showDetails ===
-                true ? (
+                {showDetails === true ? (
                   <p className="card-text">
-                    {
-                      speakerRec.bio
-                    }
+                    {speakerRec.bio}
                   </p>
                 ) : (
                   <p className="card-text">
-                    {
-                      speakerRec.userBioShort
-                    }
+                    {speakerRec.userBioShort}
                   </p>
                 )}
               </div>
 
               <div className="card-footer text-muted d-flex flex-wrap justify-content-between align-items-center">
-                {speakerRec
-                  ?.company
-                  ?.length > 0 ? (
+                {speakerRec?.company?.length > 0 ? (
                   <small>
-                    <strong>
-                      Company:
-                    </strong>{' '}
-                    {
-                      speakerRec.company
-                    }
+                    <strong>Company:</strong>{' '}
+                    {speakerRec.company}
                   </small>
                 ) : null}
 
-                {speakerRec
-                  .twitterHandle
-                  .length > 0 ? (
+                {speakerRec.twitterHandle.length > 0 ? (
                   <small>
-                    <strong>
-                      Twitter
-                    </strong>
-                    :{' '}
-                    {
-                      speakerRec.twitterHandle
-                    }
+                    <strong>Twitter</strong>:{' '}
+                    {speakerRec.twitterHandle}
                   </small>
                 ) : null}
               </div>

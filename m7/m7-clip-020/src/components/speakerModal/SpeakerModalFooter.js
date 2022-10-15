@@ -10,15 +10,9 @@ export default function NotesModalFooter() {
     modalSpeakerLastName,
     modalSpeakerEmail,
     modalSpeakerImageUrl,
-  } = useContext(
-    SpeakerModalContext,
-  );
+  } = useContext(SpeakerModalContext);
 
-  const {
-    data,
-    createSpeaker,
-    updateSpeaker,
-  } = useContext(
+  const { data, createSpeaker, updateSpeaker } = useContext(
     SpeakersDataContext,
   );
 
@@ -29,14 +23,10 @@ export default function NotesModalFooter() {
           onClick={() => {
             updateSpeaker({
               id: modalSpeakerId,
-              firstName:
-                modalSpeakerFirstName,
-              lastName:
-                modalSpeakerLastName,
-              imageUrl:
-                modalSpeakerImageUrl,
-              email:
-                modalSpeakerEmail,
+              firstName: modalSpeakerFirstName,
+              lastName: modalSpeakerLastName,
+              imageUrl: modalSpeakerImageUrl,
+              email: modalSpeakerEmail,
             });
             setModalShow(false);
           }}
@@ -61,22 +51,16 @@ export default function NotesModalFooter() {
           className="btn btn-accent"
           onClick={() => {
             createSpeaker({
-              firstName:
-                modalSpeakerFirstName,
-              lastName:
-                modalSpeakerLastName,
-              email:
-                modalSpeakerEmail,
-              imageUrl:
-                modalSpeakerImageUrl,
+              firstName: modalSpeakerFirstName,
+              lastName: modalSpeakerLastName,
+              email: modalSpeakerEmail,
+              imageUrl: modalSpeakerImageUrl,
               sat: true,
               sun: true,
               favorite: false,
               company: 'Code Camp',
-              twitterHandle:
-                'unknown',
-              userBioShort:
-                'Dummy Bio',
+              twitterHandle: 'unknown',
+              userBioShort: 'Dummy Bio',
               bio: 'Dummy Bio',
             });
             setModalShow(false);

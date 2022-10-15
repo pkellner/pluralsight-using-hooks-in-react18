@@ -1,6 +1,6 @@
-import React from 'react';
-import { AppRouterProvider } from './components/contexts/AppRouterContext';
-import Layout from './components/layout/Layout';
+import React from "react";
+import { AppRouterProvider } from "./components/contexts/AppRouterContext";
+import Layout from "./components/layout/Layout";
 
 const App = ({ url }) => {
   return (

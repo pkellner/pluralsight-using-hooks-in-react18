@@ -1,15 +1,10 @@
-import React, { createContext } from 'react';
-import useAppRouter from '../hooks/useAppRouter';
+import React, { createContext } from "react";
+import useAppRouter from "../hooks/useAppRouter";
 
-export const AppRouterContext =
-  createContext({});
+export const AppRouterContext = createContext({});
 
-export const AppRouterProvider = ({
-  children,
-  url,
-}) => {
-  const { activeComponent, setRoute } =
-    useAppRouter(url);
+export const AppRouterProvider = ({ children, url }) => {
+  const { activeComponent, setRoute } = useAppRouter(url);
 
   const value = {
     activeComponent,

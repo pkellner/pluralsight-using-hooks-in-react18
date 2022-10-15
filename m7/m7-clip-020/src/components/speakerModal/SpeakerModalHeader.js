@@ -2,10 +2,7 @@ import { useContext } from 'react';
 import { SpeakerModalContext } from '../contexts/SpeakerModalContext';
 
 export default function SpeakersModalHeader() {
-  const {
-    setModalShow,
-    modalSpeakerId,
-  } = useContext(
+  const { setModalShow, modalSpeakerId } = useContext(
     SpeakerModalContext,
   );
   return (

@@ -11,9 +11,7 @@ export default function SpeakerMenu() {
     setSpeakingSunday,
     searchText,
     setSearchText,
-  } = useContext(
-    SpeakerMenuContext,
-  );
+  } = useContext(SpeakerMenuContext);
 
   return (
     <div
@@ -26,9 +24,7 @@ export default function SpeakerMenu() {
           <input
             value={searchText}
             onChange={(event) => {
-              setSearchText(
-                event.target.value,
-              );
+              setSearchText(event.target.value);
             }}
             type="text"
             className="form-control"
@@ -42,13 +38,9 @@ export default function SpeakerMenu() {
               type="checkbox"
               className="form-check-input"
               onChange={() => {
-                setSpeakingSaturday(
-                  !speakingSaturday,
-                );
+                setSpeakingSaturday(!speakingSaturday);
               }}
-              checked={
-                speakingSaturday
-              }
+              checked={speakingSaturday}
             />
             Saturday Speakers
           </label>
@@ -60,13 +52,9 @@ export default function SpeakerMenu() {
               type="checkbox"
               className="form-check-input"
               onChange={() => {
-                setSpeakingSunday(
-                  !speakingSunday,
-                );
+                setSpeakingSunday(!speakingSunday);
               }}
-              checked={
-                speakingSunday
-              }
+              checked={speakingSunday}
             />
             Sunday Speakers
           </label>

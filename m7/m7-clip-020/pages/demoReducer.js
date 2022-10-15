@@ -19,19 +19,13 @@ export default function () {
   function reducer(state, action) {
     switch (action.type) {
       case 'increment':
-        return (
-          state +
-          action.incrementValue
-        );
+        return state + action.incrementValue;
       default:
         return action;
     }
   }
 
-  const [cnt, setCnt] = useReducer(
-    reducer,
-    300,
-  );
+  const [cnt, setCnt] = useReducer(reducer, 300);
 
   // next thing is to change setCnt to dispatch
 

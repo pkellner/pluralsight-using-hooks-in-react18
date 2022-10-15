@@ -10,9 +10,7 @@ export default function FavoriteSpeakerToggleLine({
           ? 'heartredbutton btn'
           : 'heartdarkbutton btn'
       }
-      onClick={
-        toggleFavoriteSpeaker
-      }
+      onClick={toggleFavoriteSpeaker}
     >
       {children}
     </button>

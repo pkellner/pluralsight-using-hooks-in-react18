@@ -1,6 +1,4 @@
-import React, {
-  useContext,
-} from 'react';
+import React, { useContext } from 'react';
 import SpeakerMenu from './SpeakerMenu';
 import SpeakersList from './SpeakersList';
 import { ThemeContext } from '../contexts/ThemeContext';
@@ -8,17 +6,11 @@ import { SpeakersDataProvider } from '../contexts/SpeakersDataContext';
 import { SpeakerMenuProvider } from '../contexts/SpeakerMenuContext';
 
 function Speakers() {
-  const { darkTheme } = useContext(
-    ThemeContext,
-  );
+  const { darkTheme } = useContext(ThemeContext);
 
   return (
     <div
-      className={
-        darkTheme
-          ? 'theme-dark'
-          : 'theme-light'
-      }
+      className={darkTheme ? 'theme-dark' : 'theme-light'}
     >
       <SpeakersDataProvider>
         <SpeakerMenuProvider>

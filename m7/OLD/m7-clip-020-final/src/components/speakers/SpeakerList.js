@@ -1,20 +1,15 @@
-import SpeakerLine from './SpeakerLine';
-import { useContext, useState } from 'react';
-import { ThemeContext } from '../contexts/ThemeContext';
-import { SpeakersDataContext } from '../contexts/SpeakersDataContext';
+import SpeakerLine from "./SpeakerLine";
+import { useContext, useState } from "react";
+import { ThemeContext } from "../contexts/ThemeContext";
+import { SpeakersDataContext } from "../contexts/SpeakersDataContext";
 
 function List({ speakers }) {
-  const [updatingId, setUpdatingId] =
-    useState(0);
-  const { updateSpeaker } = useContext(
-    SpeakersDataContext,
-  );
+  const [updatingId, setUpdatingId] = useState(0);
+  const { updateSpeaker } = useContext(SpeakersDataContext);
 
   const isPending = false;
 
-  function toggleFavoriteSpeaker(
-    speakerRec,
-  ) {
+  function toggleFavoriteSpeaker(speakerRec) {
     const speakerRecUpdated = {
       ...speakerRec,
       favorite: !speakerRec.favorite,
@@ -45,10 +40,7 @@ function List({ speakers }) {
             </div>
             <div className="spinner-height">
               {isPending && (
-                <i
-                  className="spinner-border text-dark"
-                  role="status"
-                />
+                <i className="spinner-border text-dark" role="status" />
               )}
             </div>
           </div>
@@ -62,16 +54,8 @@ function List({ speakers }) {
             <SpeakerLine
               key={speakerRec.id}
               speakerRec={speakerRec}
-              updating={
-                updatingId === speakerRec.id
-                  ? updatingId
-                  : 0
-              }
-              toggleFavoriteSpeaker={() =>
-                toggleFavoriteSpeaker(
-                  speakerRec,
-                )
-              }
+              updating={updatingId === speakerRec.id ? updatingId : 0}
+              toggleFavoriteSpeaker={() => toggleFavoriteSpeaker(speakerRec)}
               highlight={highlight}
             />
           );
@@ -82,25 +66,13 @@ function List({ speakers }) {
 }
 
 const SpeakerList = () => {
-  const { darkTheme } = useContext(
-    ThemeContext,
-  );
-  const {
-    data: speakerList,
-    loadingStatus,
-  } = useContext(SpeakersDataContext);
+  const { darkTheme } = useContext(ThemeContext);
+  const { data: speakerList, loadingStatus } = useContext(SpeakersDataContext);
 
-  if (loadingStatus === 'loading')
-    return <div>Loading...</div>;
+  if (loadingStatus === "loading") return <div>Loading...</div>;
 
   return (
-    <div
-      className={
-        darkTheme
-          ? 'theme-dark'
-          : 'theme-light'
-      }
-    >
+    <div className={darkTheme ? "theme-dark" : "theme-light"}>
       <List speakers={speakerList} />
     </div>
   );

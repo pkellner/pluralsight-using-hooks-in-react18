@@ -15,8 +15,7 @@ export default function Header() {
                 href="https://www.siliconvalley-codecamp.com/Event/2019"
                 target="_blank"
               >
-                Silicon Valley Code
-                Camp 2019
+                Silicon Valley Code Camp 2019
               </a>
             </h2>
           </div>

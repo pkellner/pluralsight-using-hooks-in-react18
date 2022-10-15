@@ -7,9 +7,6 @@ const SpeakerLine = ({
   updating,
   highlight,
 }) => {
-  console.log(
-    `SpeakerLine: ${speakerRec.lastName} `,
-  );
   return (
     <div className="col-xl-12 col-md-12">
       <div className="card border-0 speaker-list">
@@ -18,9 +15,7 @@ const SpeakerLine = ({
             <div className="flex-shrink-0">
               {speakerRec?.imageUrl ? (
                 <SpeakerImageToggleOnScroll
-                  imageUrl={
-                    speakerRec?.imageUrl
-                  }
+                  imageUrl={speakerRec?.imageUrl}
                   alt={`${speakerRec?.firstName} ${speakerRec?.lastName}`}
                   thumbNail={true}
                 />
@@ -33,24 +28,17 @@ const SpeakerLine = ({
                 <div className="d-flex w-100 justify-content-between">
                   <h5
                     className={
-                      highlight ===
-                      true
+                      highlight === true
                         ? 'mb-1 background-text-highlight'
                         : 'mb-1'
                     }
                   >
-                    {
-                      speakerRec.firstName
-                    }{' '}
-                    {
-                      speakerRec.lastName
-                    }
+                    {speakerRec.firstName}{' '}
+                    {speakerRec.lastName}
                   </h5>
                   <div className="spinner-bottom">
                     <FavoriteSpeakerToggleLine
-                      speakerRec={
-                        speakerRec
-                      }
+                      speakerRec={speakerRec}
                       toggleFavoriteSpeaker={
                         toggleFavoriteSpeaker
                       }
@@ -65,12 +53,8 @@ const SpeakerLine = ({
                   </div>
                 </div>
                 <small className="text-muted">
-                  <strong>
-                    Company:{' '}
-                  </strong>{' '}
-                  {
-                    speakerRec.company
-                  }
+                  <strong>Company: </strong>{' '}
+                  {speakerRec.company}
                 </small>
               </div>
             </div>

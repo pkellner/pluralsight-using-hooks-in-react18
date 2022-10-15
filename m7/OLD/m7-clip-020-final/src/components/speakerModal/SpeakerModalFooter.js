@@ -1,6 +1,6 @@
-import { SpeakerModalContext } from '../contexts/SpeakerModalContext';
-import { useContext } from 'react';
-import { SpeakersDataContext } from '../contexts/SpeakersDataContext';
+import { SpeakerModalContext } from "../contexts/SpeakerModalContext";
+import { useContext } from "react";
+import { SpeakersDataContext } from "../contexts/SpeakersDataContext";
 
 export default function NotesModalFooter() {
   const {
@@ -12,13 +12,8 @@ export default function NotesModalFooter() {
     modalSpeakerImageUrl,
   } = useContext(SpeakerModalContext);
 
-  const {
-    data,
-    createSpeaker,
-    updateSpeaker,
-    deleteSpeaker,
-    loadingStatus,
-  } = useContext(SpeakersDataContext);
+  const { data, createSpeaker, updateSpeaker, deleteSpeaker, loadingStatus } =
+    useContext(SpeakersDataContext);
 
   return (
     <div className="modal-footer justify-content-center">
@@ -27,8 +22,7 @@ export default function NotesModalFooter() {
           onClick={() => {
             updateSpeaker({
               id: modalSpeakerId,
-              firstName:
-                modalSpeakerFirstName,
+              firstName: modalSpeakerFirstName,
               lastName: modalSpeakerLastName,
               imageUrl: modalSpeakerImageUrl,
               email: modalSpeakerEmail,
@@ -56,18 +50,17 @@ export default function NotesModalFooter() {
           className="btn btn-accent"
           onClick={() => {
             createSpeaker({
-              firstName:
-                modalSpeakerFirstName,
+              firstName: modalSpeakerFirstName,
               lastName: modalSpeakerLastName,
               email: modalSpeakerEmail,
               imageUrl: modalSpeakerImageUrl,
               sat: true,
               sun: true,
               favorite: false,
-              company: 'Code Camp',
-              twitterHandle: 'unknown',
-              userBioShort: 'Dummy Bio',
-              bio: 'Dummy Bio',
+              company: "Code Camp",
+              twitterHandle: "unknown",
+              userBioShort: "Dummy Bio",
+              bio: "Dummy Bio",
             });
             setModalShow(false);
           }}

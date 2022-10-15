@@ -11,10 +11,8 @@ export const speakerList = [
     twitterHandle: 'arungupta',
     userBioShort:
       'Arun Gupta is a Principal Open Source Technologist at Amazon Web Services. ',
-    imageUrl:
-      '/images/Speaker-1269.jpg',
-    email:
-      'Arun.Gupta@codecamp.net',
+    imageUrl: '/images/Speaker-1269.jpg',
+    email: 'Arun.Gupta@codecamp.net',
   },
 
   {
@@ -29,10 +27,8 @@ export const speakerList = [
     twitterHandle: 'craigber',
     userBioShort:
       "Speaker, author, architect, and engineer. Currently he's a Senior Software Engineer at HealthEquity.",
-    imageUrl:
-      '/images/Speaker-5996.jpg',
-    email:
-      'Craig.Berntson@codecamp.net',
+    imageUrl: '/images/Speaker-5996.jpg',
+    email: 'Craig.Berntson@codecamp.net',
   },
   {
     id: 187,
@@ -46,10 +42,8 @@ export const speakerList = [
     twitterHandle: 'davenielsen',
     userBioShort:
       "I head up ecosystem programs at Redis Labs. I'm also the co-founder of CloudCamp. ",
-    imageUrl:
-      '/images/Speaker-187.jpg',
-    email:
-      'Dave.Nielsen@codecamp.net',
+    imageUrl: '/images/Speaker-187.jpg',
+    email: 'Dave.Nielsen@codecamp.net',
   },
   {
     id: 1124,
@@ -63,10 +57,8 @@ export const speakerList = [
     twitterHandle: '',
     userBioShort:
       'Douglas Crockford discovered the JSON Data Interchange Format. He is also the author of _JavaScript: The Good Parts_. He has been called a guru, but he is actually more of a mahatma.',
-    imageUrl:
-      '/images/Speaker-1124.jpg',
-    email:
-      'Douglas.Crockford@codecamp.net',
+    imageUrl: '/images/Speaker-1124.jpg',
+    email: 'Douglas.Crockford@codecamp.net',
   },
   {
     id: 10803,
@@ -77,14 +69,11 @@ export const speakerList = [
     favorite: false,
     bio: 'Eugene Chuvyrov is  a Senior Cloud Architect at Microsoft. He works directly with both startups and enterprises to enable their solutions in Microsoft cloud, and to make Azure better as a result of this work with partners.',
     company: 'Microsoft',
-    twitterHandle:
-      'EugeneChuvyrov',
+    twitterHandle: 'EugeneChuvyrov',
     userBioShort:
       'Cloud Architect at Microsoft focused on accelerating modern DevOps, Machine Learning and Blockchain.',
-    imageUrl:
-      '/images/Speaker-10803.jpg',
-    email:
-      'Eugene.Chuvyrov@codecamp.net',
+    imageUrl: '/images/Speaker-10803.jpg',
+    email: 'Eugene.Chuvyrov@codecamp.net',
   },
   {
     id: 8367,
@@ -98,10 +87,8 @@ export const speakerList = [
     twitterHandle: 'gayle',
     userBioShort:
       'Gayle Laakmann McDowell is the founder and CEO of CareerCup.com and the author of three books.',
-    imageUrl:
-      '/images/Speaker-8367.jpg',
-    email:
-      'Gayle Laakmann.McDowell@codecamp.net',
+    imageUrl: '/images/Speaker-8367.jpg',
+    email: 'Gayle Laakmann.McDowell@codecamp.net',
   },
 
   {
@@ -116,10 +103,8 @@ export const speakerList = [
     twitterHandle: 'mwmantleCA',
     userBioShort:
       'Mickey has been developing software products for over 40 years – in a variety of leadership roles.',
-    imageUrl:
-      '/images/Speaker-18805.jpg',
-    email:
-      'Mickey W..Mantle@codecamp.net',
+    imageUrl: '/images/Speaker-18805.jpg',
+    email: 'Mickey W..Mantle@codecamp.net',
   },
   {
     id: 41808,
@@ -133,10 +118,8 @@ export const speakerList = [
     twitterHandle: 'paulweveritt',
     userBioShort:
       'Paul is the PyCharm and WebStorm Developer Advocate at JetBrains.',
-    imageUrl:
-      '/images/Speaker-41808.jpg',
-    email:
-      'Paul.Everitt@codecamp.net',
+    imageUrl: '/images/Speaker-41808.jpg',
+    email: 'Paul.Everitt@codecamp.net',
   },
   {
     id: 1530,
@@ -150,9 +133,7 @@ export const speakerList = [
     userBioShort:
       'Tammy is a software development leader for over 20 years.',
     bio: 'Tammy has held a number of executive and management roles over the past 15 years, including VP engineering Roles at USA Tech, Cantaloupe Systems, E-Color, and Untangle Inc.',
-    imageUrl:
-      '/images/Speaker-1530.jpg',
-    email:
-      'Tamara.Baker@codecamp.net',
+    imageUrl: '/images/Speaker-1530.jpg',
+    email: 'Tamara.Baker@codecamp.net',
   },
 ];

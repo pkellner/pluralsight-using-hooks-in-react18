@@ -10,24 +10,16 @@ export default function AddSpeakerDialog() {
     setModalSpeakerLastName,
     setModalSpeakerEmail,
     setModalSpeakerImageUrl,
-  } = useContext(
-    SpeakerModalContext,
-  );
+  } = useContext(SpeakerModalContext);
 
   return (
     <>
-      <SpeakerModal
-        modalShow={false}
-      />
+      <SpeakerModal modalShow={false} />
       <button
         onClick={() => {
           setModalSpeakerId(0);
-          setModalSpeakerFirstName(
-            '',
-          );
-          setModalSpeakerLastName(
-            '',
-          );
+          setModalSpeakerFirstName('');
+          setModalSpeakerLastName('');
           setModalSpeakerEmail('');
           setModalSpeakerImageUrl(
             '/images/Speaker-New.jpg',
@@ -36,8 +28,7 @@ export default function AddSpeakerDialog() {
         }}
         className="btn btn-accent"
       >
-        Add Speaker{' '}
-        <i className="fa fa-plus" />
+        Add Speaker <i className="fa fa-plus" />
       </button>
     </>
   );

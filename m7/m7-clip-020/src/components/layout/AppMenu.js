@@ -7,8 +7,7 @@ export default function AppMenu() {
       window.location.href = route;
     },
   };
-  const { toggleTheme } =
-    useContext(ThemeContext);
+  const { toggleTheme } = useContext(ThemeContext);
 
   return (
     <header className="d-flex justify-content-center py-3">
@@ -27,9 +26,7 @@ export default function AppMenu() {
           <li className="nav-item">
             <button
               onClick={() => {
-                setRoute(
-                  '/speakerlist',
-                );
+                setRoute('/speakerlist');
               }}
               className="nav-link"
             >
@@ -52,9 +49,7 @@ export default function AppMenu() {
               className="themeToggleCheckbox"
               autoComplete="off"
               id="themeToggle"
-              defaultChecked={
-                false
-              }
+              defaultChecked={false}
               onClick={() => {
                 toggleTheme();
               }}

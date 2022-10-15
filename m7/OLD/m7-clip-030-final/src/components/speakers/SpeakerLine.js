@@ -1,6 +1,6 @@
-import FavoriteSpeakerToggleLine from './FavoriteSpeakerToggleLine';
-import SpeakerImageToggleOnScroll from './SpeakerImageToggleOnScroll';
-import { memo } from 'react';
+import FavoriteSpeakerToggleLine from "./FavoriteSpeakerToggleLine";
+import SpeakerImageToggleOnScroll from "./SpeakerImageToggleOnScroll";
+import { memo } from "react";
 
 const SpeakerLine = ({
   speakerRec,
@@ -8,7 +8,7 @@ const SpeakerLine = ({
   updating,
   highlight,
 }) => {
-  console.log('SpeakerLine: ', speakerRec);
+  console.log("SpeakerLine: ", speakerRec);
   return (
     <div className="col-xl-12 col-md-12">
       <div className="card border-0 speaker-list">
@@ -17,9 +17,7 @@ const SpeakerLine = ({
             <div className="flex-shrink-0">
               {speakerRec?.imageUrl ? (
                 <SpeakerImageToggleOnScroll
-                  imageUrl={
-                    speakerRec?.imageUrl
-                  }
+                  imageUrl={speakerRec?.imageUrl}
                   alt={`${speakerRec?.firstName} ${speakerRec?.lastName}`}
                   thumbNail={true}
                 />
@@ -33,32 +31,25 @@ const SpeakerLine = ({
                   <h5
                     className={
                       highlight === true
-                        ? 'mb-1 background-text-highlight'
-                        : 'mb-1'
+                        ? "mb-1 background-text-highlight"
+                        : "mb-1"
                     }
                   >
-                    {speakerRec.firstName}{' '}
-                    {speakerRec.lastName}
+                    {speakerRec.firstName} {speakerRec.lastName}
                   </h5>
                   <div className="spinner-bottom">
                     <FavoriteSpeakerToggleLine
                       speakerRec={speakerRec}
-                      toggleFavoriteSpeaker={
-                        toggleFavoriteSpeaker
-                      }
+                      toggleFavoriteSpeaker={toggleFavoriteSpeaker}
                     >
                       {updating ? (
-                        <i
-                          className="spinner-border text-dark"
-                          role="status"
-                        />
+                        <i className="spinner-border text-dark" role="status" />
                       ) : null}
                     </FavoriteSpeakerToggleLine>
                   </div>
                 </div>
                 <small className="text-muted">
-                  <strong>Company: </strong>{' '}
-                  {speakerRec.company}
+                  <strong>Company: </strong> {speakerRec.company}
                 </small>
               </div>
             </div>
@@ -70,16 +61,11 @@ const SpeakerLine = ({
 };
 
 // takes advantage of every time there is a change, the updating spinner shows. that will also cause favorite icon to re-render
-export default memo(
-  SpeakerLine,
-  (prevProps, nextProps) => {
-    return (
-      prevProps.updating ===
-        nextProps.updating &&
-      prevProps.highlight ===
-        nextProps.highlight
-    );
-  },
-);
+export default memo(SpeakerLine, (prevProps, nextProps) => {
+  return (
+    prevProps.updating === nextProps.updating &&
+    prevProps.highlight === nextProps.highlight
+  );
+});
 
 //export default SpeakerLine;

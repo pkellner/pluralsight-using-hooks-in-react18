@@ -7,31 +7,21 @@ import {
 } from '../contexts/SpeakersDataContext';
 
 function Inner({ id }) {
-  const { darkTheme } = useContext(
-    ThemeContext,
-  );
-  const {
-    speakerList,
-    loadingStatus,
-  } = useContext(
+  const { darkTheme } = useContext(ThemeContext);
+  const { speakerList, loadingStatus } = useContext(
     SpeakersDataContext,
   );
 
   if (loadingStatus === 'loading')
     return <div>Loading...</div>;
 
-  const speakerRec =
-    speakerList?.find(
-      (rec) => rec.id === id,
-    );
+  const speakerRec = speakerList?.find(
+    (rec) => rec.id === id,
+  );
 
   return speakerRec ? (
     <div
-      className={
-        darkTheme
-          ? 'theme-dark'
-          : 'theme-light'
-      }
+      className={darkTheme ? 'theme-dark' : 'theme-light'}
     >
       <SpeakerDetail
         speakerRec={speakerRec}
@@ -39,15 +29,11 @@ function Inner({ id }) {
       />
     </div>
   ) : (
-    <h2 className="text-danger">
-      Speaker {id} not found
-    </h2>
+    <h2 className="text-danger">Speaker {id} not found</h2>
   );
 }
 
-export default function Speaker(
-  props,
-) {
+export default function Speaker(props) {
   return (
     <SpeakersDataProvider>
       <Inner {...props} />

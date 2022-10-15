@@ -1,7 +1,7 @@
-import { useContext } from 'react';
-import AddSpeakerDialog from './AddSpeakerDialog';
-import { SpeakerMenuContext } from '../contexts/SpeakerMenuContext';
-import { SpeakerModalProvider } from '../contexts/SpeakerModalContext';
+import { useContext } from "react";
+import AddSpeakerDialog from "./AddSpeakerDialog";
+import { SpeakerMenuContext } from "../contexts/SpeakerMenuContext";
+import { SpeakerModalProvider } from "../contexts/SpeakerModalContext";
 
 export default function SpeakerMenu() {
   const {
@@ -24,9 +24,7 @@ export default function SpeakerMenu() {
           <input
             value={searchText}
             onChange={(event) => {
-              setSearchText(
-                event.target.value,
-              );
+              setSearchText(event.target.value);
             }}
             type="text"
             className="form-control"
@@ -40,9 +38,7 @@ export default function SpeakerMenu() {
               type="checkbox"
               className="form-check-input"
               onChange={() => {
-                setSpeakingSaturday(
-                  !speakingSaturday,
-                );
+                setSpeakingSaturday(!speakingSaturday);
               }}
               checked={speakingSaturday}
             />
@@ -56,9 +52,7 @@ export default function SpeakerMenu() {
               type="checkbox"
               className="form-check-input"
               onChange={() => {
-                setSpeakingSunday(
-                  !speakingSunday,
-                );
+                setSpeakingSunday(!speakingSunday);
               }}
               checked={speakingSunday}
             />

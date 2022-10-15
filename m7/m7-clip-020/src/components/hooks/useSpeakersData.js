@@ -2,13 +2,8 @@ import useGeneralizedCrudMethods from './useGeneralizedCrudMethods';
 
 function useSpeakersData() {
   const url = '/api/speakers';
-  const errorNotificationFn = (
-    error,
-  ) => {
-    console.log(
-      'Error From useSpeakersData',
-      error,
-    );
+  const errorNotificationFn = (error) => {
+    console.log('Error From useSpeakersData', error);
   };
 
   const {
@@ -18,35 +13,17 @@ function useSpeakersData() {
     createRecord,
     updateRecord,
     deleteRecord,
-  } = useGeneralizedCrudMethods(
-    url,
-    errorNotificationFn,
-  );
+  } = useGeneralizedCrudMethods(url, errorNotificationFn);
 
-  function createSpeaker(
-    speakerRec,
-    callbackDone,
-  ) {
-    createRecord(
-      speakerRec,
-      callbackDone,
-    );
+  function createSpeaker(speakerRec, callbackDone) {
+    createRecord(speakerRec, callbackDone);
   }
 
-  function updateSpeaker(
-    speakerRec,
-    callbackDone,
-  ) {
-    updateRecord(
-      speakerRec,
-      callbackDone,
-    );
+  function updateSpeaker(speakerRec, callbackDone) {
+    updateRecord(speakerRec, callbackDone);
   }
 
-  function deleteSpeaker(
-    id,
-    callbackDone,
-  ) {
+  function deleteSpeaker(id, callbackDone) {
     deleteRecord(id, callbackDone);
   }
 

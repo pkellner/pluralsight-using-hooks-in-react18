@@ -1,30 +1,19 @@
-import React, { createContext } from 'react';
-import useSpeakersData from '../hooks/useSpeakersData';
+import React, { createContext } from "react";
+import useSpeakersData from "../hooks/useSpeakersData";
 
-export const SpeakersDataContext =
-  createContext({
-    data: [],
-    createSpeaker: () => {},
-    updateSpeaker: () => {},
-    deleteSpeaker: () => {},
-    loadingStatus: '',
-  });
+export const SpeakersDataContext = createContext({
+  data: [],
+  createSpeaker: () => {},
+  updateSpeaker: () => {},
+  deleteSpeaker: () => {},
+  loadingStatus: "",
+});
 
-export const SpeakersDataProvider = ({
-  children,
-}) => {
-  const {
-    data,
-    createSpeaker,
-    updateSpeaker,
-    deleteSpeaker,
-    loadingStatus,
-  } = useSpeakersData(
-    '/api/speakers/',
-    (error) => {
+export const SpeakersDataProvider = ({ children }) => {
+  const { data, createSpeaker, updateSpeaker, deleteSpeaker, loadingStatus } =
+    useSpeakersData("/api/speakers/", (error) => {
       alert(error);
-    },
-  );
+    });
 
   const value = {
     data,
@@ -35,9 +24,7 @@ export const SpeakersDataProvider = ({
   };
 
   return (
-    <SpeakersDataContext.Provider
-      value={value}
-    >
+    <SpeakersDataContext.Provider value={value}>
       {children}
     </SpeakersDataContext.Provider>
   );

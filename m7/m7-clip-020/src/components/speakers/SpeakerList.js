@@ -8,32 +8,21 @@ import {
 import { ThemeContext } from '../contexts/ThemeContext';
 import axios from 'axios';
 
-function List({
-  state,
-  dispatch,
-}) {
-  const [
-    updatingId,
-    setUpdatingId,
-  ] = useState(0);
+function List({ state, dispatch }) {
+  const [updatingId, setUpdatingId] = useState(0);
   const isPending = false;
   const speakers = state.speakers;
 
-  function toggleFavoriteSpeaker(
-    speakerRec,
-  ) {
+  function toggleFavoriteSpeaker(speakerRec) {
     const speakerRecUpdated = {
       ...speakerRec,
-      favorite:
-        !speakerRec.favorite,
+      favorite: !speakerRec.favorite,
     };
     dispatch({
       type: 'updateSpeaker',
       speaker: speakerRecUpdated,
     });
-    async function updateAsync(
-      rec,
-    ) {
+    async function updateAsync(rec) {
       setUpdatingId(rec.id);
       await axios.put(
         `/api/speakers/${rec.id}`,
@@ -56,9 +45,7 @@ function List({
             <div className="toolbar-search w-100">
               <input
                 value=""
-                onChange={(
-                  event,
-                ) => {}}
+                onChange={(event) => {}}
                 type="text"
                 className="form-control"
                 placeholder="Highlight Names"
@@ -77,26 +64,19 @@ function List({
       </div>
 
       <div className="row g-3">
-        {speakers.map(function (
-          speakerRec,
-        ) {
+        {speakers.map(function (speakerRec) {
           const highlight = false;
           return (
             <SpeakerLine
               key={speakerRec.id}
-              speakerRec={
-                speakerRec
-              }
+              speakerRec={speakerRec}
               updating={
-                updatingId ===
-                speakerRec.id
+                updatingId === speakerRec.id
                   ? updatingId
                   : 0
               }
               toggleFavoriteSpeaker={() =>
-                toggleFavoriteSpeaker(
-                  speakerRec,
-                )
+                toggleFavoriteSpeaker(speakerRec)
               }
               highlight={highlight}
             />
@@ -108,9 +88,7 @@ function List({
 }
 
 const SpeakerList = () => {
-  const { darkTheme } = useContext(
-    ThemeContext,
-  );
+  const { darkTheme } = useContext(ThemeContext);
 
   function reducer(state, action) {
     switch (action.type) {
@@ -118,8 +96,7 @@ const SpeakerList = () => {
         return {
           ...state,
           loading: false,
-          speakers:
-            action.speakers,
+          speakers: action.speakers,
         };
       case 'setLoadingStatus':
         return {
@@ -127,18 +104,14 @@ const SpeakerList = () => {
           loading: true,
         };
       case 'updateSpeaker':
-        const speakersUpdated =
-          state.speakers.map(
-            (rec) =>
-              action.speaker.id ===
-              rec.id
-                ? action.speaker
-                : rec,
-          );
+        const speakersUpdated = state.speakers.map((rec) =>
+          action.speaker.id === rec.id
+            ? action.speaker
+            : rec,
+        );
         return {
           ...state,
-          speakers:
-            speakersUpdated,
+          speakers: speakersUpdated,
         };
       default:
         throw new Error(
@@ -152,21 +125,17 @@ const SpeakerList = () => {
     loading: true,
     updateItem: () => {},
   };
-  const [state, dispatch] =
-    useReducer(
-      reducer,
-      initialState,
-    );
+  const [state, dispatch] = useReducer(
+    reducer,
+    initialState,
+  );
 
   useEffect(() => {
     async function getDataAsync() {
       dispatch({
         type: 'setLoadingStatus',
       });
-      const results =
-        await axios.get(
-          '/api/speakers',
-        );
+      const results = await axios.get('/api/speakers');
       dispatch({
         type: 'speakersLoaded',
         speakers: results.data,
@@ -175,34 +144,20 @@ const SpeakerList = () => {
     getDataAsync();
   }, []);
 
-  function updateSpeaker(
-    speakerRec,
-  ) {
-    const speakerUpdated =
-      speakers.map(function (rec) {
-        return speakerRec.id ===
-          rec.id
-          ? speakerRec
-          : rec;
-      });
+  function updateSpeaker(speakerRec) {
+    const speakerUpdated = speakers.map(function (rec) {
+      return speakerRec.id === rec.id ? speakerRec : rec;
+    });
     setSpeakers(speakerUpdated);
   }
 
-  if (state.loading)
-    return <div>Loading...</div>;
+  if (state.loading) return <div>Loading...</div>;
 
   return (
     <div
-      className={
-        darkTheme
-          ? 'theme-dark'
-          : 'theme-light'
-      }
+      className={darkTheme ? 'theme-dark' : 'theme-light'}
     >
-      <List
-        state={state}
-        dispatch={dispatch}
-      />
+      <List state={state} dispatch={dispatch} />
     </div>
   );
 };
