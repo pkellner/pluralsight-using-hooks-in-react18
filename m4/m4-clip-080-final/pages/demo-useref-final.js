@@ -1,14 +1,12 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
 export default function App() {
   // case 1: references DOM element
   const speakerImageElement = useRef();
-  const mouseOverCnt = useRef(0);
+  
 
   // case 2: reference value that does not cause re-render
-  mouseOverCnt.current = mouseOverCnt.current + 1;
-
-  const mouseInCnt = useRef(0);
+  const mouseOverCnt = useRef(0);
 
   return (
     <div>
@@ -18,7 +16,7 @@ export default function App() {
         style={{filter: "grayscale(100%)"}}
         onMouseOver={() => {
           speakerImageElement.current.style.filter = "grayscale(0%)";
-          mouseInCnt.current++;
+          mouseOverCnt.current++;
         }}
         onMouseOut={() => {
           speakerImageElement.current.style.filter = "grayscale(100%)";
@@ -28,7 +26,7 @@ export default function App() {
       <div>
         <button
           onClick={() => {
-            alert(mouseInCnt.current);
+            alert("Registered! cnt: " + mouseOverCnt.current);
           }}
         >
           Register

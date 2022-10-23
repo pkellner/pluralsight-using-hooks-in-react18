@@ -1,4 +1,4 @@
-import DemoApp from "../src/components/misc/demoApp";
+import DemoApp from "./demoApp";
 import { useEffect, useState } from "react";
 
 const localStateValues = [];
