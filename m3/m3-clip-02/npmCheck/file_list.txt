@@ -1,2 +1,1 @@
-/Users/pkellner/repos/pluralsight-using-hooks-in-react18/m3/m3-clip-02/.next/package.json
 /Users/pkellner/repos/pluralsight-using-hooks-in-react18/m3/m3-clip-02/package.json
