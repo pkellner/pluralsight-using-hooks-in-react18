@@ -7,4 +7,5 @@
 /Users/pkellner/repos/pluralsight-using-hooks-in-react18/m4/m4-clip-070/package.json
 /Users/pkellner/repos/pluralsight-using-hooks-in-react18/m4/m4-clip-080/package.json
 /Users/pkellner/repos/pluralsight-using-hooks-in-react18/m4/m4-clip-090/package.json
+/Users/pkellner/repos/pluralsight-using-hooks-in-react18/m4/m4-clip-100/package.json
 /Users/pkellner/repos/pluralsight-using-hooks-in-react18/m4/m4-clip-110/package.json

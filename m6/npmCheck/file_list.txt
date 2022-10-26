@@ -1,0 +1,4 @@
+/Users/pkellner/repos/pluralsight-using-hooks-in-react18/m6/m6-clip-000/package.json
+/Users/pkellner/repos/pluralsight-using-hooks-in-react18/m6/m6-clip-030/package.json
+/Users/pkellner/repos/pluralsight-using-hooks-in-react18/m6/m6-clip-040/package.json
+/Users/pkellner/repos/pluralsight-using-hooks-in-react18/m6/m6-clip-050/package.json
