@@ -1,11 +1,13 @@
-import React, { useContext, useMemo } from "react";
-import SpeakerDetail from "./SpeakerDetail";
-import { SpeakersDataContext } from "../contexts/SpeakersDataContext";
-import useSpeakerSortAndFilter from "../hooks/useSpeakerSortAndFilter";
-import { SpeakerMenuContext } from "../contexts/SpeakerMenuContext";
+import React, { useContext, useMemo } from 'react';
+import SpeakerDetail from './SpeakerDetail';
+import { SpeakersDataContext } from '../contexts/SpeakersDataContext';
+import useSpeakerSortAndFilter from '../hooks/useSpeakerSortAndFilter';
+import { SpeakerMenuContext } from '../contexts/SpeakerMenuContext';
 
 export default function SpeakersList() {
-  const { speakerList, loadingStatus } = useContext(SpeakersDataContext);
+  const { speakerList, loadingStatus } = useContext(
+    SpeakersDataContext,
+  );
   const { speakingSaturday, speakingSunday, searchText } =
     useContext(SpeakerMenuContext);
   const speakerListFiltered = useMemo(
@@ -14,12 +16,17 @@ export default function SpeakersList() {
         speakerList,
         speakingSaturday,
         speakingSunday,
-        searchText
+        searchText,
       ),
-    [speakingSaturday, speakingSunday, searchText, loadingStatus]
+    [
+      speakingSaturday,
+      speakingSunday,
+      searchText,
+      loadingStatus,
+    ],
   );
 
-  if (loadingStatus === "loading") {
+  if (loadingStatus === 'loading') {
     return <div className="card">Loading...</div>;
   }
   return (

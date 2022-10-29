@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { SpeakersDataContext } from "../contexts/SpeakersDataContext";
+import { useContext } from 'react';
+import { SpeakersDataContext } from '../contexts/SpeakersDataContext';
 
 export default function DeleteSpeakerButton({ id }) {
   const { deleteSpeaker } = useContext(SpeakersDataContext);
@@ -8,7 +8,7 @@ export default function DeleteSpeakerButton({ id }) {
       onClick={(e) => {
         e.preventDefault();
         const confirmed = confirm(
-          "Are you sure you want to delete this speaker?"
+          'Are you sure you want to delete this speaker?',
         );
         if (confirmed) {
           deleteSpeaker(id);
@@ -17,7 +17,7 @@ export default function DeleteSpeakerButton({ id }) {
       className="btn btn-danger btn-sm"
     >
       <i className="fa fa-trash"></i>
-      {" Delete "}
+      {' Delete '}
     </button>
   );
 }

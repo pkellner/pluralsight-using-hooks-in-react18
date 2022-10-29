@@ -1,16 +1,16 @@
-import React, { createContext } from "react";
-import useSpeakerModal from "../hooks/useSpeakerModal";
+import React, { createContext } from 'react';
+import useSpeakerModal from '../hooks/useSpeakerModal';
 
 export const SpeakerModalContext = createContext({
   modalShow: false,
   setModalShow: () => {},
   modalSpeakerId: 0,
   setModalSpeakerId: () => {},
-  modalSpeakerFirstName: "",
+  modalSpeakerFirstName: '',
   setModalSpeakerFirstName: () => {},
-  modalSpeakerLastName: "",
+  modalSpeakerLastName: '',
   setModalSpeakerLastName: () => {},
-  modalSpeakerImageUrl: "",
+  modalSpeakerImageUrl: '',
   setModalSpeakerImageUrl: () => {},
 });
 

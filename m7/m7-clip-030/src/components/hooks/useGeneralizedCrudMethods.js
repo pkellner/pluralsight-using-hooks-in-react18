@@ -1,21 +1,25 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
-const LOADING_STATES = ["loading", "errored", "success"];
+const LOADING_STATES = ['loading', 'errored', 'success'];
 
-function useGeneralizedCrudMethods(url, errorNotificationFn) {
+function useGeneralizedCrudMethods(
+  url,
+  errorNotificationFn,
+) {
   const [data, setData] = useState();
   const [error, setError] = useState();
-  const [loadingStatus, setLoadingStatus] = useState("loading");
+  const [loadingStatus, setLoadingStatus] =
+    useState('loading');
 
   if (!url || url.length === 0) {
-    throw "useGeneralizedCrudMethods no url passed in error";
+    throw 'useGeneralizedCrudMethods no url passed in error';
   }
 
   function formatErrorString(e, url) {
     const errorString =
       e?.response?.status === 404
-        ? e?.message + " url " + url
+        ? e?.message + ' url ' + url
         : e?.message + e?.response?.data;
     console.log(errorString);
     return errorString;
@@ -45,11 +49,15 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
         return { ...rec };
       });
       try {
-        createObject.id = Math.max(...data.map((o) => o.id), 0) + 1;
+        createObject.id =
+          Math.max(...data.map((o) => o.id), 0) + 1;
         setData(function (oriState) {
           return [createObject, ...oriState];
         });
-        await axios.post(`${url}/${createObject.id}`, createObject);
+        await axios.post(
+          `${url}/${createObject.id}`,
+          createObject,
+        );
         if (callbackDone) callbackDone();
       } catch (e) {
         setData(startingData);
@@ -69,18 +77,29 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
       });
       try {
         setData(function (oriState) {
-          const dataRecord = oriState.find((rec) => rec.id === id);
+          const dataRecord = oriState.find(
+            (rec) => rec.id === id,
+          );
 
           // only update the fields passed in for the updateObject
-          for (const [key, value] of Object.entries(updateObject)) {
-            dataRecord[key] = value === undefined ? dataRecord[key] : value;
+          for (const [key, value] of Object.entries(
+            updateObject,
+          )) {
+            dataRecord[key] =
+              value === undefined ? dataRecord[key] : value;
           }
-          return oriState.map((rec) => (rec.id === id ? dataRecord : rec));
+          return oriState.map((rec) =>
+            rec.id === id ? dataRecord : rec,
+          );
         });
-        await new Promise((resolve) => setTimeout(resolve, 2000));
+        await new Promise((resolve) =>
+          setTimeout(resolve, 2000),
+        );
 
         // get the full record back that has been updated
-        const updatedRecord = data.find((rec) => rec.id === id);
+        const updatedRecord = data.find(
+          (rec) => rec.id === id,
+        );
         await axios.put(`${url}/${id}`, updatedRecord);
         // console.log(`done  call axios.put`);
         if (callbackDone) callbackDone();

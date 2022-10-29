@@ -1,16 +1,16 @@
-import { useContext } from "react";
-import SpeakersModalHeader from "./SpeakerModalHeader";
-import SpeakersModalBody from "./SpeakerModalBody";
-import SpeakersModalFooter from "./SpeakerModalFooter";
-import { SpeakerModalContext } from "../contexts/SpeakerModalContext";
+import { useContext } from 'react';
+import SpeakersModalHeader from './SpeakerModalHeader';
+import SpeakersModalBody from './SpeakerModalBody';
+import SpeakersModalFooter from './SpeakerModalFooter';
+import { SpeakerModalContext } from '../contexts/SpeakerModalContext';
 
 export default function SpeakerModal() {
   const { modalShow } = useContext(SpeakerModalContext);
 
   const cssShowHide =
     modalShow && modalShow === true
-      ? "modal show-modal has-backdrop"
-      : "modal hide-modal";
+      ? 'modal show-modal has-backdrop'
+      : 'modal hide-modal';
 
   return (
     <>
@@ -21,7 +21,7 @@ export default function SpeakerModal() {
           }
 
           .has-backdrop:before {
-            content: "";
+            content: '';
             background: rgb(24 26 29 / 77%);
             position: absolute;
             height: 100%;
@@ -42,7 +42,7 @@ export default function SpeakerModal() {
           <div
             className="modal-content border-0"
             style={{
-              backgroundColor: "#EEEEEE",
+              backgroundColor: '#EEEEEE',
             }}
           >
             <SpeakersModalHeader />

@@ -1,9 +1,12 @@
-import SpeakerLine from "./SpeakerLine";
+import SpeakerLine from './SpeakerLine';
 import {
-  useContext, useEffect, useReducer, useState, useCallback
-} from "react";
-import { ThemeContext } from "../contexts/ThemeContext";
-import axios from "axios";
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+} from 'react';
+import { ThemeContext } from '../contexts/ThemeContext';
+import axios from 'axios';
 
 function List({ state, dispatch }) {
   const [updatingId, setUpdatingId] = useState(0);
@@ -16,12 +19,15 @@ function List({ state, dispatch }) {
       favorite: !speakerRec.favorite,
     };
     dispatch({
-      type: "updateSpeaker",
+      type: 'updateSpeaker',
       speaker: speakerRecUpdated,
     });
     async function updateAsync(rec) {
       setUpdatingId(rec.id);
-      await axios.put(`/api/speakers/${rec.id}`, speakerRecUpdated);
+      await axios.put(
+        `/api/speakers/${rec.id}`,
+        speakerRecUpdated,
+      );
       setUpdatingId(0);
     }
     updateAsync(speakerRecUpdated);
@@ -47,7 +53,10 @@ function List({ state, dispatch }) {
             </div>
             <div className="spinner-height">
               {isPending && (
-                <i className="spinner-border text-dark" role="status" />
+                <i
+                  className="spinner-border text-dark"
+                  role="status"
+                />
               )}
             </div>
           </div>
@@ -61,12 +70,14 @@ function List({ state, dispatch }) {
             <SpeakerLine
               key={speakerRec.id}
               speakerRec={speakerRec}
-              updating={updatingId === speakerRec.id ? updatingId : 0}
-              toggleFavoriteSpeaker={
-                useCallback(
-                  () => toggleFavoriteSpeaker(speakerRec),
-                  [speakerRec.favorite])
-                }
+              updating={
+                updatingId === speakerRec.id
+                  ? updatingId
+                  : 0
+              }
+              toggleFavoriteSpeaker={() =>
+                toggleFavoriteSpeaker(speakerRec)
+              }
               highlight={highlight}
             />
           );
@@ -81,27 +92,31 @@ const SpeakerList = () => {
 
   function reducer(state, action) {
     switch (action.type) {
-      case "speakersLoaded":
+      case 'speakersLoaded':
         return {
           ...state,
           loading: false,
           speakers: action.speakers,
         };
-      case "setLoadingStatus":
+      case 'setLoadingStatus':
         return {
           ...state,
           loading: true,
         };
-      case "updateSpeaker":
+      case 'updateSpeaker':
         const speakersUpdated = state.speakers.map((rec) =>
-          action.speaker.id === rec.id ? action.speaker : rec
+          action.speaker.id === rec.id
+            ? action.speaker
+            : rec,
         );
         return {
           ...state,
           speakers: speakersUpdated,
         };
       default:
-        throw new Error(`case failure.  type: ${action.type}`);
+        throw new Error(
+          `case failure.  type: ${action.type}`,
+        );
     }
   }
 
@@ -110,16 +125,19 @@ const SpeakerList = () => {
     loading: true,
     updateItem: () => {},
   };
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(
+    reducer,
+    initialState,
+  );
 
   useEffect(() => {
     async function getDataAsync() {
       dispatch({
-        type: "setLoadingStatus",
+        type: 'setLoadingStatus',
       });
-      const results = await axios.get("/api/speakers");
+      const results = await axios.get('/api/speakers');
       dispatch({
-        type: "speakersLoaded",
+        type: 'speakersLoaded',
         speakers: results.data,
       });
     }
@@ -136,7 +154,9 @@ const SpeakerList = () => {
   if (state.loading) return <div>Loading...</div>;
 
   return (
-    <div className={darkTheme ? "theme-dark" : "theme-light"}>
+    <div
+      className={darkTheme ? 'theme-dark' : 'theme-light'}
+    >
       <List state={state} dispatch={dispatch} />
     </div>
   );

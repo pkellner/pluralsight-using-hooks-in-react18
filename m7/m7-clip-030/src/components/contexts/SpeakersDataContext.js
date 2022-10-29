@@ -1,12 +1,12 @@
-import React, { createContext } from "react";
-import useSpeakersData from "../hooks/useSpeakersData";
+import React, { createContext } from 'react';
+import useSpeakersData from '../hooks/useSpeakersData';
 
 export const SpeakersDataContext = createContext({
   speakerList: [],
   createSpeaker: () => {},
   updateSpeaker: () => {},
   deleteSpeaker: () => {},
-  loadingStatus: "",
+  loadingStatus: '',
 });
 
 export const SpeakersDataProvider = ({ children }) => {

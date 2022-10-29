@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { SpeakerModalContext } from "../contexts/SpeakerModalContext";
+import { useContext } from 'react';
+import { SpeakerModalContext } from '../contexts/SpeakerModalContext';
 
 export default function NotesModalBody() {
   const {
@@ -31,7 +31,9 @@ export default function NotesModalBody() {
                   <input
                     value={modalSpeakerFirstName}
                     onChange={(event) => {
-                      setModalSpeakerFirstName(event.target.value);
+                      setModalSpeakerFirstName(
+                        event.target.value,
+                      );
                     }}
                     type="text"
                     className="form-control"
@@ -45,7 +47,9 @@ export default function NotesModalBody() {
                   <input
                     value={modalSpeakerLastName}
                     onChange={(event) => {
-                      setModalSpeakerLastName(event.target.value);
+                      setModalSpeakerLastName(
+                        event.target.value,
+                      );
                     }}
                     type="text"
                     className="form-control"
@@ -59,7 +63,9 @@ export default function NotesModalBody() {
                   <input
                     value={modalSpeakerEmail}
                     onChange={(event) => {
-                      setModalSpeakerEmail(event.target.value);
+                      setModalSpeakerEmail(
+                        event.target.value,
+                      );
                     }}
                     type="text"
                     className="form-control"
@@ -73,7 +79,9 @@ export default function NotesModalBody() {
                   <input
                     value={modalSpeakerImageUrl}
                     onChange={(event) => {
-                      setModalSpeakerImageUrl(event.target.value);
+                      setModalSpeakerImageUrl(
+                        event.target.value,
+                      );
                     }}
                     type="text"
                     className="form-control"

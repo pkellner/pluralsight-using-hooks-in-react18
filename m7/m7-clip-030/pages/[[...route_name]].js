@@ -1,4 +1,4 @@
-import App from "../src/App";
+import App from '../src/App';
 
 function index({ url }) {
   return <App url={url} />;

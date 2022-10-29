@@ -1,6 +1,6 @@
-import { useContext } from "react";
-import { SpeakerModalContext } from "../contexts/SpeakerModalContext";
-import { SpeakersDataContext } from "../contexts/SpeakersDataContext";
+import { useContext } from 'react';
+import { SpeakerModalContext } from '../contexts/SpeakerModalContext';
+import { SpeakersDataContext } from '../contexts/SpeakersDataContext';
 
 export default function NotesModalFooter() {
   const {
@@ -12,8 +12,9 @@ export default function NotesModalFooter() {
     modalSpeakerImageUrl,
   } = useContext(SpeakerModalContext);
 
-  const { data, createSpeaker, updateSpeaker } =
-    useContext(SpeakersDataContext);
+  const { data, createSpeaker, updateSpeaker } = useContext(
+    SpeakersDataContext,
+  );
 
   return (
     <div className="modal-footer justify-content-center">
@@ -57,10 +58,10 @@ export default function NotesModalFooter() {
               sat: true,
               sun: true,
               favorite: false,
-              company: "Code Camp",
-              twitterHandle: "unknown",
-              userBioShort: "Dummy Bio",
-              bio: "Dummy Bio",
+              company: 'Code Camp',
+              twitterHandle: 'unknown',
+              userBioShort: 'Dummy Bio',
+              bio: 'Dummy Bio',
             });
             setModalShow(false);
           }}

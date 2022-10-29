@@ -1,6 +1,6 @@
-import { useContext } from "react";
-import SpeakerModal from "../speakerModal/SpeakerModal";
-import { SpeakerModalContext } from "../contexts/SpeakerModalContext";
+import { useContext } from 'react';
+import SpeakerModal from '../speakerModal/SpeakerModal';
+import { SpeakerModalContext } from '../contexts/SpeakerModalContext';
 
 export default function AddSpeakerDialog() {
   const {
@@ -18,10 +18,12 @@ export default function AddSpeakerDialog() {
       <button
         onClick={() => {
           setModalSpeakerId(0);
-          setModalSpeakerFirstName("");
-          setModalSpeakerLastName("");
-          setModalSpeakerEmail("");
-          setModalSpeakerImageUrl("/images/Speaker-New.jpg");
+          setModalSpeakerFirstName('');
+          setModalSpeakerLastName('');
+          setModalSpeakerEmail('');
+          setModalSpeakerImageUrl(
+            '/images/Speaker-New.jpg',
+          );
           setModalShow(true);
         }}
         className="btn btn-accent"
