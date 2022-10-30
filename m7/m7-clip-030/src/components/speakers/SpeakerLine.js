@@ -1,5 +1,5 @@
-import FavoriteSpeakerToggleLine from './FavoriteSpeakerToggleLine';
-import SpeakerImageToggleOnScroll from './SpeakerImageToggleOnScroll';
+import FavoriteSpeakerToggleLine from "./FavoriteSpeakerToggleLine";
+import SpeakerImageToggleOnScroll from "./SpeakerImageToggleOnScroll";
 
 const SpeakerLine = ({
   speakerRec,
@@ -29,32 +29,25 @@ const SpeakerLine = ({
                   <h5
                     className={
                       highlight === true
-                        ? 'mb-1 background-text-highlight'
-                        : 'mb-1'
+                        ? "mb-1 background-text-highlight"
+                        : "mb-1"
                     }
                   >
-                    {speakerRec.firstName}{' '}
-                    {speakerRec.lastName}
+                    {speakerRec.firstName} {speakerRec.lastName}
                   </h5>
                   <div className="spinner-bottom">
                     <FavoriteSpeakerToggleLine
                       speakerRec={speakerRec}
-                      toggleFavoriteSpeaker={
-                        toggleFavoriteSpeaker
-                      }
+                      toggleFavoriteSpeaker={toggleFavoriteSpeaker}
                     >
                       {updating ? (
-                        <i
-                          className="spinner-border text-dark"
-                          role="status"
-                        />
+                        <i className="spinner-border text-dark" role="status" />
                       ) : null}
                     </FavoriteSpeakerToggleLine>
                   </div>
                 </div>
                 <small className="text-muted">
-                  <strong>Company: </strong>{' '}
-                  {speakerRec.company}
+                  <strong>Company: </strong> {speakerRec.company}
                 </small>
               </div>
             </div>

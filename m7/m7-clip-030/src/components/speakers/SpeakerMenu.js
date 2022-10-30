@@ -1,7 +1,7 @@
-import { useContext } from 'react';
-import AddSpeakerDialog from './AddSpeakerDialog';
-import { SpeakerMenuContext } from '../contexts/SpeakerMenuContext';
-import { SpeakerModalProvider } from '../contexts/SpeakerModalContext';
+import { useContext } from "react";
+import AddSpeakerDialog from "./AddSpeakerDialog";
+import { SpeakerMenuContext } from "../contexts/SpeakerMenuContext";
+import { SpeakerModalProvider } from "../contexts/SpeakerModalContext";
 
 export default function SpeakerMenu() {
   const {

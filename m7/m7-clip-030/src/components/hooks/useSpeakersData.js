@@ -1,9 +1,9 @@
-import useGeneralizedCrudMethods from './useGeneralizedCrudMethods';
+import useGeneralizedCrudMethods from "./useGeneralizedCrudMethods";
 
 function useSpeakersData() {
-  const url = '/api/speakers';
+  const url = "/api/speakers";
   const errorNotificationFn = (error) => {
-    console.log('Error From useSpeakersData', error);
+    console.log("Error From useSpeakersData", error);
   };
 
   const {
