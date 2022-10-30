@@ -1,4 +1,5 @@
-import { useState, useReducer } from "react";
+import { useReducer } from "react";
+
 export default function demo() {
   const [cnt, dispatch] = useReducer((state, action) => {
     switch (action.type) {

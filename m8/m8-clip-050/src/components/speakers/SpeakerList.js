@@ -5,7 +5,7 @@ import {
   useEffect,
   useReducer,
   useState,
-  useDeferredValue,
+  useTransition,
 } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 import axios from "axios";
@@ -13,8 +13,8 @@ import axios from "axios";
 function List({ state, dispatch }) {
   const [updatingId, setUpdatingId] = useState(0);
   const [searchName, setSearchName] = useState("");
-  const highlightChars = useDeferredValue(searchName, { timeoutMs: 10000 });
-  const isPending = false;
+  const [highlightChars, setHighlightChars] = useState();
+  const [isPending, startTransition] = useTransition();
   const speakers = state.speakers;
 
   function toggleFavoriteSpeaker(speakerRec) {
@@ -48,6 +48,9 @@ function List({ state, dispatch }) {
                 value={searchName}
                 onChange={(event) => {
                   setSearchName(event.target.value);
+                  startTransition(() => {
+                    setHighlightChars(event.target.value);
+                  });
                 }}
                 type="text"
                 className="form-control"

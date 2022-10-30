@@ -2,10 +2,10 @@ import SpeakerLine from "./SpeakerLine";
 import {
   useCallback,
   useContext,
+  useDeferredValue,
   useEffect,
   useReducer,
   useState,
-  useTransition,
 } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 import axios from "axios";
@@ -13,8 +13,8 @@ import axios from "axios";
 function List({ state, dispatch }) {
   const [updatingId, setUpdatingId] = useState(0);
   const [searchName, setSearchName] = useState("");
-  const [highlightChars, setHighlightChars] = useState();
-  const [isPending, startTransition] = useTransition();
+  const highlightChars = useDeferredValue(searchName, { timeoutMs: 10000 });
+  const isPending = false;
   const speakers = state.speakers;
 
   function toggleFavoriteSpeaker(speakerRec) {
@@ -48,9 +48,6 @@ function List({ state, dispatch }) {
                 value={searchName}
                 onChange={(event) => {
                   setSearchName(event.target.value);
-                  startTransition(() => {
-                    setHighlightChars(event.target.value);
-                  })
                 }}
                 type="text"
                 className="form-control"
@@ -70,11 +67,12 @@ function List({ state, dispatch }) {
         {speakers.map(function (speakerRec) {
           const highlight =
             highlightChars?.length > 0 &&
-              (
-                speakerRec.firstName?.toLowerCase() +
-                speakerRec.lastName?.toLowerCase()
-              ).includes(highlightChars.toLowerCase())
-              ? true : false;
+            (
+              speakerRec.firstName?.toLowerCase() +
+              speakerRec.lastName?.toLowerCase()
+            ).includes(highlightChars.toLowerCase())
+              ? true
+              : false;
           return (
             <SpeakerLine
               key={speakerRec.id}
@@ -96,19 +94,13 @@ function List({ state, dispatch }) {
 const SpeakerList = () => {
   const { darkTheme } = useContext(ThemeContext);
 
-
-
-
-
-
-
   function reducer(state, action) {
     switch (action.type) {
       case "speakersLoaded":
         return {
           ...state,
           loading: false,
-          speakers: [...action.speakers,...createDummySpeakers(8000)],
+          speakers: [...action.speakers, ...createDummySpeakers(8000)],
         };
       case "setLoadingStatus":
         return {
@@ -182,6 +174,6 @@ function createDummySpeakers(numToAdd) {
       imageUrl: "",
       email: `FakeEmail${increment}@codecamp.net`,
     });
-  };
+  }
   return speakers;
 }

@@ -2,10 +2,10 @@ import SpeakerLine from "./SpeakerLine";
 import {
   useCallback,
   useContext,
+  useDeferredValue,
   useEffect,
   useReducer,
   useState,
-  useDeferredValue,
 } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 import axios from "axios";

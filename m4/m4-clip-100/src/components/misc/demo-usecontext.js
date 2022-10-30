@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { ThemeContext } from "../../../pages/demo-context";
+
 export default function DemoUseContext() {
   const { theme, setTheme } = useContext(ThemeContext);
   return (

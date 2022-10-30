@@ -12,8 +12,7 @@ export default function NotesModalFooter() {
     modalSpeakerImageUrl,
   } = useContext(SpeakerModalContext);
 
-  const { createSpeaker, updateSpeaker } =
-    useContext(SpeakersDataContext);
+  const { createSpeaker, updateSpeaker } = useContext(SpeakersDataContext);
 
   return (
     <div className="modal-footer justify-content-center">

@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+
 export default function Demo() {
   const [cnt, setCnt] = useState(100);
 
@@ -7,7 +8,7 @@ export default function Demo() {
     return () => {
       console.log("example: unsubscribe");
     };
-  },[]);
+  }, []);
 
   function incrementCnt() {
     setCnt((previousState) => {
@@ -19,6 +20,5 @@ export default function Demo() {
   //  setCnt(cnt + 1);
   //}
 
-  return <button onClick={incrementCnt}>
-    {cnt}</button>;
+  return <button onClick={incrementCnt}>{cnt}</button>;
 }

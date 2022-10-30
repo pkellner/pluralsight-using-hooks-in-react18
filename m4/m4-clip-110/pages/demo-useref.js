@@ -1,6 +1,6 @@
 import { useRef } from "react";
-export default function Demo() {
 
+export default function Demo() {
   // case #1 reference DOM
   const imgRef = useRef();
   // case #2 reference value that does not cause re-render
@@ -8,7 +8,8 @@ export default function Demo() {
 
   return (
     <div className="container">
-      <img src="/images/Speaker-1124.jpg"
+      <img
+        src="/images/Speaker-1124.jpg"
         ref={imgRef}
         style={{ filter: "grayscale(100%)" }}
         onMouseOver={() => {

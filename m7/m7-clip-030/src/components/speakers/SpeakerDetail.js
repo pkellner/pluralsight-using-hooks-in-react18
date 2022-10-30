@@ -2,7 +2,7 @@ import DeleteSpeakerButton from "./DeleteSpeakerButton";
 import EditSpeakerDialog from "./EditSpeakerDialog";
 import FavoriteSpeakerToggle from "./FavoriteSpeakerToggle";
 import SpeakerImageToggleOnScroll from "./SpeakerImageToggleOnScroll";
-import {SpeakerModalProvider} from "../contexts/SpeakerModalContext";
+import { SpeakerModalProvider } from "../contexts/SpeakerModalContext";
 import SpeakerModal from "../speakerModal/SpeakerModal";
 
 export default function SpeakerDetail({ speakerRec, showDetails }) {
