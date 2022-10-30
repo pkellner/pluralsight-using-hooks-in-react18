@@ -5,12 +5,19 @@ import {
   useEffect,
   useReducer,
   useState,
+  useDeferredValue,
 } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 import axios from "axios";
 
 function List({ state, dispatch }) {
   const [updatingId, setUpdatingId] = useState(0);
+  const [searchName, setSearchName] = useState("");
+
+  const highlightChars = useDeferredValue(searchName, {
+    timeoutMs: 10000
+  });
+
   const isPending = false;
   const speakers = state.speakers;
 
@@ -42,8 +49,10 @@ function List({ state, dispatch }) {
           <div className="toolbar-trigger mb-3 flex-grow-04">
             <div className="toolbar-search w-100">
               <input
-                value=""
-                onChange={(event) => {}}
+                value={searchName}
+                onChange={(event) => {
+                  setSearchName(event.target.value);
+                }}
                 type="text"
                 className="form-control"
                 placeholder="Highlight Names"
@@ -60,7 +69,13 @@ function List({ state, dispatch }) {
 
       <div className="row g-3">
         {speakers.map(function (speakerRec) {
-          const highlight = false;
+          const highlight =
+            highlightChars?.length > 0 &&
+              (
+                speakerRec.firstName?.toLowerCase() +
+                speakerRec.lastName?.toLowerCase()
+              ).includes(highlightChars.toLowerCase())
+              ? true : false;
           return (
             <SpeakerLine
               key={speakerRec.id}
@@ -88,7 +103,7 @@ const SpeakerList = () => {
         return {
           ...state,
           loading: false,
-          speakers: action.speakers,
+          speakers: [...action.speakers,...createDummySpeakers(8000)],
         };
       case "setLoadingStatus":
         return {
@@ -146,3 +161,22 @@ const SpeakerList = () => {
 };
 
 export default SpeakerList;
+
+function createDummySpeakers(numToAdd) {
+  let speakers = [];
+  for (let increment = 1; increment < numToAdd; increment++) {
+    speakers.push({
+      id: 100000 + increment,
+      firstName: `Craig${increment}`,
+      lastName: `Mantle${increment}`,
+      favorite: false,
+      bio: "fake bio",
+      company: "fake company",
+      twitterHandle: `fakeTwitterHandle${increment}`,
+      userBioShort: `fake short bio ${increment}`,
+      imageUrl: "",
+      email: `FakeEmail${increment}@codecamp.net`,
+    });
+  };
+  return speakers;
+}
