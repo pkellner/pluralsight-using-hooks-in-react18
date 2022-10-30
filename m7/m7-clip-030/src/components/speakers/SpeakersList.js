@@ -1,8 +1,8 @@
-import React, { useContext, useMemo } from "react";
+import React, {useContext, useMemo} from "react";
 import SpeakerDetail from "./SpeakerDetail";
-import { SpeakersDataContext } from "../contexts/SpeakersDataContext";
+import {SpeakersDataContext} from "../contexts/SpeakersDataContext";
 import useSpeakerSortAndFilter from "../hooks/useSpeakerSortAndFilter";
-import { SpeakerMenuContext } from "../contexts/SpeakerMenuContext";
+import {SpeakerMenuContext} from "../contexts/SpeakerMenuContext";
 
 export default function SpeakersList() {
   const { speakerList, loadingStatus } = useContext(SpeakersDataContext);

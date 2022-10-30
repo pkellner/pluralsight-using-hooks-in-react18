@@ -1,5 +1,5 @@
-import { useContext, useEffect, useRef, useState } from "react";
-import { SpeakerMenuContext } from "../contexts/SpeakerMenuContext";
+import {useContext, useEffect, useRef, useState} from "react";
+import {SpeakerMenuContext} from "../contexts/SpeakerMenuContext";
 
 export default function SpeakerImageToggleOnScroll({
   imageUrl,

@@ -1,10 +1,7 @@
-import { useContext } from "react";
-import { ThemeContext } from "../contexts/ThemeContext";
+import {useContext} from "react";
+import {ThemeContext} from "../contexts/ThemeContext";
 import SpeakerDetail from "./SpeakerDetail";
-import {
-  SpeakersDataContext,
-  SpeakersDataProvider,
-} from "../contexts/SpeakersDataContext";
+import {SpeakersDataContext, SpeakersDataProvider,} from "../contexts/SpeakersDataContext";
 
 function Inner({ id }) {
   const { darkTheme } = useContext(ThemeContext);

@@ -1,11 +1,10 @@
 import Header from "./Header";
 import AppMenu from "./AppMenu";
-import SpeakerModal from "../speakerModal/SpeakerModal";
 import Speakers from "../speakers/Speakers";
 import About from "../about/About";
 import Speaker from "../speakers/Speaker";
 import SpeakerList from "../speakers/SpeakerList";
-import { ThemeProvider } from "../contexts/ThemeContext";
+import {ThemeProvider} from "../contexts/ThemeContext";
 
 // Layout does not use children but instead uses what comes from AppRouteProvider
 export default function Layout({ url }) {
