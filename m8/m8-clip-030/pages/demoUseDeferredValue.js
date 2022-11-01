@@ -3,7 +3,9 @@ import { useDeferredValue, useMemo, useState } from "react";
 export default function App() {
   const [search, setSearch] = useState("");
   const deferredSearch = useDeferredValue(search);
-
+  
+  console.log(`search:${search}   deferredSearch:${deferredSearch}`);
+  
   return (
     <>
       <input
@@ -22,11 +24,11 @@ function SlowResults({ query }) {
     // this console.log should be called less than every keystroke
     // but don't be fooled as React can be pretty fast
     console.log("createDummySpeakers called");
-    return createDummySpeakers(20000).filter((speaker) =>
+    return createDummySpeakers(3000).filter((speaker) =>
       speaker.lastName.toLowerCase().includes(query)
     );
   }, [query]);
-
+  
   return (
     <>
       {data.map((speaker) => {

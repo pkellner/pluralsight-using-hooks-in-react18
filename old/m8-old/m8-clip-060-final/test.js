@@ -1,21 +1,20 @@
-import { useState, useTransition } from "react";
-
-function App() {
-  const [search, setSearch] = useState("");
-  const [data, setData] = useState([]);
-  const [isPending, startTransition] = useTransition();
-  useEffect(() => {
-    const results = GetDataFromREST("/data");
-    startTransition(() => setData(results));
-  });
+export default function App() {
   
+  const [search, setSearch] = useState("");
+  const [isPending, startTransition] = useTransition();
+  const [currentSearch, setCurrentSearch] = useState("");
+
   return (
     <>
-      <span>{isPending ?  SPINNER : NULL}</span >
-      <InputSearch search={searchTerm} 
-         onChange={(val) => setSearch(val)}  />
-      <SlowResults query={search}
-                        data={data} />
+      <input
+        value={currentSearch}
+        onChange={e => {
+          setCurrentSearch(e.target.value);
+          startTransition(() => setSearch(e.target.value));
+        }}
+      />
+      {isPending ? "refreshing..." : null}
+      <SlowResults query={search} />
     </>
   );
 }
