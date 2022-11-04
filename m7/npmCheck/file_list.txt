@@ -1,3 +1,0 @@
-/Users/pkellner/repos/pluralsight-using-hooks-in-react18/m7/m7-clip-000/package.json
-/Users/pkellner/repos/pluralsight-using-hooks-in-react18/m7/m7-clip-030/package.json
-/Users/pkellner/repos/pluralsight-using-hooks-in-react18/m7/m7-clip-040/package.json
