@@ -1,29 +1,12 @@
-import {useEffect, useState} from "react";
+function App() {
+  
+  const count1 = 100;
 
-export default function App() {
-  // https://codepen.io/zebateira/pen/VvqJwm
-  
-  const [cnt, setCnt] = useState(9);
-  
-  useEffect(() => {
-    const timer = setInterval(function() {
-      if (cnt > 0) setCnt(cnt - 1);
-    }, 1000)
-    return () => {
-      clearInterval(timer)
-    }
-  }, [cnt]);
-  
-  
-  function startCountDown() {
-    setCnt(9);
-  }
-  
+  const count2 = 50;
+
+  const countTotal = count1 + count2;
+
   return (
-    
-    <div className="flex-row">
-      <button type="button" onClick={startCountDown} className="btn btn-primary">Reset</button>
-      <div className="numberCircle"><span>{cnt}</span></div>
-    </div>
-  );
+    <div>{countTotal}</div>
+  )
 }
