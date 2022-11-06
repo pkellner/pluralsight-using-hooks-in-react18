@@ -1,1 +1,0 @@
-/Users/pkellner/repos/pluralsight-using-hooks-in-react18/m2/m2-clip-00/package.json
