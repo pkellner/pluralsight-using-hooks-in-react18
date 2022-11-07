@@ -5,9 +5,11 @@ import useSpeakerSortAndFilter from "../hooks/useSpeakerSortAndFilter";
 import { SpeakerMenuContext } from "../contexts/SpeakerMenuContext";
 
 export default function SpeakersList() {
-  const { speakerList, loadingStatus } = useContext(SpeakersDataContext);
+  const { speakerList, loadingStatus } =
+    useContext(SpeakersDataContext);
   const { speakingSaturday, speakingSunday, searchText } =
     useContext(SpeakerMenuContext);
+  const speakerListJson = JSON.stringify(speakerList);
   const speakerListFiltered = useMemo(
     () =>
       useSpeakerSortAndFilter(
@@ -16,7 +18,8 @@ export default function SpeakersList() {
         speakingSunday,
         searchText
       ),
-    [speakingSaturday, speakingSunday, searchText, loadingStatus]
+    [speakingSaturday, speakingSunday, searchText, loadingStatus,
+      speakerListJson],
   );
 
   if (loadingStatus === "loading") {
