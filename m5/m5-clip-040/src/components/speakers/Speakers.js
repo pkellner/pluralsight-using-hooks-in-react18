@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { speakerList } from "../../../speakersData";
 import SpeakerMenu from "./SpeakerMenu";
 import SpeakersList from "./SpeakersList";
-import { ThemeContext } from "../contexts/ThemeContext";
+import { ThemeContext } from "../../App";
 
 function Speakers() {
   const { darkTheme } = useContext(ThemeContext);
