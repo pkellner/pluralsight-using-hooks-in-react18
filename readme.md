@@ -3,7 +3,7 @@
 The master branch here is the latest updates to the Pluralsight course <b>Using Hooks in React 18</b>
 
 
-# Course Code for [Using Hooks in React 18](https://app.pluralsight.com/library/courses/pluralsight-using-hooks-in-react18) on Pluralsight
+# Course Code for [Using Hooks in React 18](http://www.pluralsight.com/courses/react-18-using-hooks) on Pluralsight
 
 <br/>
 This GitHub repo includes the final code for all the modules in the course 
