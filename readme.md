@@ -21,8 +21,8 @@ This course is about learning everything you need to use React Hooks in your Rea
 
 ## Getting Started
 1. **Install [Node 16 (latest-verson) with NPM 17](https://nodejs.org)**.
-2. **Clone this repository.** - `https://github.com/pkellner/pluralsight-what-is-react` or [download the zip](https://github.com/pkellner/pluralsight-what-is-react/archive/master.zip)
-3. **Set your default directory to which module you want (example: `cd m3-hands-on-moving-to-concurrent-rendering` - `cd m4-hands-on-with-the-new-react-hooks`
+2. **Clone this repository.** - `https://github.com/pkellner/pluralsight-using-hooks-in-react18` or [download the zip](https://github.com/pkellner/pluralsight-using-hooks-in-react18/archive/refs/heads/main.zip)
+3. **Set your default directory to which module you want (example: `cd m3` - `cd m4`
 4. **Install Node Packages with Dependencies.** - `npm install`
 
 
