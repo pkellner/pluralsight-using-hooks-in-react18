@@ -6,6 +6,7 @@
 | **Course**                                                                           | Release Date  |
 |-------------------------------------------------------------------------------------------------------------------------------|---------------|
 | **[Using Hooks in React 18](https://pluralsight.com/courses/react-18-using-hooks/)**   *(this course)*                        | November 2022 |
+| **[Working with Components in React 18](https://pluralsight.com/profile/author/peter-kellner)**                               | February 2023 |
 | **[What is React](https://pluralsight.com/courses/react-what-is/)**                                                           | August 2022   |
 | **[What's New in React 18](https://pluralsight.com/courses/react-18-whats-new/)**                                             | May 2022      |
 | **[Data and UI Patterns in React](https://github.com/pkellner/pluralsight-building-essential-ui-data-elements-in-react/)**    | December 2021 |
