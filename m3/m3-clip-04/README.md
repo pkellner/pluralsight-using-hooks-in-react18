@@ -1,3 +1,7 @@
-# No Code For This Module
+# Rules of Hooks Discussion
 
-This module demonstrates violating the three rules of hooks so node broken code in included here.
+I have noticed that sometimes the .eslintrc.json file does not show up after
+creating the project with `npx create-next-app@latest`. If that happens to
+you I suggest copying that file from this git repo into your project.
+
+That is what worked for me.
