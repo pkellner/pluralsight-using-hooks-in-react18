@@ -5,6 +5,9 @@
 
 | **Course**                                                                           | Release Date  |
 |-------------------------------------------------------------------------------------------------------------------------------|---------------|
+| **[Working With Data in React](http://www.pluralsight.com/courses/react-working-data)**                                       | February 2024 |
+| **[Server Component Fundamentals in React 18](http://www.pluralsight.com/courses/react-18-server-component-fundamentals)**    | June 2023     |
+| **[Working with Components in React 18](https://pluralsight.com/profile/author/peter-kellner)**                               | February 2023 |
 | **[Using Hooks in React 18](https://pluralsight.com/courses/react-18-using-hooks/)**   *(this course)*                        | November 2022 |
 | **[Server Component Fundamentals in React 18](http://www.pluralsight.com/courses/react-18-server-component-fundamentals)**    | June 2023     |
 | **[Working with Components in React 18](https://pluralsight.com/profile/author/peter-kellner)**                               | February 2023 |
