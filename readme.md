@@ -5,6 +5,7 @@
 
 | **Course**                                                                           | Release Date  |
 |-------------------------------------------------------------------------------------------------------------------------------|---------------|
+| **[Using TypeScript with React](https://app.pluralsight.com/library/courses/using-typescript-react/)**   | April 2025    |
 | **[AI-Powered React Applications: Building Intelligent Interfaces](https://app.pluralsight.com/library/courses/ai-powered-react-applications-building-intelligent-interfaces/)**   | February 2025 |
 | **[What is React](https://pluralsight.com/courses/react-what-is/)**                                                           | January 2025   |
 | **[Using Hooks in React 18](https://pluralsight.com/courses/react-18-using-hooks/)**   *(this course)*                        | November 2022 |
