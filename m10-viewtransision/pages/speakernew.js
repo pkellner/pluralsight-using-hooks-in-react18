@@ -15,7 +15,7 @@ function SpeakerImage({ imageUrl, alt, isLarge = false }) {
           style={{
             width: isLarge ? "200px" : "120px",
             height: isLarge ? "200px" : "120px",
-            objectFit: "cover"
+            objectFit: "cover",
           }}
         />
       ) : (
@@ -23,10 +23,10 @@ function SpeakerImage({ imageUrl, alt, isLarge = false }) {
           className="bg-primary d-flex align-items-center justify-content-center text-white rounded"
           style={{
             width: isLarge ? "200px" : "120px",
-            height: isLarge ? "200px" : "120px"
+            height: isLarge ? "200px" : "120px",
           }}
         >
-          <i className={`bi bi-person-fill ${isLarge ? 'fs-1' : 'fs-2'}`}></i>
+          <i className={`bi bi-person-fill ${isLarge ? "fs-1" : "fs-2"}`}></i>
         </div>
       )}
     </div>
@@ -63,13 +63,13 @@ function SpeakerListItem({ speaker, onSpeakerClick, isLoading }) {
                     {speaker.firstName} {speaker.lastName}
                     {isLoading && (
                       <span className="ms-2">
-                      <div
-                        className="spinner-border spinner-border-sm text-primary"
-                        role="status"
-                      >
-                        <span className="visually-hidden">Loading...</span>
-                      </div>
-                    </span>
+                        <div
+                          className="spinner-border spinner-border-sm text-primary"
+                          role="status"
+                        >
+                          <span className="visually-hidden">Loading...</span>
+                        </div>
+                      </span>
                     )}
                   </a>
                 </h6>
@@ -86,7 +86,6 @@ function SpeakerListItem({ speaker, onSpeakerClick, isLoading }) {
       </div>
     </div>
   );
-
 }
 
 function SpeakerDetail({ speaker, onBackClick }) {
@@ -94,17 +93,16 @@ function SpeakerDetail({ speaker, onBackClick }) {
     <div className="container py-4">
       <div className="row">
         <div className="col-12">
-          <h1 className="text-center mb-4">Silicon Valley Code Camp Speakers</h1>
+          <h1 className="text-center mb-4">
+            Silicon Valley Code Camp Speakers
+          </h1>
         </div>
       </div>
 
       <div className="row justify-content-center">
         <div className="col-lg-10 col-xl-8">
           <div className="mb-4">
-            <button
-              className="btn btn-outline-primary"
-              onClick={onBackClick}
-            >
+            <button className="btn btn-outline-primary" onClick={onBackClick}>
               <i className="bi bi-arrow-left me-2"></i>
               Back to Speakers
             </button>
@@ -138,7 +136,9 @@ function SpeakerDetail({ speaker, onBackClick }) {
                     {speaker.twitterHandle && (
                       <div className="col-lg-6 mb-3">
                         <h6 className="text-muted mb-2">Twitter</h6>
-                        <p className="mb-0 fw-medium">@{speaker.twitterHandle}</p>
+                        <p className="mb-0 fw-medium">
+                          @{speaker.twitterHandle}
+                        </p>
                       </div>
                     )}
                   </div>
@@ -151,9 +151,11 @@ function SpeakerDetail({ speaker, onBackClick }) {
                   )}
 
                   <div className="d-flex gap-4">
-                    { speaker.sun && speaker.sat && (<i>Speaking Saturday and Sunday</i>)}
-                    { !speaker.sun && speaker.sat && (<i>Speaking Saturday</i>)}
-                    { speaker.sun && !speaker.sat && (<i>Speaking Sunday</i>)}
+                    {speaker.sun && speaker.sat && (
+                      <i>Speaking Saturday and Sunday</i>
+                    )}
+                    {!speaker.sun && speaker.sat && <i>Speaking Saturday</i>}
+                    {speaker.sun && !speaker.sat && <i>Speaking Sunday</i>}
                   </div>
                 </div>
               </div>
@@ -165,11 +167,20 @@ function SpeakerDetail({ speaker, onBackClick }) {
   );
 }
 
-function SpeakerMenu({ speakingSaturday, setSpeakingSaturday, speakingSunday, setSpeakingSunday }) {
+function SpeakerMenu({
+  speakingSaturday,
+  setSpeakingSaturday,
+  speakingSunday,
+  setSpeakingSunday,
+}) {
   return (
     <div className="row justify-content-center mb-4">
       <div className="col-auto">
-        <div className="btn-toolbar" role="toolbar" aria-label="Speaker toolbar filter">
+        <div
+          className="btn-toolbar"
+          role="toolbar"
+          aria-label="Speaker toolbar filter"
+        >
           <div className="toolbar-trigger d-flex gap-4 align-items-center">
             <div className="form-check">
               <input
@@ -179,7 +190,10 @@ function SpeakerMenu({ speakingSaturday, setSpeakingSaturday, speakingSunday, se
                 onChange={() => setSpeakingSaturday(!speakingSaturday)}
                 checked={speakingSaturday}
               />
-              <label className="form-check-label fw-medium" htmlFor="saturday-filter">
+              <label
+                className="form-check-label fw-medium"
+                htmlFor="saturday-filter"
+              >
                 Saturday Speakers
               </label>
             </div>
@@ -192,7 +206,10 @@ function SpeakerMenu({ speakingSaturday, setSpeakingSaturday, speakingSunday, se
                 onChange={() => setSpeakingSunday(!speakingSunday)}
                 checked={speakingSunday}
               />
-              <label className="form-check-label fw-medium" htmlFor="sunday-filter">
+              <label
+                className="form-check-label fw-medium"
+                htmlFor="sunday-filter"
+              >
                 Sunday Speakers
               </label>
             </div>
@@ -216,11 +233,11 @@ function SpeakersNew() {
   useEffect(() => {
     async function loadSpeakers() {
       try {
-        const response = await fetch('/api/speakers');
+        const response = await fetch("/api/speakers");
         const data = await response.json();
         setSpeakers(data);
       } catch (error) {
-        console.error('Error loading speakers:', error);
+        console.error("Error loading speakers:", error);
       } finally {
         setIsInitialLoading(false);
       }
@@ -238,12 +255,12 @@ function SpeakersNew() {
         const speakerData = await response.json();
 
         // Force 1 second delay to demonstrate loading state
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await new Promise((resolve) => setTimeout(resolve, 1000));
 
         setSelectedSpeaker(speakerData);
         setSelectedSpeakerId(speakerId);
       } catch (error) {
-        console.error('Error loading speaker details:', error);
+        console.error("Error loading speaker details:", error);
       } finally {
         setLoadingSpeakerId(null);
       }
@@ -255,7 +272,7 @@ function SpeakersNew() {
     setSelectedSpeaker(null);
   }
 
-  const filteredSpeakers = speakers.filter(speaker => {
+  const filteredSpeakers = speakers.filter((speaker) => {
     if (!speakingSaturday && !speakingSunday) {
       return false;
     }
@@ -287,10 +304,7 @@ function SpeakersNew() {
 
   if (selectedSpeaker) {
     return (
-      <SpeakerDetail
-        speaker={selectedSpeaker}
-        onBackClick={handleBackClick}
-      />
+      <SpeakerDetail speaker={selectedSpeaker} onBackClick={handleBackClick} />
     );
   }
 
@@ -298,7 +312,9 @@ function SpeakersNew() {
     <div className="container py-4">
       <div className="row">
         <div className="col-12">
-          <h1 className="text-center mb-5">Silicon Valley Code Camp Speakers</h1>
+          <h1 className="text-center mb-5">
+            Silicon Valley Code Camp Speakers
+          </h1>
 
           <SpeakerMenu
             speakingSaturday={speakingSaturday}
