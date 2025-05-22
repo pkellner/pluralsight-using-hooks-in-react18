@@ -1,7 +1,11 @@
-import { useState, useEffect, useTransition } from "react";
+import {
+  useState,
+  useEffect,
+  unstable_ViewTransition as ViewTransition,
+  useTransition,
+} from "react";
 
 function SpeakerImage({ imageUrl, alt, isLarge = false }) {
-  const [imageLoaded, setImageLoaded] = useState(false);
   const sizeClass = isLarge ? "speaker-image-large" : "speaker-image-thumb";
 
   return (
@@ -11,7 +15,6 @@ function SpeakerImage({ imageUrl, alt, isLarge = false }) {
           src={imageUrl}
           alt={alt}
           className={`img-fluid rounded ${sizeClass}`}
-          onLoad={() => setImageLoaded(true)}
           style={{
             width: isLarge ? "200px" : "120px",
             height: isLarge ? "200px" : "120px",
@@ -38,9 +41,7 @@ function SpeakerListItem({ speaker, onSpeakerClick, isLoading }) {
     <div className="col-xl-4 col-lg-6 col-md-6 col-sm-12">
       <div className="card border-0 shadow-sm mb-3">
         <div className="card-body p-0">
-          {/* give the whole row identical top & bottom padding */}
           <div className="row g-0 align-items-start py-3">
-            {/* horizontal padding only; vertical now comes from the row */}
             <div className="col-4 d-flex justify-content-center align-items-start px-3">
               <SpeakerImage
                 imageUrl={speaker.imageUrl}
@@ -90,6 +91,7 @@ function SpeakerListItem({ speaker, onSpeakerClick, isLoading }) {
 
 function SpeakerDetail({ speaker, onBackClick }) {
   return (
+
     <div className="container py-4">
       <div className="row">
         <div className="col-12">
@@ -220,7 +222,7 @@ function SpeakerMenu({
   );
 }
 
-function SpeakersNew() {
+export default function SpeakerNew() {
   const [speakers, setSpeakers] = useState([]);
   const [selectedSpeakerId, setSelectedSpeakerId] = useState(null);
   const [selectedSpeaker, setSelectedSpeaker] = useState(null);
@@ -261,8 +263,6 @@ function SpeakersNew() {
         setSelectedSpeakerId(speakerId);
       } catch (error) {
         console.error("Error loading speaker details:", error);
-      } finally {
-        setLoadingSpeakerId(null);
       }
     });
   }
@@ -339,4 +339,3 @@ function SpeakersNew() {
   );
 }
 
-export default SpeakersNew;
