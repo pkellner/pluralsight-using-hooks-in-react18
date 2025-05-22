@@ -1,8 +1,9 @@
 import {unstable_ViewTransition as ViewTransition} from "react";
+import { CONFERENCE_TITLE_TRANSITION } from "@/app/page";
 
 function SpeakerListSubTitle() {
   return (
-    <ViewTransition name="XXX1">
+    <ViewTransition name={CONFERENCE_TITLE_TRANSITION}>
       <h1 className="display-4 text-secondary">
         Silicon Valley Code Camp Speakers
       </h1>
