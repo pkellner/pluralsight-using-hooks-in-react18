@@ -52,7 +52,7 @@ export default function Home() {
             </div>
 
             <p className="text-muted mt-4 fs-6">
-              Click to explore the speaker list
+              Click to view the speaker list
             </p>
           </div>
         </div>

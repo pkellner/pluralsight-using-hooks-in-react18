@@ -198,7 +198,7 @@ function SpeakerDetail({ speaker, onBackClick }) {
   );
 }
 
-function SpeakersNew() {
+export default function SpeakersNew() {
   const [speakers, setSpeakers] = useState([]);
   const [selectedSpeakerId, setSelectedSpeakerId] = useState(null);
   const [selectedSpeaker, setSelectedSpeaker] = useState(null);
@@ -289,4 +289,3 @@ function SpeakersNew() {
   );
 }
 
-export default SpeakersNew;

@@ -91,7 +91,6 @@ function SpeakerListItem({ speaker, onSpeakerClick, isLoading }) {
 
 function SpeakerDetail({ speaker, onBackClick }) {
   return (
-
     <div className="container py-4">
       <div className="row">
         <div className="col-12">
@@ -222,7 +221,7 @@ function SpeakerMenu({
   );
 }
 
-export default function SpeakerNew() {
+function SpeakersNew() {
   const [speakers, setSpeakers] = useState([]);
   const [selectedSpeakerId, setSelectedSpeakerId] = useState(null);
   const [selectedSpeaker, setSelectedSpeaker] = useState(null);
@@ -263,6 +262,8 @@ export default function SpeakerNew() {
         setSelectedSpeakerId(speakerId);
       } catch (error) {
         console.error("Error loading speaker details:", error);
+      } finally {
+        setLoadingSpeakerId(null);
       }
     });
   }
@@ -304,7 +305,12 @@ export default function SpeakerNew() {
 
   if (selectedSpeaker) {
     return (
-      <SpeakerDetail speaker={selectedSpeaker} onBackClick={handleBackClick} />
+
+        <SpeakerDetail
+          speaker={selectedSpeaker}
+          onBackClick={handleBackClick}
+        />
+
     );
   }
 
@@ -339,3 +345,4 @@ export default function SpeakerNew() {
   );
 }
 
+export default SpeakersNew;
