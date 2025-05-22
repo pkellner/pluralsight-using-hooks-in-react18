@@ -1,6 +1,6 @@
 "use client";
 import { unstable_ViewTransition as ViewTransition } from "react";
-import { useState, startTransition } from "react";
+import { useState, useTransition } from "react";
 
 import SpeakerList from "@/app/components/speaker-list";
 
@@ -18,6 +18,7 @@ function SubTitle() {
 
 export default function Home() {
   const [showItem, setShowItem] = useState(false);
+  const [isPending, startTransition] = useTransition();
 
   function handleEnterClick() {
     console.log("clicked");
@@ -30,7 +31,7 @@ export default function Home() {
     <>
       {showItem && (
         <ViewTransition>
-          <SpeakerList />
+          <SpeakerList isPending={isPending} />
         </ViewTransition>
       )}
 

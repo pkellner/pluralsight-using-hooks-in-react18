@@ -1,4 +1,9 @@
-import React, { useState, useEffect, startTransition } from "react";
+import React, {
+  useState,
+  useEffect,
+  useTransition,
+  useDeferredValue,
+} from "react";
 import { unstable_ViewTransition as ViewTransition } from "react";
 import { CONFERENCE_TITLE_TRANSITION } from "@/app/page";
 
@@ -19,6 +24,7 @@ function SpeakerMenu({
   setSpeakingSaturday,
   speakingSunday,
   setSpeakingSunday,
+  loading,
 }) {
   return (
     <div className="row justify-content-center mb-4">
@@ -34,7 +40,11 @@ function SpeakerMenu({
                 type="checkbox"
                 className="form-check-input"
                 id="saturday-filter"
-                onChange={() => setSpeakingSaturday(!speakingSaturday)}
+                onChange={() => {
+                  startTransition(() => {
+                    setSpeakingSaturday(!speakingSaturday);
+                  });
+                }}
                 checked={speakingSaturday}
               />
               <label
@@ -50,7 +60,11 @@ function SpeakerMenu({
                 type="checkbox"
                 className="form-check-input"
                 id="sunday-filter"
-                onChange={() => setSpeakingSunday(!speakingSunday)}
+                onChange={() => {
+                  startTransition(() => {
+                    setSpeakingSunday(!speakingSunday);
+                  });
+                }}
                 checked={speakingSunday}
               />
               <label
@@ -102,63 +116,68 @@ function SpeakerImage({ imageUrl, alt, isLarge = false }) {
 
 function SpeakerListItem({ speaker, onSpeakerClick, isLoading }) {
   return (
-    <div className="col-xl-4 col-lg-6 col-md-6 col-sm-12">
-      <div className="card border-0 shadow-sm mb-3">
-        <div className="card-body p-0">
-          <div className="row g-0 align-items-start py-3">
-            <div className="col-4 d-flex justify-content-center align-items-start px-3">
-              <SpeakerImage
-                imageUrl={speaker.imageUrl}
-                alt={`${speaker.firstName} ${speaker.lastName}`}
-                isLarge={false}
-              />
-            </div>
+    <ViewTransition key={speaker.id}>
+      <div className="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+        <div className="card border-0 shadow-sm mb-3">
+          <div className="card-body p-0">
+            <div className="row g-0 align-items-start py-3">
+              <div className="col-4 d-flex justify-content-center align-items-start px-3">
+                <SpeakerImage
+                  imageUrl={speaker.imageUrl}
+                  alt={`${speaker.firstName} ${speaker.lastName}`}
+                  isLarge={false}
+                />
+              </div>
 
-            <div className="col-8">
-              <div className="card-body px-3 py-0">
-                <h6 className="card-title mb-2 fs-6">
-                  <a
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      onSpeakerClick(speaker.id);
-                    }}
-                    className="text-decoration-none"
-                  >
-                    {speaker.firstName} {speaker.lastName}
-                    {isLoading && (
-                      <span className="ms-2">
-                        <div
-                          className="spinner-border spinner-border-sm text-primary"
-                          role="status"
-                        >
-                          <span className="visually-hidden">Loading...</span>
-                        </div>
-                      </span>
-                    )}
-                  </a>
-                </h6>
-                <p className="card-subtitle mb-2 text-muted">
-                  {speaker.company}
-                </p>
-                <p className="card-text text-muted mb-0">
-                  {speaker.userBioShort}
-                </p>
+              <div className="col-8">
+                <div className="card-body px-3 py-0">
+                  <h6 className="card-title mb-2 fs-6">
+                    <a
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        onSpeakerClick(speaker.id);
+                      }}
+                      className="text-decoration-none"
+                    >
+                      {speaker.firstName} {speaker.lastName}
+                      {isLoading && (
+                        <span className="ms-2">
+                          <div
+                            className="spinner-border spinner-border-sm text-primary"
+                            role="status"
+                          >
+                            <span className="visually-hidden">Loading...</span>
+                          </div>
+                        </span>
+                      )}
+                    </a>
+                  </h6>
+                  <p className="card-subtitle mb-2 text-muted">
+                    {speaker.company}
+                  </p>
+                  <p className="card-text text-muted mb-0">
+                    {speaker.userBioShort}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </ViewTransition>
   );
 }
 
-
-export default function SpeakerList() {
+export default function SpeakerList({ isPending }) {
   const [speakers, setSpeakers] = useState([]);
   const [isInitialLoading, setIsInitialLoading] = useState(true);
   const [speakingSaturday, setSpeakingSaturday] = useState(true);
   const [speakingSunday, setSpeakingSunday] = useState(true);
+
+  // Use deferred values for the checkbox states to enable smooth transitions
+  const deferredSpeakingSaturday = useDeferredValue(speakingSaturday);
+  const deferredSpeakingSunday = useDeferredValue(speakingSunday);
 
   useEffect(() => {
     async function loadSpeakers() {
@@ -177,8 +196,6 @@ export default function SpeakerList() {
   }, []);
 
   async function handleSpeakerClick(speakerId) {
-    //setLoadingSpeakerId(speakerId);
-
     startTransition(async () => {
       try {
         // const response = await fetch(`/api/speakers/${speakerId}`);
@@ -195,37 +212,24 @@ export default function SpeakerList() {
     });
   }
 
-  // if (isInitialLoading) {
-  //   return (
-  //     <div className="container-fluid py-5">
-  //       <div className="row justify-content-center">
-  //         <div className="col-auto">
-  //           <div className="spinner-border text-primary" role="status">
-  //             <span className="visually-hidden">Loading speakers...</span>
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   );
-  // }
-
-  // <SpeakerListSubTitle />
-
+  // Use deferred values for filtering to enable smooth transitions
   const filteredSpeakers = speakers.filter((speaker) => {
-    if (!speakingSaturday && !speakingSunday) {
+    if (!deferredSpeakingSaturday && !deferredSpeakingSunday) {
       return false;
     }
-    if (speakingSaturday && speakingSunday) {
+    if (deferredSpeakingSaturday && deferredSpeakingSunday) {
       return speaker.sat || speaker.sun;
     }
-    if (speakingSaturday) {
+    if (deferredSpeakingSaturday) {
       return speaker.sat;
     }
-    if (speakingSunday) {
+    if (deferredSpeakingSunday) {
       return speaker.sun;
     }
     return false;
   });
+
+  console.log("/src/components/speakers/SpeakerList.js: isPending", isPending);
 
   return (
     <div className="container py-4">
@@ -234,13 +238,15 @@ export default function SpeakerList() {
           <h1 className="text-center mb-5">
             <SpeakerListSubTitle />
           </h1>
-
-          <SpeakerMenu
-            speakingSaturday={speakingSaturday}
-            setSpeakingSaturday={setSpeakingSaturday}
-            speakingSunday={speakingSunday}
-            setSpeakingSunday={setSpeakingSunday}
-          />
+          {!isPending && (
+            <SpeakerMenu
+              speakingSaturday={speakingSaturday}
+              setSpeakingSaturday={setSpeakingSaturday}
+              speakingSunday={speakingSunday}
+              setSpeakingSunday={setSpeakingSunday}
+              loading={isPending}
+            />
+          )}
         </div>
       </div>
 
@@ -251,38 +257,6 @@ export default function SpeakerList() {
             speaker={speaker}
             onSpeakerClick={handleSpeakerClick}
             // isLoading={loadingSpeakerId === speaker.id}
-          />
-        ))}
-      </div>
-    </div>
-  );
-
-  //<SpeakerListSubTitle />
-
-  return (
-    <div className="container py-4">
-      <div className="row">
-        <div className="col-12">
-          <h1 className="text-center mb-5">xxx
-            Silicon Valley Code Camp Speakers
-          </h1>
-
-          <SpeakerMenu
-            speakingSaturday={speakingSaturday}
-            setSpeakingSaturday={setSpeakingSaturday}
-            speakingSunday={speakingSunday}
-            setSpeakingSunday={setSpeakingSunday}
-          />
-        </div>
-      </div>
-
-      <div className="row g-4">
-        {filteredSpeakers.map((speaker) => (
-          <SpeakerListItem
-            key={speaker.id}
-            speaker={speaker}
-            onSpeakerClick={handleSpeakerClick}
-            isLoading={loadingSpeakerId === speaker.id}
           />
         ))}
       </div>
