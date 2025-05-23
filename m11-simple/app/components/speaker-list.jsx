@@ -9,7 +9,7 @@ import { CONFERENCE_TITLE_TRANSITION } from "@/app/page";
 
 function SpeakerListSubTitle() {
   return (
-    <ViewTransition name={CONFERENCE_TITLE_TRANSITION}>
+    <ViewTransition name={CONFERENCE_TITLE_TRANSITION} default="slow-fade">
       <div className="col-12 text-center">
         <h1 className="display-4 text-secondary">
           Silicon Valley Code Camp Speakers
@@ -25,6 +25,7 @@ function SpeakerMenu({
   speakingSunday,
   setSpeakingSunday,
   loading,
+  startTransition,
 }) {
   return (
     <div className="row justify-content-center mb-4">
@@ -169,11 +170,14 @@ function SpeakerListItem({ speaker, onSpeakerClick, isLoading }) {
   );
 }
 
-export default function SpeakerList({ isPending }) {
+export default function SpeakerList() {
   const [speakers, setSpeakers] = useState([]);
   const [isInitialLoading, setIsInitialLoading] = useState(true);
   const [speakingSaturday, setSpeakingSaturday] = useState(true);
   const [speakingSunday, setSpeakingSunday] = useState(true);
+
+  // Add useTransition hook to get isPending and startTransition
+  const [isPending, startTransition] = useTransition();
 
   // Use deferred values for the checkbox states to enable smooth transitions
   const deferredSpeakingSaturday = useDeferredValue(speakingSaturday);
@@ -238,15 +242,16 @@ export default function SpeakerList({ isPending }) {
           <h1 className="text-center mb-5">
             <SpeakerListSubTitle />
           </h1>
-          {!isPending && (
+
             <SpeakerMenu
               speakingSaturday={speakingSaturday}
               setSpeakingSaturday={setSpeakingSaturday}
               speakingSunday={speakingSunday}
               setSpeakingSunday={setSpeakingSunday}
               loading={isPending}
+              startTransition={startTransition}
             />
-          )}
+
         </div>
       </div>
 

@@ -10,6 +10,7 @@
   --button-danger: #ee7d7d;
 }
 
+
 body,
 html {
   font-family: "Roboto", sans-serif;
@@ -422,4 +423,19 @@ header ul li button:focus {
   .flex-grow-04 {
     flex-grow: 1;
   }
+}
+
+
+/* Debug view transitions - slows them down for inspection */
+/*::view-transition-old(*),*/
+/*::view-transition-new(*) {*/
+/*  animation-duration: 5s !important;*/
+/*}*/
+
+::view-transition-old(.slow-fade) {
+  animation-duration: 900ms;
+}
+
+::view-transition-new(.slow-fade) {
+  animation-duration: 900ms;
 }

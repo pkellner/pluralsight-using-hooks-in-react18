@@ -8,7 +8,7 @@ export const CONFERENCE_TITLE_TRANSITION = "conference-title-transition";
 
 function SubTitle() {
   return (
-    <ViewTransition name={CONFERENCE_TITLE_TRANSITION}>
+    <ViewTransition name={CONFERENCE_TITLE_TRANSITION} default="slow-fade">
       <h2 className="display-4 text-warning fw-light fst-italic">
         Silicon Valley Code Camp Speakers
       </h2>
@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <>
       {showItem && (
-        <ViewTransition>
+        <ViewTransition default="slow-fade">
           <SpeakerList isPending={isPending} />
         </ViewTransition>
       )}

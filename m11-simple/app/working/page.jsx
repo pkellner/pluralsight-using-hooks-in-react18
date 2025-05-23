@@ -11,7 +11,7 @@ import videos from "./data"
 
 function Item() {
   return (
-    <ViewTransition>
+    <ViewTransition default="slow-fade">
       <Video video={videos[0]}/>
     </ViewTransition>
   );
