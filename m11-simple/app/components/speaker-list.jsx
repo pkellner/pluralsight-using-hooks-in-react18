@@ -9,26 +9,23 @@ import { CONFERENCE_TITLE_TRANSITION } from "@/app/page";
 
 function SpeakerListSubTitle() {
   return (
-    <ViewTransition name={CONFERENCE_TITLE_TRANSITION} default="slow-fade">
-      <div className="col-12 text-center">
-        <h1 className="display-4 text-secondary">
-          Silicon Valley Code Camp Speakers
-        </h1>
-      </div>
-    </ViewTransition>
+    <h1 className="display-4 text-secondary">
+      Silicon Valley Code Camp Speakers
+    </h1>
   );
 }
 
 function SpeakerMenu({
-  speakingSaturday,
-  setSpeakingSaturday,
-  speakingSunday,
-  setSpeakingSunday,
-  loading,
-  startTransition,
-}) {
+                       speakingSaturday,
+                       setSpeakingSaturday,
+                       speakingSunday,
+                       setSpeakingSunday,
+                       loading,
+                       startTransition,
+                       onExit,
+                     }) {
   return (
-    <div className="row justify-content-center mb-4">
+    <div className="row justify-content-between align-items-center mb-4">
       <div className="col-auto">
         <div
           className="btn-toolbar"
@@ -77,6 +74,16 @@ function SpeakerMenu({
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="col-auto">
+        <button
+          onClick={onExit}
+          className="btn btn-accent btn-sm d-flex align-items-center gap-2 px-3 py-2"
+        >
+          <i className="bi bi-arrow-left"></i>
+          <span>Exit</span>
+        </button>
       </div>
     </div>
   );
@@ -170,16 +177,14 @@ function SpeakerListItem({ speaker, onSpeakerClick, isLoading }) {
   );
 }
 
-export default function SpeakerList() {
+export default function SpeakerList({ isPending, onExit, onSpeakersLoaded, isHidden }) {
   const [speakers, setSpeakers] = useState([]);
   const [isInitialLoading, setIsInitialLoading] = useState(true);
   const [speakingSaturday, setSpeakingSaturday] = useState(true);
   const [speakingSunday, setSpeakingSunday] = useState(true);
 
-  // Add useTransition hook to get isPending and startTransition
-  const [isPending, startTransition] = useTransition();
+  const [isLocalPending, startTransition] = useTransition();
 
-  // Use deferred values for the checkbox states to enable smooth transitions
   const deferredSpeakingSaturday = useDeferredValue(speakingSaturday);
   const deferredSpeakingSunday = useDeferredValue(speakingSunday);
 
@@ -193,11 +198,14 @@ export default function SpeakerList() {
         console.error("Error loading speakers:", error);
       } finally {
         setIsInitialLoading(false);
+        if (onSpeakersLoaded) {
+          onSpeakersLoaded();
+        }
       }
     }
 
     loadSpeakers();
-  }, []);
+  }, [onSpeakersLoaded]);
 
   async function handleSpeakerClick(speakerId) {
     startTransition(async () => {
@@ -216,7 +224,6 @@ export default function SpeakerList() {
     });
   }
 
-  // Use deferred values for filtering to enable smooth transitions
   const filteredSpeakers = speakers.filter((speaker) => {
     if (!deferredSpeakingSaturday && !deferredSpeakingSunday) {
       return false;
@@ -233,37 +240,40 @@ export default function SpeakerList() {
     return false;
   });
 
-  console.log("/src/components/speakers/SpeakerList.js: isPending", isPending);
+  console.log("/src/components/speakers/SpeakerList.js: isPending", isPending || isLocalPending);
+
+  if (isHidden) {
+    return <div style={{ display: 'none' }} />;
+  }
 
   return (
     <div className="container py-4">
       <div className="row">
         <div className="col-12">
-          <h1 className="text-center mb-5">
+          <div className="text-center mb-5">
             <SpeakerListSubTitle />
-          </h1>
+          </div>
 
-            <SpeakerMenu
-              speakingSaturday={speakingSaturday}
-              setSpeakingSaturday={setSpeakingSaturday}
-              speakingSunday={speakingSunday}
-              setSpeakingSunday={setSpeakingSunday}
-              loading={isPending}
-              startTransition={startTransition}
-            />
-
-        </div>
-      </div>
-
-      <div className="row g-4">
-        {filteredSpeakers.map((speaker) => (
-          <SpeakerListItem
-            key={speaker.id}
-            speaker={speaker}
-            onSpeakerClick={handleSpeakerClick}
-            // isLoading={loadingSpeakerId === speaker.id}
+          <SpeakerMenu
+            speakingSaturday={speakingSaturday}
+            setSpeakingSaturday={setSpeakingSaturday}
+            speakingSunday={speakingSunday}
+            setSpeakingSunday={setSpeakingSunday}
+            loading={isPending || isLocalPending}
+            startTransition={startTransition}
+            onExit={onExit}
           />
-        ))}
+
+          <div className="row g-4">
+            {filteredSpeakers.map((speaker) => (
+              <SpeakerListItem
+                key={speaker.id}
+                speaker={speaker}
+                onSpeakerClick={handleSpeakerClick}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -427,15 +427,104 @@ header ul li button:focus {
 
 
 /* Debug view transitions - slows them down for inspection */
-/*::view-transition-old(*),*/
-/*::view-transition-new(*) {*/
-/*  animation-duration: 5s !important;*/
-/*}*/
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation-duration: 5s !important;
+}
 
+
+
+/* Slow fade transition */
 ::view-transition-old(.slow-fade) {
   animation-duration: 900ms;
 }
 
 ::view-transition-new(.slow-fade) {
   animation-duration: 900ms;
+}
+
+/* Slide up and down transitions */
+::view-transition-old(.slide-up) {
+  animation: 600ms ease-in-out slide-up-old;
+}
+
+::view-transition-new(.slide-up) {
+  animation: 600ms ease-in-out slide-up-new;
+}
+
+::view-transition-old(.slide-down) {
+  animation: 600ms ease-in-out slide-down-old;
+}
+
+::view-transition-new(.slide-down) {
+  animation: 600ms ease-in-out slide-down-new;
+}
+
+/* Slide from bottom for content */
+::view-transition-new(.slide-from-bottom-content) {
+  animation: 800ms ease-out slide-from-bottom-content;
+}
+
+/* New transition for complete page slide from bottom */
+::view-transition-new(.slide-from-bottom-complete) {
+  animation: 900ms ease-out slide-from-bottom-complete;
+}
+
+/* Keyframe animations */
+@keyframes slide-up-old {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes slide-up-new {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-down-old {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes slide-down-new {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-from-bottom-content {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-from-bottom-complete {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
