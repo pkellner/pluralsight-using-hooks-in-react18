@@ -27,7 +27,7 @@ function LoadingButton({ isLoading, onClick }) {
           className="btn btn-primary btn-lg px-5 py-3 fw-bold text-uppercase rounded-pill shadow-lg button-content loading"
         >
           <span className="d-flex align-items-center justify-content-center">
-            <i className="bi bi-arrow-right-circle-fill me-2"></i>
+            <i className="fas fa-spinner fa-spin me-2"></i>
             Loading...
           </span>
         </button>
@@ -50,8 +50,8 @@ function EnterButton({ isLoading, onClick }) {
           className="btn btn-primary btn-lg px-5 py-3 fw-bold text-uppercase rounded-pill shadow-lg button-content enter"
         >
           <span className="d-flex align-items-center justify-content-center">
-            <i className="bi bi-arrow-right-circle-fill me-2"></i>
             Enter
+            <i className="fas fa-arrow-right ms-2"></i>
           </span>
         </button>
       </div>
