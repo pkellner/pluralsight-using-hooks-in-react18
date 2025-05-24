@@ -14,9 +14,21 @@ function SubTitle() {
   );
 }
 
-export default function HomeEnterPage({ onEnter, isLoading }) {
+export default function HomeEnterPage({ onEnter, isLoading,  slideDirection }) {
+
+  let vtEnter;
+  let vtExit;
+
+  if (slideDirection === "left") {
+    vtEnter = "slide-in";
+    vtExit = "slide-out";
+  } else if (slideDirection === "right") {
+    vtEnter = "slide-out";
+    vtExit = "slide-in";
+  }
+
   return (
-    <ViewTransition enter="slide-in" exit="slide-out">
+    <ViewTransition enter={vtEnter} exit={vtExit}>
       <div className="container-fluid bg-light min-vh-100 d-flex flex-column justify-content-center align-items-center position-relative">
         <div className="text-center">
           <h1 className="display-1 fw-bold text-primary mb-4">

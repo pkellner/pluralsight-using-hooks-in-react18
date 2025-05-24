@@ -35,26 +35,18 @@ export default function Home() {
     loadSpeakers();
   }, []);
 
-  function onEnter() {
+  function onSwapPage() {
     startTransition(() => {
       setShowItem((prev) => !prev);
     });
   }
 
-  function onExit() {
-    startTransition(() => {
-      setShowItem((prev) => !prev);
-    });
-  }
 
   return (
     <>
-      {showItem ? <SpeakerList speakers={speakers} onExit={onExit} /> : null}
+      {showItem ? <SpeakerList speakers={speakers} onExit={onSwapPage} slideDirection="left" /> : null}
       {!showItem ? (
-        <HomeEnterPage
-          isLoading={isLoading}
-          onEnter={onEnter}
-        />
+        <HomeEnterPage isLoading={isLoading} onEnter={onSwapPage} slideDirection= {showItem ? "right" : "left"} />
       ) : null}
     </>
   );
