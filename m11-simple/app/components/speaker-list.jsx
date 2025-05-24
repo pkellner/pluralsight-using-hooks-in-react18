@@ -1,10 +1,10 @@
 import React, {
   useState,
-  useTransition,
   useDeferredValue,
   startTransition,
+  unstable_ViewTransition as ViewTransition
 } from "react";
-import { unstable_ViewTransition as ViewTransition } from "react";
+import {  } from "react";
 
 function SubTitle() {
   return (
@@ -172,11 +172,14 @@ function SpeakerListItem({ speaker, onSpeakerClick, isLoading }) {
   );
 }
 
-export default function SpeakerList({ speakers, onExit, slideDirection }) {
+export default function SpeakerList({
+  speakers,
+  setSpeakers,
+  onExit,
+  slideDirection,
+}) {
   const [speakingSaturday, setSpeakingSaturday] = useState(true);
   const [speakingSunday, setSpeakingSunday] = useState(true);
-
-  const [isLocalPending, startTransition] = useTransition();
 
   const deferredSpeakingSaturday = useDeferredValue(speakingSaturday);
   const deferredSpeakingSunday = useDeferredValue(speakingSunday);

@@ -1,8 +1,7 @@
-"use client";
-import { unstable_ViewTransition as ViewTransition } from "react";
-import { useState, useTransition } from "react";
-
-import SpeakerList from "@/app/components/speaker-list";
+import {
+  startTransition,
+  unstable_ViewTransition as ViewTransition, useEffect, useState
+} from "react";
 
 function SubTitle() {
   return (
@@ -12,7 +11,45 @@ function SubTitle() {
   );
 }
 
-export default function HomeEnterPage({ onEnter, isLoading, slideDirection }) {
+function LoadingButton() {
+  return (
+    <ViewTransition>
+      <span className="d-flex align-items-center">
+        <i className="bi bi-arrow-right-circle-fill me-2"></i>
+        Loading...
+      </span>
+    </ViewTransition>
+  );
+}
+function EnterButton() {
+  return (
+    <ViewTransition>
+      <span className="d-flex align-items-center">
+        <i className="bi bi-arrow-right-circle-fill me-2"></i>
+        Enter
+      </span>
+    </ViewTransition>
+  );
+}
+
+export default function HomeEnterPage({ onEnter, slideDirection, setSpeakers }) {
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadSpeakers() {
+      try {
+        const response = await fetch("/api/speakers");
+        const data = await response.json();
+        setSpeakers(data);
+        setIsLoading(false);
+      } catch (error) {
+        console.error("Error loading speakers:", error);
+      }
+    }
+    loadSpeakers();
+  }, []);
+
   const vtEnter = slideDirection === "right" ? "slide-in" : "slide-out";
   const vtExit = slideDirection === "left" ? "slide-out" : "slide-in";
 
@@ -27,15 +64,20 @@ export default function HomeEnterPage({ onEnter, isLoading, slideDirection }) {
 
           <div className="mt-5">
             <button
-              onClick={onEnter}
+              onClick={() => {
+                startTransition(() => {
+                  onEnter();
+                });
+              }}
               disabled={isLoading}
               className="btn btn-primary btn-lg px-5 py-3 fw-bold text-uppercase rounded-pill shadow-lg"
             >
-              {isLoading ? "Loading..." : "Enter"}
+              {isLoading ? <LoadingButton /> : null}
+              {!isLoading ? <EnterButton /> : null}
             </button>
           </div>
 
-          <p className="text-muted mt-4 fs-6">Click to view the speaker list</p>
+          <p className="text-muted mt-4 fs-6">Press enter to view the speaker list</p>
         </div>
       </div>
     </ViewTransition>
