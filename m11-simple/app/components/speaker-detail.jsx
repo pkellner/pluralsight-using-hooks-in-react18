@@ -58,14 +58,6 @@ export default function SpeakerDetail({ speakerData, onBackClick }) {
                             <SpeakerCompany speaker={speakerData} />
                           </p>
                         </div>
-                        {speakerData.twitterHandle && (
-                          <div className="col-lg-6 mb-3">
-                            <h6 className="text-muted mb-2">Twitter</h6>
-                            <p className="mb-0 fw-medium">
-                              @{speakerData.twitterHandle}
-                            </p>
-                          </div>
-                        )}
                       </div>
 
                       {speakerData.email && (

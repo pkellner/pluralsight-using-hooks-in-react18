@@ -8,6 +8,12 @@ export default function SpeakerImage({
 }) {
   const sizeClass = isLarge ? "speaker-image-large" : "speaker-image-thumb";
 
+  // return (
+  //   <ViewTransition name={`SPEAKER_IMAGE_${speakerId}`}>
+  //     {speakerId}
+  //   </ViewTransition>
+  // )
+
   return (
     <ViewTransition name={`SPEAKER_IMAGE_${speakerId}`}>
       <div className={`speaker-image-container ${sizeClass}`}>
