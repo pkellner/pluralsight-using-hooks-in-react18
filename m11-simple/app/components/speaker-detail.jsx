@@ -1,8 +1,10 @@
 import React, { unstable_ViewTransition as ViewTransition } from "react";
 import SpeakerImage from "@/app/components/speaker-image";
 import SubTitle from "@/app/components/sub-title";
+import SpeakerName from "@/app/components/speaker-fields/speaker-name";
 
 export default function SpeakerDetail({ speakerData, onBackClick }) {
+  console.log("/app/components/speaker-detail.jsx", { speakerData });
   return (
     <ViewTransition>
       {speakerData ? (
@@ -40,9 +42,7 @@ export default function SpeakerDetail({ speakerData, onBackClick }) {
                   <div className="col-md-7">
                     <div className="card-body p-5">
                       <h2 className="card-title mb-4">
-                        <ViewTransition key={`${speakerData.id}`} name={`SPEAKER_NAME_${speakerData.id}`}>
-                          {speakerData.firstName} {speakerData.lastName}
-                        </ViewTransition>
+                        <SpeakerName speaker={speakerData}  />
                       </h2>
 
                       <div className="mb-4">

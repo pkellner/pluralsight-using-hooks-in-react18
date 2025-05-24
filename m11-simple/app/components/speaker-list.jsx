@@ -7,18 +7,16 @@ import SpeakerListWithMenu from "./speaker-list-with-menu";
 import SpeakerDetail from "@/app/components/speaker-detail";
 import SubTitle from "@/app/components/sub-title";
 
-export default function SpeakerList({
-  speakers,
-  onExit,
-  slideDirection,
-}) {
+export default function SpeakerList({ speakers, onExit, slideDirection }) {
   const [selectedSpeakerId, setSelectedSpeakerId] = useState(null);
 
   async function handleSpeakerClick(speakerId) {
     startTransition(async () => {
       try {
         // For now, find the speaker in the existing data
-        setSelectedSpeakerId(speakerId);
+        startTransition(() => {
+          setSelectedSpeakerId(speakerId);
+        });
       } catch (error) {
         console.error("Error loading speaker details:", error);
       }
@@ -26,7 +24,9 @@ export default function SpeakerList({
   }
 
   function handleBackClick() {
-    setSelectedSpeakerId(null);
+    startTransition(() => {
+      setSelectedSpeakerId(null);
+    });
   }
 
   const speakerData = selectedSpeakerId

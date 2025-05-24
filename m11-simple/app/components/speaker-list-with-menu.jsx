@@ -6,6 +6,7 @@ import React, {
 } from "react";
 import SpeakerDetail from "@/app/components/speaker-detail";
 import SpeakerImage from "@/app/components/speaker-image";
+import SpeakerName from "@/app/components/speaker-fields/speaker-name";
 
 function SpeakerMenu({
   speakingSaturday,
@@ -80,6 +81,10 @@ function SpeakerMenu({
 }
 
 function SpeakerListItem({ speaker, onSpeakerClick, isLoading }) {
+
+  console.log("/app/components/speaker-list-with-menu.jsx", { speaker });
+  debugger;
+
   return (
     <ViewTransition key={speaker.id}>
       <div className="col-xl-4 col-lg-6 col-md-6 col-sm-12">
@@ -106,9 +111,7 @@ function SpeakerListItem({ speaker, onSpeakerClick, isLoading }) {
                       }}
                       className="text-decoration-none"
                     >
-                      <ViewTransition key={`${speaker.id}`} name={`SPEAKER_NAME_${speaker.id}`}>
-                        {speaker.firstName} {speaker.lastName}
-                      </ViewTransition>
+                      <SpeakerName speaker={speaker} />
                       {isLoading && (
                         <span className="ms-2">
                           <div
