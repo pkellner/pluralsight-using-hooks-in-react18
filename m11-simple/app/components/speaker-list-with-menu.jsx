@@ -177,9 +177,6 @@ export default function SpeakerListWithMenu({
   const deferredSpeakingSunday = useDeferredValue(speakingSunday);
 
   const filteredSpeakers = speakers.filter((speaker) => {
-    if (!deferredSpeakingSaturday && !deferredSpeakingSunday) {
-      return false;
-    }
     if (deferredSpeakingSaturday && deferredSpeakingSunday) {
       return speaker.sat || speaker.sun;
     }
@@ -191,9 +188,6 @@ export default function SpeakerListWithMenu({
     }
     return false;
   });
-
-  // NEED TO PUT SELECTEDSPEAKERID HERE, AND THEN TOGGLE BETWEEN RETURN THE "MENU AND LIST" AND THE "SPEAKERDETAIL"
-  // NEED TO PASS SELECTEDSPEAKERID TO SPEAKERDETAIL BUT HAVE IT DISPLAY NULL OR THE RIGHT SPEAKER WHEN APPROPRIATE
 
   return (
     <>

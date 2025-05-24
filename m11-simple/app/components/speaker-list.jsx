@@ -9,7 +9,6 @@ import SubTitle from "@/app/components/sub-title";
 
 export default function SpeakerList({
   speakers,
-  setSpeakers,
   onExit,
   slideDirection,
 }) {
