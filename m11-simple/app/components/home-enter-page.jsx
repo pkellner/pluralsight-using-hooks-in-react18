@@ -60,10 +60,10 @@ function EnterButton({ isLoading, onClick }) {
 }
 
 export default function HomeEnterPage({
-                                        onEnter,
-                                        slideDirection,
-                                        setSpeakers,
-                                      }) {
+  onEnter,
+  slideDirection,
+  setSpeakers,
+}) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
