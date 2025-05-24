@@ -88,6 +88,7 @@ function SpeakerListItem({ speaker, onSpeakerClick, isLoading }) {
             <div className="row g-0 align-items-start py-3">
               <div className="col-4 d-flex justify-content-center align-items-start px-3">
                 <SpeakerImage
+                  speakerId={speaker.id}
                   imageUrl={speaker.imageUrl}
                   alt={`${speaker.firstName} ${speaker.lastName}`}
                   isLarge={false}
@@ -105,7 +106,9 @@ function SpeakerListItem({ speaker, onSpeakerClick, isLoading }) {
                       }}
                       className="text-decoration-none"
                     >
-                      {speaker.firstName} {speaker.lastName}
+                      <ViewTransition key={`${speaker.id}`} name={`SPEAKER_NAME_${speaker.id}`}>
+                        {speaker.firstName} {speaker.lastName}
+                      </ViewTransition>
                       {isLoading && (
                         <span className="ms-2">
                           <div

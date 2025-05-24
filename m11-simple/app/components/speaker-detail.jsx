@@ -31,6 +31,7 @@ export default function SpeakerDetail({ speakerData, onBackClick }) {
                 <div className="row g-0">
                   <div className="col-md-5 d-flex justify-content-center align-items-center p-5">
                     <SpeakerImage
+                      speakerId={speakerData.id}
                       imageUrl={speakerData.imageUrl}
                       alt={`${speakerData.firstName} ${speakerData.lastName}`}
                       isLarge={true}
@@ -39,7 +40,9 @@ export default function SpeakerDetail({ speakerData, onBackClick }) {
                   <div className="col-md-7">
                     <div className="card-body p-5">
                       <h2 className="card-title mb-4">
-                        {speakerData.firstName} {speakerData.lastName}
+                        <ViewTransition key={`${speakerData.id}`} name={`SPEAKER_NAME_${speakerData.id}`}>
+                          {speakerData.firstName} {speakerData.lastName}
+                        </ViewTransition>
                       </h2>
 
                       <div className="mb-4">
