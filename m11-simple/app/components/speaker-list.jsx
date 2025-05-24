@@ -1,9 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  useTransition,
-  useDeferredValue,
-} from "react";
+import React, { useState, useTransition, useDeferredValue, startTransition } from "react";
 import { unstable_ViewTransition as ViewTransition } from "react";
 import { CONFERENCE_TITLE_TRANSITION } from "@/app/page";
 
@@ -16,14 +11,12 @@ function SpeakerListSubTitle() {
 }
 
 function SpeakerMenu({
-                       speakingSaturday,
-                       setSpeakingSaturday,
-                       speakingSunday,
-                       setSpeakingSunday,
-                       loading,
-                       startTransition,
-                       onExit,
-                     }) {
+  speakingSaturday,
+  setSpeakingSaturday,
+  speakingSunday,
+  setSpeakingSunday,
+  onExit,
+}) {
   return (
     <div className="row justify-content-between align-items-center mb-4">
       <div className="col-auto">
@@ -90,7 +83,6 @@ function SpeakerMenu({
 }
 
 function SpeakerImage({ imageUrl, alt, isLarge = false }) {
-  const [imageLoaded, setImageLoaded] = useState(false);
   const sizeClass = isLarge ? "speaker-image-large" : "speaker-image-thumb";
 
   return (
@@ -100,7 +92,6 @@ function SpeakerImage({ imageUrl, alt, isLarge = false }) {
           src={imageUrl}
           alt={alt}
           className={`img-fluid rounded ${sizeClass}`}
-          onLoad={() => setImageLoaded(true)}
           style={{
             width: isLarge ? "200px" : "80px",
             height: isLarge ? "200px" : "80px",
@@ -177,9 +168,7 @@ function SpeakerListItem({ speaker, onSpeakerClick, isLoading }) {
   );
 }
 
-export default function SpeakerList({ isPending, onExit, onSpeakersLoaded, isHidden }) {
-  const [speakers, setSpeakers] = useState([]);
-  const [isInitialLoading, setIsInitialLoading] = useState(true);
+export default function SpeakerList({ speakers, onExit }) {
   const [speakingSaturday, setSpeakingSaturday] = useState(true);
   const [speakingSunday, setSpeakingSunday] = useState(true);
 
@@ -187,25 +176,6 @@ export default function SpeakerList({ isPending, onExit, onSpeakersLoaded, isHid
 
   const deferredSpeakingSaturday = useDeferredValue(speakingSaturday);
   const deferredSpeakingSunday = useDeferredValue(speakingSunday);
-
-  useEffect(() => {
-    async function loadSpeakers() {
-      try {
-        const response = await fetch("/api/speakers");
-        const data = await response.json();
-        setSpeakers(data);
-      } catch (error) {
-        console.error("Error loading speakers:", error);
-      } finally {
-        setIsInitialLoading(false);
-        if (onSpeakersLoaded) {
-          onSpeakersLoaded();
-        }
-      }
-    }
-
-    loadSpeakers();
-  }, [onSpeakersLoaded]);
 
   async function handleSpeakerClick(speakerId) {
     startTransition(async () => {
@@ -240,41 +210,35 @@ export default function SpeakerList({ isPending, onExit, onSpeakersLoaded, isHid
     return false;
   });
 
-  console.log("/src/components/speakers/SpeakerList.js: isPending", isPending || isLocalPending);
-
-  if (isHidden) {
-    return <div style={{ display: 'none' }} />;
-  }
-
   return (
-    <div className="container py-4">
-      <div className="row">
-        <div className="col-12">
-          <div className="text-center mb-5">
-            <SpeakerListSubTitle />
-          </div>
+    <ViewTransition enter="slide-in" exit="slide-out">
+      <div className="container py-4">
+        <div className="row">
+          <div className="col-12">
+            <div className="text-center mb-5">
+              <SpeakerListSubTitle />
+            </div>
 
-          <SpeakerMenu
-            speakingSaturday={speakingSaturday}
-            setSpeakingSaturday={setSpeakingSaturday}
-            speakingSunday={speakingSunday}
-            setSpeakingSunday={setSpeakingSunday}
-            loading={isPending || isLocalPending}
-            startTransition={startTransition}
-            onExit={onExit}
-          />
+            <SpeakerMenu
+              speakingSaturday={speakingSaturday}
+              setSpeakingSaturday={setSpeakingSaturday}
+              speakingSunday={speakingSunday}
+              setSpeakingSunday={setSpeakingSunday}
+              onExit={onExit}
+            />
 
-          <div className="row g-4">
-            {filteredSpeakers.map((speaker) => (
-              <SpeakerListItem
-                key={speaker.id}
-                speaker={speaker}
-                onSpeakerClick={handleSpeakerClick}
-              />
-            ))}
+            <div className="row g-4">
+              {filteredSpeakers.map((speaker) => (
+                <SpeakerListItem
+                  key={speaker.id}
+                  speaker={speaker}
+                  onSpeakerClick={handleSpeakerClick}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </ViewTransition>
   );
 }
