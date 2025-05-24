@@ -16,40 +16,44 @@ function SubTitle() {
 function LoadingButton(isLoading, onClick) {
   return (
     <ViewTransition enter={"flip-in"} exit="flip-out">
-      <button
-        onClick={() => {
-          startTransition(() => {
-            onClick();
-          });
-        }}
-        disabled={isLoading}
-        className="btn btn-primary btn-lg px-5 py-3 fw-bold text-uppercase rounded-pill shadow-lg w-25"
-      >
-        <span className="d-flex align-items-center">
-          <i className="bi bi-arrow-right-circle-fill me-2"></i>
-          Loading...
-        </span>
-      </button>
+      <div className="mt-5">
+        <button
+          onClick={() => {
+            startTransition(() => {
+              onClick();
+            });
+          }}
+          disabled={isLoading}
+          className="btn btn-primary btn-lg px-5 py-3 fw-bold text-uppercase rounded-pill shadow-lg w-25"
+        >
+          <span className="d-flex align-items-center">
+            <i className="bi bi-arrow-right-circle-fill me-2"></i>
+            Loading...
+          </span>
+        </button>
+      </div>
     </ViewTransition>
   );
 }
-function EnterButton({isLoading, onClick}) {
+function EnterButton({ isLoading, onClick }) {
   return (
     <ViewTransition enter={"flip-in"} exit="flip-out">
-      <button
-        onClick={() => {
-          startTransition(() => {
-            onClick();
-          });
-        }}
-        disabled={isLoading}
-        className="btn btn-primary btn-lg px-5 py-3 fw-bold text-uppercase rounded-pill shadow-lg w-25"
-      >
-        <span className="d-flex align-items-center">
-          <i className="bi bi-arrow-right-circle-fill me-2"></i>
-          Enter
-        </span>
-      </button>
+      <div className="mt-5">
+        <button
+          onClick={() => {
+            startTransition(() => {
+              onClick();
+            });
+          }}
+          disabled={isLoading}
+          className="btn btn-primary btn-lg px-5 py-3 fw-bold text-uppercase rounded-pill shadow-lg w-25"
+        >
+          <span className="d-flex align-items-center">
+            <i className="bi bi-arrow-right-circle-fill me-2"></i>
+            Enter
+          </span>
+        </button>
+      </div>
     </ViewTransition>
   );
 }
@@ -96,14 +100,12 @@ export default function HomeEnterPage({
           </h1>
           <SubTitle />
 
-          <div className="mt-5">
-            {isLoading ? (
-              <LoadingButton isLoading={isLoading} onClick={onClick} />
-            ) : null}
-            {!isLoading ? (
-              <EnterButton isLoading={isLoading} onClick={onClick} />
-            ) : null}
-          </div>
+          {isLoading ? (
+            <LoadingButton isLoading={isLoading} onClick={onClick} />
+          ) : null}
+          {!isLoading ? (
+            <EnterButton isLoading={isLoading} onClick={onClick} />
+          ) : null}
 
           <p className="text-muted mt-4 fs-6">
             Press enter to view the speaker list

@@ -429,7 +429,7 @@ header ul li button:focus {
 /* Debug view transitions - slows them down for inspection */
 ::view-transition-old(*),
 ::view-transition-new(*) {
-  animation-duration: 2s !important;
+  animation-duration: 5s !important;
 }
 
 
