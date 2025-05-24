@@ -78,7 +78,7 @@ export default function HomeEnterPage({
                 });
               }}
               disabled={isLoading}
-              className="btn btn-primary btn-lg px-5 py-3 fw-bold text-uppercase rounded-pill shadow-lg"
+              className="btn btn-primary btn-lg px-5 py-3 fw-bold text-uppercase rounded-pill shadow-lg w-25"
             >
               {isLoading ? <LoadingButton /> : null}
               {!isLoading ? <EnterButton /> : null}

@@ -606,34 +606,36 @@ header ul li button:focus {
 
 ::view-transition-old(.flip-in) {
   animation-name: flipOutY;
+  transform-origin: center center;
   animation-duration: 500ms;
   animation-timing-function: ease-in-out;
 }
 
 ::view-transition-new(.flip-in) {
   animation-name: flipInY;
+  transform-origin: center center;
   animation-duration: 500ms;
   animation-timing-function: ease-in-out;
 }
 
 @keyframes flipOutY {
   from {
-    transform: rotateY(0deg);
+    transform: rotateX(0deg);
     opacity: 1;
   }
   to {
-    transform: rotateY(90deg);
+    transform: rotateX(-90deg);
     opacity: 0;
   }
 }
 
 @keyframes flipInY {
   from {
-    transform: rotateY(-90deg);
+    transform: rotateX(90deg);
     opacity: 0;
   }
   to {
-    transform: rotateY(0deg);
+    transform: rotateX(0deg);
     opacity: 1;
   }
 }
