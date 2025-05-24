@@ -1,12 +1,16 @@
-import React, { useState, useTransition, useDeferredValue, startTransition } from "react";
+import React, {
+  useState,
+  useTransition,
+  useDeferredValue,
+  startTransition,
+} from "react";
 import { unstable_ViewTransition as ViewTransition } from "react";
-import { CONFERENCE_TITLE_TRANSITION } from "@/app/page";
 
-function SpeakerListSubTitle() {
+function SubTitle() {
   return (
-    <h1 className="display-4 text-secondary">
+    <h2 className="display-4 text-warning fw-light fst-italic">
       Silicon Valley Code Camp Speakers
-    </h1>
+    </h2>
   );
 }
 
@@ -213,14 +217,13 @@ export default function SpeakerList({ speakers, onExit, slideDirection }) {
   const vtEnter = slideDirection === "right" ? "slide-in" : "slide-out";
   const vtExit = slideDirection === "left" ? "slide-out" : "slide-in";
 
-
   return (
     <ViewTransition enter={vtEnter} exit={vtExit}>
       <div className="container py-4">
         <div className="row">
           <div className="col-12">
             <div className="text-center mb-5">
-              <SpeakerListSubTitle />
+              <SubTitle />
             </div>
 
             <SpeakerMenu

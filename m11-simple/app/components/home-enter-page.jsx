@@ -4,8 +4,6 @@ import { useState, useTransition } from "react";
 
 import SpeakerList from "@/app/components/speaker-list";
 
-export const CONFERENCE_TITLE_TRANSITION = "conference-title-transition";
-
 function SubTitle() {
   return (
     <h2 className="display-4 text-warning fw-light fst-italic">
