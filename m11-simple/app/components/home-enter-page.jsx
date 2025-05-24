@@ -13,23 +13,43 @@ function SubTitle() {
   );
 }
 
-function LoadingButton() {
+function LoadingButton(isLoading, onClick) {
   return (
     <ViewTransition enter={"flip-in"} exit="flip-out">
-      <span className="d-flex align-items-center">
-        <i className="bi bi-arrow-right-circle-fill me-2"></i>
-        Loading...
-      </span>
+      <button
+        onClick={() => {
+          startTransition(() => {
+            onClick();
+          });
+        }}
+        disabled={isLoading}
+        className="btn btn-primary btn-lg px-5 py-3 fw-bold text-uppercase rounded-pill shadow-lg w-25"
+      >
+        <span className="d-flex align-items-center">
+          <i className="bi bi-arrow-right-circle-fill me-2"></i>
+          Loading...
+        </span>
+      </button>
     </ViewTransition>
   );
 }
-function EnterButton() {
+function EnterButton({isLoading, onClick}) {
   return (
     <ViewTransition enter={"flip-in"} exit="flip-out">
-      <span className="d-flex align-items-center">
-        <i className="bi bi-arrow-right-circle-fill me-2"></i>
-        Enter
-      </span>
+      <button
+        onClick={() => {
+          startTransition(() => {
+            onClick();
+          });
+        }}
+        disabled={isLoading}
+        className="btn btn-primary btn-lg px-5 py-3 fw-bold text-uppercase rounded-pill shadow-lg w-25"
+      >
+        <span className="d-flex align-items-center">
+          <i className="bi bi-arrow-right-circle-fill me-2"></i>
+          Enter
+        </span>
+      </button>
     </ViewTransition>
   );
 }
@@ -61,6 +81,12 @@ export default function HomeEnterPage({
   const vtEnter = slideDirection === "right" ? "slide-in" : "slide-out";
   const vtExit = slideDirection === "left" ? "slide-out" : "slide-in";
 
+  function onClick() {
+    startTransition(() => {
+      onEnter();
+    });
+  }
+
   return (
     <ViewTransition enter={vtEnter} exit={vtExit}>
       <div className="container-fluid bg-light min-vh-100 d-flex flex-column justify-content-center align-items-center position-relative">
@@ -71,18 +97,12 @@ export default function HomeEnterPage({
           <SubTitle />
 
           <div className="mt-5">
-            <button
-              onClick={() => {
-                startTransition(() => {
-                  onEnter();
-                });
-              }}
-              disabled={isLoading}
-              className="btn btn-primary btn-lg px-5 py-3 fw-bold text-uppercase rounded-pill shadow-lg w-25"
-            >
-              {isLoading ? <LoadingButton /> : null}
-              {!isLoading ? <EnterButton /> : null}
-            </button>
+            {isLoading ? (
+              <LoadingButton isLoading={isLoading} onClick={onClick} />
+            ) : null}
+            {!isLoading ? (
+              <EnterButton isLoading={isLoading} onClick={onClick} />
+            ) : null}
           </div>
 
           <p className="text-muted mt-4 fs-6">
