@@ -55,7 +55,6 @@ export default function SpeakerList({
             <div className="text-center mb-5">
               <SubTitle />
             </div>
-
             <SpeakerListWithMenu
               speakers={speakers}
               onSpeakerClick={handleSpeakerClick}
