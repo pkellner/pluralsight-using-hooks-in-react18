@@ -1,6 +1,8 @@
 import {
   startTransition,
-  unstable_ViewTransition as ViewTransition, useEffect, useState
+  unstable_ViewTransition as ViewTransition,
+  useEffect,
+  useState,
 } from "react";
 
 function SubTitle() {
@@ -13,7 +15,7 @@ function SubTitle() {
 
 function LoadingButton() {
   return (
-    <ViewTransition>
+    <ViewTransition enter={"flip-in"} exit="flip-out">
       <span className="d-flex align-items-center">
         <i className="bi bi-arrow-right-circle-fill me-2"></i>
         Loading...
@@ -23,7 +25,7 @@ function LoadingButton() {
 }
 function EnterButton() {
   return (
-    <ViewTransition>
+    <ViewTransition enter={"flip-in"} exit="flip-out">
       <span className="d-flex align-items-center">
         <i className="bi bi-arrow-right-circle-fill me-2"></i>
         Enter
@@ -32,8 +34,11 @@ function EnterButton() {
   );
 }
 
-export default function HomeEnterPage({ onEnter, slideDirection, setSpeakers }) {
-
+export default function HomeEnterPage({
+  onEnter,
+  slideDirection,
+  setSpeakers,
+}) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -41,8 +46,11 @@ export default function HomeEnterPage({ onEnter, slideDirection, setSpeakers }) 
       try {
         const response = await fetch("/api/speakers");
         const data = await response.json();
-        setSpeakers(data);
-        setIsLoading(false);
+        startTransition(() => {
+          setIsLoading(true);
+          setSpeakers(data);
+          setIsLoading(false);
+        });
       } catch (error) {
         console.error("Error loading speakers:", error);
       }
@@ -77,7 +85,9 @@ export default function HomeEnterPage({ onEnter, slideDirection, setSpeakers }) 
             </button>
           </div>
 
-          <p className="text-muted mt-4 fs-6">Press enter to view the speaker list</p>
+          <p className="text-muted mt-4 fs-6">
+            Press enter to view the speaker list
+          </p>
         </div>
       </div>
     </ViewTransition>

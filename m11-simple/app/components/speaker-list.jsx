@@ -4,7 +4,6 @@ import React, {
   startTransition,
   unstable_ViewTransition as ViewTransition
 } from "react";
-import {  } from "react";
 
 function SubTitle() {
   return (
