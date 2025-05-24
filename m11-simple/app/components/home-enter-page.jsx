@@ -4,14 +4,9 @@ import {
   useEffect,
   useState,
 } from "react";
+import SubTitle from "@/app/components/sub-title";
 
-function SubTitle() {
-  return (
-    <h2 className="display-4 text-warning fw-light fst-italic">
-      Silicon Valley Code Camp Speakers
-    </h2>
-  );
-}
+
 
 function LoadingButton({ isLoading, onClick }) {
   return (
