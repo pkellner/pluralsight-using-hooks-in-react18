@@ -7,6 +7,7 @@ import React, {
 import SpeakerDetail from "@/app/components/speaker-detail";
 import SpeakerImage from "@/app/components/speaker-image";
 import SpeakerName from "@/app/components/speaker-fields/speaker-name";
+import SpeakerCompany from "@/app/components/speaker-fields/speaker-company";
 
 function SpeakerMenu({
   speakingSaturday,
@@ -125,7 +126,7 @@ function SpeakerListItem({ speaker, onSpeakerClick, isLoading }) {
                     </a>
                   </h6>
                   <p className="card-subtitle mb-2 text-muted">
-                    {speaker.company}
+                    <SpeakerCompany speaker={speaker} />
                   </p>
                   <p className="card-text text-muted mb-0">
                     {speaker.userBioShort}

@@ -2,6 +2,7 @@ import React, { unstable_ViewTransition as ViewTransition } from "react";
 import SpeakerImage from "@/app/components/speaker-image";
 import SubTitle from "@/app/components/sub-title";
 import SpeakerName from "@/app/components/speaker-fields/speaker-name";
+import SpeakerCompany from "@/app/components/speaker-fields/speaker-company";
 
 export default function SpeakerDetail({ speakerData, onBackClick }) {
   console.log("/app/components/speaker-detail.jsx", { speakerData });
@@ -54,7 +55,7 @@ export default function SpeakerDetail({ speakerData, onBackClick }) {
                         <div className="col-lg-6 mb-3">
                           <h6 className="text-muted mb-2">Company</h6>
                           <p className="mb-0 fw-medium">
-                            {speakerData.company}
+                            <SpeakerCompany speaker={speakerData} />
                           </p>
                         </div>
                         {speakerData.twitterHandle && (
