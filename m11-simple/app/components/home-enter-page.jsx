@@ -13,7 +13,7 @@ function SubTitle() {
   );
 }
 
-function LoadingButton(isLoading, onClick) {
+function LoadingButton({ isLoading, onClick }) {
   return (
     <ViewTransition enter={"flip-in"} exit="flip-out">
       <div className="mt-5">
@@ -24,9 +24,9 @@ function LoadingButton(isLoading, onClick) {
             });
           }}
           disabled={isLoading}
-          className="btn btn-primary btn-lg px-5 py-3 fw-bold text-uppercase rounded-pill shadow-lg w-25"
+          className="btn btn-primary btn-lg px-5 py-3 fw-bold text-uppercase rounded-pill shadow-lg button-content loading"
         >
-          <span className="d-flex align-items-center">
+          <span className="d-flex align-items-center justify-content-center">
             <i className="bi bi-arrow-right-circle-fill me-2"></i>
             Loading...
           </span>
@@ -35,6 +35,7 @@ function LoadingButton(isLoading, onClick) {
     </ViewTransition>
   );
 }
+
 function EnterButton({ isLoading, onClick }) {
   return (
     <ViewTransition enter={"flip-in"} exit="flip-out">
@@ -46,9 +47,9 @@ function EnterButton({ isLoading, onClick }) {
             });
           }}
           disabled={isLoading}
-          className="btn btn-primary btn-lg px-5 py-3 fw-bold text-uppercase rounded-pill shadow-lg w-25"
+          className="btn btn-primary btn-lg px-5 py-3 fw-bold text-uppercase rounded-pill shadow-lg button-content enter"
         >
-          <span className="d-flex align-items-center">
+          <span className="d-flex align-items-center justify-content-center">
             <i className="bi bi-arrow-right-circle-fill me-2"></i>
             Enter
           </span>
@@ -59,10 +60,10 @@ function EnterButton({ isLoading, onClick }) {
 }
 
 export default function HomeEnterPage({
-  onEnter,
-  slideDirection,
-  setSpeakers,
-}) {
+                                        onEnter,
+                                        slideDirection,
+                                        setSpeakers,
+                                      }) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {

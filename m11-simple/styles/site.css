@@ -427,10 +427,10 @@ header ul li button:focus {
 
 
 /* Debug view transitions - slows them down for inspection */
-::view-transition-old(*),
-::view-transition-new(*) {
-  animation-duration: 5s !important;
-}
+/*::view-transition-old(*),*/
+/*::view-transition-new(*) {*/
+/*  animation-duration: 5s !important;*/
+/*}*/
 
 
 
@@ -601,7 +601,19 @@ header ul li button:focus {
   }
 }
 
+.button-content {
+  min-width: 200px;
+}
 
+/* Loading state */
+.button-content.loading {
+  background: #0d6efd;
+}
+
+/* Enter state */
+.button-content.enter {
+  background: #198754;
+}
 
 
 ::view-transition-old(.flip-in) {
