@@ -14,18 +14,9 @@ function SubTitle() {
   );
 }
 
-export default function HomeEnterPage({ onEnter, isLoading,  slideDirection }) {
-
-  let vtEnter;
-  let vtExit;
-
-  if (slideDirection === "left") {
-    vtEnter = "slide-in";
-    vtExit = "slide-out";
-  } else if (slideDirection === "right") {
-    vtEnter = "slide-out";
-    vtExit = "slide-in";
-  }
+export default function HomeEnterPage({ onEnter, isLoading, slideDirection }) {
+  const vtEnter = slideDirection === "right" ? "slide-in" : "slide-out";
+  const vtExit = slideDirection === "left" ? "slide-out" : "slide-in";
 
   return (
     <ViewTransition enter={vtEnter} exit={vtExit}>

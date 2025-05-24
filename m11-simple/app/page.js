@@ -44,7 +44,7 @@ export default function Home() {
 
   return (
     <>
-      {showItem ? <SpeakerList speakers={speakers} onExit={onSwapPage} slideDirection="left" /> : null}
+      {showItem ? <SpeakerList speakers={speakers} onExit={onSwapPage} slideDirection= {showItem ? "right" : "left"} /> : null}
       {!showItem ? (
         <HomeEnterPage isLoading={isLoading} onEnter={onSwapPage} slideDirection= {showItem ? "right" : "left"} />
       ) : null}

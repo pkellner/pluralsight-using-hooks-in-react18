@@ -168,7 +168,7 @@ function SpeakerListItem({ speaker, onSpeakerClick, isLoading }) {
   );
 }
 
-export default function SpeakerList({ speakers, onExit }) {
+export default function SpeakerList({ speakers, onExit, slideDirection }) {
   const [speakingSaturday, setSpeakingSaturday] = useState(true);
   const [speakingSunday, setSpeakingSunday] = useState(true);
 
@@ -210,8 +210,12 @@ export default function SpeakerList({ speakers, onExit }) {
     return false;
   });
 
+  const vtEnter = slideDirection === "right" ? "slide-in" : "slide-out";
+  const vtExit = slideDirection === "left" ? "slide-out" : "slide-in";
+
+
   return (
-    <ViewTransition enter="slide-in" exit="slide-out">
+    <ViewTransition enter={vtEnter} exit={vtExit}>
       <div className="container py-4">
         <div className="row">
           <div className="col-12">
