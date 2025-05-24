@@ -8,48 +8,42 @@ import SpeakerDetail from "@/app/components/speaker-detail";
 import SubTitle from "@/app/components/sub-title";
 
 export default function SpeakerList({
-                                      speakers,
-                                      setSpeakers,
-                                      onExit,
-                                      slideDirection,
-                                    }) {
-  const [selectedSpeaker, setSelectedSpeaker] = useState(null);
-  const [loadingSpeakerId, setLoadingSpeakerId] = useState(null);
+  speakers,
+  setSpeakers,
+  onExit,
+  slideDirection,
+}) {
+  const [selectedSpeakerId, setSelectedSpeakerId] = useState(null);
 
   async function handleSpeakerClick(speakerId) {
-    setLoadingSpeakerId(speakerId);
-
     startTransition(async () => {
       try {
-        // const response = await fetch(`/api/speakers/${speakerId}`);
-        // const speakerData = await response.json();
-
         // For now, find the speaker in the existing data
-        const speakerData = speakers.find(speaker => speaker.id === speakerId);
-
-        // Force 1 second delay to demonstrate loading state
-        await new Promise((resolve) => setTimeout(resolve, 3000));
-
-        setSelectedSpeaker(speakerData);
+        setSelectedSpeakerId(speakerId);
       } catch (error) {
         console.error("Error loading speaker details:", error);
-      } finally {
-        setLoadingSpeakerId(null);
       }
     });
   }
 
   function handleBackClick() {
-    setSelectedSpeaker(null);
+    setSelectedSpeakerId(null);
   }
+
+  const speakerData = selectedSpeakerId
+    ? speakers.find((speaker) => speaker.id === selectedSpeakerId)
+    : null;
 
   const vtEnter = slideDirection === "right" ? "slide-in" : "slide-out";
   const vtExit = slideDirection === "left" ? "slide-out" : "slide-in";
 
-  if (selectedSpeaker) {
+  if (selectedSpeakerId) {
     return (
       <ViewTransition enter={vtEnter} exit={vtExit}>
-        <SpeakerDetail speaker={selectedSpeaker} onBackClick={handleBackClick} />
+        <SpeakerDetail
+          speakerData={speakerData}
+          onBackClick={handleBackClick}
+        />
       </ViewTransition>
     );
   }
@@ -67,7 +61,7 @@ export default function SpeakerList({
               speakers={speakers}
               onSpeakerClick={handleSpeakerClick}
               onExit={onExit}
-              loadingSpeakerId={loadingSpeakerId}
+              selectedSpeakerId={selectedSpeakerId}
             />
           </div>
         </div>

@@ -4,14 +4,15 @@ import React, {
   startTransition,
   unstable_ViewTransition as ViewTransition,
 } from "react";
+import SpeakerDetail from "@/app/components/speaker-detail";
 
 function SpeakerMenu({
-                       speakingSaturday,
-                       setSpeakingSaturday,
-                       speakingSunday,
-                       setSpeakingSunday,
-                       onExit,
-                     }) {
+  speakingSaturday,
+  setSpeakingSaturday,
+  speakingSunday,
+  setSpeakingSunday,
+  onExit,
+}) {
   return (
     <div className="row justify-content-between align-items-center mb-4">
       <div className="col-auto">
@@ -164,11 +165,11 @@ function SpeakerListItem({ speaker, onSpeakerClick, isLoading }) {
 }
 
 export default function SpeakerListWithMenu({
-                                              speakers,
-                                              onSpeakerClick,
-                                              onExit,
-                                              loadingSpeakerId
-                                            }) {
+  speakers,
+  onSpeakerClick,
+  onExit,
+  selectedSpeakerId,
+}) {
   const [speakingSaturday, setSpeakingSaturday] = useState(true);
   const [speakingSunday, setSpeakingSunday] = useState(true);
 
@@ -195,25 +196,32 @@ export default function SpeakerListWithMenu({
   // NEED TO PASS SELECTEDSPEAKERID TO SPEAKERDETAIL BUT HAVE IT DISPLAY NULL OR THE RIGHT SPEAKER WHEN APPROPRIATE
 
   return (
-    <div>
-      <SpeakerMenu
-        speakingSaturday={speakingSaturday}
-        setSpeakingSaturday={setSpeakingSaturday}
-        speakingSunday={speakingSunday}
-        setSpeakingSunday={setSpeakingSunday}
-        onExit={onExit}
-      />
-
-      <div className="row g-4">
-        {filteredSpeakers.map((speaker) => (
-          <SpeakerListItem
-            key={speaker.id}
-            speaker={speaker}
-            onSpeakerClick={onSpeakerClick}
-            isLoading={loadingSpeakerId === speaker.id}
+    <>
+      {!selectedSpeakerId && (
+        <div>
+          <SpeakerMenu
+            speakingSaturday={speakingSaturday}
+            setSpeakingSaturday={setSpeakingSaturday}
+            speakingSunday={speakingSunday}
+            setSpeakingSunday={setSpeakingSunday}
+            onExit={onExit}
           />
-        ))}
-      </div>
-    </div>
+
+          <div className="row g-4">
+            {filteredSpeakers.map((speaker) => (
+              <SpeakerListItem
+                key={speaker.id}
+                speaker={speaker}
+                onSpeakerClick={onSpeakerClick}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {selectedSpeakerId && (
+        <SpeakerDetail speaker={selectedSpeaker} onBackClick={onExit} />
+      )}
+    </>
   );
 }
