@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Button Flip – ViewTransition Fixed</title>
+
+    <!-- Bootstrap & Icons -->
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+    />
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+            rel="stylesheet"
+    />
+
+    <style>
+        /* --- Layout helper --------------------------------------------------- */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #f8f9fa;
+        }
+        .button-container { perspective: 1000px; }
+
+        /* --- Flip button ------------------------------------------------------ */
+        .flip-button {
+            position: relative;
+            width: 200px;
+            height: 60px;
+            background: #0d6efd;
+            color: #fff;
+            border: 1px solid #0d6efd;
+            border-radius: 50px;
+            font-size: 1.25rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            outline: 0;
+            overflow: hidden;
+
+            /* ViewTransition setup */
+            view-transition-name: flip-button;
+        }
+        .flip-button:hover {
+            background: #0b5ed7;
+            border-color: #0a58ca;
+        }
+
+        /* --- Content states -------------------------------------------------- */
+        .button-content {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: inherit;
+            transition: none; /* Let ViewTransition handle this */
+        }
+
+        .button-content i,
+        .button-content .spinner-border {
+            margin-right: 0.5rem;
+        }
+
+        /* Loading state */
+        .button-content.loading {
+            background: #0d6efd;
+        }
+
+        /* Enter state */
+        .button-content.enter {
+            background: #198754;
+        }
+
+        /* Hide inactive state */
+        .flip-button .button-content:not(.active) {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .flip-button .button-content.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* --- ViewTransition custom animation ----------------------------- */
+        ::view-transition-old(flip-button),
+        ::view-transition-new(flip-button) {
+            transform-origin: center center;
+        }
+
+        ::view-transition-old(flip-button) {
+            animation: flipOut 0.3s ease-in forwards;
+        }
+
+        ::view-transition-new(flip-button) {
+            animation: flipIn 0.3s ease-out 0.3s forwards;
+            opacity: 0;
+        }
+
+        @keyframes flipOut {
+            0% {
+                transform: rotateX(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: rotateX(-90deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes flipIn {
+            0% {
+                transform: rotateX(90deg);
+                opacity: 0;
+            }
+            100% {
+                transform: rotateX(0deg);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div class="button-container">
+    <button id="flipButton" class="flip-button" type="button">
+        <!-- Loading content -->
+        <div class="button-content loading active" id="loadingContent">
+            <span class="spinner-border" role="status" aria-hidden="true"></span>
+            Loading…
+        </div>
+
+        <!-- Enter content -->
+        <div class="button-content enter" id="enterContent">
+            <i class="bi bi-arrow-right-circle-fill"></i>
+            Enter
+        </div>
+    </button>
+</div>
+
+<script>
+  (() => {
+    const flipButton = document.getElementById("flipButton");
+    const loadingContent = document.getElementById("loadingContent");
+    const enterContent = document.getElementById("enterContent");
+    let isFlipped = false;
+
+    const flip = () => {
+      const withViewTransition = (fn) =>
+        document.startViewTransition ? document.startViewTransition(fn) : fn();
+
+      withViewTransition(() => {
+        if (isFlipped) {
+          // Show loading, hide enter
+          loadingContent.classList.add("active");
+          enterContent.classList.remove("active");
+        } else {
+          // Show enter, hide loading
+          loadingContent.classList.remove("active");
+          enterContent.classList.add("active");
+        }
+        isFlipped = !isFlipped;
+      });
+    };
+
+    /* Click to toggle flip */
+    flipButton.addEventListener("click", flip);
+
+    /* Auto-flip after 2 s to showcase the effect */
+    setTimeout(flip, 3000);
+  })();
+</script>
+</body>
+</html>
