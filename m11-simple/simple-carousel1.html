@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Picture Carousel</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-container {
+      background: white;
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      width: 90%;
+    }
+
+    .carousel-wrapper {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      border-radius: 15px;
+      overflow: hidden;
+      background: #f0f0f0;
+      contain: layout style paint;
+    }
+
+    .carousel-track {
+      display: flex;
+      width: calc(100% * 5);
+      height: 100%;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      view-transition-name: carousel-track;
+      will-change: transform;
+    }
+
+    .carousel-image {
+      width: 100%;
+      min-width: 100%;
+      height: 100%;
+      object-fit: cover;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .carousel-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1.5rem;
+    }
+
+    .carousel-button {
+      background: #667eea;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-button:hover {
+      background: #5a67d8;
+      transform: scale(1.1);
+    }
+
+    .carousel-button:disabled {
+      background: #e2e8f0;
+      color: #a0aec0;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .carousel-indicators {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #e2e8f0;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .indicator.active {
+      background: #667eea;
+      transform: scale(1.2);
+    }
+
+    .carousel-info {
+      text-align: center;
+      margin-top: 1rem;
+      color: #4a5568;
+      font-size: 0.9rem;
+    }
+
+    /* View Transition API enhancement */
+    ::view-transition-old(carousel-track),
+    ::view-transition-new(carousel-track) {
+      animation-duration: 0.5s;
+      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Fallback for browsers without View Transition API */
+    .no-view-transitions .carousel-track {
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  </style>
+</head>
+<body>
+<div class="carousel-container">
+  <div class="carousel-wrapper">
+    <div class="carousel-track" id="carouselTrack">
+      <img src="https://picsum.photos/600/400?random=1" alt="Image 1" class="carousel-image">
+      <img src="https://picsum.photos/600/400?random=2" alt="Image 2" class="carousel-image">
+      <img src="https://picsum.photos/600/400?random=3" alt="Image 3" class="carousel-image">
+      <img src="https://picsum.photos/600/400?random=4" alt="Image 4" class="carousel-image">
+      <img src="https://picsum.photos/600/400?random=5" alt="Image 5" class="carousel-image">
+    </div>
+  </div>
+
+  <div class="carousel-controls">
+    <button class="carousel-button" id="prevBtn">‹</button>
+
+    <div class="carousel-indicators">
+      <div class="indicator active" data-index="0"></div>
+      <div class="indicator" data-index="1"></div>
+      <div class="indicator" data-index="2"></div>
+      <div class="indicator" data-index="3"></div>
+      <div class="indicator" data-index="4"></div>
+    </div>
+
+    <button class="carousel-button" id="nextBtn">›</button>
+  </div>
+
+  <div class="carousel-info">
+    <span id="imageCounter">1 / 5</span>
+  </div>
+</div>
+
+<script>
+  // Carousel state
+  let carouselState = {
+    currentIndex: 0,
+    totalImages: 5,
+    isTransitioning: false,
+    startX: 0,
+    endX: 0
+  };
+
+  // DOM elements
+  let carouselElements = {};
+
+  function initializeCarouselElements() {
+    carouselElements = {
+      carouselTrack: document.getElementById('carouselTrack'),
+      indicators: document.querySelectorAll('.indicator'),
+      prevBtn: document.getElementById('prevBtn'),
+      nextBtn: document.getElementById('nextBtn'),
+      imageCounter: document.getElementById('imageCounter')
+    };
+  }
+
+  function checkViewTransitionSupport() {
+    if (!document.startViewTransition) {
+      document.documentElement.classList.add('no-view-transitions');
+      console.warn('View Transition API not supported. Using CSS transitions.');
+    }
+  }
+
+  function handleMouseUp(e) {
+    carouselState.endX = e.clientX;
+    handleSwipe();
+    carouselElements.carouselTrack.removeEventListener('mouseup', handleMouseUp);
+  }
+
+  function handleSwipe() {
+    const threshold = 50;
+    const diff = carouselState.startX - carouselState.endX;
+
+    if (Math.abs(diff) > threshold) {
+      if (diff > 0) {
+        goToNext();
+      } else {
+        goToPrevious();
+      }
+    }
+  }
+
+  function initializeEventListeners() {
+    carouselElements.prevBtn.addEventListener('click', () => goToPrevious());
+    carouselElements.nextBtn.addEventListener('click', () => goToNext());
+
+    carouselElements.indicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', () => goToSlide(index));
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        goToPrevious();
+      } else if (e.key === 'ArrowRight') {
+        goToNext();
+      }
+    });
+
+    // Touch/swipe support
+    carouselElements.carouselTrack.addEventListener('touchstart', (e) => {
+      carouselState.startX = e.touches[0].clientX;
+    });
+
+    carouselElements.carouselTrack.addEventListener('touchend', (e) => {
+      carouselState.endX = e.changedTouches[0].clientX;
+      handleSwipe();
+    });
+
+    carouselElements.carouselTrack.addEventListener('mousedown', (e) => {
+      carouselState.startX = e.clientX;
+      carouselElements.carouselTrack.addEventListener('mouseup', handleMouseUp);
+    });
+  }
+
+  async function goToPrevious() {
+    if (carouselState.isTransitioning || carouselState.currentIndex === 0) return;
+
+    const newIndex = carouselState.currentIndex - 1;
+    await transitionToSlide(newIndex);
+  }
+
+  async function goToNext() {
+    if (carouselState.isTransitioning || carouselState.currentIndex === carouselState.totalImages - 1) return;
+
+    const newIndex = carouselState.currentIndex + 1;
+    await transitionToSlide(newIndex);
+  }
+
+  async function goToSlide(targetIndex) {
+    if (carouselState.isTransitioning || targetIndex === carouselState.currentIndex) return;
+
+    await transitionToSlide(targetIndex);
+  }
+
+  async function transitionToSlide(targetIndex) {
+    carouselState.isTransitioning = true;
+
+    try {
+      if (document.startViewTransition) {
+        const transition = document.startViewTransition(() => {
+          updateSlide(targetIndex);
+        });
+        await transition.finished;
+      } else {
+        updateSlide(targetIndex);
+        // Wait for CSS transition to complete
+        await new Promise(resolve => setTimeout(resolve, 500));
+      }
+    } catch (error) {
+      console.error('Transition failed:', error);
+      updateSlide(targetIndex);
+    } finally {
+      carouselState.isTransitioning = false;
+    }
+  }
+
+  function updateSlide(targetIndex) {
+    // Each image is 100% of viewport width, so move by 100% per image
+    const translateX = -targetIndex * 100;
+    carouselElements.carouselTrack.style.transform = `translateX(${translateX}%)`;
+
+    // Update indicators
+    carouselElements.indicators[carouselState.currentIndex].classList.remove('active');
+    carouselElements.indicators[targetIndex].classList.add('active');
+
+    carouselState.currentIndex = targetIndex;
+    updateUI();
+  }
+
+  function updateUI() {
+    // Update counter
+    carouselElements.imageCounter.textContent = `${carouselState.currentIndex + 1} / ${carouselState.totalImages}`;
+
+    // Update button states
+    carouselElements.prevBtn.disabled = carouselState.currentIndex === 0;
+    carouselElements.nextBtn.disabled = carouselState.currentIndex === carouselState.totalImages - 1;
+  }
+
+  function initializeCarousel() {
+    initializeCarouselElements();
+    checkViewTransitionSupport();
+    initializeEventListeners();
+    updateUI();
+  }
+
+  // Initialize carousel when DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    initializeCarousel();
+  });
+</script>
+</body>
+</html>

@@ -801,10 +801,10 @@ header ul li button:focus {
 
 ::view-transition-old(*),
 ::view-transition-new(*) {
-  animation-duration: 3000ms !important;
+  animation-duration: 1000ms !important;
 }
 
 ::view-transition-group(*) {
-  animation-duration: 3000ms !important;
+  animation-duration: 1000ms !important;
   transition: none !important;
 }
