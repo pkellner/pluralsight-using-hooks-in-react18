@@ -4,8 +4,14 @@ import SubTitle from "@/app/components/sub-title";
 import SpeakerName from "@/app/components/speaker-fields/speaker-name";
 import SpeakerCompany from "@/app/components/speaker-fields/speaker-company";
 
-export default function SpeakerDetail({ speakersData, initialSelectedSpeakerId = 0, onBackClick }) {
-  const [selectedSpeakerId, setSelectedSpeakerId] = useState(initialSelectedSpeakerId || null);
+export default function SpeakerDetail({
+  speakersData,
+  initialSelectedSpeakerId = 0,
+  onBackClick,
+}) {
+  const [selectedSpeakerId, setSelectedSpeakerId] = useState(
+    initialSelectedSpeakerId || null,
+  );
 
   const speakers = speakersData || [];
 
@@ -13,8 +19,11 @@ export default function SpeakerDetail({ speakersData, initialSelectedSpeakerId =
     return null;
   }
 
-  const currentSpeaker = speakers.find(speaker => speaker.id === selectedSpeakerId) || speakers[0];
-  const currentSpeakerIndex = speakers.findIndex(speaker => speaker.id === selectedSpeakerId);
+  const currentSpeaker =
+    speakers.find((speaker) => speaker.id === selectedSpeakerId) || speakers[0];
+  const currentSpeakerIndex = speakers.findIndex(
+    (speaker) => speaker.id === selectedSpeakerId,
+  );
   const isFirstSpeaker = currentSpeakerIndex === 0;
   const isLastSpeaker = currentSpeakerIndex === speakers.length - 1;
 
@@ -43,10 +52,7 @@ export default function SpeakerDetail({ speakersData, initialSelectedSpeakerId =
       <div className="row justify-content-center">
         <div className="col-lg-10 col-xl-8">
           <div className="mb-4">
-            <button
-              className="btn btn-outline-primary"
-              onClick={onBackClick}
-            >
+            <button className="btn btn-outline-primary" onClick={onBackClick}>
               <i className="bi bi-arrow-left me-2"></i>
               Back to Speakers
             </button>
@@ -77,14 +83,16 @@ export default function SpeakerDetail({ speakersData, initialSelectedSpeakerId =
 
             <div className="card speaker-detail-card">
               <div className="row g-0">
-                <div className="col-md-5 d-flex justify-content-center align-items-center p-5">
-                  <SpeakerImage
-                    key={currentSpeaker.id}
-                    speakerId={currentSpeaker.id}
-                    imageUrl={currentSpeaker.imageUrl}
-                    alt={`${currentSpeaker.firstName} ${currentSpeaker.lastName}`}
-                    isLarge={true}
-                  />
+                <div className="col-md-5 d-flex justify-content-center align-items-center p-2">
+                  <div className="speaker-image-container">
+                    <SpeakerImage
+                      key={currentSpeaker.id}
+                      speakerId={currentSpeaker.id}
+                      imageUrl={currentSpeaker.imageUrl}
+                      alt={`${currentSpeaker.firstName} ${currentSpeaker.lastName}`}
+                      isLarge={true}
+                    />
+                  </div>
                 </div>
                 <div className="col-md-7">
                   <div className="card-body p-5">
@@ -111,7 +119,9 @@ export default function SpeakerDetail({ speakersData, initialSelectedSpeakerId =
                         {currentSpeaker.email && (
                           <div className="mb-4">
                             <h6 className="text-muted mb-2">Email</h6>
-                            <p className="mb-0 fw-medium">{currentSpeaker.email}</p>
+                            <p className="mb-0 fw-medium">
+                              {currentSpeaker.email}
+                            </p>
                           </div>
                         )}
 
