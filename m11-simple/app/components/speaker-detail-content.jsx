@@ -7,7 +7,7 @@ export default function SpeakerDetailContent(props) {
   return <div className="card speaker-detail-card">
     <div className="row g-0">
       <div className="col-md-5 d-flex justify-content-center align-items-center p-2">
-        <div className="speaker-image-container">
+        <div className="speaker-image-container" style={{ transform: 'scale(0.7)' }}>
           <SpeakerImage
             speakerId={props.currentSpeaker.id}
             imageUrl={props.currentSpeaker.imageUrl}
