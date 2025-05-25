@@ -634,21 +634,6 @@ header ul li button:focus {
   }
 }
 
-/*---- DEFAULTS ANIMATION SPEEDS    -----*/
-
-::view-transition-old(*),
-::view-transition-new(*) {
-  animation-duration: 4000ms !important;
-}
-
-::view-transition-group(*) {
-  animation-duration: 4000ms !important;
-  transition: none !important;
-}
-
-
-
-
 
 /* ----NEW ---- */
 /*
@@ -810,3 +795,16 @@ header ul li button:focus {
 
 
 
+
+
+/*---- DEFAULTS ANIMATION SPEEDS    -----*/
+
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation-duration: 3000ms !important;
+}
+
+::view-transition-group(*) {
+  animation-duration: 3000ms !important;
+  transition: none !important;
+}

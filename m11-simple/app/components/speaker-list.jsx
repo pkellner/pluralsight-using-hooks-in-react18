@@ -33,15 +33,16 @@ export default function SpeakerList({ speakers, onExit, slideDirection }) {
   const vtExit = slideDirection === "left" ? "slide-out" : "slide-in";
 
   if (selectedSpeakerId) {
+    // This ViewTransition is needed otherwise the card zindex goes below the speakerlist cards for some reason
     return (
-      <ViewTransition>
+      <ViewTransition name="SPEAKER-DETAIL-GROW-SHRINK">
         <SpeakerDetail speakersData={speakers} initialSelectedSpeakerId={selectedSpeakerId} onBackClick={handleBackClick} />
       </ViewTransition>
     );
   }
 
   return (
-    <ViewTransition enter={vtEnter} exit={vtExit}>
+    <ViewTransition enter={vtEnter} exit={vtExit} name="SPEAKER-DETAIL-GROW-SHRINK">
       <div className="container py-4">
         <div className="row">
           <div className="col-12">
