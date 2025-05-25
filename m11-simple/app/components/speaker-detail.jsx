@@ -19,8 +19,6 @@ export default function SpeakerDetail({ speakersData, initialSelectedSpeakerId =
   const isFirstSpeaker = currentSpeakerIndex === 0;
   const isLastSpeaker = currentSpeakerIndex === speakers.length - 1;
 
-  debugger;
-
   function handlePreviousSpeaker() {
     if (!isFirstSpeaker) {
       setSelectedSpeakerId(speakers[currentSpeakerIndex - 1].id);

@@ -99,8 +99,6 @@ export default function SpeakerListWithMenu({
     return false;
   });
 
-  debugger;
-
   return (
     <>
       {!selectedSpeakerId && (

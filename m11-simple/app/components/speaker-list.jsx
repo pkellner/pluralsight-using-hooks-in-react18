@@ -29,8 +29,6 @@ export default function SpeakerList({ speakers, onExit, slideDirection }) {
     });
   }
 
-
-
   const vtEnter = slideDirection === "right" ? "slide-in" : "slide-out";
   const vtExit = slideDirection === "left" ? "slide-out" : "slide-in";
 
