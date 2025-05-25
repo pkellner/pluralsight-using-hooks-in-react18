@@ -306,6 +306,16 @@ header ul li button:focus {
   object-fit: cover;
 }
 
+.speaker-image-container {
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 0;
+}
+
+.speaker-image-large {
+  display: flex;
+}
+
 .speaker-action {
   flex-wrap: wrap;
   justify-content: space-between;
@@ -428,8 +438,14 @@ header ul li button:focus {
 
 ::view-transition-old(*),
 ::view-transition-new(*) {
-  animation-duration: 1s !important;
+  animation-duration: 3s !important;
 }
+
+::view-transition-group(*) {
+  animation-duration: 3s !important;
+  transition: none !important;
+}
+
 
 
 ::view-transition-old(.slow-fade) {
@@ -628,3 +644,6 @@ header ul li button:focus {
     opacity: 1;
   }
 }
+
+
+

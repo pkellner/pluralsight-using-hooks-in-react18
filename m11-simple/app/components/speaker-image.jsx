@@ -21,7 +21,7 @@ export default function SpeakerImage({
           <img
             src={imageUrl}
             alt={alt}
-            className={`img-fluid rounded ${sizeClass}`}
+            className={`img-fluid rounded  ${sizeClass}`}
             style={{
               width: isLarge ? "200px" : "80px",
               height: isLarge ? "200px" : "80px",
