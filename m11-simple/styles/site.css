@@ -648,3 +648,148 @@ header ul li button:focus {
 
 
 
+
+
+/* ----NEW ---- */
+/*
+   ADD THESE NEW CLASSES TO YOUR EXISTING site.css FILE
+   These are all new classes for the SpeakerDetail component improvements
+*/
+
+/* Enhanced navigation buttons for speaker detail */
+.speaker-nav-btn {
+  width: 56px;
+  height: 56px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  box-shadow:
+          0 8px 16px rgba(0, 0, 0, 0.1),
+          0 4px 8px rgba(0, 0, 0, 0.06),
+          inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+}
+
+.speaker-nav-btn:hover:not(:disabled) {
+  transform: translateY(-50%) scale(1.05);
+  box-shadow:
+          0 12px 24px rgba(0, 0, 0, 0.15),
+          0 6px 12px rgba(0, 0, 0, 0.08),
+          inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  background: linear-gradient(145deg, #ffffff, #f8f8f8);
+}
+
+.speaker-nav-btn:active:not(:disabled) {
+  transform: translateY(-50%) scale(0.98);
+  box-shadow:
+          0 4px 8px rgba(0, 0, 0, 0.12),
+          0 2px 4px rgba(0, 0, 0, 0.06),
+          inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.speaker-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  background: linear-gradient(145deg, #f5f5f5, #e8e8e8);
+  box-shadow:
+          0 2px 4px rgba(0, 0, 0, 0.05),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.speaker-nav-btn-prev {
+  left: -28px;
+}
+
+.speaker-nav-btn-next {
+  right: -28px;
+}
+
+.speaker-nav-btn i {
+  color: var(--primary);
+  font-size: 18px;
+  transition: color 0.2s ease;
+}
+
+.speaker-nav-btn:hover:not(:disabled) i {
+  color: var(--info);
+}
+
+.speaker-nav-btn:disabled i {
+  color: #999;
+}
+
+/* Fixed height card content */
+.speaker-detail-card {
+  min-height: 580px;
+  border: none;
+  box-shadow:
+          0 20px 40px rgba(0, 0, 0, 0.1),
+          0 8px 16px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.3s ease;
+}
+
+.speaker-detail-card:hover {
+  box-shadow:
+          0 24px 48px rgba(0, 0, 0, 0.12),
+          0 12px 20px rgba(0, 0, 0, 0.08);
+}
+
+.speaker-detail-card .card-body {
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+}
+
+.speaker-bio-section {
+  flex: 1;
+  min-height: 200px;
+}
+
+.speaker-meta-section {
+  margin-top: auto;
+}
+
+/* Smooth transitions for card content */
+.speaker-content-wrapper {
+  transition: opacity 0.2s ease-in-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .speaker-nav-btn {
+    width: 48px;
+    height: 48px;
+  }
+
+  .speaker-nav-btn-prev {
+    left: -24px;
+  }
+
+  .speaker-nav-btn-next {
+    right: -24px;
+  }
+
+  .speaker-nav-btn i {
+    font-size: 16px;
+  }
+
+  .speaker-detail-card {
+    min-height: auto;
+  }
+
+  .speaker-detail-card .card-body {
+    min-height: auto;
+  }
+}
+
+
+

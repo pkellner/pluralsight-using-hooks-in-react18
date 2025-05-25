@@ -13,7 +13,6 @@ export default function SpeakerDetail({ speakersData, initialSelectedSpeakerId =
     return null;
   }
 
-
   const currentSpeaker = speakers.find(speaker => speaker.id === selectedSpeakerId) || speakers[0];
   const currentSpeakerIndex = speakers.findIndex(speaker => speaker.id === selectedSpeakerId);
   const isFirstSpeaker = currentSpeakerIndex === 0;
@@ -57,10 +56,7 @@ export default function SpeakerDetail({ speakersData, initialSelectedSpeakerId =
             {speakers.length > 1 && (
               <>
                 <button
-                  className={`btn btn-outline-secondary position-absolute top-50 start-0 translate-middle-y rounded-circle d-flex align-items-center justify-content-center ${
-                    isFirstSpeaker ? 'opacity-25' : ''
-                  }`}
-                  style={{ width: '48px', height: '48px', zIndex: 10, marginLeft: '-24px' }}
+                  className="speaker-nav-btn speaker-nav-btn-prev"
                   onClick={handlePreviousSpeaker}
                   disabled={isFirstSpeaker}
                   aria-label="Previous speaker"
@@ -69,10 +65,7 @@ export default function SpeakerDetail({ speakersData, initialSelectedSpeakerId =
                 </button>
 
                 <button
-                  className={`btn btn-outline-secondary position-absolute top-50 end-0 translate-middle-y rounded-circle d-flex align-items-center justify-content-center ${
-                    isLastSpeaker ? 'opacity-25' : ''
-                  }`}
-                  style={{ width: '48px', height: '48px', zIndex: 10, marginRight: '-24px' }}
+                  className="speaker-nav-btn speaker-nav-btn-next"
                   onClick={handleNextSpeaker}
                   disabled={isLastSpeaker}
                   aria-label="Next speaker"
@@ -82,7 +75,7 @@ export default function SpeakerDetail({ speakersData, initialSelectedSpeakerId =
               </>
             )}
 
-            <div className="card border-0 shadow">
+            <div className="card speaker-detail-card">
               <div className="row g-0">
                 <div className="col-md-5 d-flex justify-content-center align-items-center p-5">
                   <SpeakerImage
@@ -95,41 +88,45 @@ export default function SpeakerDetail({ speakersData, initialSelectedSpeakerId =
                 </div>
                 <div className="col-md-7">
                   <div className="card-body p-5">
-                    <h2 className="card-title mb-4">
-                      <SpeakerName speaker={currentSpeaker} />
-                    </h2>
+                    <div className="speaker-content-wrapper">
+                      <h2 className="card-title mb-4">
+                        <SpeakerName speaker={currentSpeaker} />
+                      </h2>
 
-                    <div className="mb-4">
-                      <h5 className="text-muted mb-3">Biography</h5>
-                      <p className="card-text lh-lg">{currentSpeaker.bio}</p>
-                    </div>
-
-                    <div className="row mb-4">
-                      <div className="col-lg-6 mb-3">
-                        <h6 className="text-muted mb-2">Company</h6>
-                        <p className="mb-0 fw-medium">
-                          <SpeakerCompany speaker={currentSpeaker} />
-                        </p>
+                      <div className="speaker-bio-section mb-4">
+                        <h5 className="text-muted mb-3">Biography</h5>
+                        <p className="card-text lh-lg">{currentSpeaker.bio}</p>
                       </div>
-                    </div>
 
-                    {currentSpeaker.email && (
-                      <div className="mb-4">
-                        <h6 className="text-muted mb-2">Email</h6>
-                        <p className="mb-0 fw-medium">{currentSpeaker.email}</p>
+                      <div className="speaker-meta-section">
+                        <div className="row mb-4">
+                          <div className="col-lg-6 mb-3">
+                            <h6 className="text-muted mb-2">Company</h6>
+                            <p className="mb-0 fw-medium">
+                              <SpeakerCompany speaker={currentSpeaker} />
+                            </p>
+                          </div>
+                        </div>
+
+                        {currentSpeaker.email && (
+                          <div className="mb-4">
+                            <h6 className="text-muted mb-2">Email</h6>
+                            <p className="mb-0 fw-medium">{currentSpeaker.email}</p>
+                          </div>
+                        )}
+
+                        <div className="d-flex gap-4">
+                          {currentSpeaker.sun && currentSpeaker.sat && (
+                            <i>Speaking Saturday and Sunday</i>
+                          )}
+                          {!currentSpeaker.sun && currentSpeaker.sat && (
+                            <i>Speaking Saturday</i>
+                          )}
+                          {currentSpeaker.sun && !currentSpeaker.sat && (
+                            <i>Speaking Sunday</i>
+                          )}
+                        </div>
                       </div>
-                    )}
-
-                    <div className="d-flex gap-4">
-                      {currentSpeaker.sun && currentSpeaker.sat && (
-                        <i>Speaking Saturday and Sunday</i>
-                      )}
-                      {!currentSpeaker.sun && currentSpeaker.sat && (
-                        <i>Speaking Saturday</i>
-                      )}
-                      {currentSpeaker.sun && !currentSpeaker.sat && (
-                        <i>Speaking Sunday</i>
-                      )}
                     </div>
                   </div>
                 </div>
