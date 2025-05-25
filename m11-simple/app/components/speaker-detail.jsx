@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { startTransition, useState } from "react";
 import SubTitle from "@/app/components/sub-title";
 import SpeakerDetailContent from "@/app/components/speaker-detail-content";
 
@@ -11,7 +11,7 @@ export default function SpeakerDetail({
     initialSelectedSpeakerId || null,
   );
 
-  const [transitionToSpeaker, setTransitionToSpeaker] = useState(null);
+  // const [transitionToSpeaker, setTransitionToSpeaker] = useState(null);
   const [transitionToSpeakerDirection, setTransitionToSpeakerDirection] =
     useState(null); // "left or right"
 
@@ -36,23 +36,29 @@ export default function SpeakerDetail({
     ? null
     : speakers[currentSpeakerIndex + 1];
 
-  console.log(
-    "/app/components/speaker-detail.jsx",
-    "currentSpeaker",
-    currentSpeakerBefore?.lastName ?? null,
-    currentSpeaker?.lastName,
-    currentSpeakerAfter?.lastName ?? null,
-  );
+  // console.log(
+  //   "/app/components/speaker-detail.jsx",
+  //   "currentSpeaker",
+  //   currentSpeakerBefore?.lastName ?? null,
+  //   currentSpeaker?.lastName,
+  //   currentSpeakerAfter?.lastName ?? null,
+  // );
 
   function handlePreviousSpeaker() {
     if (!isFirstSpeaker) {
-      setSelectedSpeakerId(speakers[currentSpeakerIndex - 1].id);
+      startTransition(() => {
+        setSelectedSpeakerId(speakers[currentSpeakerIndex - 1].id);
+        setTransitionToSpeakerDirection("right");
+      });
     }
   }
 
   function handleNextSpeaker() {
     if (!isLastSpeaker) {
-      setSelectedSpeakerId(speakers[currentSpeakerIndex + 1].id);
+      startTransition(() => {
+        setSelectedSpeakerId(speakers[currentSpeakerIndex + 1].id);
+        setTransitionToSpeakerDirection("left");
+      });
     }
   }
 
