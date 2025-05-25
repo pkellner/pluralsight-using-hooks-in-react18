@@ -634,15 +634,15 @@ header ul li button:focus {
   }
 }
 
-/*---- DEFAULTS    -----*/
+/*---- DEFAULTS ANIMATION SPEEDS    -----*/
 
 ::view-transition-old(*),
 ::view-transition-new(*) {
-  animation-duration: 300ms !important;
+  animation-duration: 4000ms !important;
 }
 
 ::view-transition-group(*) {
-  animation-duration: 300ms !important;
+  animation-duration: 4000ms !important;
   transition: none !important;
 }
 
@@ -744,6 +744,7 @@ header ul li button:focus {
 }
 
 .speaker-detail-card .card-body {
+  width: 100%;
   min-height: 480px;
   display: flex;
   flex-direction: column;

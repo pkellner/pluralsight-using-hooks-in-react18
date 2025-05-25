@@ -1,5 +1,4 @@
 "use client";
-import { unstable_ViewTransition as ViewTransition, useEffect } from "react";
 import { useState, startTransition } from "react";
 
 import SpeakerList from "@/app/components/speaker-list";
