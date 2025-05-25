@@ -9,7 +9,6 @@ export default function SpeakerDetailContent(props) {
       <div className="col-md-5 d-flex justify-content-center align-items-center p-2">
         <div className="speaker-image-container">
           <SpeakerImage
-
             speakerId={props.currentSpeaker.id}
             imageUrl={props.currentSpeaker.imageUrl}
             alt={`${props.currentSpeaker.firstName} ${props.currentSpeaker.lastName}`}

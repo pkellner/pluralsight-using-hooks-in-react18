@@ -10,7 +10,7 @@ export default function SpeakerListItem({ speaker, onSpeakerClick, isLoading }) 
         <div className="card border-0 shadow-sm mb-3">
           <div className="card-body p-0">
             <div className="row g-0 align-items-start py-3">
-              <div className="col-4 d-flex justify-content-center align-items-start px-3">
+              <div className="col-4 d-flex justify-content-center align-items-start p-2">
                 <SpeakerImage
                   speakerId={speaker.id}
                   imageUrl={speaker.imageUrl}

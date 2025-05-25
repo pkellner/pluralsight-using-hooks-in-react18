@@ -79,15 +79,66 @@ export default function SpeakerDetail({
               </>
             )}
 
-            <SpeakerDetailContent key={currentSpeaker.id} currentSpeaker={currentSpeaker} />
+            <SpeakerDetailContent
+              key={currentSpeaker.id}
+              currentSpeaker={currentSpeaker}
+            />
 
-            {speakers.length > 1 && (
-              <div className="text-center mt-3">
-                <small className="text-muted">
-                  Speaker {currentSpeakerIndex + 1} of {speakers.length}
-                </small>
-              </div>
-            )}
+            <>
+              {speakers.length > 1 && (
+                <nav
+                  aria-label="Speaker pagination"
+                  className="d-flex justify-content-center mt-3"
+                >
+                  <ul className="pagination pagination-sm mb-0">
+                    <li
+                      className={`page-item${
+                        isFirstSpeaker ? " disabled" : ""
+                      }`}
+                    >
+                      <button
+                        className="page-link"
+                        onClick={handlePreviousSpeaker}
+                        disabled={isFirstSpeaker}
+                        aria-label="Previous"
+                      >
+                        <span aria-hidden="true">&laquo;</span>
+                      </button>
+                    </li>
+                    {speakers.map((_, idx) => (
+                      <li
+                        key={idx}
+                        className={`page-item${
+                          idx === currentSpeakerIndex ? " active" : ""
+                        }`}
+                      >
+                        <button
+                          className="page-link"
+                          onClick={() => setSelectedSpeakerId(speakers[idx].id)}
+                          aria-current={
+                            idx === currentSpeakerIndex ? "page" : undefined
+                          }
+                        >
+                          {idx + 1}
+                        </button>
+                      </li>
+                    ))}
+                    <li
+                      className={`page-item${isLastSpeaker ? " disabled" : ""}`}
+                    >
+                      <button
+                        className="page-link"
+                        onClick={handleNextSpeaker}
+                        disabled={isLastSpeaker}
+                        aria-label="Next"
+                      >
+                        <span aria-hidden="true">&raquo;</span>
+                      </button>
+                    </li>
+                  </ul>
+                </nav>
+              )}
+            </>
           </div>
         </div>
       </div>

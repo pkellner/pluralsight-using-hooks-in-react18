@@ -749,8 +749,8 @@ header ul li button:focus {
   transition: opacity 0.2s ease-in-out;
 }
 .speaker-detail-card .speaker-image-container {
-  width: 100%;
-  height: 480px;
+  /*width: 100%;*/
+  /*height: 480px;*/
   display: flex;
   align-items: center;
   justify-content: center;
