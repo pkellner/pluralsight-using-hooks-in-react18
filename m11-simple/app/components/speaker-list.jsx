@@ -38,7 +38,7 @@ export default function SpeakerList({ speakers, onExit, slideDirection }) {
 
   if (selectedSpeakerId) {
     return (
-      <ViewTransition enter={vtEnter} exit={vtExit}>
+      <ViewTransition>
         <SpeakerDetail
           speakerData={speakerData}
           onBackClick={handleBackClick}

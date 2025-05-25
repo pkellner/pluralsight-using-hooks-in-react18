@@ -262,7 +262,7 @@ header ul li button:focus {
 }
 
 .card h4.card-title a {
-  color: var(--less-darkdark);
+  /*color: var(--less-darkdark);*/
   opacity: 0.9;
   transition: 250ms ease all;
 }
@@ -313,7 +313,9 @@ header ul li button:focus {
 }
 
 .speaker-image-large {
-  display: flex;
+}
+
+.speaker-image-thumb {
 }
 
 .speaker-action {
@@ -438,11 +440,11 @@ header ul li button:focus {
 
 ::view-transition-old(*),
 ::view-transition-new(*) {
-  animation-duration: 3s !important;
+  animation-duration: 800ms !important;
 }
 
 ::view-transition-group(*) {
-  animation-duration: 3s !important;
+  animation-duration: 800ms !important;
   transition: none !important;
 }
 

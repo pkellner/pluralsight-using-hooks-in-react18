@@ -7,7 +7,7 @@ import SpeakerCompany from "@/app/components/speaker-fields/speaker-company";
 export default function SpeakerDetail({ speakerData, onBackClick }) {
   console.log("/app/components/speaker-detail.jsx", { speakerData });
   return (
-    <ViewTransition>
+    <>
       {speakerData ? (
         <div className="container py-4">
           <div className="row">
@@ -86,6 +86,6 @@ export default function SpeakerDetail({ speakerData, onBackClick }) {
           </div>
         </div>
       ) : null}
-    </ViewTransition>
+    </>
   );
 }
