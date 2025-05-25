@@ -1,18 +1,17 @@
-'use client';
-
+"use client";
 
 import {
+  startTransition,
   unstable_ViewTransition as ViewTransition,
   useState,
-  startTransition
-} from 'react';
-import {Video} from "./video";
-import videos from "./data"
+} from "react";
+import { Video } from "./video";
+import videos from "./data";
 
 function Item() {
   return (
     <ViewTransition default="slow-fade">
-      <Video video={videos[0]}/>
+      <Video video={videos[0]} />
     </ViewTransition>
   );
 }
@@ -27,7 +26,9 @@ export default function Component() {
             setShowItem((prev) => !prev);
           });
         }}
-      >{showItem ? '➖' : '➕'}</button>
+      >
+        {showItem ? "➖" : "➕"}
+      </button>
 
       {showItem ? <Item /> : null}
     </>

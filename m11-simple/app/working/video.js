@@ -11,9 +11,7 @@ function Thumbnail({ video, children }) {
 export function Video({ video }) {
   return (
     <div className="video">
-      <div
-        className="link"
-      >
+      <div className="link">
         <Thumbnail video={video}></Thumbnail>
 
         <div className="info">

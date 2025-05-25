@@ -532,25 +532,25 @@ header ul li button:focus {
 
 ::view-transition-old(.slide-in) {
   animation-name: slideOutRight;
-  animation-duration: 500ms;
+  animation-duration: 3500ms;
   animation-timing-function: ease-in-out;
 }
 
 ::view-transition-new(.slide-in) {
   animation-name: slideInRight;
-  animation-duration: 500ms;
+  animation-duration: 3500ms;
   animation-timing-function: ease-in-out;
 }
 
 ::view-transition-old(.slide-out) {
   animation-name: slideOutLeft;
-  animation-duration: 500ms;
+  animation-duration: 3500ms;
   animation-timing-function: ease-in-out;
 }
 
 ::view-transition-new(.slide-out) {
   animation-name: slideInLeft;
-  animation-duration: 500ms;
+  animation-duration: 3500ms;
   animation-timing-function: ease-in-out;
 }
 

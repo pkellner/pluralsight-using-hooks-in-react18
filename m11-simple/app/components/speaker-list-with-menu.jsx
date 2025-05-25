@@ -124,7 +124,11 @@ export default function SpeakerListWithMenu({
       )}
 
       {selectedSpeakerId && (
-        <SpeakerDetail speakersData={filteredSpeakers} initialSpeakerIndex={selectedSpeakerId} onBackClick={onExit} />
+        <SpeakerDetail
+          speakersData={filteredSpeakers}
+          initialSpeakerIndex={selectedSpeakerId}
+          onBackClick={onExit}
+        />
       )}
 
       {/*{selectedSpeakerId && (*/}

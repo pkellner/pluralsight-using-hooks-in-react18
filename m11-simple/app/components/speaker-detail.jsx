@@ -12,7 +12,8 @@ export default function SpeakerDetail({
   );
 
   const [transitionToSpeaker, setTransitionToSpeaker] = useState(null);
-  const [transitionToSpeakerDirection, setTransitionToSpeakerDirection] = useState(null); // "left or right"
+  const [transitionToSpeakerDirection, setTransitionToSpeakerDirection] =
+    useState(null); // "left or right"
 
   const speakers = speakersData || [];
 
@@ -35,9 +36,13 @@ export default function SpeakerDetail({
     ? null
     : speakers[currentSpeakerIndex + 1];
 
-
-  console.log("/app/components/speaker-detail.jsx", "currentSpeaker",
-    currentSpeakerBefore?.lastName ?? null, currentSpeaker?.lastName, currentSpeakerAfter?.lastName ?? null)
+  console.log(
+    "/app/components/speaker-detail.jsx",
+    "currentSpeaker",
+    currentSpeakerBefore?.lastName ?? null,
+    currentSpeaker?.lastName,
+    currentSpeakerAfter?.lastName ?? null,
+  );
 
   function handlePreviousSpeaker() {
     if (!isFirstSpeaker) {

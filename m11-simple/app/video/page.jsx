@@ -1,22 +1,18 @@
-'use client'
-import {
-  unstable_ViewTransition as ViewTransition,
-  useState,
-  startTransition
-} from "react";
-import {Video, Thumbnail, FullscreenVideo} from "./video";
+"use client";
+import { startTransition, useState } from "react";
+import { FullscreenVideo, Video } from "./video";
 
 export default function VideoPage() {
   const [fullscreen, setFullscreen] = useState(false);
 
   const videos = [
     {
-      id: '1',
-      title: 'First video',
-      description: 'Video description',
-      image: 'blue',
-    }
-  ]
+      id: "1",
+      title: "First video",
+      description: "Video description",
+      image: "blue",
+    },
+  ];
 
   if (fullscreen) {
     return (
@@ -93,7 +89,9 @@ export default function VideoPage() {
             color: white;
             font-size: 20px;
             cursor: pointer;
-            transition: background-color 0.3s, border 0.3s;
+            transition:
+              background-color 0.3s,
+              border 0.3s;
           }
 
           button:hover {
@@ -119,11 +117,21 @@ export default function VideoPage() {
           }
 
           .thumbnail.blue {
-            background-image: conic-gradient(at top right, #c76a15, #087ea4, #2b3491);
+            background-image: conic-gradient(
+              at top right,
+              #c76a15,
+              #087ea4,
+              #2b3491
+            );
           }
 
           .thumbnail.red {
-            background-image: conic-gradient(at top right, #c76a15, #a6423a, #2b3491);
+            background-image: conic-gradient(
+              at top right,
+              #c76a15,
+              #a6423a,
+              #2b3491
+            );
           }
 
           .thumbnail.fullscreen {
@@ -195,7 +203,7 @@ export default function VideoPage() {
           }
         `}</style>
       </>
-    )
+    );
   }
 
   return (
@@ -272,7 +280,9 @@ export default function VideoPage() {
           color: white;
           font-size: 20px;
           cursor: pointer;
-          transition: background-color 0.3s, border 0.3s;
+          transition:
+            background-color 0.3s,
+            border 0.3s;
         }
 
         button:hover {
@@ -298,11 +308,21 @@ export default function VideoPage() {
         }
 
         .thumbnail.blue {
-          background-image: conic-gradient(at top right, #c76a15, #087ea4, #2b3491);
+          background-image: conic-gradient(
+            at top right,
+            #c76a15,
+            #087ea4,
+            #2b3491
+          );
         }
 
         .thumbnail.red {
-          background-image: conic-gradient(at top right, #c76a15, #a6423a, #2b3491);
+          background-image: conic-gradient(
+            at top right,
+            #c76a15,
+            #a6423a,
+            #2b3491
+          );
         }
 
         .thumbnail.fullscreen {
@@ -374,5 +394,5 @@ export default function VideoPage() {
         }
       `}</style>
     </>
-  )
+  );
 }

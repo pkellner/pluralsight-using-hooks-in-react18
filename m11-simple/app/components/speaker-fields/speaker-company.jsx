@@ -4,9 +4,7 @@ export default function SpeakerCompany({ speaker: { id, company } }) {
   const nameForViewTransition = `SPEAKER_COMPANY_${id}`;
   return (
     <ViewTransition key={`${id}`} name={nameForViewTransition}>
-      <span>
-        {company}
-      </span>
+      <span>{company}</span>
     </ViewTransition>
   );
 }

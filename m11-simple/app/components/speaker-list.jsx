@@ -1,7 +1,7 @@
 import React, {
-  useState,
   startTransition,
   unstable_ViewTransition as ViewTransition,
+  useState,
 } from "react";
 import SpeakerListWithMenu from "./speaker-list-with-menu";
 import SpeakerDetail from "@/app/components/speaker-detail";
@@ -36,13 +36,21 @@ export default function SpeakerList({ speakers, onExit, slideDirection }) {
     // This ViewTransition is needed otherwise the card zindex goes below the speakerlist cards for some reason
     return (
       <ViewTransition name="SPEAKER-DETAIL-GROW-SHRINK">
-        <SpeakerDetail speakersData={speakers} initialSelectedSpeakerId={selectedSpeakerId} onBackClick={handleBackClick} />
+        <SpeakerDetail
+          speakersData={speakers}
+          initialSelectedSpeakerId={selectedSpeakerId}
+          onBackClick={handleBackClick}
+        />
       </ViewTransition>
     );
   }
 
   return (
-    <ViewTransition enter={vtEnter} exit={vtExit} name="SPEAKER-DETAIL-GROW-SHRINK">
+    <ViewTransition
+      enter={vtEnter}
+      exit={vtExit}
+      name="SPEAKER-DETAIL-GROW-SHRINK"
+    >
       <div className="container py-4">
         <div className="row">
           <div className="col-12">

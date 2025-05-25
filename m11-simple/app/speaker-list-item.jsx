@@ -3,7 +3,11 @@ import SpeakerImage from "@/app/components/speaker-image";
 import SpeakerName from "@/app/components/speaker-fields/speaker-name";
 import SpeakerCompany from "@/app/components/speaker-fields/speaker-company";
 
-export default function SpeakerListItem({ speaker, onSpeakerClick, isLoading }) {
+export default function SpeakerListItem({
+  speaker,
+  onSpeakerClick,
+  isLoading,
+}) {
   return (
     <ViewTransition key={speaker.id}>
       <div className="col-xl-4 col-lg-6 col-md-6 col-sm-12">
