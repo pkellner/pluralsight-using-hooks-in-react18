@@ -1,4 +1,4 @@
-import { useState, useEffect, useTransition } from "react";
+import { useEffect, useState, useTransition } from "react";
 
 function SpeakerImage({ imageUrl, alt, isLarge = false }) {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -15,7 +15,7 @@ function SpeakerImage({ imageUrl, alt, isLarge = false }) {
           style={{
             width: isLarge ? "200px" : "80px",
             height: isLarge ? "200px" : "80px",
-            objectFit: "cover"
+            objectFit: "cover",
           }}
         />
       ) : (
@@ -23,7 +23,7 @@ function SpeakerImage({ imageUrl, alt, isLarge = false }) {
           className="bg-primary d-flex align-items-center justify-content-center text-white"
           style={{
             width: isLarge ? "200px" : "80px",
-            height: isLarge ? "200px" : "80px"
+            height: isLarge ? "200px" : "80px",
           }}
         >
           <i className="bi bi-person-fill fs-1"></i>
@@ -61,7 +61,10 @@ function SpeakerListItem({ speaker, onSpeakerClick, isLoading }) {
                       {speaker.firstName} {speaker.lastName}
                       {isLoading && (
                         <span className="ms-2">
-                          <div className="spinner-border spinner-border-sm text-primary" role="status">
+                          <div
+                            className="spinner-border spinner-border-sm text-primary"
+                            role="status"
+                          >
                             <span className="visually-hidden">Loading...</span>
                           </div>
                         </span>
@@ -71,7 +74,9 @@ function SpeakerListItem({ speaker, onSpeakerClick, isLoading }) {
                   <small className="text-muted">
                     <strong>Company:</strong> {speaker.company}
                   </small>
-                  <p className="mb-1 text-muted small">{speaker.userBioShort}</p>
+                  <p className="mb-1 text-muted small">
+                    {speaker.userBioShort}
+                  </p>
                 </div>
                 <div className="d-flex flex-column align-items-end">
                   <div className="form-check form-check-inline">
@@ -82,7 +87,10 @@ function SpeakerListItem({ speaker, onSpeakerClick, isLoading }) {
                       checked={speaker.sat}
                       readOnly
                     />
-                    <label className="form-check-label small" htmlFor={`sat-${speaker.id}`}>
+                    <label
+                      className="form-check-label small"
+                      htmlFor={`sat-${speaker.id}`}
+                    >
                       Sat
                     </label>
                   </div>
@@ -94,7 +102,10 @@ function SpeakerListItem({ speaker, onSpeakerClick, isLoading }) {
                       checked={speaker.sun}
                       readOnly
                     />
-                    <label className="form-check-label small" htmlFor={`sun-${speaker.id}`}>
+                    <label
+                      className="form-check-label small"
+                      htmlFor={`sun-${speaker.id}`}
+                    >
                       Sun
                     </label>
                   </div>
@@ -114,10 +125,7 @@ function SpeakerDetail({ speaker, onBackClick }) {
       <div className="row justify-content-center">
         <div className="col-lg-8 col-xl-6">
           <div className="mb-3">
-            <button
-              className="btn btn-outline-primary"
-              onClick={onBackClick}
-            >
+            <button className="btn btn-outline-primary" onClick={onBackClick}>
               <i className="bi bi-arrow-left me-2"></i>
               Back to Speakers
             </button>
@@ -171,7 +179,10 @@ function SpeakerDetail({ speaker, onBackClick }) {
                         checked={speaker.sat}
                         readOnly
                       />
-                      <label className="form-check-label" htmlFor={`detail-sat-${speaker.id}`}>
+                      <label
+                        className="form-check-label"
+                        htmlFor={`detail-sat-${speaker.id}`}
+                      >
                         Saturday Session
                       </label>
                     </div>
@@ -183,7 +194,10 @@ function SpeakerDetail({ speaker, onBackClick }) {
                         checked={speaker.sun}
                         readOnly
                       />
-                      <label className="form-check-label" htmlFor={`detail-sun-${speaker.id}`}>
+                      <label
+                        className="form-check-label"
+                        htmlFor={`detail-sun-${speaker.id}`}
+                      >
                         Sunday Session
                       </label>
                     </div>
@@ -209,11 +223,11 @@ export default function SpeakersNew() {
   useEffect(() => {
     async function loadSpeakers() {
       try {
-        const response = await fetch('/api/speakers');
+        const response = await fetch("/api/speakers");
         const data = await response.json();
         setSpeakers(data);
       } catch (error) {
-        console.error('Error loading speakers:', error);
+        console.error("Error loading speakers:", error);
       } finally {
         setIsInitialLoading(false);
       }
@@ -232,7 +246,7 @@ export default function SpeakersNew() {
         setSelectedSpeaker(speakerData);
         setSelectedSpeakerId(speakerId);
       } catch (error) {
-        console.error('Error loading speaker details:', error);
+        console.error("Error loading speaker details:", error);
       } finally {
         setLoadingSpeakerId(null);
       }
@@ -260,10 +274,7 @@ export default function SpeakersNew() {
 
   if (selectedSpeaker) {
     return (
-      <SpeakerDetail
-        speaker={selectedSpeaker}
-        onBackClick={handleBackClick}
-      />
+      <SpeakerDetail speaker={selectedSpeaker} onBackClick={handleBackClick} />
     );
   }
 
@@ -288,4 +299,3 @@ export default function SpeakersNew() {
     </div>
   );
 }
-

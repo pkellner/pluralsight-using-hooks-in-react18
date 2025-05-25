@@ -10,7 +10,7 @@ import SubTitle from "@/app/components/sub-title";
 
 function LoadingButton({ isLoading, onClick }) {
   return (
-    <ViewTransition enter={"flip-in"} exit="flip-out">
+    <ViewTransition enter={"flip-in"} exit="flip-out"   >
       <div className="mt-5">
         <button
           onClick={() => {
@@ -33,7 +33,7 @@ function LoadingButton({ isLoading, onClick }) {
 
 function EnterButton({ isLoading, onClick }) {
   return (
-    <ViewTransition enter={"flip-in"} exit="flip-out">
+    <ViewTransition enter={"flip-in"} exit="flip-out" >
       <div className="mt-5">
         <button
           onClick={() => {
@@ -88,7 +88,7 @@ export default function HomeEnterPage({
   }
 
   return (
-    <ViewTransition enter={vtEnter} exit={vtExit}>
+    <ViewTransition enter={vtEnter} exit={vtExit} >
       <div className="container-fluid bg-light min-vh-100 d-flex flex-column justify-content-center align-items-center position-relative">
         <div className="text-center">
           <h1 className="display-1 fw-bold text-primary mb-4">

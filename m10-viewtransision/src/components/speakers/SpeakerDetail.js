@@ -1,7 +1,11 @@
 import FavoriteSpeakerToggle from "./FavoriteSpeakerToggle";
 import SpeakerImageToggleOnScroll from "./SpeakerImageToggleOnScroll";
 
-export default function SpeakerDetail({ speakerRec, showDetails, onBackToList }) {
+export default function SpeakerDetail({
+  speakerRec,
+  showDetails,
+  onBackToList,
+}) {
   if (!speakerRec) return null;
 
   return (
@@ -9,10 +13,7 @@ export default function SpeakerDetail({ speakerRec, showDetails, onBackToList })
       <div className="row justify-content-center">
         <div className="col-12 col-lg-10 col-xl-8">
           <div className="d-flex justify-content-between align-items-center mb-4">
-            <button
-              className="btn btn-outline-primary"
-              onClick={onBackToList}
-            >
+            <button className="btn btn-outline-primary" onClick={onBackToList}>
               ← Back to Speakers
             </button>
             <div className="favoriteToggleWrapper">
@@ -23,7 +24,7 @@ export default function SpeakerDetail({ speakerRec, showDetails, onBackToList })
           <div className="card border-0 shadow-lg">
             <div className="row g-0">
               <div className="col-lg-6">
-                <div style={{ height: '100%', minHeight: '500px' }}>
+                <div style={{ height: "100%", minHeight: "500px" }}>
                   <SpeakerImageToggleOnScroll
                     imageUrl={speakerRec?.imageUrl}
                     alt={`${speakerRec?.firstName} ${speakerRec?.lastName}`}

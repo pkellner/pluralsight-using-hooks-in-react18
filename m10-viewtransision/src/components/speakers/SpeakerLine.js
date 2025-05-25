@@ -3,7 +3,13 @@ import FavoriteSpeakerToggleLine from "./FavoriteSpeakerToggleLine";
 import SpeakerImageToggleOnScroll from "./SpeakerImageToggleOnScroll";
 
 const SpeakerLine = memo(
-  ({ speakerRec, toggleFavoriteSpeaker, updating, highlight, onSpeakerSelect }) => {
+  ({
+    speakerRec,
+    toggleFavoriteSpeaker,
+    updating,
+    highlight,
+    onSpeakerSelect,
+  }) => {
     console.log(`SpeakerLine: speaker: ${speakerRec.lastName}`);
     return (
       <div className="col-xl-12 col-md-12">
@@ -66,7 +72,7 @@ const SpeakerLine = memo(
         </div>
       </div>
     );
-  }
+  },
 );
 
 export default SpeakerLine;

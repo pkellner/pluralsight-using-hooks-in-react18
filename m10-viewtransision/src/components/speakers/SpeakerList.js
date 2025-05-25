@@ -1,12 +1,6 @@
 import SpeakerLine from "./SpeakerLine";
 import SpeakerDetail from "./SpeakerDetail";
-import {
-  startTransition,
-  useContext,
-  useEffect,
-  useState,
-  useTransition
-} from "react";
+import { useContext, useEffect, useState, useTransition } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 import axios from "axios";
 
@@ -25,7 +19,7 @@ function List({ speakers, onSpeakerSelect }) {
       try {
         await axios.put(`/api/speakers/${record.id}`, speakerRecordUpdated);
       } catch (error) {
-        console.error('Error updating speaker:', error);
+        console.error("Error updating speaker:", error);
       }
     }
     updateAsync(speakerRecordUpdated);
@@ -105,7 +99,7 @@ function SpeakerList() {
         const results = await axios.get("/api/speakers");
         setSpeakers(results.data);
       } catch (error) {
-        console.error('Error loading speakers:', error);
+        console.error("Error loading speakers:", error);
       } finally {
         setLoading(false);
       }
@@ -130,7 +124,10 @@ function SpeakerList() {
 
   if (loading) {
     return (
-      <div className="d-flex justify-content-center align-items-center" style={{ minHeight: '50vh' }}>
+      <div
+        className="d-flex justify-content-center align-items-center"
+        style={{ minHeight: "50vh" }}
+      >
         <div className="spinner-border text-primary" role="status">
           <span className="visually-hidden">Loading speakers...</span>
         </div>
@@ -147,10 +144,7 @@ function SpeakerList() {
           onBackToList={handleBackToList}
         />
       ) : (
-        <List
-          speakers={speakers}
-          onSpeakerSelect={handleSpeakerSelect}
-        />
+        <List speakers={speakers} onSpeakerSelect={handleSpeakerSelect} />
       )}
     </div>
   );

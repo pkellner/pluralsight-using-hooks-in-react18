@@ -1,37 +1,44 @@
 import {
-  useState,
-  useEffect,
-  unstable_ViewTransition as ViewTransition,
+  startTransition,
   useTransition,
+  unstable_ViewTransition as ViewTransition,
+  useEffect,
+  useState,
 } from "react";
 
-function SpeakerImage({ imageUrl, alt, isLarge = false }) {
+function SpeakerImage({ id, imageUrl, alt, isLarge = false }) {
   const sizeClass = isLarge ? "speaker-image-large" : "speaker-image-thumb";
 
   return (
-    <div className={`speaker-image-container ${sizeClass}`}>
-      {imageUrl ? (
-        <img
-          src={imageUrl}
-          alt={alt}
-          className={`img-fluid rounded ${sizeClass}`}
-          style={{
-            width: isLarge ? "200px" : "120px",
-            height: isLarge ? "200px" : "120px",
-            objectFit: "cover",
-          }}
-        />
-      ) : (
-        <div
-          className="bg-primary d-flex align-items-center justify-content-center text-white rounded"
-          style={{
-            width: isLarge ? "200px" : "120px",
-            height: isLarge ? "200px" : "120px",
-          }}
-        >
-          <i className={`bi bi-person-fill ${isLarge ? "fs-1" : "fs-2"}`}></i>
+    <div>
+      <ViewTransition name={`IMAGE-${id}`}>
+        <div className={`speaker-image-container ${sizeClass}`}>
+          {imageUrl ? (
+            <img
+              src={imageUrl}
+              alt={alt}
+              className={`img-fluid rounded ${sizeClass}`}
+              style={{
+                width: isLarge ? "200px" : "120px",
+                height: isLarge ? "200px" : "120px",
+                objectFit: "cover",
+              }}
+            />
+          ) : (
+            <div
+              className="bg-primary d-flex align-items-center justify-content-center text-white rounded"
+              style={{
+                width: isLarge ? "200px" : "120px",
+                height: isLarge ? "200px" : "120px",
+              }}
+            >
+              <i
+                className={`bi bi-person-fill ${isLarge ? "fs-1" : "fs-2"}`}
+              ></i>
+            </div>
+          )}
         </div>
-      )}
+      </ViewTransition>
     </div>
   );
 }
@@ -47,6 +54,7 @@ function SpeakerListItem({ speaker, onSpeakerClick, isLoading }) {
                 imageUrl={speaker.imageUrl}
                 alt={`${speaker.firstName} ${speaker.lastName}`}
                 isLarge={false}
+                id={speaker.id}
               />
             </div>
 
@@ -116,6 +124,7 @@ function SpeakerDetail({ speaker, onBackClick }) {
                   imageUrl={speaker.imageUrl}
                   alt={`${speaker.firstName} ${speaker.lastName}`}
                   isLarge={true}
+                  id={speaker.id}
                 />
               </div>
               <div className="col-md-7">
@@ -305,12 +314,7 @@ function SpeakersNew() {
 
   if (selectedSpeaker) {
     return (
-
-        <SpeakerDetail
-          speaker={selectedSpeaker}
-          onBackClick={handleBackClick}
-        />
-
+      <SpeakerDetail speaker={selectedSpeaker} onBackClick={handleBackClick} />
     );
   }
 
