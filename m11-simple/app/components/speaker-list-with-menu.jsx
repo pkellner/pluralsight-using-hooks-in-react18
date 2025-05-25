@@ -99,6 +99,8 @@ export default function SpeakerListWithMenu({
     return false;
   });
 
+  debugger;
+
   return (
     <>
       {!selectedSpeakerId && (
@@ -124,8 +126,12 @@ export default function SpeakerListWithMenu({
       )}
 
       {selectedSpeakerId && (
-        <SpeakerDetail speaker={selectedSpeaker} onBackClick={onExit} />
+        <SpeakerDetail speakersData={filteredSpeakers} initialSpeakerIndex={selectedSpeakerId} onBackClick={onExit} />
       )}
+
+      {/*{selectedSpeakerId && (*/}
+      {/*  <SpeakerDetail speaker={selectedSpeaker} onBackClick={onExit} />*/}
+      {/*)}*/}
     </>
   );
 }

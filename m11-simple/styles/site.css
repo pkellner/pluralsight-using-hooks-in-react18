@@ -437,19 +437,6 @@ header ul li button:focus {
   }
 }
 
-
-::view-transition-old(*),
-::view-transition-new(*) {
-  animation-duration: 800ms !important;
-}
-
-::view-transition-group(*) {
-  animation-duration: 800ms !important;
-  transition: none !important;
-}
-
-
-
 ::view-transition-old(.slow-fade) {
   animation-duration: 900ms;
 }
@@ -645,6 +632,18 @@ header ul li button:focus {
     transform: rotateX(0deg);
     opacity: 1;
   }
+}
+
+/*---- DEFAULTS    -----*/
+
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation-duration: 300ms !important;
+}
+
+::view-transition-group(*) {
+  animation-duration: 300ms !important;
+  transition: none !important;
 }
 
 

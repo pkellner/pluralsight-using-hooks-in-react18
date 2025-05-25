@@ -29,9 +29,7 @@ export default function SpeakerList({ speakers, onExit, slideDirection }) {
     });
   }
 
-  const speakerData = selectedSpeakerId
-    ? speakers.find((speaker) => speaker.id === selectedSpeakerId)
-    : null;
+
 
   const vtEnter = slideDirection === "right" ? "slide-in" : "slide-out";
   const vtExit = slideDirection === "left" ? "slide-out" : "slide-in";
@@ -39,10 +37,7 @@ export default function SpeakerList({ speakers, onExit, slideDirection }) {
   if (selectedSpeakerId) {
     return (
       <ViewTransition>
-        <SpeakerDetail
-          speakerData={speakerData}
-          onBackClick={handleBackClick}
-        />
+        <SpeakerDetail speakersData={speakers} initialSelectedSpeakerId={selectedSpeakerId} onBackClick={handleBackClick} />
       </ViewTransition>
     );
   }
