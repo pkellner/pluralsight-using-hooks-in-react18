@@ -426,16 +426,12 @@ header ul li button:focus {
 }
 
 
-/* Debug view transitions - slows them down for inspection */
 ::view-transition-old(*),
 ::view-transition-new(*) {
   animation-duration: 1s !important;
 }
 
 
-
-
-/* Slow fade transition */
 ::view-transition-old(.slow-fade) {
   animation-duration: 900ms;
 }
@@ -444,7 +440,6 @@ header ul li button:focus {
   animation-duration: 900ms;
 }
 
-/* Slide up and down transitions */
 ::view-transition-old(.slide-up) {
   animation: 600ms ease-in-out slide-up-old;
 }
@@ -461,17 +456,14 @@ header ul li button:focus {
   animation: 600ms ease-in-out slide-down-new;
 }
 
-/* Slide from bottom for content */
 ::view-transition-new(.slide-from-bottom-content) {
   animation: 800ms ease-out slide-from-bottom-content;
 }
 
-/* New transition for complete page slide from bottom */
 ::view-transition-new(.slide-from-bottom-complete) {
   animation: 900ms ease-out slide-from-bottom-complete;
 }
 
-/* Keyframe animations */
 @keyframes slide-up-old {
   from {
     transform: translateY(0);
@@ -600,21 +592,6 @@ header ul li button:focus {
     opacity: 1;
   }
 }
-
-.button-content {
-  min-width: 200px;
-}
-
-/* Loading state */
-.button-content.loading {
-  background: #0d6efd;
-}
-
-/* Enter state */
-.button-content.enter {
-  background: #198754;
-}
-
 
 ::view-transition-old(.flip-in) {
   animation-name: flipOutY;
