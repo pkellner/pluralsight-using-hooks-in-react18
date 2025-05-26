@@ -36,7 +36,7 @@ export default function SpeakerDetailContent({ currentSpeaker, slideDir }) {
           <div className="col-md-5 d-flex justify-content-center align-items-center p-2">
             <div
               className="speaker-image-container"
-              //style={{ transform: "scale(0.7)" }}
+              style={{ transform: "scale(0.7)" }}
             >
               <SpeakerImage
                 speakerId={id}
@@ -47,7 +47,6 @@ export default function SpeakerDetailContent({ currentSpeaker, slideDir }) {
             </div>
           </div>
 
-          {/* ---------- text ---------- */}
           <div className="col-md-7">
             <div className="card-body p-5">
               <h2 className="card-title mb-4">

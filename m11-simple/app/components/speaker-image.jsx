@@ -21,7 +21,7 @@ export default function SpeakerImage({
 
   return (
     <ViewTransition name={`SPEAKER_IMAGE_${speakerId}`}>
-      <div className={`speaker-image-container ${sizeClass}`}>
+      <div className={`speaker-image-container  ${sizeClass}`}>
         {imageUrl ? (
           <img
             src={imageUrl}

@@ -300,23 +300,29 @@ header ul li button:focus {
   color: var(--less-dark);
 }
 
-.speaker-image {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
+/*.speaker-image {*/
+/*  height: 100%;*/
+/*  width: 100%;*/
+/*  object-fit: cover;*/
+/*}*/
 
-.speaker-image-container {
-  display: flex;
-  flex-direction: row;
-  flex: 1 1 0;
-}
+/*.speaker-image-container {*/
+/*  display: flex;*/
+/*  flex-direction: row;*/
+/*  flex: 1 1 0;*/
+/*}*/
 
-.speaker-image-large {
-}
+/*.speaker-image-large {*/
+/*  height: 400px;*/
+/*  width: 100%;*/
+/*  object-fit: cover;*/
+/*}*/
 
-.speaker-image-thumb {
-}
+/*.speaker-image-thumb {*/
+/*  height: 200px;*/
+/*  width: 100%;*/
+/*  object-fit: cover;*/
+/*}*/
 
 .speaker-action {
   flex-wrap: wrap;
@@ -620,25 +626,25 @@ header ul li button:focus {
  *                     old card exits to   right   (exit-to-right)
  * ------------------------------------------------------- */
 
-::view-transition-new(.enter-from-right) {
+::view-transition-new(.right) {
   animation-name: slideInRight;
   animation-duration: 3500ms;
   animation-timing-function: ease-in-out;
 
-  ::view-transition-old(.exit-to-right) {
+  ::view-transition-old(.right) {
     animation-name: slideOutRight;
     animation-duration: 3500ms;
     animation-timing-function: ease-in-out;
   }
 }
 
-::view-transition-new(.enter-from-left) {
+::view-transition-new(.left) {
   animation-name: slideInLeft;
   animation-duration: 3500ms;
   animation-timing-function: ease-in-out;
 }
 
-::view-transition-old(.exit-to-left) {
+::view-transition-old(.left) {
   animation-name: slideOutLeft;
   animation-duration: 3500ms;
   animation-timing-function: ease-in-out;
@@ -892,12 +898,12 @@ header ul li button:focus {
 
 /*---- DEFAULTS ANIMATION SPEEDS    -----*/
 
-/*::view-transition-old(*),*/
-/*::view-transition-new(*) {*/
-/*  animation-duration: 1000ms !important;*/
-/*}*/
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation-duration: 4000ms !important;
+}
 
-/*::view-transition-group(*) {*/
-/*  animation-duration: 1000ms !important;*/
-/*  transition: none !important;*/
-/*}*/
+::view-transition-group(*) {
+  animation-duration: 500ms !important;
+  transition: none !important;
+}
