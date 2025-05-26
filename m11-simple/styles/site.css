@@ -606,50 +606,6 @@ header ul li button:focus {
   animation-name: slideInLeft;  /* Slides current speaker to right */
 }
 
-
-
-
-/* NEW content (next speaker arriving) */
-/*::view-transition-new(.enter-from-right) {*/
-/*  animation-name: slideInRight;  !* Slides next speaker in from right *!*/
-/*}*/
-
-
-
-/* ---------------------------------------------------------
- *  Map arrow click → CSS classes
- *    • "next" (►)  → new card enters from right   (enter-from-right)
- *                     old card exits to   left    (exit-to-left)
- *    • "prev" (◄)  → new card enters from left    (enter-from-left)
- *                     old card exits to   right   (exit-to-right)
- * ------------------------------------------------------- */
-
-
-
-/*::view-transition-new(.slide-right) {*/
-/*  animation-name: slideInRight;*/
-/*  animation-duration: 3500ms;*/
-/*  animation-timing-function: ease-in-out;*/
-/*}*/
-
-/*::view-transition-old(.slide-right) {*/
-/*  animation-name: slideOutRight;*/
-/*  animation-duration: 3500ms;*/
-/*  animation-timing-function: ease-in-out;*/
-/*}*/
-
-/*::view-transition-new(.slide-left) {*/
-/*  animation-name: slideInLeft;*/
-/*  animation-duration: 3500ms;*/
-/*  animation-timing-function: ease-in-out;*/
-/*}*/
-
-/*::view-transition-old(.slide-left) {*/
-/*  animation-name: slideOutLeft;*/
-/*  animation-duration: 3500ms;*/
-/*  animation-timing-function: ease-in-out;*/
-/*}*/
-
 @keyframes slideOutLeft {
   from {
     transform: translateX(0);

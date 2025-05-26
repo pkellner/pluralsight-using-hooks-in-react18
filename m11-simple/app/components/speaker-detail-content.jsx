@@ -6,7 +6,7 @@ import SpeakerCompany from "@/app/components/speaker-fields/speaker-company";
 export default function SpeakerDetailContent({ currentSpeaker, slideDir }) {
   const { id, firstName, lastName, bio, imageUrl, email, sat, sun } =
     currentSpeaker;
-  
+
   let enterClass;
   let exitClass;
 
