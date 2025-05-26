@@ -28,7 +28,10 @@ export default function SpeakerDetail({
     if (toIndex < 0 || toIndex >= speakers.length) return;
 
     startTransition(() => {
-      setSlideDir(toIndex > currentIndex ? "next" : "prev");
+      setSlideDir(function() {
+        return (toIndex > currentIndex ? "next" : "prev");
+      });
+      console.log("/app/components/speakerDetail: changeSpeaker:toIndex:",toIndex);
       setSelectedSpeakerId(speakers[toIndex].id);
     });
   }
