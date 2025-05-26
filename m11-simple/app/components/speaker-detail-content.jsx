@@ -6,20 +6,7 @@ import SpeakerCompany from "@/app/components/speaker-fields/speaker-company";
 export default function SpeakerDetailContent({ currentSpeaker, slideDir }) {
   const { id, firstName, lastName, bio, imageUrl, email, sat, sun } =
     currentSpeaker;
-
-  /* ---------------------------------------------------------
-   *  Map arrow click → CSS classes
-   *    • "next" (►)  → new card enters from right   (enter-from-right)
-   *                     old card exits to   left    (exit-to-left)
-   *    • "prev" (◄)  → new card enters from left    (enter-from-left)
-   *                     old card exits to   right   (exit-to-right)
-   * ------------------------------------------------------- */
-
-  // const isNext = slideDir === "next"; // "next" or "prev"
-  // const enterClass = isNext ? "slide-right" : "slide-left";
-  // const exitClass = isNext ? "slide-left" : "slide-right";
-
-  // This is case of "next" or right arrow.
+  
   let enterClass;
   let exitClass;
 
@@ -32,24 +19,6 @@ export default function SpeakerDetailContent({ currentSpeaker, slideDir }) {
     enterClass="enter-from-left"   // New speaker enters from ← left
     exitClass="exit-to-right"      // Old speaker exits to right →
   }
-
-  // console.log("/app/components/speaker-detail-content.jsx", {
-  //   lastName: currentSpeaker.lastName,
-  //   id: currentSpeaker.id,
-  //   slideDir,
-  //   isNext,
-  //   enterClass,
-  //   exitClass,
-  // });
-
-  console.log(
-    "/app/components/speaker-detail-content.jsx enterClass: ",
-    enterClass,
-    " exitClass: ",
-    exitClass,
-    " slideDir: ",
-    slideDir,
-  );
 
   return (
     <ViewTransition name={`speaker-${id}`} enter={enterClass} exit={exitClass}>
