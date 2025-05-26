@@ -7,38 +7,33 @@ export default function SpeakerDetail({
                                         initialSelectedSpeakerId = 0,
                                         onBackClick,
                                       }) {
+  /* ---------- derive speaker list ---------- */
   const speakers = speakersData ?? [];
   if (speakers.length === 0) return null;
 
-  /* ---------------------------------------------------------
-   *  State
-   * ------------------------------------------------------- */
+  /* ---------- state ---------- */
   const [selectedSpeakerId, setSelectedSpeakerId] = useState(
     initialSelectedSpeakerId || speakers[0].id,
   );
-  const [direction, setDirection] = useState(null); // 'left' | 'right'
+  const [slideDir, setSlideDir] = useState(null); // "next" | "prev"
 
-  /* ---------------------------------------------------------
-   *  Helpers
-   * ------------------------------------------------------- */
+  /* ---------- helpers ---------- */
   const currentIndex = speakers.findIndex((s) => s.id === selectedSpeakerId);
   const currentSpeaker = speakers[currentIndex];
 
   const isFirst = currentIndex === 0;
   const isLast = currentIndex === speakers.length - 1;
 
-  function changeSpeaker(nextIndex) {
-    if (nextIndex < 0 || nextIndex >= speakers.length) return;
+  function changeSpeaker(toIndex) {
+    if (toIndex < 0 || toIndex >= speakers.length) return;
 
     startTransition(() => {
-      setDirection(nextIndex > currentIndex ? "left" : "right");
-      setSelectedSpeakerId(speakers[nextIndex].id);
+      setSlideDir(toIndex > currentIndex ? "next" : "prev");
+      setSelectedSpeakerId(speakers[toIndex].id);
     });
   }
 
-  /* ---------------------------------------------------------
-   *  Render
-   * ------------------------------------------------------- */
+  /* ---------- render ---------- */
   return (
     <div className="container py-4">
       <div className="row">
@@ -48,7 +43,8 @@ export default function SpeakerDetail({
       </div>
 
       <button className="btn btn-outline-primary mb-4" onClick={onBackClick}>
-        <i className="bi bi-arrow-left me-2"></i>Back&nbsp;to&nbsp;Speakers
+        <i className="bi bi-arrow-left me-2"></i>
+        Back&nbsp;to&nbsp;Speakers
       </button>
 
       <div className="position-relative">
@@ -61,7 +57,7 @@ export default function SpeakerDetail({
               disabled={isFirst}
               aria-label="Previous speaker"
             >
-              <i className="fas fa-chevron-left"></i>
+              <i className="fas fa-chevron-left" />
             </button>
 
             <button
@@ -70,20 +66,20 @@ export default function SpeakerDetail({
               disabled={isLast}
               aria-label="Next speaker"
             >
-              <i className="fas fa-chevron-right"></i>
+              <i className="fas fa-chevron-right" />
             </button>
           </>
         )}
 
-        {/* the only piece of UI that animates */}
+        {/* animated card */}
         <SpeakerDetailContent
           key={currentSpeaker.id}
           currentSpeaker={currentSpeaker}
-          direction={direction}
+          slideDir={slideDir} // "next" | "prev"
         />
       </div>
 
-      {/* tiny pager */}
+      {/* pager dots */}
       {speakers.length > 1 && (
         <nav
           aria-label="Speaker pagination"

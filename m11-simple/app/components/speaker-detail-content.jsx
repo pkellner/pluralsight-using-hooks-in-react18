@@ -1,29 +1,41 @@
-import React, {
-  unstable_ViewTransition as ViewTransition,
-} from "react";
+import React, { unstable_ViewTransition as ViewTransition } from "react";
 import SpeakerImage from "@/app/components/speaker-image";
 import SpeakerName from "@/app/components/speaker-fields/speaker-name";
 import SpeakerCompany from "@/app/components/speaker-fields/speaker-company";
 
-export default function SpeakerDetailContent({ currentSpeaker, direction }) {
+export default function SpeakerDetailContent({ currentSpeaker, slideDir }) {
   const { id, firstName, lastName, bio, imageUrl, email, sat, sun } =
     currentSpeaker;
 
-  /* decide which CSS class to use based on navigation direction */
-  const enterClass = direction === "left" ? "slide-in" : "slide-out";
-  const exitClass = direction === "left" ? "slide-out" : "slide-in";
+  /* ---------------------------------------------------------
+   *  Map arrow click → CSS classes
+   *    • "next" (►)  → new card enters from right   (slide-in)
+   *                     old card exits to   left    (slide-out)
+   *    • "prev" (◄)  → new card enters from left    (slide-out)
+   *                     old card exits to   right   (slide-in)
+   * ------------------------------------------------------- */
+  const isNext = slideDir === "next";
+  const enterClass = isNext ? "slide-in" : "slide-out";
+  const exitClass = isNext ? "slide-out" : "slide-in";
+
+  console.log("/app/components/speaker-detail-content.jsx", {
+    currentSpeaker,
+    slideDir,
+    isNext,
+    enterClass,
+    exitClass,
+  });
 
   return (
-    <ViewTransition
-      /* unique name avoids duplicate-name warnings */
-      name={`speaker-${id}`}
-      enter={enterClass}
-      exit={exitClass}
-    >
+    <ViewTransition name={`speaker-${id}`} enter={enterClass} exit={exitClass}>
       <div className="card speaker-detail-card">
         <div className="row g-0">
+          {/* ---------- image ---------- */}
           <div className="col-md-5 d-flex justify-content-center align-items-center p-2">
-            <div className="speaker-image-container" style={{ transform: "scale(0.7)" }}>
+            <div
+              className="speaker-image-container"
+              style={{ transform: "scale(0.7)" }}
+            >
               <SpeakerImage
                 speakerId={id}
                 imageUrl={imageUrl}
@@ -33,6 +45,7 @@ export default function SpeakerDetailContent({ currentSpeaker, direction }) {
             </div>
           </div>
 
+          {/* ---------- text ---------- */}
           <div className="col-md-7">
             <div className="card-body p-5">
               <h2 className="card-title mb-4">
