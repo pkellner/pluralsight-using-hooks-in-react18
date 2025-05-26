@@ -29,8 +29,8 @@ export default function SpeakerList({ speakers, onExit, slideDirection }) {
     });
   }
 
-  const vtEnter = slideDirection === "right" ? "slide-in" : "slide-out";
-  const vtExit = slideDirection === "left" ? "slide-out" : "slide-in";
+  const vtEnter = slideDirection === "up" ? "from-top" : "from-bottom";
+  const vtExit = slideDirection === "down" ? "from-bottom" : "from-top";
 
   if (selectedSpeakerId) {
     // This ViewTransition is needed otherwise the card zindex goes below the speakerlist cards for some reason

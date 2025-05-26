@@ -44,7 +44,7 @@ function EnterButton({ isLoading, onClick }) {
         >
           <span className="d-flex align-items-center justify-content-center">
             Enter
-            <i className="fas fa-arrow-right ms-2"></i>
+            {/*<i className="fas fa-arrow-right ms-2"></i>*/}
           </span>
         </button>
       </div>
@@ -76,8 +76,8 @@ export default function HomeEnterPage({
     loadSpeakers();
   }, []);
 
-  const vtEnter = slideDirection === "right" ? "slide-in" : "slide-out";
-  const vtExit = slideDirection === "left" ? "slide-out" : "slide-in";
+  const vtEnter = slideDirection === "up" ? "from-bottom" : "from-top";
+  const vtExit = slideDirection === "down" ? "from-top" : "from-bottom";
 
   function onClick() {
     startTransition(() => {

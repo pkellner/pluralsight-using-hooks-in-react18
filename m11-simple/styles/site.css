@@ -528,31 +528,123 @@ header ul li button:focus {
 }
 
 
+/* START Enter From Bottom and Enter From Top START */
 
+/* ---------------------------------------------------------
+ Map arrow click → CSS classes
+ - "next" (▼) → new card enters from bottom (enter-from-bottom)
+                old card exits to top (exit-to-top)
+ - "prev" (▲) → new card enters from top (enter-from-top)
+                old card exits to bottom (exit-to-bottom)
+ ------------------------------------------------------- */
 
-::view-transition-old(.slide-in) {
-  animation-name: slideOutRight;
+::view-transition-new(.from-bottom) {
+  animation-name: slideInBottom;
   animation-duration: 3500ms;
   animation-timing-function: ease-in-out;
 }
 
-::view-transition-new(.slide-in) {
+::view-transition-old(.from-bottom) {
+  animation-name: slideOutBottom;
+  animation-duration: 3500ms;
+  animation-timing-function: ease-in-out;
+}
+
+::view-transition-new(.from-top) {
+  animation-name: slideInTop;
+  animation-duration: 3500ms;
+  animation-timing-function: ease-in-out;
+}
+
+::view-transition-old(.from-top) {
+  animation-name: slideOutTop;
+  animation-duration: 3500ms;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes slideOutBottom {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInBottom {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutTop {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInTop {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+/* END Enter From Bottom and Enter From Top END */
+
+
+
+
+/* START Enter From Right and Enter From Left START */
+
+/* ---------------------------------------------------------
+ *  Map arrow click → CSS classes
+ *    • "next" (►)  → new card enters from right   (enter-from-right)
+ *                     old card exits to   left    (exit-to-left)
+ *    • "prev" (◄)  → new card enters from left    (enter-from-left)
+ *                     old card exits to   right   (exit-to-right)
+ * ------------------------------------------------------- */
+
+::view-transition-new(.enter-from-right) {
   animation-name: slideInRight;
   animation-duration: 3500ms;
   animation-timing-function: ease-in-out;
+
+  ::view-transition-old(.exit-to-right) {
+    animation-name: slideOutRight;
+    animation-duration: 3500ms;
+    animation-timing-function: ease-in-out;
+  }
 }
 
-::view-transition-old(.slide-out) {
+::view-transition-new(.enter-from-left) {
+  animation-name: slideInLeft;
+  animation-duration: 3500ms;
+  animation-timing-function: ease-in-out;
+}
+
+::view-transition-old(.exit-to-left) {
   animation-name: slideOutLeft;
   animation-duration: 3500ms;
   animation-timing-function: ease-in-out;
 }
 
-::view-transition-new(.slide-out) {
-  animation-name: slideInLeft;
-  animation-duration: 3500ms;
-  animation-timing-function: ease-in-out;
-}
+
 
 @keyframes slideOutLeft {
   from {
@@ -597,6 +689,7 @@ header ul li button:focus {
     opacity: 1;
   }
 }
+/* END  Enter From Right and Enter From Left END */
 
 ::view-transition-old(.flip-in) {
   animation-name: flipOutY;
@@ -799,12 +892,12 @@ header ul li button:focus {
 
 /*---- DEFAULTS ANIMATION SPEEDS    -----*/
 
-::view-transition-old(*),
-::view-transition-new(*) {
-  animation-duration: 1000ms !important;
-}
+/*::view-transition-old(*),*/
+/*::view-transition-new(*) {*/
+/*  animation-duration: 1000ms !important;*/
+/*}*/
 
-::view-transition-group(*) {
-  animation-duration: 1000ms !important;
-  transition: none !important;
-}
+/*::view-transition-group(*) {*/
+/*  animation-duration: 1000ms !important;*/
+/*  transition: none !important;*/
+/*}*/

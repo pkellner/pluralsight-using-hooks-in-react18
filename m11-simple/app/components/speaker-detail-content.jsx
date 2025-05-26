@@ -9,14 +9,15 @@ export default function SpeakerDetailContent({ currentSpeaker, slideDir }) {
 
   /* ---------------------------------------------------------
    *  Map arrow click → CSS classes
-   *    • "next" (►)  → new card enters from right   (slide-in)
-   *                     old card exits to   left    (slide-out)
-   *    • "prev" (◄)  → new card enters from left    (slide-out)
-   *                     old card exits to   right   (slide-in)
+   *    • "next" (►)  → new card enters from right   (enter-from-right)
+   *                     old card exits to   left    (exit-to-left)
+   *    • "prev" (◄)  → new card enters from left    (enter-from-left)
+   *                     old card exits to   right   (exit-to-right)
    * ------------------------------------------------------- */
+
   const isNext = slideDir === "next";
-  const enterClass = isNext ? "slide-in" : "slide-out";
-  const exitClass = isNext ? "slide-out" : "slide-in";
+  const enterClass = isNext ? "enter-from-right" : "enter-from-left";
+  const exitClass = isNext ? "exit-to-left" : "exit-to-right";
 
   console.log("/app/components/speaker-detail-content.jsx", {
     lastName: currentSpeaker.lastName,

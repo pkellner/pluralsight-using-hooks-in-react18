@@ -20,7 +20,7 @@ export default function Home() {
         <SpeakerList
           speakers={speakers}
           onExit={onSwapPage}
-          slideDirection={showItem ? "right" : "left"}
+          slideDirection={showItem ? "up" : "down"}
         />
       ) : null}
       {!showItem ? (
@@ -28,7 +28,7 @@ export default function Home() {
           speakers={speakers}
           setSpeakers={setSpeakers}
           onEnter={onSwapPage}
-          slideDirection={showItem ? "right" : "left"}
+          slideDirection={showItem ? "down" : "up"}
         />
       ) : null}
     </>
