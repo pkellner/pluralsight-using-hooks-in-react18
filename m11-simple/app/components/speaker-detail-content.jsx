@@ -15,18 +15,41 @@ export default function SpeakerDetailContent({ currentSpeaker, slideDir }) {
    *                     old card exits to   right   (exit-to-right)
    * ------------------------------------------------------- */
 
-  const isNext = slideDir === "next";
-  const enterClass = isNext ? "enter-from-right" : "enter-from-left";
-  const exitClass = isNext ? "exit-to-left" : "exit-to-right";
+  // const isNext = slideDir === "next"; // "next" or "prev"
+  // const enterClass = isNext ? "slide-right" : "slide-left";
+  // const exitClass = isNext ? "slide-left" : "slide-right";
 
-  console.log("/app/components/speaker-detail-content.jsx", {
-    lastName: currentSpeaker.lastName,
-    id: currentSpeaker.id,
-    slideDir,
-    isNext,
+  // This is case of "next" or right arrow.
+  let enterClass;
+  let exitClass;
+
+  if (slideDir === "next") {
+    enterClass = "enter-from-right"; // Applied to NEW content
+    exitClass = "exit-to-left"; // Applied to OLD content
+  }
+
+  if (slideDir === "prev") {
+    enterClass="enter-from-left"   // New speaker enters from ← left
+    exitClass="exit-to-right"      // Old speaker exits to right →
+  }
+
+  // console.log("/app/components/speaker-detail-content.jsx", {
+  //   lastName: currentSpeaker.lastName,
+  //   id: currentSpeaker.id,
+  //   slideDir,
+  //   isNext,
+  //   enterClass,
+  //   exitClass,
+  // });
+
+  console.log(
+    "/app/components/speaker-detail-content.jsx enterClass: ",
     enterClass,
+    " exitClass: ",
     exitClass,
-  });
+    " slideDir: ",
+    slideDir,
+  );
 
   return (
     <ViewTransition name={`speaker-${id}`} enter={enterClass} exit={exitClass}>
