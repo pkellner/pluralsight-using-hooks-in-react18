@@ -1,9 +1,8 @@
 import {
-  startTransition,
-  useTransition,
   unstable_ViewTransition as ViewTransition,
   useEffect,
   useState,
+  useTransition,
 } from "react";
 
 function SpeakerImage({ id, imageUrl, alt, isLarge = false }) {

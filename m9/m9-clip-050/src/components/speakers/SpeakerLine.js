@@ -57,7 +57,7 @@ const SpeakerLine = memo(
         </div>
       </div>
     );
-  }
+  },
 );
 
 export default SpeakerLine;

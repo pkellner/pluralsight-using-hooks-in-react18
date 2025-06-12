@@ -88,7 +88,7 @@ const SpeakerList = () => {
         };
       case "updateSpeaker":
         const speakersUpdated = state.speakers.map((rec) =>
-          action.speaker.id === rec.id ? action.speaker : rec
+          action.speaker.id === rec.id ? action.speaker : rec,
         );
         return {
           ...state,

@@ -3,10 +3,10 @@ import SubTitle from "@/app/components/sub-title";
 import SpeakerDetailContent from "@/app/components/speaker-detail-content";
 
 export default function SpeakerDetail({
-                                        speakersData,
-                                        initialSelectedSpeakerId = 0,
-                                        onBackClick,
-                                      }) {
+  speakersData,
+  initialSelectedSpeakerId = 0,
+  onBackClick,
+}) {
   /* ---------- derive speaker list ---------- */
   const speakers = speakersData ?? [];
   if (speakers.length === 0) return null;
@@ -27,11 +27,14 @@ export default function SpeakerDetail({
   function changeSpeaker(toIndex) {
     if (toIndex < 0 || toIndex >= speakers.length) return;
 
-    setSlideDir(function() {
-      return (toIndex > currentIndex ? "next" : "prev");
+    setSlideDir(function () {
+      return toIndex > currentIndex ? "next" : "prev";
     });
     startTransition(() => {
-      console.log("/app/components/speakerDetail: changeSpeaker:toIndex:",toIndex);
+      console.log(
+        "/app/components/speakerDetail: changeSpeaker:toIndex:",
+        toIndex,
+      );
       setSelectedSpeakerId(speakers[toIndex].id);
     });
   }

@@ -7,13 +7,14 @@ export default function useSpeakerSortAndFilter(speakerList) {
   return speakerList
     ? speakerList
         .filter(
-          ({ sat, sun }) => (speakingSaturday && sat) || (speakingSunday && sun)
+          ({ sat, sun }) =>
+            (speakingSaturday && sat) || (speakingSunday && sun),
         )
         .filter(({ firstName, lastName }) => {
           return (
             searchText.length === 0 ||
             (firstName?.toLowerCase() + lastName?.toLowerCase()).includes(
-              searchText.toLowerCase()
+              searchText.toLowerCase(),
             )
           );
         })

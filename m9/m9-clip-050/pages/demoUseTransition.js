@@ -32,7 +32,7 @@ function SlowResults({ query }) {
     // but don't be fooled as React can be pretty fast
     console.log("createDummySpeakers called");
     return createDummySpeakers(5000).filter((speaker) =>
-      speaker.lastName.toLowerCase().includes(query)
+      speaker.lastName.toLowerCase().includes(query),
     );
   }, [query]);
 

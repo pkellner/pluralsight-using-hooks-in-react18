@@ -52,8 +52,8 @@ export default async function userHandler(req, res) {
               speakers: newSpeakersArray,
             },
             null,
-            2
-          )
+            2,
+          ),
         );
         res.status(200).json(recordFromBody);
         console.log(`PUT /api/speakers/${id} status: 200`);
@@ -82,8 +82,8 @@ export default async function userHandler(req, res) {
               speakers: newSpeakersArray,
             },
             null,
-            2
-          )
+            2,
+          ),
         );
         res.status(200).json(recordFromBody);
         console.log(`POST /api/speakers/${id} status: 200`);
@@ -109,8 +109,8 @@ export default async function userHandler(req, res) {
               speakers: newSpeakersArray,
             },
             null,
-            2
-          )
+            2,
+          ),
         );
         res.status(200).json(recordFromBody);
         console.log(`DELETE /api/speakers/${id} status: 200`);

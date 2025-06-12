@@ -16,8 +16,8 @@ export default function SpeakerDetailContent({ currentSpeaker, slideDir }) {
   }
 
   if (slideDir === "prev") {
-    enterClass="enter-from-left"   // New speaker enters from ← left
-    exitClass="exit-to-right"      // Old speaker exits to right →
+    enterClass = "enter-from-left"; // New speaker enters from ← left
+    exitClass = "exit-to-right"; // Old speaker exits to right →
   }
 
   return (
