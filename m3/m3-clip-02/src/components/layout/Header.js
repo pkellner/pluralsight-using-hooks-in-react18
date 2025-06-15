@@ -9,7 +9,7 @@ export default function Header() {
             </div>
             <h2>
               <a
-                href="https://www.siliconvalley-codecamp.com/Event/2019"
+                href="https://www.siliconvalley-codecamp.com/event/2015"
                 target="_blank"
               >
                 Silicon Valley Code Camp 2019

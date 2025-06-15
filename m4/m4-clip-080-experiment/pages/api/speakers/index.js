@@ -9,7 +9,7 @@ export default async function handler(req, res) {
   const jsonFile = path.resolve("./", "db.json");
   try {
     const readFileData = await readFile(jsonFile);
-    await delay(1000);
+    await delay(4000);
     const speakers = JSON.parse(readFileData).speakers;
     if (!speakers)
       res.status(404).send("Error: Request failed with status code 404");

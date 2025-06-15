@@ -1,5 +1,5 @@
 import SpeakerLine from "./SpeakerLine";
-import { Suspense, use, useReducer, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import axios from "axios";
 
 function List({ state, dispatch }) {
@@ -66,29 +66,7 @@ function List({ state, dispatch }) {
   );
 }
 
-const cache = new Map();
-
-function fetchData(url) {
-  if (!cache.has(url)) {
-    console.log("Fetching data from cache...");
-    cache.set(url, getData(url));
-  }
-  console.log("Fetching data from cache as always...");
-
-  return cache.get(url); // returns the promise (or its value)
-}
-
-async function getData(url) {
-  const { data } = await axios.get(url);
-  return data;
-}
-
-function SpeakerListInner() {
-
-  console.log("/src/components/speakers/speakerlist");
-
-  const initialSpeakers = use(fetchData("http://localhost:3000/api/speakers"));
-
+const SpeakerList = () => {
   const darkTheme = false;
 
   function reducer(state, action) {
@@ -99,7 +77,7 @@ function SpeakerListInner() {
         return { ...state, loading: true };
       case "updateSpeaker":
         const speakersUpdated = state.speakers.map((rec) =>
-          action.speaker.id === rec.id ? action.speaker : rec
+          action.speaker.id === rec.id ? action.speaker : rec,
         );
         return { ...state, speakers: speakersUpdated };
       default:
@@ -108,22 +86,35 @@ function SpeakerListInner() {
   }
 
   const initialState = {
-    speakers: initialSpeakers,
-    loading: true
+    speakers: [],
+    loading: true,
+    updateItem: () => {},
   };
-  const [state, dispatch] = useReducer(reducer, initialState, () => initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    async function getDataAsync() {
+      dispatch({ type: "setLoadingStatus" });
+      const results = await axios.get("/api/speakers");
+      dispatch({ type: "speakersLoaded", speakers: results.data });
+    }
+    getDataAsync();
+  }, []);
+
+  function updateSpeaker(speakerRec) {
+    const speakerUpdated = speakers.map(function (rec) {
+      return speakerRec.id === rec.id ? speakerRec : rec;
+    });
+    setSpeakers(speakerUpdated);
+  }
+
+  if (state.loading) return <div>Loading...</div>;
 
   return (
     <div className={darkTheme ? "theme-dark" : "theme-light"}>
       <List state={state} dispatch={dispatch} />
     </div>
   );
-}
+};
 
-export default function SpeakerList() {
-  return (
-    <Suspense fallback={<div>Loading…</div>}>
-      <SpeakerListInner />
-    </Suspense>
-  );
-}
+export default SpeakerList;
