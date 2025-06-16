@@ -1,10 +1,11 @@
 // THIS IS WRONG! IT WILL KILL THE OLDER PAGES SO NEED TO PUT THIS IN IT'S OWN FILE LATER
 
-
 import { useState } from "react";
 
-export default function FavoriteSpeakerUpdate({ speakerRec, completionFunction }) {
-
+export default function FavoriteSpeakerUpdate({
+  speakerRec,
+  completionFunction,
+}) {
   async function updateSpeaker(speaker, callback) {
     try {
       const response = await fetch(`/api/speakers/${speaker.id}`, {
@@ -20,7 +21,6 @@ export default function FavoriteSpeakerUpdate({ speakerRec, completionFunction }
       console.error("Error updating speaker:", error);
     }
   }
-
 
   const [updating, setUpdating] = useState(false);
   return (

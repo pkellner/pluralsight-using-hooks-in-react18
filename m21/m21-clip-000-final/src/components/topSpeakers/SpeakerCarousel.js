@@ -29,7 +29,10 @@ export default function SpeakerCarousel({
       <div className="carousel-container">
         <div className="carousel-slide-wrapper">
           <div className="carousel-slide-content">
-            <SpeakerDetailRecord speakerRec={topSpeakers[currentSlide]} setSpeakers={setSpeakers} />
+            <SpeakerDetailRecord
+              speakerRec={topSpeakers[currentSlide]}
+              setSpeakers={setSpeakers}
+            />
           </div>
         </div>
 

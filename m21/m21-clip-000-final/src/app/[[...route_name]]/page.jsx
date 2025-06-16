@@ -1,12 +1,11 @@
-'use client';
+"use client";
 
-import { usePathname, useSearchParams } from 'next/navigation';
-import { useMemo } from 'react';
+import { usePathname, useSearchParams } from "next/navigation";
+import { useMemo } from "react";
 import App from "../../App";
 
 export default function Page() {
-
-  console.log("/page.jsx")
+  console.log("/page.jsx");
 
   const pathname = usePathname();
   const searchParams = useSearchParams();

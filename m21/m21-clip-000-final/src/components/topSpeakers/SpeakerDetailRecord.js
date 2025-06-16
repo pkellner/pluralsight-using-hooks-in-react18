@@ -1,6 +1,6 @@
 import FavoriteSpeakerUpdate from "./FavoriteSpeakerUpdate";
 
-export default   function SpeakerDetailRecord({ speakerRec, setSpeakers }) {
+export default function SpeakerDetailRecord({ speakerRec, setSpeakers }) {
   return (
     <div className="card border-0 carousel-speaker-card">
       <div className="row g-0">
@@ -20,13 +20,12 @@ export default   function SpeakerDetailRecord({ speakerRec, setSpeakers }) {
               <div className="favoriteToggleWrapper">
                 <FavoriteSpeakerUpdate
                   speakerRec={speakerRec}
-                  completionFunction={function(speakerRec) {
+                  completionFunction={function (speakerRec) {
                     console.log("completionFunction called with:", speakerRec);
                     setSpeakers((prevSpeakers) =>
-                      prevSpeakers.map(function(s) {
-                          return s.id === speakerRec.id ? speakerRec : s;
-                        }
-                      )
+                      prevSpeakers.map(function (s) {
+                        return s.id === speakerRec.id ? speakerRec : s;
+                      }),
                     );
                   }}
                 />
