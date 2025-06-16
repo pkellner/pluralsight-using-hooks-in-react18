@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import SpeakerDetailRecord from "./SpeakerDetailRecord";
 import { use } from "react";
 import { fetchData } from "./SpeakerDataPromise";
@@ -23,7 +23,7 @@ export default function SpeakerCarousel({
     [1269, 187, 1124, 10803, 8367].includes(s.id),
   );
 
-  if (!topSpeakers.length) return null;
+  //if (!topSpeakers.length) return null;
   const isFirst = currentSlide === 0;
   const isLast = currentSlide === topSpeakers.length - 1;
 

@@ -7,7 +7,6 @@ import Speaker from "../speakers/Speaker";
 import SpeakerList from "../speakers/SpeakerList";
 import { ThemeProvider } from "../contexts/ThemeContext";
 import TopSpeakers from "../topSpeakers/TopSpeakers";
-import { Suspense } from "react";
 
 // Layout does not use children but instead uses what comes from AppRouteProvider
 export default function Layout({ url }) {
@@ -21,11 +20,7 @@ export default function Layout({ url }) {
       {url === "/" && <Speakers />}
       {url.startsWith("/speaker/") && <Speaker id={speakerId} />}
       {url.startsWith("/speakerlist") && <SpeakerList />}
-      {url.startsWith("/topspeakers") && (
-        <Suspense fallback={<div>LOA..</div>}>
-          <TopSpeakers />
-        </Suspense>
-      )}
+      {url.startsWith("/topspeakers") && <TopSpeakers />}
     </ThemeProvider>
   );
 }
