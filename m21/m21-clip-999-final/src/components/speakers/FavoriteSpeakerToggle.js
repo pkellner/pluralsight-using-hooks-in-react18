@@ -1,10 +1,28 @@
-import { useContext, useState } from "react";
-import { SpeakersDataContext } from "../contexts/SpeakersDataContext";
+// THIS IS WRONG! IT WILL KILL THE OLDER PAGES SO NEED TO PUT THIS IN IT'S OWN FILE LATER
 
-export default function FavoriteSpeakerToggle({ speakerRec }) {
-  const { updateSpeaker } = useContext(SpeakersDataContext);
+
+import { useState } from "react";
+
+export default function FavoriteSpeakerToggle({ speakerRec, completionFunction }) {
+
+  async function updateSpeaker(speaker, callback) {
+    try {
+      const response = await fetch(`/api/speakers/${speaker.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(speaker),
+      });
+      const data = await response.json();
+      callback(data);
+    } catch (error) {
+      console.error("Error updating speaker:", error);
+    }
+  }
+
+
   const [updating, setUpdating] = useState(false);
-
   return (
     <button
       className={
@@ -19,6 +37,9 @@ export default function FavoriteSpeakerToggle({ speakerRec }) {
         setUpdating(true);
         updateSpeaker(newSpeakerRec, () => {
           setUpdating(false);
+          if (completionFunction) {
+            completionFunction(newSpeakerRec);
+          }
         });
       }}
     >

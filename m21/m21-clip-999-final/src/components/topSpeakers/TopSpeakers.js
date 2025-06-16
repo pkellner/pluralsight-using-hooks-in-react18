@@ -1,4 +1,4 @@
-// top-speakers.js  (only the arrow / centering tweaks—no other behaviour changes)
+// top-speakers.js
 import { useEffect, useState } from "react";
 import axios from "axios";
 import FavoriteSpeakerToggle from "../speakers/FavoriteSpeakerToggle";
@@ -7,6 +7,7 @@ export default function TopSpeakers() {
   const darkTheme = false;
   const [speakers, setSpeakers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [currentSlide, setCurrentSlide] = useState(0); // Moved to parent
 
   useEffect(() => {
     async function getDataAsync() {
@@ -42,7 +43,18 @@ export default function TopSpeakers() {
             <div className="card-body">
               <div className="speaker-action d-flex">
                 <div className="favoriteToggleWrapper">
-                  <FavoriteSpeakerToggle speakerRec={speakerRec} />
+                  <FavoriteSpeakerToggle
+                    speakerRec={speakerRec}
+                    completionFunction={function(speakerRec) {
+                      console.log("completionFunction called with:", speakerRec);
+                      setSpeakers((prevSpeakers) =>
+                        prevSpeakers.map(function(s) {
+                            return s.id === speakerRec.id ? speakerRec : s;
+                          }
+                        )
+                      );
+                    }}
+                  />
                 </div>
               </div>
               <h4 className="card-title">
@@ -71,11 +83,10 @@ export default function TopSpeakers() {
   }
 
   /* ---------------------------------------------------- */
-  function SpeakerCarousel({ speakers }) {
+  function SpeakerCarousel({ speakers, currentSlide, setCurrentSlide }) {
     const topSpeakers = speakers.filter((s) =>
-      [1269, 187, 1124, 10803, 8367].includes(s.id)
+      [1269, 187, 1124, 10803, 8367].includes(s.id),
     );
-    const [currentSlide, setCurrentSlide] = useState(0);
 
     function handlePrevious() {
       if (currentSlide > 0) setCurrentSlide((p) => p - 1);
@@ -143,7 +154,11 @@ export default function TopSpeakers() {
 
   return (
     <div className={darkTheme ? "theme-dark" : "theme-light"}>
-      <SpeakerCarousel speakers={speakers} />
+      <SpeakerCarousel
+        speakers={speakers}
+        currentSlide={currentSlide}
+        setCurrentSlide={setCurrentSlide}
+      />
     </div>
   );
 }
