@@ -19,11 +19,9 @@ export default function TopSpeakers() {
 
   if (loading) return <div>Loading...</div>;
 
-  function SpeakerDetailRecord({
-    speakerRec,
-  }) {
+  function SpeakerDetailRecord({ speakerRec }) {
     return (
-      <div className="card border-0">
+      <div className="card border-0 carousel-speaker-card">
         <div className="row g-0">
           <div className="col-4">
             <img
@@ -67,25 +65,90 @@ export default function TopSpeakers() {
     );
   }
 
-  function List({ speakers }) {
-    const updatingId = 0;
-    const isPending = false;
+  function SpeakerCarousel({ speakers }) {
+    const topSpeakers = speakers.filter((speaker) =>
+      [1269, 187, 1124, 10803, 8367].includes(speaker.id),
+    );
+    const [currentSlide, setCurrentSlide] = useState(0);
 
-    function toggleFavoriteSpeaker(speakerRec) {}
+    function handlePrevious() {
+      if (currentSlide > 0) {
+        setCurrentSlide(function (prev) {
+          return prev - 1;
+        });
+      }
+    }
+
+    function handleNext() {
+      if (currentSlide < topSpeakers.length - 1) {
+        setCurrentSlide(function (prev) {
+          return prev + 1;
+        });
+      }
+    }
+
+    function handleIndicatorClick(index) {
+      setCurrentSlide(index);
+    }
+
+    if (topSpeakers.length === 0) return null;
+
+    const isFirstSlide = currentSlide === 0;
+    const isLastSlide = currentSlide === topSpeakers.length - 1;
 
     return (
       <div className="container">
-        <div className="row g-3">
-          {speakers.map(function (speakerRec) {
-            return (
-              <SpeakerDetailRecord
-                key={speakerRec.id}
-                speakerRec={speakerRec}
-                updating={updatingId === speakerRec.id ? updatingId : 0}
-                toggleFavoriteSpeaker={() => toggleFavoriteSpeaker(speakerRec)}
-              />
-            );
-          })}
+        <div className="speakers-carousel-wrapper position-relative">
+          <div className="carousel-container">
+            <div className="carousel-slide-wrapper">
+              <div className="d-flex justify-content-center">
+                <div className="carousel-slide-content">
+                  <SpeakerDetailRecord speakerRec={topSpeakers[currentSlide]} />
+                </div>
+              </div>
+            </div>
+
+            <button
+              className={`carousel-nav-btn carousel-nav-prev ${
+                isFirstSlide ? "disabled" : ""
+              }`}
+              type="button"
+              onClick={handlePrevious}
+              disabled={isFirstSlide}
+            >
+              <span className="carousel-nav-icon">&#8249;</span>
+              <span className="visually-hidden">Previous</span>
+            </button>
+
+            <button
+              className={`carousel-nav-btn carousel-nav-next ${
+                isLastSlide ? "disabled" : ""
+              }`}
+              type="button"
+              onClick={handleNext}
+              disabled={isLastSlide}
+            >
+              <span className="carousel-nav-icon">&#8250;</span>
+              <span className="visually-hidden">Next</span>
+            </button>
+          </div>
+
+          <div className="carousel-indicators-custom">
+            {topSpeakers.map(function (speakerRec, index) {
+              return (
+                <button
+                  key={speakerRec.id}
+                  type="button"
+                  onClick={function () {
+                    handleIndicatorClick(index);
+                  }}
+                  className={index === currentSlide ? "active" : ""}
+                  aria-current={index === currentSlide ? "true" : "false"}
+                  aria-label={`Slide ${index + 1}`}
+                ></button>
+              );
+            })}
+          </div>
         </div>
       </div>
     );
@@ -93,7 +156,7 @@ export default function TopSpeakers() {
 
   return (
     <div className={darkTheme ? "theme-dark" : "theme-light"}>
-      <List speakers={speakers} />
+      <SpeakerCarousel speakers={speakers} />
     </div>
   );
 }
