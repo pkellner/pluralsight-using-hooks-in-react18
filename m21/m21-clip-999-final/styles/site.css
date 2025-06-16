@@ -164,11 +164,6 @@ a:focus {
 
 header {
   background-color: var(--less-dark);
-
-  /* Uncomment below code when the header need to be sticky onScrollDown */
-  /* position: sticky;
-  top: 0;
-  z-index: 9; */
   box-shadow: 0px 12px 15px 0px rgb(114 116 118 / 57%);
   margin-bottom: 13px;
   position: relative;
@@ -205,11 +200,6 @@ header ul li button:focus {
   justify-content: center;
   position: relative;
   z-index: 1;
-
-  /* Uncomment below code when the toolbar need to be sticky onScroll */
-  /* position: sticky;
-  top: 80px;
-  z-index: 9; */
 }
 
 .btn-toolbar .toolbar-trigger {
@@ -217,8 +207,6 @@ header ul li button:focus {
   align-items: center;
   background: linear-gradient(145deg, #ffe598, #ffffff);
   padding: 5px 10px;
-  border-radius: 8px;
-  padding: 7px 9px;
   border-radius: 8px;
   gap: 1rem;
 }
@@ -228,12 +216,7 @@ header ul li button:focus {
 }
 
 @media screen and (max-width: 768px) {
-  .btn-toolbar {
-    /* top: 71px; */
-    top: 0px;
-  }
   .btn-toolbar .toolbar-trigger {
-    gap: 1rem;
     flex-wrap: wrap;
     justify-content: center;
   }
@@ -243,9 +226,6 @@ header ul li button:focus {
 }
 
 @media screen and (max-width: 550px) {
-  .btn-toolbar {
-    margin-top: 0px;
-  }
   .btn-toolbar .toolbar-trigger {
     border-radius: 0px;
   }
@@ -314,18 +294,6 @@ header ul li button:focus {
 
 .speaker-action .favoriteToggleWrapper {
   font-size: 22px;
-}
-
-.speaker-action .modifyWrapper > button {
-  margin-right: 5px;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.4px;
-}
-
-.speaker-action .modifyWrapper > button:last-child {
-  margin-right: 0px;
 }
 
 .heartdarkbutton,
@@ -434,7 +402,7 @@ header ul li button:focus {
 
 .carousel-container {
   position: relative;
-  overflow: hidden;
+  overflow: visible;               /* CHANGED from hidden */
   min-height: 300px;
 }
 
@@ -443,6 +411,7 @@ header ul li button:focus {
   min-height: 300px;
   display: flex;
   align-items: center;
+  justify-content: center;         /* NEW */
 }
 
 .carousel-speaker-card {
@@ -495,23 +464,45 @@ header ul li button:focus {
 }
 
 .carousel-nav-prev {
-  left: -30px;
+  left: 10px;                      /* CHANGED from -30px */
 }
 
 .carousel-nav-next {
-  right: -30px;
+  right: 10px;                     /* CHANGED from -30px */
 }
 
 .carousel-nav-icon {
-  color: var(--light);
-  font-size: 20px;
-  font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
-  line-height: 1;
   width: 100%;
   height: 100%;
+}
+
+.carousel-arrow-left {
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 12px solid var(--light);
+  margin-left: -2px;
+}
+
+.carousel-arrow-right {
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 12px solid var(--light);
+  margin-right: -2px;
+}
+
+.carousel-nav-btn.disabled .carousel-arrow-left {
+  border-right-color: #999;
+}
+
+.carousel-nav-btn.disabled .carousel-arrow-right {
+  border-left-color: #999;
 }
 
 .carousel-indicators-custom {
@@ -545,11 +536,11 @@ header ul li button:focus {
   }
 
   .carousel-nav-prev {
-    left: -20px;
+    left: 10px;                    /* CHANGED from -20px */
   }
 
   .carousel-nav-next {
-    right: -20px;
+    right: 10px;                   /* CHANGED from -20px */
   }
 
   .carousel-nav-btn {
@@ -557,8 +548,24 @@ header ul li button:focus {
     height: 40px;
   }
 
-  .carousel-nav-icon {
-    font-size: 16px;
+  .carousel-arrow-left {
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-right: 10px solid var(--light);
+  }
+
+  .carousel-arrow-right {
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 10px solid var(--light);
+  }
+
+  .carousel-nav-btn.disabled .carousel-arrow-left {
+    border-right-color: #999;
+  }
+
+  .carousel-nav-btn.disabled .carousel-arrow-right {
+    border-left-color: #999;
   }
 }
 
@@ -584,7 +591,23 @@ header ul li button:focus {
     height: 35px;
   }
 
-  .carousel-nav-icon {
-    font-size: 14px;
+  .carousel-arrow-left {
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right: 8px solid var(--light);
+  }
+
+  .carousel-arrow-right {
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 8px solid var(--light);
+  }
+
+  .carousel-nav-btn.disabled .carousel-arrow-left {
+    border-right-color: #999;
+  }
+
+  .carousel-nav-btn.disabled .carousel-arrow-right {
+    border-left-color: #999;
   }
 }
