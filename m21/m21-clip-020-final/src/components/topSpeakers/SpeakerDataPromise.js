@@ -4,17 +4,7 @@ export function fetchData(url) {
   if (!cache.has(url)) {
     cache.set(url, getData(url));
   }
-  // delay return to simulate network latency
-  //return cache.get(url);
-  return new Promise((resolve) =>
-    setTimeout(
-      () =>
-        fetch(url)
-          .then((r) => r.json())
-          .then(resolve),
-      1000,
-    ),
-  );
+  return cache.get(url);
 }
 
 async function getData(url) {

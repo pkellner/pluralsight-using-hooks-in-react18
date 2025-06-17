@@ -1,5 +1,3 @@
-// THIS IS WRONG! IT WILL KILL THE OLDER PAGES SO NEED TO PUT THIS IN IT'S OWN FILE LATER
-
 import { useState } from "react";
 
 export default function FavoriteSpeakerUpdate({

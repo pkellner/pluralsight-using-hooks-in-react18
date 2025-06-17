@@ -1,4 +1,3 @@
-"use client";
 import Header from "./Header";
 import AppMenu from "./AppMenu";
 import Speakers from "../speakers/Speakers";

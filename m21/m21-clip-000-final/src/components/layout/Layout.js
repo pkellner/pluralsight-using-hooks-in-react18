@@ -11,8 +11,6 @@ import TopSpeakers from "../topSpeakers/TopSpeakers";
 export default function Layout({ url }) {
   const speakerId = parseInt(url.substring(9).replace("#", ""));
 
-  console.log("/Layout.js: url:", url);
-
   return (
     <ThemeProvider>
       <Header />

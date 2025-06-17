@@ -1,13 +1,15 @@
-"use client";
 import SpeakerDetailRecord from "./SpeakerDetailRecord";
-import { use } from "react";
-import { fetchData } from "./SpeakerDataPromise";
 
 export default function SpeakerCarousel({
+  speakers,
   setSpeakers,
   currentSlide,
   setCurrentSlide,
 }) {
+  const topSpeakers = speakers.filter((s) =>
+    [1269, 187, 1124, 10803, 8367].includes(s.id),
+  );
+
   function handlePrevious() {
     if (currentSlide > 0) setCurrentSlide((p) => p - 1);
   }
@@ -18,12 +20,7 @@ export default function SpeakerCarousel({
     setCurrentSlide(index);
   }
 
-  const speakers = use(fetchData("http://localhost:3000/api/speakers"));
-  const topSpeakers = speakers.filter((s) =>
-    [1269, 187, 1124, 10803, 8367].includes(s.id),
-  );
-
-  //if (!topSpeakers.length) return null;
+  if (!topSpeakers.length) return null;
   const isFirst = currentSlide === 0;
   const isLast = currentSlide === topSpeakers.length - 1;
 

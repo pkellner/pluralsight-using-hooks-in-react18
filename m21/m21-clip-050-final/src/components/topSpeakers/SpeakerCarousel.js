@@ -1,6 +1,6 @@
 "use client";
 import SpeakerDetailRecord from "./SpeakerDetailRecord";
-import { use } from "react";
+import { startTransition, use, useState } from "react";
 import { fetchData } from "./SpeakerDataPromise";
 
 export default function SpeakerCarousel({
@@ -8,11 +8,23 @@ export default function SpeakerCarousel({
   currentSlide,
   setCurrentSlide,
 }) {
+  const [slideDir, setSlideDir] = useState(null); // "next" | "prev"
+
   function handlePrevious() {
-    if (currentSlide > 0) setCurrentSlide((p) => p - 1);
+    if (currentSlide > 0) {
+      setSlideDir("prev");
+      startTransition(() => {
+        setCurrentSlide((p) => p - 1);
+      });
+    }
   }
   function handleNext() {
-    if (currentSlide < topSpeakers.length - 1) setCurrentSlide((p) => p + 1);
+    if (currentSlide < topSpeakers.length - 1) {
+      setSlideDir("next");
+      startTransition(() => {
+        setCurrentSlide((p) => p + 1);
+      });
+    }
   }
   function goToSlide(index) {
     setCurrentSlide(index);
@@ -42,6 +54,7 @@ export default function SpeakerCarousel({
               <SpeakerDetailRecord
                 speakerRec={topSpeakers[currentSlide]}
                 setSpeakers={setSpeakers}
+                slideDir={slideDir}
               />
             </div>
           </div>
