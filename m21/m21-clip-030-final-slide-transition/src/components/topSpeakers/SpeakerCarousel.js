@@ -1,35 +1,48 @@
 import SpeakerDetailRecord from "./SpeakerDetailRecord";
 import { startTransition, useState } from "react";
+import useSlideAnimation from "./useSlideAnimation";
+
 
 export default function SpeakerCarousel({
-  speakers,
-  setSpeakers,
-  currentSlide,
-  setCurrentSlide,
-}) {
+                                          speakers,
+                                          setSpeakers,
+                                          currentSlide,
+                                          setCurrentSlide,
+                                        }) {
   const [slideDir, setSlideDir] = useState(null); // "next" | "prev"
+  const { animationClass, isAnimating, triggerSlide } = useSlideAnimation();
+
   const topSpeakers = speakers.filter((s) =>
     [1269, 187, 1124, 10803, 8367].includes(s.id),
   );
 
   function handlePrevious() {
-    if (currentSlide > 0) {
+    if (currentSlide > 0 && !isAnimating) {
       setSlideDir("prev");
+      triggerSlide("prev");
       startTransition(() => {
         setCurrentSlide((p) => p - 1);
       });
     }
   }
+
   function handleNext() {
-    if (currentSlide < topSpeakers.length - 1) {
+    if (currentSlide < topSpeakers.length - 1 && !isAnimating) {
       setSlideDir("next");
+      triggerSlide("next");
       startTransition(() => {
         setCurrentSlide((p) => p + 1);
       });
     }
   }
+
   function goToSlide(index) {
-    setCurrentSlide(index);
+    if (!isAnimating && index !== currentSlide) {
+      const direction = index > currentSlide ? "next" : "prev";
+      setSlideDir(direction);
+      triggerSlide(direction);
+      setCurrentSlide(index);
+    }
   }
 
   if (!topSpeakers.length) return null;
@@ -45,6 +58,7 @@ export default function SpeakerCarousel({
               speakerRec={topSpeakers[currentSlide]}
               setSpeakers={setSpeakers}
               slideDir={slideDir}
+              animationClass={animationClass}
             />
           </div>
         </div>
@@ -55,7 +69,7 @@ export default function SpeakerCarousel({
           }`}
           type="button"
           onClick={handlePrevious}
-          disabled={isFirst}
+          disabled={isFirst || isAnimating}
         >
           <span className="carousel-nav-icon carousel-arrow-left" />
           <span className="visually-hidden">Previous</span>
@@ -67,7 +81,7 @@ export default function SpeakerCarousel({
           }`}
           type="button"
           onClick={handleNext}
-          disabled={isLast}
+          disabled={isLast || isAnimating}
         >
           <span className="carousel-nav-icon carousel-arrow-right" />
           <span className="visually-hidden">Next</span>
@@ -83,6 +97,7 @@ export default function SpeakerCarousel({
             className={idx === currentSlide ? "active" : ""}
             aria-current={idx === currentSlide}
             aria-label={`Slide ${idx + 1}`}
+            disabled={isAnimating}
           />
         ))}
       </div>

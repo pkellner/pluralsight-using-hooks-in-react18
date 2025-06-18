@@ -871,7 +871,7 @@ header ul li button:focus {
   }
 }
 
-
+/*Carousel Slide Animation */
 @keyframes slideOutLeft {
   from {
     transform: translateX(0);
@@ -914,4 +914,20 @@ header ul li button:focus {
     transform: translateX(0);
     opacity: 1;
   }
+}
+
+.slide-out-left {
+  animation: slideOutLeft 0.3s ease-in-out forwards;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.3s ease-in-out forwards;
+}
+
+.slide-out-right {
+  animation: slideOutRight 0.3s ease-in-out forwards;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.3s ease-in-out forwards;
 }
