@@ -20,7 +20,7 @@ export default async function handler(req, res) {
     // Validate last name
     if (!lastName || lastName.trim().length < 2) {
       return res.status(400).json({
-        error: 'Last name must be at least 2 characters long'
+        error: 'Last Name > 2 char is required'
       });
     }
 

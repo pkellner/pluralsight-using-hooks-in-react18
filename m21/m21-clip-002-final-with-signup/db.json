@@ -34,7 +34,7 @@
       "lastName": "Nielsen",
       "sat": true,
       "sun": true,
-      "favorite": false,
+      "favorite": true,
       "bio": "As Head of Ecosystem Programs, Dave uses emerging technologies and open source projects like Microservices, Serverless & Kubernetes to bring the magic of Redis to the broader community.",
       "company": "Intel",
       "twitterHandle": "davenielsen",

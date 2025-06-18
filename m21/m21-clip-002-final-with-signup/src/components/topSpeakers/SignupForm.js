@@ -59,89 +59,75 @@ export default function SignupForm() {
         <div className="signup-card card">
           <div className="card-body">
             <h3 className="signup-title">Stay Informed</h3>
-            <p className="signup-description">
-              Get the latest updates on speakers, sessions, and conference news delivered to your inbox.
-            </p>
 
             <form onSubmit={handleSubmit} className="signup-form">
               <div className="signup-form-row">
-                <div className="signup-form-group">
-                  <label htmlFor="firstName" className="signup-label">
-                    First Name
-                  </label>
-                  <input
-                    type="text"
-                    id="firstName"
-                    name="firstName"
-                    value={formData.firstName}
-                    onChange={handleInputChange}
-                    className="signup-input form-control"
-                    required
-                    disabled={isSubmitting}
-                  />
-                </div>
-
-                <div className="signup-form-group">
-                  <label htmlFor="lastName" className="signup-label">
-                    Last Name
-                  </label>
-                  <input
-                    type="text"
-                    id="lastName"
-                    name="lastName"
-                    value={formData.lastName}
-                    onChange={handleInputChange}
-                    className="signup-input form-control"
-                    required
-                    disabled={isSubmitting}
-                  />
-                </div>
-              </div>
-
-              <div className="signup-form-group signup-email-group">
-                <label htmlFor="email" className="signup-label">
-                  Email Address
-                </label>
                 <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
+                  type="text"
+                  name="firstName"
+                  value={formData.firstName}
                   onChange={handleInputChange}
                   className="signup-input form-control"
+                  placeholder="First Name"
+                  required
+                  disabled={isSubmitting}
+                />
+
+                <input
+                  type="text"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleInputChange}
+                  className="signup-input form-control"
+                  placeholder="Last Name"
                   required
                   disabled={isSubmitting}
                 />
               </div>
 
-              <div className="signup-submit-group">
+              <div className="signup-email-group">
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className="signup-input form-control"
+                  placeholder="Email Address"
+                  required
+                  disabled={isSubmitting}
+                />
+              </div>
+
+              <div className="signup-submit-row">
                 <button
                   type="submit"
-                  className={`signup-submit-btn btn-accent ${isSubmitting ? 'spinner-bottom' : ''}`}
+                  className={`signup-submit-btn btn-accent`}
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (
                     <>
-                      <span className="spinner-border" role="status" aria-hidden="true"></span>
+                      <div className="signup-spinner"></div>
                       Submitting...
                     </>
                   ) : (
                     'Submit'
                   )}
                 </button>
+
+                <div className="signup-message-container">
+                  {submitStatus === 'success' && (
+                    <div className="signup-message signup-success">
+                      {submitMessage}
+                    </div>
+                  )}
+
+                  {submitStatus === 'error' && (
+                    <div className="signup-message signup-error">
+                      {submitMessage}
+                    </div>
+                  )}
+                </div>
               </div>
-
-              {submitStatus === 'success' && (
-                <div className="signup-message signup-success">
-                  {submitMessage}
-                </div>
-              )}
-
-              {submitStatus === 'error' && (
-                <div className="signup-message signup-error">
-                  {submitMessage}
-                </div>
-              )}
             </form>
           </div>
         </div>
