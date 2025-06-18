@@ -33,7 +33,6 @@ export default function SpeakerDetailRecord({
     viewTransitionName,
   );
 
-  debugger;
   return (
     <ViewTransition
       name={viewTransitionName}
