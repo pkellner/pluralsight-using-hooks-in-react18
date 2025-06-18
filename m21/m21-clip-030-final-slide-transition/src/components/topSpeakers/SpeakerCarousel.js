@@ -21,9 +21,7 @@ export default function SpeakerCarousel({
       const nextSlide = currentSlide - 1;
       setSlideDir("prev");
       triggerSlide("prev", currentSlide, nextSlide);
-      startTransition(() => {
-        setCurrentSlide(nextSlide);
-      });
+      setCurrentSlide(nextSlide);
     }
   }
 
@@ -32,9 +30,7 @@ export default function SpeakerCarousel({
       const nextSlide = currentSlide + 1;
       setSlideDir("next");
       triggerSlide("next", currentSlide, nextSlide);
-      startTransition(() => {
-        setCurrentSlide(nextSlide);
-      });
+      setCurrentSlide(nextSlide);
     }
   }
 
@@ -50,6 +46,8 @@ export default function SpeakerCarousel({
   if (!topSpeakers.length) return null;
   const isFirst = currentSlide === 0;
   const isLast = currentSlide === topSpeakers.length - 1;
+
+  console.log("/../SpeakerCarousel isAnimating", isAnimating);
 
   return (
     <div className="speakers-carousel-wrapper position-relative">

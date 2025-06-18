@@ -17,7 +17,7 @@ export default function useSlideAnimation() {
       setSlideDirection(null);
       setIsAnimating(false);
       setPreviousSlideIndex(null);
-    }, 300); // Match your CSS animation duration
+    }, 800); // Match your CSS animation duration
 
     return function () {
       clearTimeout(timer);

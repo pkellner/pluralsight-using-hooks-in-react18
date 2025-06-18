@@ -928,7 +928,7 @@ header ul li button:focus {
 
 /* Animation classes */
 .slide-out-left {
-  animation: slideOutLeft 0.3s ease-in-out forwards;
+  animation: slideOutLeft .8s ease-in-out forwards;
   position: absolute;
   top: 0;
   left: 0;
@@ -937,13 +937,13 @@ header ul li button:focus {
 }
 
 .slide-in-left {
-  animation: slideInLeft 0.3s ease-in-out forwards;
+  animation: slideInLeft .8s ease-in-out forwards;
   position: relative;
   z-index: 2;
 }
 
 .slide-out-right {
-  animation: slideOutRight 0.3s ease-in-out forwards;
+  animation: slideOutRight .8s ease-in-out forwards;
   position: absolute;
   top: 0;
   left: 0;
@@ -952,7 +952,7 @@ header ul li button:focus {
 }
 
 .slide-in-right {
-  animation: slideInRight 0.3s ease-in-out forwards;
+  animation: slideInRight .8s ease-in-out forwards;
   position: relative;
   z-index: 2;
 }
