@@ -8,6 +8,7 @@ export default function SignupForm() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('idle');
+  const [submitMessage, setSubmitMessage] = useState('');
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -15,6 +16,7 @@ export default function SignupForm() {
     try {
       setIsSubmitting(true);
       setSubmitStatus('idle');
+      setSubmitMessage('');
 
       const response = await fetch('/api/signup', {
         method: 'POST',
@@ -24,15 +26,20 @@ export default function SignupForm() {
         body: JSON.stringify(formData),
       });
 
+      const responseData = await response.json();
+
       if (response.ok) {
         setSubmitStatus('success');
+        setSubmitMessage(responseData.message);
         setFormData({ firstName: "", lastName: "", email: "" });
       } else {
         setSubmitStatus('error');
+        setSubmitMessage(responseData.error || 'Something went wrong. Please try again later.');
       }
     } catch (error) {
       console.error('Signup error:', error);
       setSubmitStatus('error');
+      setSubmitMessage('Something went wrong. Please try again later.');
     } finally {
       setIsSubmitting(false);
     }
@@ -126,13 +133,13 @@ export default function SignupForm() {
 
               {submitStatus === 'success' && (
                 <div className="signup-message signup-success">
-                  Thank you! You have been successfully signed up for updates.
+                  {submitMessage}
                 </div>
               )}
 
               {submitStatus === 'error' && (
                 <div className="signup-message signup-error">
-                  Something went wrong. Please try again later.
+                  {submitMessage}
                 </div>
               )}
             </form>

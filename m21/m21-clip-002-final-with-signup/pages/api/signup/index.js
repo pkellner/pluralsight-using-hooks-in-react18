@@ -18,9 +18,9 @@ export default async function handler(req, res) {
     }
 
     // Validate last name
-    if (!lastName || lastName.trim().length === 0) {
+    if (!lastName || lastName.trim().length < 2) {
       return res.status(400).json({
-        error: 'Last name is required and cannot be empty'
+        error: 'Last name must be at least 2 characters long'
       });
     }
 
