@@ -2,15 +2,15 @@ import SpeakerDetailRecord from "./SpeakerDetailRecord";
 import { startTransition, useState } from "react";
 import useSlideAnimation from "./useSlideAnimation";
 
-
 export default function SpeakerCarousel({
-                                          speakers,
-                                          setSpeakers,
-                                          currentSlide,
-                                          setCurrentSlide,
-                                        }) {
+  speakers,
+  setSpeakers,
+  currentSlide,
+  setCurrentSlide,
+}) {
   const [slideDir, setSlideDir] = useState(null); // "next" | "prev"
-  const { animationClass, isAnimating, triggerSlide } = useSlideAnimation();
+  const { slideDirection, isAnimating, previousSlideIndex, triggerSlide } =
+    useSlideAnimation();
 
   const topSpeakers = speakers.filter((s) =>
     [1269, 187, 1124, 10803, 8367].includes(s.id),
@@ -18,20 +18,22 @@ export default function SpeakerCarousel({
 
   function handlePrevious() {
     if (currentSlide > 0 && !isAnimating) {
+      const nextSlide = currentSlide - 1;
       setSlideDir("prev");
-      triggerSlide("prev");
+      triggerSlide("prev", currentSlide, nextSlide);
       startTransition(() => {
-        setCurrentSlide((p) => p - 1);
+        setCurrentSlide(nextSlide);
       });
     }
   }
 
   function handleNext() {
     if (currentSlide < topSpeakers.length - 1 && !isAnimating) {
+      const nextSlide = currentSlide + 1;
       setSlideDir("next");
-      triggerSlide("next");
+      triggerSlide("next", currentSlide, nextSlide);
       startTransition(() => {
-        setCurrentSlide((p) => p + 1);
+        setCurrentSlide(nextSlide);
       });
     }
   }
@@ -40,7 +42,7 @@ export default function SpeakerCarousel({
     if (!isAnimating && index !== currentSlide) {
       const direction = index > currentSlide ? "next" : "prev";
       setSlideDir(direction);
-      triggerSlide(direction);
+      triggerSlide(direction, currentSlide, index);
       setCurrentSlide(index);
     }
   }
@@ -54,12 +56,33 @@ export default function SpeakerCarousel({
       <div className="carousel-container">
         <div className="carousel-slide-wrapper">
           <div className="carousel-slide-content">
+            {/* Current slide */}
             <SpeakerDetailRecord
               speakerRec={topSpeakers[currentSlide]}
               setSpeakers={setSpeakers}
               slideDir={slideDir}
-              animationClass={animationClass}
+              animationClass={
+                isAnimating && slideDirection === "next"
+                  ? "slide-in-right"
+                  : isAnimating && slideDirection === "prev"
+                  ? "slide-in-left"
+                  : ""
+              }
             />
+
+            {/* Previous slide during animation */}
+            {isAnimating && previousSlideIndex !== null && (
+              <SpeakerDetailRecord
+                speakerRec={topSpeakers[previousSlideIndex]}
+                setSpeakers={setSpeakers}
+                slideDir={slideDir}
+                animationClass={
+                  slideDirection === "next"
+                    ? "slide-out-left"
+                    : "slide-out-right"
+                }
+              />
+            )}
           </div>
         </div>
 

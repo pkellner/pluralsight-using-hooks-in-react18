@@ -1,55 +1,33 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function useSlideAnimation() {
-  const [animationClass, setAnimationClass] = useState("");
+  const [slideDirection, setSlideDirection] = useState(null);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [previousSlideIndex, setPreviousSlideIndex] = useState(null);
 
-  function triggerSlide(direction) {
+  function triggerSlide(direction, currentIndex, nextIndex) {
     if (isAnimating) return;
 
     setIsAnimating(true);
+    setSlideDirection(direction);
+    setPreviousSlideIndex(currentIndex);
 
-    // Apply the appropriate slide class based on direction
-    if (direction === "next") {
-      setAnimationClass("slide-out-left");
-    } else if (direction === "prev") {
-      setAnimationClass("slide-out-right");
-    }
+    // Reset animation after duration
+    const timer = setTimeout(function () {
+      setSlideDirection(null);
+      setIsAnimating(false);
+      setPreviousSlideIndex(null);
+    }, 300); // Match your CSS animation duration
+
+    return function () {
+      clearTimeout(timer);
+    };
   }
 
-  useEffect(
-    function () {
-      if (animationClass) {
-        const timer = setTimeout(function () {
-          // After the slide out animation, slide in from the opposite direction
-          if (animationClass === "slide-out-left") {
-            setAnimationClass("slide-in-right");
-          } else if (animationClass === "slide-out-right") {
-            setAnimationClass("slide-in-left");
-          }
-
-          // Reset animation state after slide in completes
-          const resetTimer = setTimeout(function () {
-            setAnimationClass("");
-            setIsAnimating(false);
-          }, 300); // Match your CSS animation duration
-
-          return function () {
-            clearTimeout(resetTimer);
-          };
-        }, 300); // Match your CSS animation duration
-
-        return function () {
-          clearTimeout(timer);
-        };
-      }
-    },
-    [animationClass],
-  );
-
   return {
-    animationClass,
+    slideDirection,
     isAnimating,
+    previousSlideIndex,
     triggerSlide,
   };
 }

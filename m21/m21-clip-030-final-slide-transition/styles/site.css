@@ -916,18 +916,43 @@ header ul li button:focus {
   }
 }
 
+/* Carousel slide wrapper positioning */
+.carousel-slide-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-slide-content {
+  position: relative;
+}
+
+/* Animation classes */
 .slide-out-left {
   animation: slideOutLeft 0.3s ease-in-out forwards;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
 }
 
 .slide-in-left {
   animation: slideInLeft 0.3s ease-in-out forwards;
+  position: relative;
+  z-index: 2;
 }
 
 .slide-out-right {
   animation: slideOutRight 0.3s ease-in-out forwards;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
 }
 
 .slide-in-right {
   animation: slideInRight 0.3s ease-in-out forwards;
+  position: relative;
+  z-index: 2;
 }

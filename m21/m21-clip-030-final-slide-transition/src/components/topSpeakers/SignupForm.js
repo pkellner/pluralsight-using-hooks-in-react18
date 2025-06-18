@@ -17,7 +17,7 @@ function SubmitButton() {
           Submitting...
         </>
       ) : (
-        'Submit'
+        "Submit"
       )}
     </button>
   );
@@ -27,8 +27,8 @@ export default function SignupForm() {
   const [state, formAction] = useActionState(signupAction, {
     success: false,
     error: null,
-    message: '',
-    formData: { firstName: '', lastName: '', email: '' }
+    message: "",
+    formData: { firstName: "", lastName: "", email: "" },
   });
 
   return (
@@ -43,7 +43,7 @@ export default function SignupForm() {
                 <input
                   type="text"
                   name="firstName"
-                  defaultValue={state.formData?.firstName || ''}
+                  defaultValue={state.formData?.firstName || ""}
                   className="signup-input form-control"
                   placeholder="First Name"
                   required
@@ -52,7 +52,7 @@ export default function SignupForm() {
                 <input
                   type="text"
                   name="lastName"
-                  defaultValue={state.formData?.lastName || ''}
+                  defaultValue={state.formData?.lastName || ""}
                   className="signup-input form-control"
                   placeholder="Last Name"
                   required
@@ -63,7 +63,7 @@ export default function SignupForm() {
                 <input
                   type="email"
                   name="email"
-                  defaultValue={state.formData?.email || ''}
+                  defaultValue={state.formData?.email || ""}
                   className="signup-input form-control"
                   placeholder="Email Address"
                   required

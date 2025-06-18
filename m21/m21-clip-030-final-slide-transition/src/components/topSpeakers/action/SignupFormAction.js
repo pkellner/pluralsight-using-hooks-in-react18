@@ -1,4 +1,4 @@
-'use server';
+"use server";
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -6,22 +6,25 @@ export async function signupAction(previousState, formData) {
   try {
     await delay(1000);
 
-    const firstName = formData.get('firstName');
-    const lastName = formData.get('lastName');
-    const email = formData.get('email');
+    const firstName = formData.get("firstName");
+    const lastName = formData.get("lastName");
+    const email = formData.get("email");
 
-    console.log("/src/components/topSpeakers/action/SignupFormAction.js signupAction called with formData:", {
-      firstName,
-      lastName,
-      email
-    });
+    console.log(
+      "/src/components/topSpeakers/action/SignupFormAction.js signupAction called with formData:",
+      {
+        firstName,
+        lastName,
+        email,
+      },
+    );
 
     // Validate first name
     if (!firstName || firstName.trim().length === 0) {
       return {
         success: false,
-        error: 'First name is required and cannot be empty',
-        formData: { firstName, lastName, email }
+        error: "First name is required and cannot be empty",
+        formData: { firstName, lastName, email },
       };
     }
 
@@ -29,8 +32,8 @@ export async function signupAction(previousState, formData) {
     if (!lastName || lastName.trim().length < 2) {
       return {
         success: false,
-        error: 'Last Name > 2 char is required',
-        formData: { firstName, lastName, email }
+        error: "Last Name > 2 char is required",
+        formData: { firstName, lastName, email },
       };
     }
 
@@ -38,16 +41,16 @@ export async function signupAction(previousState, formData) {
     if (!email || email.trim().length === 0) {
       return {
         success: false,
-        error: 'Email is required and cannot be empty',
-        formData: { firstName, lastName, email }
+        error: "Email is required and cannot be empty",
+        formData: { firstName, lastName, email },
       };
     }
 
-    if (email.toLowerCase() === 'bad@email.com') {
+    if (email.toLowerCase() === "bad@email.com") {
       return {
         success: false,
-        error: 'Invalid email address provided',
-        formData: { firstName, lastName, email }
+        error: "Invalid email address provided",
+        formData: { firstName, lastName, email },
       };
     }
 
@@ -59,15 +62,14 @@ export async function signupAction(previousState, formData) {
     return {
       success: true,
       message: successMessage,
-      formData: { firstName: '', lastName: '', email: '' }
+      formData: { firstName: "", lastName: "", email: "" },
     };
-
   } catch (error) {
-    console.error('Signup server action error:', error);
+    console.error("Signup server action error:", error);
     return {
       success: false,
-      error: 'Internal server error',
-      formData: { firstName: '', lastName: '', email: '' }
+      error: "Internal server error",
+      formData: { firstName: "", lastName: "", email: "" },
     };
   }
 }
