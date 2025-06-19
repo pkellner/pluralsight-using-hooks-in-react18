@@ -10,13 +10,7 @@ export const SpeakersDataContext = createContext({
 });
 
 export const SpeakersDataProvider = ({ children }) => {
-  const {
-    speakerList,
-    createSpeaker,
-    updateSpeaker,
-    deleteSpeaker,
-    loadingStatus,
-  } = useSpeakersData();
+  const { speakerList, createSpeaker, updateSpeaker, deleteSpeaker, loadingStatus } = useSpeakersData();
 
   const value = {
     speakerList,
@@ -26,9 +20,5 @@ export const SpeakersDataProvider = ({ children }) => {
     loadingStatus,
   };
 
-  return (
-    <SpeakersDataContext.Provider value={value}>
-      {children}
-    </SpeakersDataContext.Provider>
-  );
+  return <SpeakersDataContext.Provider value={value}>{children}</SpeakersDataContext.Provider>;
 };

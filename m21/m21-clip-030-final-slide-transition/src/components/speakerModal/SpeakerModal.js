@@ -7,10 +7,7 @@ import { SpeakerModalContext } from "../contexts/SpeakerModalContext";
 export default function SpeakerModal() {
   const { modalShow } = useContext(SpeakerModalContext);
 
-  const cssShowHide =
-    modalShow && modalShow === true
-      ? "modal show-modal has-backdrop"
-      : "modal hide-modal";
+  const cssShowHide = modalShow && modalShow === true ? "modal show-modal has-backdrop" : "modal hide-modal";
 
   return (
     <>

@@ -2,25 +2,17 @@ import SpeakerDetailRecord from "./SpeakerDetailRecord";
 import { startTransition, useState } from "react";
 import { ViewTransitionCarouselProvider, useViewTransitionCarousel } from "./ViewTransitionCarouselProvider";
 
-function SpeakerCarouselInner({
-                                speakers,
-                                setSpeakers,
-                                currentSlide,
-                                setCurrentSlide,
-                                setSlideDirection,
-                              }) {
+function SpeakerCarouselInner({ speakers, setSpeakers, currentSlide, setCurrentSlide, setSlideDirection }) {
   const { slideDirection, isAnimating, previousSlideIndex } = useViewTransitionCarousel();
   const [slideDir, setSlideDir] = useState(null);
 
-  const topSpeakers = speakers.filter((s) =>
-    [1269, 187, 1124, 10803, 8367].includes(s.id),
-  );
+  const topSpeakers = speakers.filter((s) => [1269, 187, 1124, 10803, 8367].includes(s.id));
 
   function handlePrevious() {
     if (currentSlide > 0 && !isAnimating) {
       const nextSlide = currentSlide - 1;
       setSlideDir("prev");
-      startTransition(function() {
+      startTransition(function () {
         setSlideDirection("prev");
         setCurrentSlide(nextSlide);
       });
@@ -31,7 +23,7 @@ function SpeakerCarouselInner({
     if (currentSlide < topSpeakers.length - 1 && !isAnimating) {
       const nextSlide = currentSlide + 1;
       setSlideDir("next");
-      startTransition(function() {
+      startTransition(function () {
         setSlideDirection("next");
         setCurrentSlide(nextSlide);
       });
@@ -42,7 +34,7 @@ function SpeakerCarouselInner({
     if (!isAnimating && index !== currentSlide) {
       const direction = index > currentSlide ? "next" : "prev";
       setSlideDir(direction);
-      startTransition(function() {
+      startTransition(function () {
         setSlideDirection(direction);
         setCurrentSlide(index);
       });
@@ -67,8 +59,8 @@ function SpeakerCarouselInner({
                 isAnimating && slideDirection === "next"
                   ? "slide-in-right"
                   : isAnimating && slideDirection === "prev"
-                    ? "slide-in-left"
-                    : ""
+                  ? "slide-in-left"
+                  : ""
               }
             />
 
@@ -78,20 +70,14 @@ function SpeakerCarouselInner({
                 speakerRec={topSpeakers[previousSlideIndex]}
                 setSpeakers={setSpeakers}
                 slideDir={slideDir}
-                animationClass={
-                  slideDirection === "next"
-                    ? "slide-out-left"
-                    : "slide-out-right"
-                }
+                animationClass={slideDirection === "next" ? "slide-out-left" : "slide-out-right"}
               />
             )}
           </div>
         </div>
 
         <button
-          className={`carousel-nav-btn carousel-nav-prev ${
-            isFirst ? "disabled" : ""
-          }`}
+          className={`carousel-nav-btn carousel-nav-prev ${isFirst ? "disabled" : ""}`}
           type="button"
           onClick={handlePrevious}
           disabled={isFirst || isAnimating}
@@ -101,9 +87,7 @@ function SpeakerCarouselInner({
         </button>
 
         <button
-          className={`carousel-nav-btn carousel-nav-next ${
-            isLast ? "disabled" : ""
-          }`}
+          className={`carousel-nav-btn carousel-nav-next ${isLast ? "disabled" : ""}`}
           type="button"
           onClick={handleNext}
           disabled={isLast || isAnimating}
@@ -130,19 +114,11 @@ function SpeakerCarouselInner({
   );
 }
 
-export default function SpeakerCarousel({
-                                          speakers,
-                                          setSpeakers,
-                                          currentSlide,
-                                          setCurrentSlide,
-                                        }) {
+export default function SpeakerCarousel({ speakers, setSpeakers, currentSlide, setCurrentSlide }) {
   const [slideDirection, setSlideDirection] = useState(null);
 
   return (
-    <ViewTransitionCarouselProvider
-      currentSlideIndex={currentSlide}
-      direction={slideDirection}
-    >
+    <ViewTransitionCarouselProvider currentSlideIndex={currentSlide} direction={slideDirection}>
       <SpeakerCarouselInner
         speakers={speakers}
         setSpeakers={setSpeakers}

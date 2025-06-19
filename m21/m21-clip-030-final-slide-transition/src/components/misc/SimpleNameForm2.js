@@ -15,16 +15,16 @@ export default function SimpleNameForm2() {
     try {
       // Create URLSearchParams for classic form POST encoding
       const formData = new URLSearchParams();
-      formData.append('firstName', firstNameRef.current.value || '');
-      formData.append('lastName', lastNameRef.current.value || '');
-      formData.append('email', emailRef.current.value || '');
+      formData.append("firstName", firstNameRef.current.value || "");
+      formData.append("lastName", lastNameRef.current.value || "");
+      formData.append("email", emailRef.current.value || "");
 
       const response = await fetch("http://localhost:3000/api/signup", {
         method: "POST",
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: formData
+        body: formData,
       });
 
       if (!response.ok) {
@@ -57,7 +57,7 @@ export default function SimpleNameForm2() {
       {message && (
         <>
           <br />
-          <div style={{color: isSuccess ? 'green' : 'red'}}>{message}</div>
+          <div style={{ color: isSuccess ? "green" : "red" }}>{message}</div>
         </>
       )}
     </div>

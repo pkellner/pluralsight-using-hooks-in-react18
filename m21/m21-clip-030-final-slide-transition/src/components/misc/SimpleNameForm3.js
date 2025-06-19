@@ -64,11 +64,7 @@ export default function SimpleNameForm3() {
       <br />
       <br />
       <button onClick={handleSubmit}>Submit</button>
-      {submitting && (
-        <span style={{ color: "#1E90FF", fontStyle: "italic", marginLeft: "10px" }}>
-          submitting...
-        </span>
-      )}
+      {submitting && <span style={{ color: "#1E90FF", fontStyle: "italic", marginLeft: "10px" }}>submitting...</span>}
       {message && (
         <>
           <br />

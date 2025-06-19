@@ -4,21 +4,11 @@ import { SpeakerMenuContext } from "../contexts/SpeakerMenuContext";
 import { SpeakerModalProvider } from "../contexts/SpeakerModalContext";
 
 export default function SpeakerMenu() {
-  const {
-    speakingSaturday,
-    setSpeakingSaturday,
-    speakingSunday,
-    setSpeakingSunday,
-    searchText,
-    setSearchText,
-  } = useContext(SpeakerMenuContext);
+  const { speakingSaturday, setSpeakingSaturday, speakingSunday, setSpeakingSunday, searchText, setSearchText } =
+    useContext(SpeakerMenuContext);
 
   return (
-    <div
-      className="btn-toolbar"
-      role="toolbar"
-      aria-label="Speaker toolbar filter"
-    >
+    <div className="btn-toolbar" role="toolbar" aria-label="Speaker toolbar filter">
       <div className="toolbar-trigger mb-3">
         <div className="toolbar-search">
           <input

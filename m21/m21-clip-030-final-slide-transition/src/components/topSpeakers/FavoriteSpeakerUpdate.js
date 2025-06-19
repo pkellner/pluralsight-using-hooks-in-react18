@@ -1,9 +1,6 @@
 import { useState } from "react";
 
-export default function FavoriteSpeakerUpdate({
-  speakerRec,
-  completionFunction,
-}) {
+export default function FavoriteSpeakerUpdate({ speakerRec, completionFunction }) {
   async function updateSpeaker(speaker, callback) {
     try {
       const response = await fetch(`/api/speakers/${speaker.id}`, {
@@ -23,9 +20,7 @@ export default function FavoriteSpeakerUpdate({
   const [updating, setUpdating] = useState(false);
   return (
     <button
-      className={
-        speakerRec.favorite ? "heartredbutton btn" : "heartdarkbutton btn"
-      }
+      className={speakerRec.favorite ? "heartredbutton btn" : "heartdarkbutton btn"}
       onClick={(e) => {
         e.preventDefault();
         const newSpeakerRec = {
@@ -41,9 +36,7 @@ export default function FavoriteSpeakerUpdate({
         });
       }}
     >
-      {updating ? (
-        <i className="spinner-border text-dark" role="status" />
-      ) : null}
+      {updating ? <i className="spinner-border text-dark" role="status" /> : null}
     </button>
   );
 }

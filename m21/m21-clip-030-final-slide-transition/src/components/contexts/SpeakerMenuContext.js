@@ -22,9 +22,5 @@ export const SpeakerMenuProvider = ({ children }) => {
     searchText,
     setSearchText,
   };
-  return (
-    <SpeakerMenuContext.Provider value={value}>
-      {children}
-    </SpeakerMenuContext.Provider>
-  );
+  return <SpeakerMenuContext.Provider value={value}>{children}</SpeakerMenuContext.Provider>;
 };

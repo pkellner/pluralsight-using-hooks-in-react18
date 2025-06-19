@@ -6,11 +6,7 @@ function SubmitButton() {
   const { pending } = useFormStatus();
 
   return (
-    <button
-      type="submit"
-      className="signup-submit-btn btn-accent"
-      disabled={pending}
-    >
+    <button type="submit" className="signup-submit-btn btn-accent" disabled={pending}>
       {pending ? (
         <>
           <div className="signup-spinner"></div>
@@ -74,17 +70,9 @@ export default function SignupForm() {
                 <SubmitButton />
 
                 <div className="signup-message-container">
-                  {state.success && state.message && (
-                    <div className="signup-message signup-success">
-                      {state.message}
-                    </div>
-                  )}
+                  {state.success && state.message && <div className="signup-message signup-success">{state.message}</div>}
 
-                  {!state.success && state.error && (
-                    <div className="signup-message signup-error">
-                      {state.error}
-                    </div>
-                  )}
+                  {!state.success && state.error && <div className="signup-message signup-error">{state.error}</div>}
                 </div>
               </div>
             </form>

@@ -1,15 +1,8 @@
 import FavoriteSpeakerUpdate from "./FavoriteSpeakerUpdate";
 
-export default function SpeakerDetailRecord({
-  speakerRec,
-  setSpeakers,
-  slideDir,
-  animationClass,
-}) {
+export default function SpeakerDetailRecord({ speakerRec, setSpeakers, slideDir, animationClass }) {
   return (
-    <div
-      className={`card border-0 carousel-speaker-card ${animationClass || ""}`}
-    >
+    <div className={`card border-0 carousel-speaker-card ${animationClass || ""}`}>
       <div className="row g-0">
         <div className="col-4">
           <img

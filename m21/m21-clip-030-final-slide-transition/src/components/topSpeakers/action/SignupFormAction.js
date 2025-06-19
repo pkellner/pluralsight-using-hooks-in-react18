@@ -10,14 +10,11 @@ export async function signupAction(previousState, formData) {
     const lastName = formData.get("lastName");
     const email = formData.get("email");
 
-    console.log(
-      "/src/components/topSpeakers/action/SignupFormAction.js signupAction called with formData:",
-      {
-        firstName,
-        lastName,
-        email,
-      },
-    );
+    console.log("/src/components/topSpeakers/action/SignupFormAction.js signupAction called with formData:", {
+      firstName,
+      lastName,
+      email,
+    });
 
     // Validate first name
     if (!firstName || firstName.trim().length === 0) {
