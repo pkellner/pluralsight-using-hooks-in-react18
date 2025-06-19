@@ -6,6 +6,10 @@ import Speaker from "../speakers/Speaker";
 import SpeakerList from "../speakers/SpeakerList";
 import { ThemeProvider } from "../contexts/ThemeContext";
 import TopSpeakers from "../topSpeakers/TopSpeakers";
+import SimpleNameForm1 from "../misc/SimpleNameForm1";
+import SimpleNameForm2 from "../misc/SimpleNameForm2";
+import SimpleNameForm3 from "../misc/SimpleNameForm3";
+import SimpleNameForm4 from "../misc/SimpleNameForm4";
 
 // Layout does not use children but instead uses what comes from AppRouteProvider
 export default function Layout({ url }) {
@@ -20,6 +24,10 @@ export default function Layout({ url }) {
       {url.startsWith("/speaker/") && <Speaker id={speakerId} />}
       {url.startsWith("/speakerlist") && <SpeakerList />}
       {url.startsWith("/topspeakers") && <TopSpeakers />}
+      {url.startsWith("/simplenameform1") && <SimpleNameForm1 />}
+      {url.startsWith("/simplenameform2") && <SimpleNameForm2 />}
+      {url.startsWith("/simplenameform3") && <SimpleNameForm3 />}
+      {url.startsWith("/simplenameform4") && <SimpleNameForm4 />}
     </ThemeProvider>
   );
 }

@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    await delay(1000);
+    await delay(2000);
 
     const { firstName, lastName, email } = req.body;
 
