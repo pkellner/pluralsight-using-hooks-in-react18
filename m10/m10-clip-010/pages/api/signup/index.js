@@ -40,6 +40,13 @@ export default async function handler(req, res) {
     // Success response
     const successMessage = `${firstName.trim()} ${lastName.trim()} at ${email.trim()} registration is successful`;
 
+    // could also return HTML response
+    // return res
+    //   .status(200)
+    //   .send(
+    //     `<!DOCTYPE html><html lang=""><body>${successMessage}</body></html>`,
+    //   );
+
     res.status(200).json({
       success: true,
       message: successMessage,
