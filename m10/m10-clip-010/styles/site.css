@@ -324,6 +324,11 @@ header ul li button:focus {
   color: var(--danger);
 }
 
+.modifyWrapper {
+  display: flex;
+  gap: 0.7rem;
+}
+
 .modal-header .modal-title {
   color: var(--dark);
   text-transform: uppercase;
