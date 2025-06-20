@@ -38,14 +38,12 @@ export default async function handler(req, res) {
     }
 
     // Success response
-    const successMessage = `${firstName.trim()} ${lastName.trim()} at ${email.trim()} registration xx is successful`;
+    const successMessage = `${firstName.trim()} ${lastName.trim()} at ${email.trim()} registration is successful`;
 
     res.status(200).json({
       success: true,
       message: successMessage,
     });
-
-    console.log(`POST /api/signup status: 200 - ${successMessage}`);
   } catch (error) {
     console.log("/api/signup error:", error);
     res.status(500).json({

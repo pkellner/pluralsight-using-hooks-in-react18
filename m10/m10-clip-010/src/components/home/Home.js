@@ -3,7 +3,7 @@ import { ThemeContext } from "../contexts/ThemeContext";
 import SpeakerCarousel from "./SpeakerCarousel";
 import SignupForm from "./SignupForm";
 
-export default function TopSpeakers() {
+export default function Home() {
   const [speakers, setSpeakers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentSlide, setCurrentSlide] = useState(0);

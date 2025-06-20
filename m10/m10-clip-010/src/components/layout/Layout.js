@@ -5,7 +5,7 @@ import About from "../about/About";
 import Speaker from "../speakers/Speaker";
 import SpeakerList from "../speakers/SpeakerList";
 import { ThemeProvider } from "../contexts/ThemeContext";
-import TopSpeakers from "../home/TopSpeakers";
+import Home from "../home/Home";
 import SimpleNameForm1 from "../misc/SimpleNameForm1";
 import SimpleNameForm2 from "../misc/SimpleNameForm2";
 import SimpleNameForm3 from "../misc/SimpleNameForm3";
@@ -21,7 +21,7 @@ export default function Layout({ url }) {
       <Header />
       <AppMenu />
       {url === "/about" && <About />}
-      {url === "/" && <TopSpeakers />}
+      {url === "/" && <Home />}
       {url.startsWith("/speakers") && <Speakers />}
       {url.startsWith("/speaker/") && <Speaker id={speakerId} />}
       {url.startsWith("/speakerlist") && <SpeakerList />}
