@@ -2,7 +2,7 @@ import { startTransition, useActionState, useState } from "react";
 import { signupAction } from "./action/SimpleNameActionWithZod";
 import { initialSignupState, signupSchema } from "./signupSchema";
 
-const SHOW_CLIENT_SIDE_VALIDATION_MESSAGE_FIRST = false;
+const SHOW_CLIENT_SIDE_VALIDATION_MESSAGE_FIRST = true;
 
 export default function SimpleNameForm5() {
   const [state, formAction, isPending] = useActionState(signupAction, initialSignupState);
