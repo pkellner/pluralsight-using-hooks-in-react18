@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useRef, useState } from "react";
 
 export default function SimpleNameForm2() {
   const [message, setMessage] = useState("");
@@ -44,20 +44,40 @@ export default function SimpleNameForm2() {
 
   return (
     <div>
-      <input type="text" name="firstName" placeholder="First Name" required ref={firstNameRef} />
+      <input
+        type="text"
+        name="firstName"
+        placeholder="First Name"
+        required
+        ref={firstNameRef}
+      />
       <br />
       <br />
-      <input type="text" name="lastName" placeholder="Last Name" required ref={lastNameRef} />
+      <input
+        type="text"
+        name="lastName"
+        placeholder="Last Name"
+        required
+        ref={lastNameRef}
+      />
       <br />
       <br />
-      <input type="email" name="email" placeholder="Email" ref={emailRef} required />
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        ref={emailRef}
+        required
+      />
       <br />
       <br />
       <button onClick={handleSubmit}>Submit</button>
       {message && (
         <>
           <br />
-          <div style={{ color: isSuccess ? "green" : "red" }}>{message}</div>
+          <div style={{ color: isSuccess ? "green" : "red" }}>
+            {message}
+          </div>
         </>
       )}
     </div>

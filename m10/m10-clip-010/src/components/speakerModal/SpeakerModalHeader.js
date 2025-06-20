@@ -5,7 +5,13 @@ export default function SpeakersModalHeader() {
   const { setModalShow, modalSpeakerId } = useContext(SpeakerModalContext);
   return (
     <div className="modal-header bg-main-gradient text-white">
-      <h5 className="modal-title">{modalSpeakerId === 0 ? <span>Add Speaker</span> : <span>Edit Speaker</span>}</h5>
+      <h5 className="modal-title">
+        {modalSpeakerId === 0 ? (
+          <span>Add Speaker</span>
+        ) : (
+          <span>Edit Speaker</span>
+        )}
+      </h5>
       <button
         type="button"
         onClick={() => {

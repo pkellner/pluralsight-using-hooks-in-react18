@@ -1,7 +1,13 @@
 import { useContext } from "react";
 import { SpeakerModalContext } from "../contexts/SpeakerModalContext";
 
-export default function EditSpeakerDialog({ id, firstName, lastName, email, imageUrl }) {
+export default function EditSpeakerDialog({
+  id,
+  firstName,
+  lastName,
+  email,
+  imageUrl,
+}) {
   const {
     setModalShow,
     modalShow,

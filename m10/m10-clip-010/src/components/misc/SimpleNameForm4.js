@@ -13,11 +13,23 @@ export default function SimpleNameForm4() {
 
   return (
     <form action={formAction}>
-      <input type="text" name="firstName" placeholder="First Name" required defaultValue={state.firstName} />
+      <input
+        type="text"
+        name="firstName"
+        placeholder="First Name"
+        required
+        defaultValue={state.firstName}
+      />
       <br />
       <br />
 
-      <input type="text" name="lastName" placeholder="Last Name" required defaultValue={state.lastName} />
+      <input
+        type="text"
+        name="lastName"
+        placeholder="Last Name"
+        required
+        defaultValue={state.lastName}
+      />
       <br />
       <br />
 
@@ -32,11 +44,17 @@ export default function SimpleNameForm4() {
       <br />
 
       <button type="submit">Submit</button>
-      {isPending && <span style={{ marginLeft: 10, fontStyle: "italic" }}>submitting…</span>}
+      {isPending && (
+        <span style={{ marginLeft: 10, fontStyle: "italic" }}>
+          submitting…
+        </span>
+      )}
       {state.message && (
         <>
           <br />
-          <div style={{ color: state.isSuccess ? "green" : "red" }}>{state.message}</div>
+          <div style={{ color: state.isSuccess ? "green" : "red" }}>
+            {state.message}
+          </div>
         </>
       )}
     </form>

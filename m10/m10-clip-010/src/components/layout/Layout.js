@@ -5,7 +5,7 @@ import About from "../about/About";
 import Speaker from "../speakers/Speaker";
 import SpeakerList from "../speakers/SpeakerList";
 import { ThemeProvider } from "../contexts/ThemeContext";
-import TopSpeakers from "../topSpeakers/TopSpeakers";
+import TopSpeakers from "../home/TopSpeakers";
 import SimpleNameForm1 from "../misc/SimpleNameForm1";
 import SimpleNameForm2 from "../misc/SimpleNameForm2";
 import SimpleNameForm3 from "../misc/SimpleNameForm3";

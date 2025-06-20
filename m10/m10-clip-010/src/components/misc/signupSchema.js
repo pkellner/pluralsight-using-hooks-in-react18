@@ -12,7 +12,12 @@ export const signupSchema = z.object({
   email: z
     .string()
     .transform((val) => val.trim())
-    .pipe(z.string().min(1, "Email is required").email("Please enter a valid email address")),
+    .pipe(
+      z
+        .string()
+        .min(1, "Email is required")
+        .email("Please enter a valid email address"),
+    ),
 });
 
 export const initialSignupState = {

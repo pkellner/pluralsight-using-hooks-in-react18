@@ -13,7 +13,10 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
   }
 
   function formatErrorString(e, url) {
-    const errorString = e?.response?.status === 404 ? e?.message + " url " + url : e?.message + e?.response?.data;
+    const errorString =
+      e?.response?.status === 404
+        ? e?.message + " url " + url
+        : e?.message + e?.response?.data;
     console.log(errorString);
     return errorString;
   }
@@ -70,7 +73,8 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
 
           // only update the fields passed in for the updateObject
           for (const [key, value] of Object.entries(updateObject)) {
-            dataRecord[key] = value === undefined ? dataRecord[key] : value;
+            dataRecord[key] =
+              value === undefined ? dataRecord[key] : value;
           }
           return oriState.map((rec) => (rec.id === id ? dataRecord : rec));
         });

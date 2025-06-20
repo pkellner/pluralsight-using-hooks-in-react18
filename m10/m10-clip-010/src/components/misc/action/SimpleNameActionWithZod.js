@@ -1,6 +1,5 @@
 import { signupSchema } from "../signupSchema";
 
-
 export async function signupAction(previousState, formData) {
   const firstName = (formData.get("firstName") ?? "").toString();
   const lastName = (formData.get("lastName") ?? "").toString();

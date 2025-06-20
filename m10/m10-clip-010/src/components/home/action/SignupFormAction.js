@@ -10,12 +10,6 @@ export async function signupAction(previousState, formData) {
     const lastName = formData.get("lastName");
     const email = formData.get("email");
 
-    console.log("/src/components/topSpeakers/action/SignupFormAction.js signupAction called with formData:", {
-      firstName,
-      lastName,
-      email,
-    });
-
     // Validate first name
     if (!firstName || firstName.trim().length === 0) {
       return {
@@ -52,7 +46,7 @@ export async function signupAction(previousState, formData) {
     }
 
     // Success response
-    const successMessage = `${firstName.trim()} ${lastName.trim()} at ${email.trim()} is successful`;
+    const successMessage = `${firstName.trim()} ${lastName.trim()} at ${email.trim()} registration is successful`;
 
     console.log(`Server Action: signup status: 200 - ${successMessage}`);
 

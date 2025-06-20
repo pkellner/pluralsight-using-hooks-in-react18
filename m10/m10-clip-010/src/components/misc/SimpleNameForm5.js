@@ -5,7 +5,10 @@ import { initialSignupState, signupSchema } from "./signupSchema";
 const SHOW_CLIENT_SIDE_VALIDATION_MESSAGE_FIRST = false;
 
 export default function SimpleNameForm5() {
-  const [state, formAction, isPending] = useActionState(signupAction, initialSignupState);
+  const [state, formAction, isPending] = useActionState(
+    signupAction,
+    initialSignupState,
+  );
   const [validationError, setValidationError] = useState("");
 
   async function handleSubmit(event) {
@@ -18,12 +21,17 @@ export default function SimpleNameForm5() {
     const email = (formData.get("email") ?? "").toString();
 
     // Zod validation
-    const validationResult = signupSchema.safeParse({ firstName, lastName, email });
+    const validationResult = signupSchema.safeParse({
+      firstName,
+      lastName,
+      email,
+    });
 
     // if validation failed on the client, show error message and stop submission (do not submit to server)
     if (!validationResult.success) {
       setValidationError(
-        validationResult.error.errors[0].message + " (Zod validation on client failed, not submitted to server)",
+        validationResult.error.errors[0].message +
+          " (Zod validation on client failed, not submitted to server)",
       );
       return;
     }
@@ -42,32 +50,64 @@ export default function SimpleNameForm5() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" name="firstName" placeholder="First Name" required defaultValue={state.firstName} />
+      <input
+        type="text"
+        name="firstName"
+        placeholder="First Name"
+        required
+        defaultValue={state.firstName}
+      />
       <br />
       <br />
 
-      <input type="text" name="lastName" placeholder="Last Name" required defaultValue={state.lastName} />
+      <input
+        type="text"
+        name="lastName"
+        placeholder="Last Name"
+        required
+        defaultValue={state.lastName}
+      />
       <br />
       <br />
 
-      <input type="email" name="email" placeholder="Email" required defaultValue={state.email} />
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        required
+        defaultValue={state.email}
+      />
       <br />
       <br />
 
       <button type="submit">Submit</button>
-      {isPending && <span style={{ marginLeft: 10, fontStyle: "italic" }}>submitting…</span>}
+      {isPending && (
+        <span style={{ marginLeft: 10, fontStyle: "italic" }}>
+          submitting…
+        </span>
+      )}
 
       {validationError && (
         <>
           <br />
-          <div style={{ color: validationError.includes("Validation passed!") ? "blue" : "red" }}>{validationError}</div>
+          <div
+            style={{
+              color: validationError.includes("Validation passed!")
+                ? "blue"
+                : "red",
+            }}
+          >
+            {validationError}
+          </div>
         </>
       )}
 
       {state.message && !validationError && !isPending && (
         <>
           <br />
-          <div style={{ color: state.isSuccess ? "green" : "red" }}>{state.message}</div>
+          <div style={{ color: state.isSuccess ? "green" : "red" }}>
+            {state.message}
+          </div>
         </>
       )}
     </form>

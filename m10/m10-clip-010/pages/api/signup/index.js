@@ -38,7 +38,7 @@ export default async function handler(req, res) {
     }
 
     // Success response
-    const successMessage = `${firstName.trim()} ${lastName.trim()} at ${email.trim()} is successful`;
+    const successMessage = `${firstName.trim()} ${lastName.trim()} at ${email.trim()} registration xx is successful`;
 
     res.status(200).json({
       success: true,
