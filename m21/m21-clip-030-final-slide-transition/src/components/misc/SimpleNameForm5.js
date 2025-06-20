@@ -2,7 +2,7 @@ import { startTransition, useActionState, useState } from "react";
 import { signupAction } from "./action/SimpleNameActionWithZod";
 import { initialSignupState, signupSchema } from "./signupSchema";
 
-const SHOW_CLIENT_SIDE_VALIDATION_MESSAGE_FIRST = true;
+const SHOW_CLIENT_SIDE_VALIDATION_MESSAGE_FIRST = false;
 
 export default function SimpleNameForm5() {
   const [state, formAction, isPending] = useActionState(signupAction, initialSignupState);
@@ -22,7 +22,9 @@ export default function SimpleNameForm5() {
 
     // if validation failed on the client, show error message and stop submission (do not submit to server)
     if (!validationResult.success) {
-      setValidationError(validationResult.error.errors[0].message + " (Zod validation on client failed, not submitted to server)");
+      setValidationError(
+        validationResult.error.errors[0].message + " (Zod validation on client failed, not submitted to server)",
+      );
       return;
     }
 
@@ -58,11 +60,11 @@ export default function SimpleNameForm5() {
       {validationError && (
         <>
           <br />
-          <div style={{ color: "red" }}>{validationError}</div>
+          <div style={{ color: validationError.includes("Validation passed!") ? "blue" : "red" }}>{validationError}</div>
         </>
       )}
 
-      {state.message && !validationError && (
+      {state.message && !validationError && !isPending && (
         <>
           <br />
           <div style={{ color: state.isSuccess ? "green" : "red" }}>{state.message}</div>
