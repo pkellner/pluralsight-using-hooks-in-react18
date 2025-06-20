@@ -1,18 +1,45 @@
-import { useActionState } from "react";
-import { signupAction } from "./action/SimpleNameAction";
+import { startTransition, useActionState, useState } from "react";
+import { signupAction } from "./action/SimpleNameActionWithZod";
+import { initialSignupState, signupSchema } from "./signupSchema";
 
-export default function SimpleNameForm4() {
-  const [state, formAction, isPending] = useActionState(signupAction, {
-    message: "",
-    isSuccess: false,
-    submitting: false,
-    firstName: "",
-    lastName: "",
-    email: "",
-  });
+const SHOW_CLIENT_SIDE_VALIDATION_MESSAGE_FIRST = true;
+
+export default function SimpleNameForm5() {
+  const [state, formAction, isPending] = useActionState(signupAction, initialSignupState);
+  const [validationError, setValidationError] = useState("");
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    setValidationError("");
+
+    const formData = new FormData(event.currentTarget);
+    const firstName = (formData.get("firstName") ?? "").toString();
+    const lastName = (formData.get("lastName") ?? "").toString();
+    const email = (formData.get("email") ?? "").toString();
+
+    // Zod validation
+    const validationResult = signupSchema.safeParse({ firstName, lastName, email });
+
+    // if validation failed on the client, show error message and stop submission (do not submit to server)
+    if (!validationResult.success) {
+      setValidationError(validationResult.error.errors[0].message + " (Zod validation on client failed, not submitted to server)");
+      return;
+    }
+
+    // Client validation passed - show success message if flag is true
+    if (SHOW_CLIENT_SIDE_VALIDATION_MESSAGE_FIRST) {
+      setValidationError("Validation passed! (Zod validation on client)");
+    }
+
+    // Submit if validation passes - wrap in startTransition
+    startTransition(() => {
+      setValidationError(""); // Clear client message when server request starts
+      formAction(formData);
+    });
+  }
 
   return (
-    <form action={formAction}>
+    <form onSubmit={handleSubmit}>
       <input type="text" name="firstName" placeholder="First Name" required defaultValue={state.firstName} />
       <br />
       <br />
@@ -21,19 +48,21 @@ export default function SimpleNameForm4() {
       <br />
       <br />
 
-      <input
-        type="email"
-        name="email"
-        placeholder="Email"
-        required
-        defaultValue={state.email} // ← changed
-      />
+      <input type="email" name="email" placeholder="Email" required defaultValue={state.email} />
       <br />
       <br />
 
       <button type="submit">Submit</button>
       {isPending && <span style={{ marginLeft: 10, fontStyle: "italic" }}>submitting…</span>}
-      {state.message && (
+
+      {validationError && (
+        <>
+          <br />
+          <div style={{ color: "red" }}>{validationError}</div>
+        </>
+      )}
+
+      {state.message && !validationError && (
         <>
           <br />
           <div style={{ color: state.isSuccess ? "green" : "red" }}>{state.message}</div>

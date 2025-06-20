@@ -20,7 +20,8 @@
     "axios": "^1.9.0",
     "next": "^15.3.3",
     "react": "^19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "zod": "^3.25.67"
   },
   "devDependencies": {
     "eslint": "^9.28.0",

@@ -10,6 +10,7 @@ import SimpleNameForm1 from "../misc/SimpleNameForm1";
 import SimpleNameForm2 from "../misc/SimpleNameForm2";
 import SimpleNameForm3 from "../misc/SimpleNameForm3";
 import SimpleNameForm4 from "../misc/SimpleNameForm4";
+import SimpleNameForm5 from "../misc/SimpleNameForm5";
 
 // Layout does not use children but instead uses what comes from AppRouteProvider
 export default function Layout({ url }) {
@@ -28,6 +29,7 @@ export default function Layout({ url }) {
       {url.startsWith("/simplenameform2") && <SimpleNameForm2 />}
       {url.startsWith("/simplenameform3") && <SimpleNameForm3 />}
       {url.startsWith("/simplenameform4") && <SimpleNameForm4 />}
+      {url.startsWith("/simplenameform5") && <SimpleNameForm5 />}
     </ThemeProvider>
   );
 }

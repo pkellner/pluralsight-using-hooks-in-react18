@@ -1,3 +1,6 @@
+import { signupSchema } from "../signupSchema";
+
+
 export async function signupAction(previousState, formData) {
   const firstName = (formData.get("firstName") ?? "").toString();
   const lastName = (formData.get("lastName") ?? "").toString();
@@ -7,26 +10,14 @@ export async function signupAction(previousState, formData) {
 
   const values = { firstName, lastName, email };
 
-  if (!firstName.trim()) {
+  // Validate using Zod schema
+  const validationResult = signupSchema.safeParse(values);
+
+  if (!validationResult.success) {
+    const firstError = validationResult.error.errors[0];
     return {
       ...values,
-      message: "First name is required",
-      isSuccess: false,
-      submitting: false,
-    };
-  }
-  if (!lastName.trim() || lastName.trim().length < 2) {
-    return {
-      ...values,
-      message: "Last Name > 2 char is required",
-      isSuccess: false,
-      submitting: false,
-    };
-  }
-  if (!email.trim()) {
-    return {
-      ...values,
-      message: "Email is required",
+      message: firstError.message,
       isSuccess: false,
       submitting: false,
     };
