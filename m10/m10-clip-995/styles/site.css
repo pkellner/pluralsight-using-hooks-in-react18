@@ -630,10 +630,13 @@ header ul li button:focus {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 1rem;
 }
 
 .signup-card {
-  max-width: 700px;
+  width: 100%;
+  max-width: 750px;
+  min-width: 600px;
   margin: 0 auto;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
@@ -748,10 +751,11 @@ header ul li button:focus {
 
 .signup-message-container {
   flex: 1;
-  height: 48px;
+  height: 72px;
   display: flex;
   align-items: flex-start;
   overflow: hidden;
+  max-width: calc(100% - 180px);
 }
 
 .signup-message {
@@ -762,10 +766,10 @@ header ul li button:focus {
   line-height: 1.3;
   word-wrap: break-word;
   width: 100%;
-  max-height: 48px;
+  max-height: 72px;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
 
@@ -781,9 +785,21 @@ header ul li button:focus {
   border: 1px solid rgba(247, 47, 47, 0.2);
 }
 
+.signup-message-success-text {
+  color: #28a745;
+}
+
+.signup-message-error-text {
+  color: var(--danger);
+}
+
 /* RESPONSIVE STYLES */
 
 @media screen and (max-width: 768px) {
+  .signup-card {
+    min-width: 500px;
+  }
+
   .signup-card .card-body {
     padding: 1.25rem 1.75rem;
     min-height: 130px;
@@ -817,11 +833,12 @@ header ul li button:focus {
   }
 
   .signup-message-container {
-    height: 44px;
+    height: 66px;
+    max-width: calc(100% - 160px);
   }
 
   .signup-message {
-    max-height: 44px;
+    max-height: 66px;
   }
 }
 
@@ -833,6 +850,8 @@ header ul li button:focus {
   .signup-card {
     margin: 0 1rem;
     border-radius: 8px;
+    min-width: unset;
+    width: calc(100% - 2rem);
   }
 
   .signup-card .card-body {
@@ -868,11 +887,12 @@ header ul li button:focus {
   }
 
   .signup-message-container {
-    height: 40px;
+    height: 60px;
+    max-width: calc(100% - 140px);
   }
 
   .signup-message {
-    max-height: 40px;
+    max-height: 60px;
   }
 }
 

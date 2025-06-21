@@ -32,7 +32,7 @@ export default function SignupForm() {
     if (!validationResult.success) {
       setValidationError(
         validationResult.error.errors[0].message +
-          " (Zod validation on client failed, not submitted to server)",
+        " (Zod validation on client failed, not submitted to server)",
       );
       return;
     }
@@ -64,6 +64,7 @@ export default function SignupForm() {
                   className="signup-input form-control"
                   placeholder="First Name"
                   required
+                  defaultValue={state.firstName}
                 />
 
                 <input
@@ -72,6 +73,7 @@ export default function SignupForm() {
                   className="signup-input form-control"
                   placeholder="Last Name"
                   required
+                  defaultValue={state.lastName}
                 />
               </div>
 
@@ -82,6 +84,7 @@ export default function SignupForm() {
                   className="signup-input form-control"
                   placeholder="Email Address"
                   required
+                  defaultValue={state.email}
                 />
               </div>
 
@@ -89,15 +92,19 @@ export default function SignupForm() {
                 <SubmitButton />
 
                 <div className="signup-message-container">
-                  {state.message && !validationError && !isPending && (
-                    <div className="signup-message signup-success">
-                      {state.message}
+                  {validationError && (
+                    <div className={`signup-message ${validationError.includes("Validation passed!") ? 'signup-success' : 'signup-error'}`}>
+                      <span className={validationError.includes("Validation passed!") ? 'signup-message-success-text' : 'signup-message-error-text'}>
+                        {validationError}
+                      </span>
                     </div>
                   )}
 
-                  {validationError && (
-                    <div className="signup-message signup-error">
-                      <span style={{ color: state.isSuccess ? "green" : "red" }}>{validationError}</span>
+                  {state.message && !validationError && !isPending && (
+                    <div className={`signup-message ${state.isSuccess ? 'signup-success' : 'signup-error'}`}>
+                      <span className={state.isSuccess ? 'signup-message-success-text' : 'signup-message-error-text'}>
+                        {state.message}
+                      </span>
                     </div>
                   )}
                 </div>
