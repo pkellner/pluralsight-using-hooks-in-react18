@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Name Form</title>
+  </head>
+  <body>
+    <form action="http://localhost:3000/api/signup" 
+        method="POST">
+      <input
+        type="text" name="firstName" 
+        placeholder="First Name" required
+      />
+      <br /><br />
+      <input
+        type="text" name="lastName"
+        placeholder="Last Name" required
+      />
+      <br /><br />
+      <input type="email" name="email" placeholder="Email" />
+      <br /><br />
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>

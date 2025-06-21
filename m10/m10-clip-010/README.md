@@ -1,10 +1,20 @@
 # pluralsight-using-hooks-in-react
 
-This is from the last code in m9-050 and then
-modified to have new site.css and /components/topSpeakers
+There is no difference between the code in the module titled:
 
-removed /pages wildcard route and created
-/src/app wildcard route
+Handle Forms Better with useActionState and useFormStatus
+
+for clips 1 and 2. Clip 1 is the intro and shows a simple html file that can be found:
+
+/SimpleSignupForm.html
+
+Clip 2 is the same code but put the same form functionality in a React component and that can be found in:
+
+../components/home/SignupForm.js
+
+
+
+
 
 
 

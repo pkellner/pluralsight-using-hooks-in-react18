@@ -241,7 +241,7 @@ header ul li button:focus {
 }
 
 .card h4.card-title a {
-  color: var(--less-darkdark);
+  color: var(--less-dark);
   opacity: 0.9;
   transition: 250ms ease all;
 }
