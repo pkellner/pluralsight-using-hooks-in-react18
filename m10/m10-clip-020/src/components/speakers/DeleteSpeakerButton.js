@@ -7,9 +7,7 @@ export default function DeleteSpeakerButton({ id }) {
     <button
       onClick={(e) => {
         e.preventDefault();
-        const confirmed = confirm(
-          "Are you sure you want to delete this speaker?",
-        );
+        const confirmed = confirm("Are you sure you want to delete this speaker?");
         if (confirmed) {
           deleteSpeaker(id);
         }

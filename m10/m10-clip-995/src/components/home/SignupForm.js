@@ -6,10 +6,7 @@ import SubmitButton from "./SubmitButton";
 const SHOW_CLIENT_SIDE_VALIDATION_MESSAGE_FIRST = true;
 
 export default function SignupForm() {
-  const [state, formAction, isPending] = useActionState(
-    signupAction,
-    initialSignupState,
-  );
+  const [state, formAction, isPending] = useActionState(signupAction, initialSignupState);
   const [validationError, setValidationError] = useState("");
 
   async function handleSubmit(event) {
@@ -32,7 +29,7 @@ export default function SignupForm() {
     if (!validationResult.success) {
       setValidationError(
         validationResult.error.errors[0].message +
-        " (Zod validation on client failed, not submitted to server)",
+          " (Zod validation on client failed, not submitted to server)",
       );
       return;
     }
@@ -93,16 +90,30 @@ export default function SignupForm() {
 
                 <div className="signup-message-container">
                   {validationError && (
-                    <div className={`signup-message ${validationError.includes("Validation passed!") ? 'signup-success' : 'signup-error'}`}>
-                      <span className={validationError.includes("Validation passed!") ? 'signup-message-success-text' : 'signup-message-error-text'}>
+                    <div
+                      className={`signup-message ${
+                        validationError.includes("Validation passed!") ? "signup-success" : "signup-error"
+                      }`}
+                    >
+                      <span
+                        className={
+                          validationError.includes("Validation passed!")
+                            ? "signup-message-success-text"
+                            : "signup-message-error-text"
+                        }
+                      >
                         {validationError}
                       </span>
                     </div>
                   )}
 
                   {state.message && !validationError && !isPending && (
-                    <div className={`signup-message ${state.isSuccess ? 'signup-success' : 'signup-error'}`}>
-                      <span className={state.isSuccess ? 'signup-message-success-text' : 'signup-message-error-text'}>
+                    <div className={`signup-message ${state.isSuccess ? "signup-success" : "signup-error"}`}>
+                      <span
+                        className={
+                          state.isSuccess ? "signup-message-success-text" : "signup-message-error-text"
+                        }
+                      >
                         {state.message}
                       </span>
                     </div>

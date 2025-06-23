@@ -14,11 +14,7 @@ export default function SpeakerMenu() {
   } = useContext(SpeakerMenuContext);
 
   return (
-    <div
-      className="btn-toolbar"
-      role="toolbar"
-      aria-label="Speaker toolbar filter"
-    >
+    <div className="btn-toolbar" role="toolbar" aria-label="Speaker toolbar filter">
       <div className="toolbar-trigger mb-3">
         <div className="toolbar-search">
           <input

@@ -6,8 +6,8 @@ import Speaker from "../speakers/Speaker";
 import SpeakerList from "../speakers/SpeakerList";
 import { ThemeProvider } from "../contexts/ThemeContext";
 import Home from "../home/Home";
- 
-// Layout does not use children but instead uses what 
+
+// Layout does not use children but instead uses what
 //   comes from AppRouteProvider
 export default function Layout({ url }) {
   const speakerId = parseInt(url.substring(9).replace("#", ""));

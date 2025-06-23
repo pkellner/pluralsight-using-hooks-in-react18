@@ -32,9 +32,10 @@ export default function Home() {
         speakers={speakers}
         setSpeakers={setSpeakers}
         currentSlide={currentSlide}
-        setCurr  entSlide={setCurrentSlide}
+        setCurr
+        entSlide={setCurrentSlide}
       />
       <SignupForm />
     </div>
   );
-} 
+}

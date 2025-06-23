@@ -1,4 +1,4 @@
 module.exports = {
   // Line length that Prettier will wrap on
-  printWidth: 75,
+  printWidth: 110,
 };

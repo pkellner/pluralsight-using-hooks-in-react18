@@ -1,18 +1,8 @@
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 
 const ViewTransitionCarouselContext = createContext(undefined);
 
-export function ViewTransitionCarouselProvider({
-  children,
-  currentSlideIndex,
-  direction,
-}) {
+export function ViewTransitionCarouselProvider({ children, currentSlideIndex, direction }) {
   const [slideDirection, setSlideDirection] = useState(null);
   const [isAnimating, setIsAnimating] = useState(false);
   const [previousSlideIndex, setPreviousSlideIndex] = useState(null);
@@ -21,11 +11,7 @@ export function ViewTransitionCarouselProvider({
 
   useEffect(
     function () {
-      if (
-        currentSlideIndex !== lastSlideIndexRef.current &&
-        direction &&
-        !isAnimating
-      ) {
+      if (currentSlideIndex !== lastSlideIndexRef.current && direction && !isAnimating) {
         // Clear any existing timeout
         if (timeoutRef.current) {
           clearTimeout(timeoutRef.current);
@@ -72,9 +58,7 @@ export function ViewTransitionCarouselProvider({
 export function useViewTransitionCarousel() {
   const context = useContext(ViewTransitionCarouselContext);
   if (context === undefined) {
-    throw new Error(
-      "useViewTransitionCarousel must be used within a ViewTransitionCarouselProvider",
-    );
+    throw new Error("useViewTransitionCarousel must be used within a ViewTransitionCarouselProvider");
   }
   return context;
 }

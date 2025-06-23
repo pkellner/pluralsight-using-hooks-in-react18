@@ -66,10 +66,7 @@ export default function AppMenu() {
                 toggleTheme();
               }}
             />
-            <label
-              htmlFor="themeToggle"
-              className="themeToggleCheckbox-label"
-            >
+            <label htmlFor="themeToggle" className="themeToggleCheckbox-label">
               <i className="fas fa-moon"></i>
               <i className="fas fa-sun"></i>
               <span className="ball"></span>

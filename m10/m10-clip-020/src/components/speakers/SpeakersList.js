@@ -6,24 +6,11 @@ import { SpeakerMenuContext } from "../contexts/SpeakerMenuContext";
 
 export default function SpeakersList() {
   const { speakerList, loadingStatus } = useContext(SpeakersDataContext);
-  const { speakingSaturday, speakingSunday, searchText } =
-    useContext(SpeakerMenuContext);
+  const { speakingSaturday, speakingSunday, searchText } = useContext(SpeakerMenuContext);
   const speakerListJson = JSON.stringify(speakerList);
   const speakerListFiltered = useMemo(
-    () =>
-      useSpeakerSortAndFilter(
-        speakerList,
-        speakingSaturday,
-        speakingSunday,
-        searchText,
-      ),
-    [
-      speakingSaturday,
-      speakingSunday,
-      searchText,
-      loadingStatus,
-      speakerListJson,
-    ],
+    () => useSpeakerSortAndFilter(speakerList, speakingSaturday, speakingSunday, searchText),
+    [speakingSaturday, speakingSunday, searchText, loadingStatus, speakerListJson],
   );
 
   if (loadingStatus === "loading") {
@@ -32,13 +19,7 @@ export default function SpeakersList() {
   return (
     <>
       {speakerListFiltered.map(function (speakerRec) {
-        return (
-          <SpeakerDetail
-            key={speakerRec.id}
-            speakerRec={speakerRec}
-            showDetails={false}
-          />
-        );
+        return <SpeakerDetail key={speakerRec.id} speakerRec={speakerRec} showDetails={false} />;
       })}
     </>
   );
