@@ -18,45 +18,41 @@ export default function SignupForm() {
       setIsSuccess(false);
       return;
     }
+    setIsPending(true);
+    setMessage("");
 
-    // Submit to server
-    startTransition(async () => {
-      setIsPending(true);
-      setMessage("");
+    try {
+      const formData = new URLSearchParams();
+      formData.append("firstName", firstName);
+      formData.append("lastName", lastName);
+      formData.append("email", email);
 
-      try {
-        const formData = new URLSearchParams();
-        formData.append("firstName", firstName);
-        formData.append("lastName", lastName);
-        formData.append("email", email);
+      const response = await fetch("http://localhost:3000/api/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: formData,
+      });
 
-        const response = await fetch("http://localhost:3000/api/signup", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: formData,
-        });
-
-        if (!response.ok) {
-          const errorData = await response.json();
-          setMessage(errorData.error);
-          setIsSuccess(false);
-        } else {
-          const successData = await response.json();
-          setMessage(successData.message);
-          setIsSuccess(true);
-          setFirstName("");
-          setLastName("");
-          setEmail("");
-        }
-      } catch (error) {
-        setMessage("An error occurred during submission");
+      if (!response.ok) {
+        const errorData = await response.json();
+        setMessage(errorData.error);
         setIsSuccess(false);
-      } finally {
-        setIsPending(false);
+      } else {
+        const successData = await response.json();
+        setMessage(successData.message);
+        setIsSuccess(true);
+        setFirstName("");
+        setLastName("");
+        setEmail("");
       }
-    });
+    } catch (error) {
+      setMessage("An error occurred during submission");
+      setIsSuccess(false);
+    } finally {
+      setIsPending(false);
+    }
   }
 
   return (
