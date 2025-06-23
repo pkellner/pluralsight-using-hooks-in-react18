@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function SignupForm() {
   return (
     <div className="signup-wrapper">
@@ -7,34 +5,26 @@ export default function SignupForm() {
         <div className="signup-card card">
           <div className="card-body">
             <h3 className="signup-title">Stay Informed</h3>
-
             <form action="http://localhost:3000/api/signup"
               method="post" className="signup-form">
               <div className="signup-form-row">
                 <input
-                  type="text"
-                  name="firstName"
+                  type="text" name="firstName"
                   className="signup-input form-control"
-                  placeholder="First Name"
-                  required
+                  placeholder="First Name" required
                 />
 
                 <input
-                  type="text"
-                  name="lastName"
+                  type="text" name="lastName"
                   className="signup-input form-control"
-                  placeholder="Last Name"
-                  required
+                  placeholder="Last Name" required
                 />
               </div>
 
               <div className="signup-email-group">
-                <input
-                  type="email"
-                  name="email"
+                <input type="email" name="email"
                   className="signup-input form-control"
-                  placeholder="Email Address"
-                  required
+                  placeholder="Email Address" required
                 />
               </div>
 
