@@ -1,5 +1,6 @@
 import { useActionState, startTransition } from "react";
 import { restSignupAction } from "./restSignupAction";
+import SubmitButton from "./SubmitButton";
 export default function SignupForm() {
   
   const [state, formAction, isPending] = useActionState(
@@ -59,16 +60,7 @@ export default function SignupForm() {
               </div>
 
               <div className="signup-submit-row">
-                <button type="submit" disabled={isPending} className="signup-submit-btn btn-accent">
-                  {isPending ? (
-                    <>
-                      <div className="signup-spinner"></div>
-                      Submitting...
-                    </>
-                  ) : (
-                    "Submit"
-                  )}
-                </button>
+                <SubmitButton />
 
                 <div className="signup-message-container">
                   {state.message && !isPending && (
