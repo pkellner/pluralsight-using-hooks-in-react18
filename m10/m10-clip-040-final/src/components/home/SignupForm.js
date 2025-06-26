@@ -1,20 +1,20 @@
-import { useActionState, startTransition } from "react";
+import { startTransition, useActionState, useState } from "react";
 import { restSignupAction } from "./restSignupAction";
+
 export default function SignupForm() {
-  
-  const [state, formAction, isPending] = useActionState(
-    restSignupAction, {
-      firstName: "",
-      lastName: "",
-      email: "",
-      isSuccess: false,
-      message: "",
-    }
-  )
+  const initialSignupState = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    isSuccess: false,
+    message: "",
+  };
+  const [state, formAction, isPending] = useActionState(restSignupAction, initialSignupState);
 
   async function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
+
     startTransition(() => {
       formAction(formData);
     });
@@ -29,31 +29,31 @@ export default function SignupForm() {
             <form onSubmit={handleSubmit} className="signup-form">
               <div className="signup-form-row">
                 <input
-                  defaultValue={state.firstName}
                   type="text"
                   name="firstName"
                   className="signup-input form-control"
                   placeholder="First Name"
+                  defaultValue={state.firstName}
                   required
                 />
 
                 <input
-                  defaultValue={state.lastName}
                   type="text"
                   name="lastName"
                   className="signup-input form-control"
                   placeholder="Last Name"
+                  defaultValue={state.lastName}
                   required
                 />
               </div>
 
               <div className="signup-email-group">
                 <input
-                  defaultValue={state.email}
                   type="email"
                   name="email"
                   className="signup-input form-control"
                   placeholder="Email Address"
+                  defaultValue={state.email}
                   required
                 />
               </div>
@@ -74,7 +74,7 @@ export default function SignupForm() {
                   {state.message && !isPending && (
                     <div
                       className={`signup-message ${
-                        state.isSuccess
+                        isSuccess
                           ? "signup-success signup-message-success-text"
                           : "signup-error signup-message-error-text"
                       }`}
