@@ -1,4 +1,4 @@
-import { startTransition, useActionState, useState } from "react";
+  import { startTransition, useActionState, useState } from "react";
 import SubmitButton from "./SubmitButton";
 
 const SHOW_CLIENT_SIDE_VALIDATION_MESSAGE_FIRST = true;
@@ -117,7 +117,9 @@ export default function SignupForm() {
                 <div className="signup-message-container">
                   {clientMessage && (
                     <div
-                      className={`signup-message ${clientMessage.includes("passed") ? "signup-success" : "signup-error"}`}
+                      className={`signup-message ${
+                        clientMessage.includes("passed") ? "signup-success" : "signup-error"
+                      }`}
                     >
                       <span
                         className={
@@ -131,14 +133,10 @@ export default function SignupForm() {
                     </div>
                   )}
                   {state.message && !clientMessage && !isPending && (
-                    <div
-                      className={`signup-message ${state.isSuccess ? "signup-success" : "signup-error"}`}
-                    >
+                    <div className={`signup-message ${state.isSuccess ? "signup-success" : "signup-error"}`}>
                       <span
                         className={
-                          state.isSuccess
-                            ? "signup-message-success-text"
-                            : "signup-message-error-text"
+                          state.isSuccess ? "signup-message-success-text" : "signup-message-error-text"
                         }
                       >
                         {state.message}
