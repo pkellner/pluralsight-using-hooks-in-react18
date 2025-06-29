@@ -1,10 +1,9 @@
 import { startTransition, useActionState } from "react";
-import { restSignupAction } from "./restSignupAction";
+import { serverSignupAction } from "./serverSignupAction";
 import SubmitButton from "./SubmitButton";
 
 export default function SignupForm() {
-  const [state, formAction, isPending] =
-      useActionState(restSignupAction, {
+  const [state, formAction, isPending] = useActionState(serverSignupAction, {
     firstName: "",
     lastName: "",
     email: "",
