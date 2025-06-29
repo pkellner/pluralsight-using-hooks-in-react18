@@ -2,16 +2,13 @@ import { useActionState, startTransition } from "react";
 import SubmitButton from "./SubmitButton";
 import { serverSignupAction } from "./serverSignupAction";
 export default function SignupForm() {
-
-  const [state, formAction, isPending] = useActionState(
-    serverSignupAction, {
-      firstName: "",
-      lastName: "",
-      email: "",
-      isSuccess: false,
-      message: "",
-    }
-  )
+  const [state, formAction, isPending] = useActionState(serverSignupAction, {
+    firstName: "",
+    lastName: "",
+    email: "",
+    isSuccess: false,
+    message: "",
+  });
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -27,8 +24,7 @@ export default function SignupForm() {
         <div className="signup-card card">
           <div className="card-body">
             <h3 className="signup-title">Stay Informed</h3>
-            <form onSubmit={handleSubmit} className="signup-form"
-                  key={state.isSuccess ? 'reset' : 'default'}>
+            <form onSubmit={handleSubmit} className="signup-form" key={state.isSuccess ? "reset" : "default"}>
               <div className="signup-form-row">
                 <input
                   defaultValue={state.firstName}

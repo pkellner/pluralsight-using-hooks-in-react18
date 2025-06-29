@@ -1,16 +1,14 @@
-import { useActionState, startTransition } from "react";
+import { startTransition, useActionState } from "react";
 import { restSignupAction } from "./restSignupAction";
+
 export default function SignupForm() {
-  
-  const [state, formAction, isPending] = useActionState(
-    restSignupAction, {
-      firstName: "",
-      lastName: "",
-      email: "",
-      isSuccess: false,
-      message: "",
-    }
-  )
+  const [state, formAction, isPending] = useActionState(restSignupAction, {
+    firstName: "",
+    lastName: "",
+    email: "",
+    isSuccess: false,
+    message: "",
+  });
 
   async function handleSubmit(event) {
     event.preventDefault();
