@@ -3,7 +3,10 @@ export async function restSignupAction(_, formData) {
   try {
     const response = await fetch("/api/signup", {
       method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
       body: JSON.stringify(payload),
     });
     if (!response.ok) {
