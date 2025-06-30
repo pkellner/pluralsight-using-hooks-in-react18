@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Go Back in History - Internet Timeline</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'PS TT Commons', 'Helvetica Neue', Arial, sans-serif;
+            font-weight: 300;
+            background: linear-gradient(135deg, #130F25 0%, #1a1530 50%, #252040 100%);
+            color: white;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .slide-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 40px;
+        }
+
+        .title {
+            font-size: 4rem;
+            font-weight: 600;
+            font-family: 'PS TT Commons', 'Helvetica Neue', Arial, sans-serif;
+            text-align: center;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, #FF1675, #770EF7, #00A3FF);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(255, 22, 117, 0.3);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                filter: drop-shadow(0 0 10px rgba(255, 22, 117, 0.5));
+            }
+            to {
+                filter: drop-shadow(0 0 20px rgba(255, 22, 117, 0.8));
+            }
+        }
+
+        .timeline {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            width: 100%;
+            max-width: 1200px;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #FF1675, transparent);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .timeline-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .timeline-item:nth-child(1) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.6s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.8s; }
+        .timeline-item:nth-child(5) { animation-delay: 1.0s; }
+
+        .timeline-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 10px 30px rgba(255, 22, 117, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-item:nth-child(1) .timeline-icon {
+            background: linear-gradient(45deg, #FF1675, #770EF7);
+        }
+
+        .timeline-item:nth-child(2) .timeline-icon {
+            background: linear-gradient(45deg, #00A3FF, #02E088);
+        }
+
+        .timeline-item:nth-child(3) .timeline-icon {
+            background: linear-gradient(45deg, #770EF7, #FF1675);
+        }
+
+        .timeline-item:nth-child(4) .timeline-icon {
+            background: linear-gradient(45deg, #FFC942, #FF7B01);
+        }
+
+        .timeline-item:nth-child(5) .timeline-icon {
+            background: linear-gradient(45deg, #02E088, #00A3FF);
+        }
+
+        .timeline-icon:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .timeline-year {
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'PS TT Commons', 'Helvetica Neue', Arial, sans-serif;
+            color: #FF1675;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-event {
+            font-size: 0.9rem;
+            font-weight: 300;
+            font-family: 'PS TT Commons', 'Helvetica Neue', Arial, sans-serif;
+            text-align: center;
+            max-width: 150px;
+            color: #cccccc;
+        }
+
+        .retro-computer {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            width: 120px;
+            height: 100px;
+            background: #130F25;
+            border: 3px solid #FF1675;
+            border-radius: 10px;
+            opacity: 0.8;
+        }
+
+        .retro-computer::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            height: 60px;
+            background: #000;
+            border: 2px solid #770EF7;
+            border-radius: 5px;
+        }
+
+        .retro-computer::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 15px;
+            background: #00A3FF;
+            border-radius: 3px;
+        }
+
+        .floating-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 22, 117, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .particle:nth-child(1) {
+            width: 8px;
+            height: 8px;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .particle:nth-child(2) {
+            width: 12px;
+            height: 12px;
+            left: 20%;
+            animation-delay: 1s;
+        }
+
+        .particle:nth-child(3) {
+            width: 6px;
+            height: 6px;
+            left: 60%;
+            animation-delay: 2s;
+        }
+
+        .particle:nth-child(4) {
+            width: 10px;
+            height: 10px;
+            left: 80%;
+            animation-delay: 3s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            font-family: 'PS TT Commons', 'Helvetica Neue', Arial, sans-serif;
+            color: #cccccc;
+            text-align: center;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 1.2s forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+<div class="floating-particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+</div>
+
+<div class="slide-container">
+    <h1 class="title">Let's Go Back in History</h1>
+    <p class="subtitle">The Evolution of the Internet</p>
+
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-icon">🔬</div>
+            <div class="timeline-year">1969</div>
+            <div class="timeline-event">ARPANET<br>First Network</div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-icon">🌐</div>
+            <div class="timeline-year">1989</div>
+            <div class="timeline-event">World Wide Web<br>Tim Berners-Lee</div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-icon">🖥️</div>
+            <div class="timeline-year">1993</div>
+            <div class="timeline-event">First Web Browser<br>Mosaic</div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-icon">💼</div>
+            <div class="timeline-year">1995</div>
+            <div class="timeline-event">Commercial<br>Internet</div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-icon">📱</div>
+            <div class="timeline-year">2000s</div>
+            <div class="timeline-event">Social Media<br>Mobile Web</div>
+        </div>
+    </div>
+</div>
+
+<div class="retro-computer"></div>
+</body>
+</html>

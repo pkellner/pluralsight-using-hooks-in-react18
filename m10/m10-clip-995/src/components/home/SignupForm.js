@@ -19,7 +19,7 @@ export default function SignupForm() {
     if (!validationResult.success) {
       setValidationError(
         validationResult.error.errors[0].message +
-        " (Zod validation on client failed, not submitted to server)",
+          " (Zod validation on client failed, not submitted to server)",
       );
       return;
     }

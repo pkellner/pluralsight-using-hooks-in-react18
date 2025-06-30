@@ -7,7 +7,7 @@ export async function serverSignupAction(_, formData) {
   await new Promise((r) => setTimeout(r, 2000)); // simulate work
 
   const validationResult = validate(payload);
-  
+
   if (validationResult.error) {
     return {
       ...payload,
@@ -45,9 +45,9 @@ function validate(payload) {
   if (!firstName) return { error: "First name is required" };
   if (!lastName || lastName.length < 2) return { error: "Last Name > 2 char is required" };
   if (!email) return { error: "Email is required" };
-  
-  return { 
-    error: null, 
-    fields: { firstName, lastName, email }
+
+  return {
+    error: null,
+    fields: { firstName, lastName, email },
   };
 }
