@@ -2,7 +2,7 @@
 
 export async function serverSignupAction(_, formData) {
   const payload = Object.fromEntries(formData);
-  await new Promise(r => setTimeout(r, 2000));
+  await new Promise((r) => setTimeout(r, 2000));
 
   const validationResult = validate(payload);
 
@@ -12,7 +12,7 @@ export async function serverSignupAction(_, formData) {
       message: validationResult.error,
       isSuccess: false,
       submitting: false,
-    }
+    };
   }
 
   const { firstName, lastName, email } = validationResult.fields;
@@ -34,7 +34,6 @@ export async function serverSignupAction(_, formData) {
     message: `${firstName} ${lastName} at ${email} registration successful`,
   };
 
-
   function validate(payload) {
     const firstName = (payload.firstName ?? "").toString().trim();
     const lastName = (payload.lastName ?? "").toString().trim();
@@ -43,14 +42,14 @@ export async function serverSignupAction(_, formData) {
     if (!firstName) return { error: "First name is required" };
     if (!lastName || lastName.length < 2) {
       return {
-        error: "Last Name > 1 char is required"
-      }
+        error: "Last Name > 1 char is required",
+      };
     }
-    if (!email) return { error: "Email is required" }
-    
+    if (!email) return { error: "Email is required" };
+
     return {
       error: null,
-      fields: { firstName, lastName, email }
+      fields: { firstName, lastName, email },
     };
   }
 }

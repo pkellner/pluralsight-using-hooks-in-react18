@@ -3,8 +3,7 @@ import { serverSignupAction } from "./serverSignupAction";
 import SubmitButton from "./SubmitButton";
 
 export default function SignupForm() {
-  const [state, formAction, isPending] =
-      useActionState(serverSignupAction, {
+  const [state, formAction, isPending] = useActionState(serverSignupAction, {
     firstName: "",
     lastName: "",
     email: "",

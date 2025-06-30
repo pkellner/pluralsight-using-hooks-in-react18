@@ -3,8 +3,6 @@ import { signupAction } from "./action/SimpleNameActionWithZod";
 import { initialSignupState, signupSchema } from "./signupSchema";
 import SubmitButton from "./SubmitButton";
 
-const SHOW_CLIENT_SIDE_VALIDATION_MESSAGE_FIRST = true;
-
 export default function SignupForm() {
   const [state, formAction, isPending] = useActionState(signupAction, initialSignupState);
   const [validationError, setValidationError] = useState("");
@@ -14,32 +12,18 @@ export default function SignupForm() {
     setValidationError("");
 
     const formData = new FormData(event.currentTarget);
-    const firstName = (formData.get("firstName") ?? "").toString();
-    const lastName = (formData.get("lastName") ?? "").toString();
-    const email = (formData.get("email") ?? "").toString();
-
-    // Zod validation
-    const validationResult = signupSchema.safeParse({
-      firstName,
-      lastName,
-      email,
-    });
+    const data = Object.fromEntries(formData);
+    const validationResult = signupSchema.safeParse(data);
 
     // if validation failed on the client, show error message and stop submission (do not submit to server)
     if (!validationResult.success) {
       setValidationError(
         validationResult.error.errors[0].message +
-          " (Zod validation on client failed, not submitted to server)",
+        " (Zod validation on client failed, not submitted to server)",
       );
       return;
     }
 
-    // Client validation passed - show success message if flag is true
-    if (SHOW_CLIENT_SIDE_VALIDATION_MESSAGE_FIRST) {
-      setValidationError("Validation passed! (Zod validation on client)");
-    }
-
-    // Submit if validation passes - wrap in startTransition
     startTransition(() => {
       setValidationError(""); // Clear client message when server request starts
       formAction(formData);

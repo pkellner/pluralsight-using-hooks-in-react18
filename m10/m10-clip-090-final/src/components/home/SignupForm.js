@@ -1,24 +1,37 @@
-import { startTransition, useActionState } from "react";
+import { startTransition, useActionState, useState } from "react";
 import { serverSignupAction } from "./serverSignupAction";
 import SubmitButton from "./SubmitButton";
+import { initialSignupState, signupSchema } from "./signupSchema";
 
 export default function SignupForm() {
-  const [state, formAction, isPending] =
-      useActionState(serverSignupAction, {
-    firstName: "",
-    lastName: "",
-    email: "",
-    isSuccess: false,
-    message: "",
-  });
+  const [state, formAction, isPending] = useActionState(serverSignupAction, initialSignupState);
+  const [validationError, setValidationError] = useState("");
 
   async function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
+
+    const data = Object.fromEntries(formData);
+    const validationResult = signupSchema.safeParse(data);
+
+    if (!validationResult.success) {
+      setValidationError(validationResult.error.errors[0].message + " (client validation)");
+      return; // required stop submission if client validation fails (don't want to submit to server)
+    }
+
+    // Clear any previous client errors since validation passed
+    setValidationError("");
+
     startTransition(() => {
       formAction(formData);
     });
   }
+
+  const displayMessage = validationError
+    ? { text: validationError, isSuccess: false }
+    : state.message && !isPending
+    ? { text: state.message, isSuccess: state.isSuccess }
+    : null;
 
   return (
     <div className="signup-wrapper">
@@ -66,15 +79,21 @@ export default function SignupForm() {
                 <SubmitButton />
 
                 <div className="signup-message-container">
-                  {state.message && !isPending && (
+                  {displayMessage && (
                     <div
                       className={`signup-message ${
-                        state.isSuccess
-                          ? "signup-success signup-message-success-text"
-                          : "signup-error signup-message-error-text"
+                        displayMessage.isSuccess ? "signup-success" : "signup-error"
                       }`}
                     >
-                      {state.message}
+                      <span
+                        className={
+                          displayMessage.isSuccess
+                            ? "signup-message-success-text"
+                            : "signup-message-error-text"
+                        }
+                      >
+                        {displayMessage.text}
+                      </span>
                     </div>
                   )}
                 </div>
