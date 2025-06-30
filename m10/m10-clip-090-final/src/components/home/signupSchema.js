@@ -3,16 +3,19 @@ import { z } from "zod";
 export const signupSchema = z.object({
   firstName: z
     .string()
-    .transform((val) => val.trim())
-    .pipe(z.string().min(1, "First name is required")),
+    .trim()
+    .nonempty("First name is required"),
+
   lastName: z
     .string()
-    .transform((val) => val.trim())
-    .pipe(z.string().min(2, "Last Name > 1 char is required")),
+    .trim()
+    .min(2, "Last name must be at least 2 characters"),
+
   email: z
     .string()
-    .transform((val) => val.trim())
-    .pipe(z.string().min(1, "Email is required").email("Please enter a valid email address")),
+    .trim()
+    .email("Please enter a valid e-mail address")
+    .toLowerCase(),
 });
 
 export const initialSignupState = {
