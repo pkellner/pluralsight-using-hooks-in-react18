@@ -1,5 +1,7 @@
 "use server";
 
+import { signupSchema } from "./signupSchema";
+
 export async function serverSignupAction(_, formData) {
   const payload = Object.fromEntries(formData);
   await new Promise((r) => setTimeout(r, 2000));
@@ -35,21 +37,15 @@ export async function serverSignupAction(_, formData) {
   };
 
   function validate(payload) {
-    const firstName = (payload.firstName ?? "").toString().trim();
-    const lastName = (payload.lastName ?? "").toString().trim();
-    const email = (payload.email ?? "").toString().trim();
+    const zodResult = signupSchema.safeParse(payload);
 
-    if (!firstName) return { error: "First name is required" };
-    if (!lastName || lastName.length < 2) {
-      return {
-        error: "Last Name > 1 char is required",
-      };
+    if (!zodResult.success) {
+      return { error: zodResult.error.errors[0].message };
     }
-    if (!email) return { error: "Email is required" };
 
     return {
       error: null,
-      fields: { firstName, lastName, email },
+      fields: zodResult.data,
     };
   }
 }
