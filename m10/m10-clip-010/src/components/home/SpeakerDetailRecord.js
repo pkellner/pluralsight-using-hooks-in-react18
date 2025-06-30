@@ -8,9 +8,7 @@ export default function SpeakerDetailRecord({
 }) {
   return (
     <div
-      className={`card border-0 carousel-speaker-card ${
-        animationClass || ""
-      }`}
+      className={`card border-0 carousel-speaker-card ${animationClass || ""}`}
     >
       <div className="row g-0">
         <div className="col-4">
@@ -30,10 +28,7 @@ export default function SpeakerDetailRecord({
                 <FavoriteSpeakerUpdate
                   speakerRec={speakerRec}
                   completionFunction={function (speakerRec) {
-                    console.log(
-                      "completionFunction called with:",
-                      speakerRec,
-                    );
+                    console.log("completionFunction called with:", speakerRec);
                     setSpeakers((prevSpeakers) =>
                       prevSpeakers.map(function (s) {
                         return s.id === speakerRec.id ? speakerRec : s;

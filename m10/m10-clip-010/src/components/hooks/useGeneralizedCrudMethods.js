@@ -73,8 +73,7 @@ function useGeneralizedCrudMethods(url, errorNotificationFn) {
 
           // only update the fields passed in for the updateObject
           for (const [key, value] of Object.entries(updateObject)) {
-            dataRecord[key] =
-              value === undefined ? dataRecord[key] : value;
+            dataRecord[key] = value === undefined ? dataRecord[key] : value;
           }
           return oriState.map((rec) => (rec.id === id ? dataRecord : rec));
         });

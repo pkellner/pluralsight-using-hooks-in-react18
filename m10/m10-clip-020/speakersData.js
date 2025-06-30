@@ -9,7 +9,8 @@ export const speakerList = [
     bio: "Arun Gupta is a Principal Open Source Technologist at Amazon Web Services. He has built and led developer communities for 12+ years at Sun, Oracle, Red Hat and Couchbase.",
     company: "Amazon",
     twitterHandle: "arungupta",
-    userBioShort: "Arun Gupta is a Principal Open Source Technologist at Amazon Web Services. ",
+    userBioShort:
+      "Arun Gupta is a Principal Open Source Technologist at Amazon Web Services. ",
     imageUrl: "/images/Speaker-1269.jpg",
     email: "Arun.Gupta@codecamp.net",
   },
@@ -39,7 +40,8 @@ export const speakerList = [
     bio: "As Head of Ecosystem Programs, Dave uses emerging technologies and open source projects like Microservices, Serverless & Kubernetes to bring the magic of Redis to the broader community.",
     company: "Intel",
     twitterHandle: "davenielsen",
-    userBioShort: "I head up ecosystem programs at Redis Labs. I'm also the co-founder of CloudCamp. ",
+    userBioShort:
+      "I head up ecosystem programs at Redis Labs. I'm also the co-founder of CloudCamp. ",
     imageUrl: "/images/Speaker-187.jpg",
     email: "Dave.Nielsen@codecamp.net",
   },
@@ -114,7 +116,8 @@ export const speakerList = [
     bio: "Paul is the PyCharm and WebStorm Developer Advocate at JetBrains. Before that, Paul was a partner at Agendaless Consulting and co-founder of Zope Corporation, taking the first open source application server through $14M of funding.",
     company: "JetBrains, Inc.",
     twitterHandle: "paulweveritt",
-    userBioShort: "Paul is the PyCharm and WebStorm Developer Advocate at JetBrains.",
+    userBioShort:
+      "Paul is the PyCharm and WebStorm Developer Advocate at JetBrains.",
     imageUrl: "/images/Speaker-41808.jpg",
     email: "Paul.Everitt@codecamp.net",
   },

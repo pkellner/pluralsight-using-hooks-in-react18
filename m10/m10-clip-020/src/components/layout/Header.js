@@ -8,7 +8,10 @@ export default function Header() {
               <img src="/images/SVCClogo.png" alt="SVCC Logo" />
             </div>
             <h2>
-              <a href="https://www.siliconvalley-codecamp.com/event/2015" target="_blank">
+              <a
+                href="https://www.siliconvalley-codecamp.com/event/2015"
+                target="_blank"
+              >
                 Silicon Valley Code Camp 2019
               </a>
             </h2>

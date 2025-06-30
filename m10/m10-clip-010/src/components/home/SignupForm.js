@@ -42,10 +42,7 @@ export default function SignupForm() {
               </div>
 
               <div className="signup-submit-row">
-                <button
-                  type="submit"
-                  className="signup-submit-btn btn-accent"
-                >
+                <button type="submit" className="signup-submit-btn btn-accent">
                   Submit
                 </button>
               </div>

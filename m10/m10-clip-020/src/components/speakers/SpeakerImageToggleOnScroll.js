@@ -1,11 +1,16 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { SpeakerMenuContext } from "../contexts/SpeakerMenuContext";
 
-export default function SpeakerImageToggleOnScroll({ imageUrl, alt, thumbNail }) {
+export default function SpeakerImageToggleOnScroll({
+  imageUrl,
+  alt,
+  thumbNail,
+}) {
   const [inView, setInView] = useState(false);
   const imageRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true);
-  const { speakingSaturday, speakingSunday, searchText } = useContext(SpeakerMenuContext);
+  const { speakingSaturday, speakingSunday, searchText } =
+    useContext(SpeakerMenuContext);
 
   function scrollHandler() {
     setInView(isInView());
@@ -35,7 +40,11 @@ export default function SpeakerImageToggleOnScroll({ imageUrl, alt, thumbNail })
       alt={alt}
       width={thumbNail ? 50 : 200}
       height={thumbNail ? 50 : 200}
-      className={thumbNail ? "img-fluid rounded-start " : "img-fluid rounded-start speaker-image"}
+      className={
+        thumbNail
+          ? "img-fluid rounded-start "
+          : "img-fluid rounded-start speaker-image"
+      }
       style={{
         filter: `${grayScale}`,
       }}

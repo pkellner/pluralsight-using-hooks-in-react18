@@ -1,5 +1,12 @@
 import SpeakerLine from "./SpeakerLine";
-import { useCallback, useContext, useEffect, useReducer, useState, useTransition } from "react";
+import {
+  useCallback,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+  useTransition,
+} from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 import axios from "axios";
 
@@ -30,7 +37,11 @@ function List({ state, dispatch }) {
   return (
     <div className="container">
       <div className="border-0">
-        <div className="btn-toolbar" role="toolbar" aria-label="Speaker toolbar filter">
+        <div
+          className="btn-toolbar"
+          role="toolbar"
+          aria-label="Speaker toolbar filter"
+        >
           <div className="toolbar-trigger mb-3 flex-grow-04">
             <div className="toolbar-search w-100">
               <input
@@ -47,7 +58,9 @@ function List({ state, dispatch }) {
               />
             </div>
             <div className="spinner-height">
-              {isPending && <i className="spinner-border text-dark" role="status" />}
+              {isPending && (
+                <i className="spinner-border text-dark" role="status" />
+              )}
             </div>
           </div>
         </div>
@@ -57,9 +70,10 @@ function List({ state, dispatch }) {
         {speakers.map(function (speakerRec) {
           const highlight =
             highlightChars?.length > 0 &&
-            (speakerRec.firstName?.toLowerCase() + speakerRec.lastName?.toLowerCase()).includes(
-              highlightChars.toLowerCase(),
-            )
+            (
+              speakerRec.firstName?.toLowerCase() +
+              speakerRec.lastName?.toLowerCase()
+            ).includes(highlightChars.toLowerCase())
               ? true
               : false;
           return (

@@ -1,12 +1,22 @@
-export default function useSpeakerSortAndFilter(speakerList, speakingSaturday, speakingSunday, searchText) {
+export default function useSpeakerSortAndFilter(
+  speakerList,
+  speakingSaturday,
+  speakingSunday,
+  searchText,
+) {
   console.log("useSpeakerSortAndFilter called");
   return speakerList
     ? speakerList
-        .filter(({ sat, sun }) => (speakingSaturday && sat) || (speakingSunday && sun))
+        .filter(
+          ({ sat, sun }) =>
+            (speakingSaturday && sat) || (speakingSunday && sun),
+        )
         .filter(({ firstName, lastName }) => {
           return (
             searchText.length === 0 ||
-            (firstName?.toLowerCase() + lastName?.toLowerCase()).includes(searchText.toLowerCase())
+            (firstName?.toLowerCase() + lastName?.toLowerCase()).includes(
+              searchText.toLowerCase(),
+            )
           );
         })
         .sort(function (a, b) {

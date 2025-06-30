@@ -45,5 +45,9 @@ export const SpeakerModalProvider = ({ children }) => {
     setModalSpeakerImageUrl,
   };
 
-  return <SpeakerModalContext.Provider value={value}>{children}</SpeakerModalContext.Provider>;
+  return (
+    <SpeakerModalContext.Provider value={value}>
+      {children}
+    </SpeakerModalContext.Provider>
+  );
 };

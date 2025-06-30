@@ -5,7 +5,11 @@ export default function SignupForm() {
         <div className="signup-card card">
           <div className="card-body">
             <h3 className="signup-title">Stay Informed</h3>
-            <form action="http://localhost:3000/api/signup" method="post" className="signup-form">
+            <form
+              action="http://localhost:3000/api/signup"
+              method="post"
+              className="signup-form"
+            >
               <div className="signup-form-row">
                 <input
                   type="text"

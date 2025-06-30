@@ -130,8 +130,7 @@ export const speakerList = [
     favorite: true,
     company: "Code Camp",
     twitterHandle: "tammybaker123",
-    userBioShort:
-      "Tammy is a software development leader for over 20 years.",
+    userBioShort: "Tammy is a software development leader for over 20 years.",
     bio: "Tammy has held a number of executive and management roles over the past 15 years, including VP engineering Roles at USA Tech, Cantaloupe Systems, E-Color, and Untangle Inc.",
     imageUrl: "/images/Speaker-1530.jpg",
     email: "Tamara.Baker@codecamp.net",

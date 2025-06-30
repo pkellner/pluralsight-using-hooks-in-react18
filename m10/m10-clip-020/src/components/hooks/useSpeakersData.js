@@ -6,10 +6,14 @@ function useSpeakersData() {
     console.log("Error From useSpeakersData", error);
   };
 
-  const { data, error, loadingStatus, createRecord, updateRecord, deleteRecord } = useGeneralizedCrudMethods(
-    url,
-    errorNotificationFn,
-  );
+  const {
+    data,
+    error,
+    loadingStatus,
+    createRecord,
+    updateRecord,
+    deleteRecord,
+  } = useGeneralizedCrudMethods(url, errorNotificationFn);
 
   function createSpeaker(speakerRec, callbackDone) {
     createRecord(speakerRec, callbackDone);
