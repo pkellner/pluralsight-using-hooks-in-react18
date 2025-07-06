@@ -49,10 +49,10 @@
       "sat": true,
       "sun": false,
       "favorite": false,
-      "bio": "Douglas Crockford discovered the JSON Data Interchange Format. He is also the author of _JavaScript: The Good Parts_. He has been called a guru, but he is actually more of a mahatma.",
+      "bio": "Douglas Crockford discovered the JSON Data Interchange Format. He is also the author of JavaScript: The Good Parts. He has been called a guru, but he is actually more of a mahatma.",
       "company": "PayPal",
       "twitterHandle": "",
-      "userBioShort": "Douglas Crockford discovered the JSON Data Interchange Format. He is also the author of _JavaScript: The Good Parts_. He has been called a guru, but he is actually more of a mahatma.",
+      "userBioShort": "Douglas Crockford discovered the JSON Data Interchange Format. He is also the author of JavaScript: The Good Parts. He has been called a guru, but he is actually more of a mahatma.",
       "imageUrl": "/images/Speaker-1124.jpg",
       "email": "Douglas.Crockford@codecamp.net"
     },
